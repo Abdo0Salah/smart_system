@@ -16,7 +16,7 @@ import '7.dart';
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'Home';
   List<HomeModel> homeModel = [
-    HomeModel("Subject Registration","assets/images/note.png", 0),
+    HomeModel("Subject Registration", "assets/images/note.png", 0),
     HomeModel("Materials", "assets/images/material.png", 1),
     HomeModel("TimeTable", "assets/images/timeTable.png", 2),
     HomeModel("Notification", "assets/images/Notification.png", 3),

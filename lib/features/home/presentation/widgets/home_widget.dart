@@ -25,11 +25,13 @@ class HomeWidget extends StatelessWidget {
           SizedBox(
             height: 5.h,
           ),
-          Text(
-            homeModel.title,
-            textAlign: TextAlign.center,
-            style: GoogleFonts.gabriela(
-                fontSize: 15.sp, fontWeight: FontWeight.normal),
+          Expanded(
+            child: Text(
+              homeModel.title,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.gabriela(
+                  fontSize: 15.sp, fontWeight: FontWeight.normal),
+            ),
           ),
         ],
       ),

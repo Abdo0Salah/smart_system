@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../shared/lecture_item.dart';
+import '../lecture_atta.dart';
 
 class LectureTap extends StatelessWidget {
    LectureTap({super.key});
@@ -13,10 +14,23 @@ class LectureTap extends StatelessWidget {
         child: GridView(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              mainAxisSpacing: 60,
-              crossAxisSpacing: 50),
+              mainAxisSpacing: 20,
+              crossAxisSpacing: 20),
           children:<Widget>[
+            InkWell(child: LectureItem(),
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                LectureAttavhment.routeName,
+              );
+            },),
             LectureItem(),
+            LectureItem(),
+            LectureItem(),
+            LectureItem(),
+            LectureItem(),
+            LectureItem(),
+
           ],
 
 

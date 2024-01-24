@@ -11,8 +11,14 @@ import 'models/material_model.dart';
 
 class MatPagee extends StatefulWidget {
   static const String routeName = 'mat';
-  List<MaterialMoel> materialModel;
-  MatPagee(this.materialModel);
+  List<MaterialMoel> materialModel=[
+  MaterialMoel("Posts", "assets/image/posts.png",0),
+  MaterialMoel("Attachment", "assets/image/attachment.png",1),
+  MaterialMoel("Feedback", "assets/image/feedback.png",2),
+  MaterialMoel("Assignments", "assets/image/assignments.png",3),
+  MaterialMoel("Meeting", "assets/image/meeting.png",4),
+
+  ];
 
   @override
   State<MatPagee> createState() => _MatPageeState();
@@ -26,7 +32,7 @@ class _MatPageeState extends State<MatPagee> {
       child: Scaffold(
 
         appBar: AppBar(
-          title: Text("Network"),
+          title: const Text("Network"),
         ),
         body: Column(
           children: [
@@ -38,16 +44,16 @@ class _MatPageeState extends State<MatPagee> {
                   hoverColor:Colors.red ,
                   filled: true,
                   enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                      borderSide: const BorderSide(color: Colors.white),
                       borderRadius: BorderRadius.circular(20)),
                   border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                      borderSide: const BorderSide(color: Colors.white),
                       borderRadius: BorderRadius.circular(20)),
                   focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                      borderSide: const BorderSide(color: Colors.white),
                       borderRadius: BorderRadius.circular(20)),
-                  suffixIcon: Icon(Icons.search),
-                  label: Text("search"),
+                  suffixIcon: const Icon(Icons.search),
+                  label: const Text("search"),
                 ),
               ),
             ),
@@ -55,7 +61,7 @@ class _MatPageeState extends State<MatPagee> {
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: GridView(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       mainAxisSpacing: 60,
                       crossAxisSpacing: 50),

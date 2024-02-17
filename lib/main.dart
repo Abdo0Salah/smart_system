@@ -18,7 +18,6 @@ import 'package:smart_system/screens/login_signup/forget_pass.dart';
 import 'package:smart_system/screens/login_signup/login_screen.dart';
 import 'package:smart_system/screens/login_signup/reset_password_screen.dart';
 import 'package:smart_system/screens/login_signup/signup_screen.dart';
-import 'package:smart_system/screens/login_signup/tabbar.dart';
 import 'package:smart_system/screens/meeting_screen.dart';
 import 'package:smart_system/screens/post_screen.dart';
 import 'package:smart_system/screens/ui_splashes/splash0/splash0_screen.dart';
@@ -49,7 +48,6 @@ class MyApp extends StatelessWidget {
           routes: {
             splash0.routeName: (context) => splash0(),
             splash1.routeName: (context) => splash1(),
-            TabBar_.routeName: (context) => TabBar_(),
             LoginScreen.routeName: (context) => LoginScreen(),
             SignUpScreen.routeName: (context) => SignUpScreen(),
             ForgetPassword.routeName: (context) => ForgetPassword(),

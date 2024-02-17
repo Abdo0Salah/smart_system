@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_system/screens/login_signup/login_screen.dart';
 
 
-import 'forget_pass.dart';
+
 
 
 class SignUpScreen extends StatefulWidget {
@@ -166,6 +166,8 @@ class _LoginScreenState extends State<SignUpScreen> {
                 ),
               ),
               onPressed: (){
+                Navigator.of(context)
+                    .pushReplacementNamed(LoginScreen.routeName);
 
               },
               child:

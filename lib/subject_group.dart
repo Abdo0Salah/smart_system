@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smart_system/models/group_model.dart';
 import 'package:smart_system/widget/groub_item.dart';
+
+import 'mat_page.dart';
 class SubjectGroups extends StatelessWidget {
   static const String routeName = 'SubjectGroups';
   const SubjectGroups({super.key});
@@ -26,30 +28,36 @@ GroupModel c =GroupModel(groupName: "groupName", doctorName: "doctorName", subje
             height: 110,
           ),
           Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(25),
-                      topLeft: Radius.circular(25))),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Text("All Groups"),
-                  ),
-                  Expanded(
-                    child: ListView.builder(
-                      itemBuilder:  (context, index) =>
-                          GroubItem(groubModel: c
-                      ),
-                      itemCount: 9,
+            child:InkWell(
+              onTap: () {
+                Navigator.of(context)
+                    .pushReplacementNamed(MatPagee.routeName);
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(25),
+                        topLeft: Radius.circular(25))),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text("All Groups"),
                     ),
-                  )
-                ],
+                    Expanded(
+                      child: ListView.builder(
+                        itemBuilder:  (context, index) =>
+                            GroubItem(groubModel: c
+                            ),
+                        itemCount: 9,
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
+            )
           )
         ],
       ),

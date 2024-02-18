@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../models/home_model.dart';
 import '../../widget/home_widget.dart';
 import 'subject_registration.dart';
-import '2.dart';
+import 'Materials.dart';
 import '3.dart';
 import '4.dart';
 import '5.dart';
@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         // drawer: Container( color: Colors.blue,
         //     child: const Column()),
-        backgroundColor:  Colors.white,
+        backgroundColor:  const Color(0xffF5F9FE),
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(10.0),
@@ -46,14 +46,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(top: 10.h),
+                      padding: EdgeInsets.only(top: 10.h , left: 15.w),
                       child: CircleAvatar(
                         backgroundColor: const Color(0xffC4C4C4),
-                        radius: 40.r,
+                        radius: 30.r,
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 20.w),
+                      padding: EdgeInsets.only(left: 20.w , top: 10.h),
                       child: Center(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,13 +61,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             Text(
                               "Student name",
                               style: GoogleFonts.inter(
-                                  fontWeight: FontWeight.bold, fontSize: 20.sp),
+                                  fontWeight: FontWeight.bold, fontSize: 15.sp),
                             ),
                             Text(
                               "201524587545@fci.zu.edu.eg",
                               style: TextStyle(
                                   fontWeight: FontWeight.normal,
-                                  fontSize: 10.sp),
+                                  fontSize: 8.sp),
                             ),
                           ],
                         ),
@@ -144,15 +144,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
       case 1:
         {
-          Navigator.pushReplacementNamed(
+          Navigator.pushNamed(
             context,
-            M.routeName,
+            MaterialsScreen.routeName,
           );
         }
         break;
       case 2:
         {
-          Navigator.pushReplacementNamed(
+          Navigator.pushNamed(
             context,
             T.routeName,
           );
@@ -161,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
       case 3:
         {
-          Navigator.pushReplacementNamed(
+          Navigator.pushNamed(
             context,
             N.routeName,
           );

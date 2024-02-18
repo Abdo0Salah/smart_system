@@ -4,7 +4,7 @@ import 'package:smart_system/screens/assinment_screen.dart';
 import 'package:smart_system/screens/attachment/attachment_screen.dart';
 import 'package:smart_system/screens/attachment/lecture_atta.dart';
 import 'package:smart_system/screens/feedback_screen.dart';
-import 'package:smart_system/screens/home/2.dart';
+import 'package:smart_system/screens/home/Materials.dart';
 import 'package:smart_system/screens/home/3.dart';
 import 'package:smart_system/screens/home/4.dart';
 import 'package:smart_system/screens/home/5.dart';
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: SubjectGroups.routeName,
+          initialRoute: splash0.routeName,
           routes: {
             splash0.routeName: (context) => splash0(),
             splash1.routeName: (context) => splash1(),
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
             ResetPasswordScreen.routeName: (context) => ResetPasswordScreen(),
             HomeScreen.routeName: (context) => HomeScreen(),
             SubjectRegistration.routeName: (context) => SubjectRegistration(),
-            M.routeName: (context) => M(),
+            MaterialsScreen.routeName: (context) => MaterialsScreen(),
             T.routeName: (context) => T(),
             N.routeName: (context) => N(),
             Ss.routeName: (context) => Ss(),

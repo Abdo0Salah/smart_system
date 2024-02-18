@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smart_system/screens/Quiz/lecture_tab.dart';
+import 'package:smart_system/screens/Quiz/quiz_screen.dart';
+import 'package:smart_system/screens/Quiz/section-tap.dart';
 import 'package:smart_system/screens/assinment_screen.dart';
 import 'package:smart_system/screens/attachment/attachment_screen.dart';
 import 'package:smart_system/screens/attachment/lecture_atta.dart';
@@ -44,7 +47,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: SubjectGroups.routeName,
+          initialRoute: QuizScreen.routeName,
           routes: {
             splash0.routeName: (context) => splash0(),
             splash1.routeName: (context) => splash1(),
@@ -70,7 +73,9 @@ class MyApp extends StatelessWidget {
             MeetingScreen.routeName: (context) =>  MeetingScreen(),
             PostScreen.routeName: (context) =>  PostScreen(),
             LectureAttavhment.routeName: (context) =>  LectureAttavhment(),
-
+            QuizScreen.routeName:(context) => QuizScreen(),
+            LecturTab.routeName:(context) => LecturTab(),
+            SectionTap.routeName:(context) => SectionTap(),
           },
         );
       },

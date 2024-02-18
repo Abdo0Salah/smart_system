@@ -11,6 +11,7 @@ class PostScreen extends StatelessWidget {
           padding: EdgeInsets.all(20),
           child: Column(
             children: [
+
               Row(
                 children: [
                   CircleAvatar( radius: 30,),

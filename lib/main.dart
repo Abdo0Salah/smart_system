@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:smart_system/screens/assinment_screen.dart';
+import 'package:smart_system/screens/assignment/assinment_screen.dart';
+import 'package:smart_system/screens/assignment/openAssignmentScreen.dart';
 import 'package:smart_system/screens/attachment/attachment_screen.dart';
 import 'package:smart_system/screens/attachment/lecture_atta.dart';
 import 'package:smart_system/screens/feedback_screen.dart';
@@ -20,7 +21,7 @@ import 'package:smart_system/screens/login_signup/reset_password_screen.dart';
 import 'package:smart_system/screens/login_signup/signup_screen.dart';
 import 'package:smart_system/screens/login_signup/tabbar.dart';
 import 'package:smart_system/screens/meeting_screen.dart';
-import 'package:smart_system/screens/post_screen.dart';
+import 'package:smart_system/screens/post/post_screen.dart';
 import 'package:smart_system/screens/ui_splashes/splash0/splash0_screen.dart';
 import 'package:smart_system/screens/ui_splashes/splash1/splash1_screen.dart';
 import 'package:smart_system/subject_group.dart';
@@ -73,6 +74,15 @@ class MyApp extends StatelessWidget {
             PostScreen.routeName: (context) =>  PostScreen(),
             LectureAttavhment.routeName: (context) =>  LectureAttavhment(),
 
+
+
+
+
+
+
+
+
+            OpenAssignmentScreen.routeName: (context) => OpenAssignmentScreen(),
           },
         );
       },

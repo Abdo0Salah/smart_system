@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:smart_system/screens/assinment_screen.dart';
+import 'package:smart_system/screens/assignment/assinment_screen.dart';
 import 'package:smart_system/screens/attachment/attachment_screen.dart';
 import 'package:smart_system/screens/feedback_screen.dart';
 import 'package:smart_system/screens/meeting_screen.dart';
-import 'package:smart_system/screens/post_screen.dart';
+import 'package:smart_system/screens/post/post_screen.dart';
 import 'package:smart_system/widget/material_item.dart';
 
 
@@ -95,7 +95,7 @@ class _MatPageeState extends State<MatPagee> {
 
       case 1:
         {
-          Navigator.pushReplacementNamed(
+          Navigator.pushNamed(
             context,
             AttachmentScreen.routeName,
           );
@@ -103,7 +103,7 @@ class _MatPageeState extends State<MatPagee> {
         break;
       case 2:
         {
-          Navigator.pushReplacementNamed(
+          Navigator.pushNamed(
             context,
             FeedbackScreen.routeName,
           );
@@ -112,7 +112,7 @@ class _MatPageeState extends State<MatPagee> {
 
       case 3:
         {
-          Navigator.pushReplacementNamed(
+          Navigator.pushNamed(
             context,
             AssinmentScreen.routeName,
           );

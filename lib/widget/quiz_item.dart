@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_system/models/quiz_model.dart';
+import 'package:smart_system/screens/Quiz/start_quiz.dart';
 
 import '../models/group_model.dart';
 
@@ -85,7 +86,7 @@ class QuizItem extends StatelessWidget {
                     ),
                   ),
                   onPressed: (){
-                    // Navigator.of(context).pushNamed(ResetPasswordScreen.routeName);
+                    Navigator.of(context).pushNamed(StartQuiz.routeName);
                   },
                   child:
                   const Text(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_system/screens/profile/profile_screen.dart';
 
 class Profile2 extends StatelessWidget {
   static const String routeName = 'profile2';
@@ -336,7 +337,9 @@ class Profile2 extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.of(context).pushNamed(Profile.routeName);
+                  },
                   child:
                   const Text(
                     "Update",

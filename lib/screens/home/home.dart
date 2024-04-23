@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_system/screens/Quiz/quiz_screen.dart';
 import '../../models/home_model.dart';
 import '../../widget/home_widget.dart';
+import '../profile/profile_screen.dart';
 import 'subject_registration.dart';
 import '2.dart';
 import '3.dart';
@@ -180,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
         {
           Navigator.pushNamed(
             context,
-            P.routeName,
+            Profile.routeName,
           );
         }
         break;

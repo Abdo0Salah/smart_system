@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:smart_system/screens/profile/profile_screen2.dart';
+
+import '../home/home.dart';
 
 class Profile extends StatelessWidget {
   static const String routeName = 'profile';
@@ -76,7 +79,9 @@ class Profile extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.of(context).pushNamed(Profile2.routeName);
+                    },
                     child:
                         Padding(
                           padding: const EdgeInsets.only(left: 30),
@@ -117,7 +122,9 @@ class Profile extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.of(context).pushNamed(HomeScreen.routeName);
+                    },
                     child:
                         Text(
                           "Back To Home",

@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute:  Profile2.routeName,
+          initialRoute: splash0.routeName,
           routes: {
             splash0.routeName: (context) => splash0(),
             splash1.routeName: (context) => splash1(),

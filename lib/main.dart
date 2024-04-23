@@ -24,6 +24,8 @@ import 'package:smart_system/screens/login_signup/reset_password_screen.dart';
 import 'package:smart_system/screens/login_signup/signup_screen.dart';
 import 'package:smart_system/screens/meeting_screen.dart';
 import 'package:smart_system/screens/post_screen.dart';
+import 'package:smart_system/screens/profile/profile_screen.dart';
+import 'package:smart_system/screens/profile/profile_screen2.dart';
 import 'package:smart_system/screens/ui_splashes/splash0/splash0_screen.dart';
 import 'package:smart_system/screens/ui_splashes/splash1/splash1_screen.dart';
 import 'package:smart_system/subject_group.dart';
@@ -48,7 +50,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: splash0.routeName,
+          initialRoute:  Profile2.routeName,
           routes: {
             splash0.routeName: (context) => splash0(),
             splash1.routeName: (context) => splash1(),
@@ -78,6 +80,8 @@ class MyApp extends StatelessWidget {
             LecturTab.routeName:(context) => LecturTab(),
             SectionTap.routeName:(context) => SectionTap(),
             StartQuiz.routeName:(context) => StartQuiz(),
+            Profile.routeName:(context) => Profile(),
+            Profile2.routeName:(context) => Profile2(),
           },
         );
       },

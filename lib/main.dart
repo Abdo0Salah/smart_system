@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smart_system/screens/assignment/add_answer_screen.dart';
 import 'package:smart_system/screens/assignment/assinment_screen.dart';
 import 'package:smart_system/screens/assignment/openAssignmentScreen.dart';
 import 'package:smart_system/screens/attachment/attachment_screen.dart';
@@ -73,7 +74,7 @@ class MyApp extends StatelessWidget {
             MeetingScreen.routeName: (context) =>  MeetingScreen(),
             PostScreen.routeName: (context) =>  PostScreen(),
             LectureAttavhment.routeName: (context) =>  LectureAttavhment(),
-
+            AddAnswerScreen.routeName: (context) =>  AddAnswerScreen(),
 
 
 

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../attachment/lecture_atta.dart';
+import 'add_answer_screen.dart';
+
 class OpenAssignmentScreen extends StatelessWidget {
   const OpenAssignmentScreen({super.key});
   static const String routeName = 'OpenAssignmentScreen';
@@ -47,14 +50,20 @@ class OpenAssignmentScreen extends StatelessWidget {
             Row(
               children: [
                 RawMaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, AddAnswerScreen.routeName);
+                  },
                   constraints: BoxConstraints(),
                   elevation: 2.0,
                   fillColor: Colors.blue,
-                  child: Icon(
-                    Icons.add,
-                    size: 25.0,
-                    color: Colors.white,
+                  child: InkWell(
+                    onTap: (){ Navigator.pushNamed(context, AddAnswerScreen.routeName);},
+
+                    child: Icon(
+                      Icons.add,
+                      size: 25.0,
+                      color: Colors.white,
+                    ),
                   ),
                   padding: EdgeInsets.all(15.0),
                   shape: CircleBorder(),

@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smart_system/screens/Feedback/feedback_%20form.dart';
 import 'package:smart_system/screens/Feedback/feedback_screen.dart';
-import 'package:smart_system/screens/assinment_screen.dart';
+import 'package:smart_system/screens/Quiz/quiz_screen.dart';
+import 'package:smart_system/screens/Quiz/start_quiz.dart';
+import 'package:smart_system/screens/assignment/add_answer_screen.dart';
+import 'package:smart_system/screens/assignment/assinment_screen.dart';
+import 'package:smart_system/screens/assignment/openAssignmentScreen.dart';
 import 'package:smart_system/screens/attachment/attachment_screen.dart';
 import 'package:smart_system/screens/attachment/lecture_atta.dart';
 import 'package:smart_system/screens/home/3.dart';
@@ -10,6 +15,8 @@ import 'package:smart_system/screens/home/5.dart';
 import 'package:smart_system/screens/home/6.dart';
 import 'package:smart_system/screens/home/7.dart';
 import 'package:smart_system/screens/home/8.dart';
+import 'package:smart_system/screens/home/Attendance/attendance_screen.dart';
+import 'package:smart_system/screens/home/Materials.dart';
 import 'package:smart_system/screens/home/home.dart';
 import 'package:smart_system/screens/home/subject_registration.dart';
 import 'package:smart_system/screens/login_signup/Verification_screen.dart';
@@ -18,7 +25,7 @@ import 'package:smart_system/screens/login_signup/login_screen.dart';
 import 'package:smart_system/screens/login_signup/reset_password_screen.dart';
 import 'package:smart_system/screens/login_signup/signup_screen.dart';
 import 'package:smart_system/screens/meeting_screen.dart';
-import 'package:smart_system/screens/post_screen.dart';
+import 'package:smart_system/screens/post/post_screen.dart';
 import 'package:smart_system/screens/profile/profile_screen.dart';
 import 'package:smart_system/screens/profile/profile_screen2.dart';
 import 'package:smart_system/screens/ui_splashes/splash0/splash0_screen.dart';
@@ -56,6 +63,9 @@ class MyApp extends StatelessWidget {
             ResetPasswordScreen.routeName: (context) => ResetPasswordScreen(),
             HomeScreen.routeName: (context) => HomeScreen(),
             SubjectRegistration.routeName: (context) => SubjectRegistration(),
+            MaterialsScreen.routeName: (context) => MaterialsScreen(),
+            QuizScreen.routeName: (context) => QuizScreen(),
+            StartQuiz.routeName: (context) => StartQuiz(),
             T.routeName: (context) => T(),
             N.routeName: (context) => N(),
             Ss.routeName: (context) => Ss(),
@@ -64,14 +74,17 @@ class MyApp extends StatelessWidget {
             SubjectGroups.routeName: (context) =>  SubjectGroups(),
             MatPagee.routeName: (context) =>  MatPagee(),
             AssinmentScreen.routeName: (context) =>  AssinmentScreen(),
+            OpenAssignmentScreen.routeName: (context) =>  OpenAssignmentScreen(),
+            AddAnswerScreen.routeName: (context) =>  AddAnswerScreen(),
             AttachmentScreen.routeName: (context) =>  AttachmentScreen(),
             FeedbackScreen.routeName: (context) =>  FeedbackScreen(),
+            FeedbackForm.routeName: (context) =>  FeedbackForm(),
             MeetingScreen.routeName: (context) =>  MeetingScreen(),
             PostScreen.routeName: (context) =>  PostScreen(),
             LectureAttavhment.routeName: (context) =>  LectureAttavhment(),
             Profile.routeName:(context) => Profile(),
             Profile2.routeName:(context) => Profile2(),
-
+            AttendanceScreen.routeName:(context) => AttendanceScreen(),
           },
         );
       },

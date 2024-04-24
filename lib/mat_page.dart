@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_system/screens/assinment_screen.dart';
 import 'package:smart_system/screens/attachment/attachment_screen.dart';
-import 'package:smart_system/screens/feedback_screen.dart';
+import 'package:smart_system/screens/Feedback/feedback_screen.dart';
 import 'package:smart_system/screens/meeting_screen.dart';
 import 'package:smart_system/screens/post_screen.dart';
 import 'package:smart_system/widget/material_item.dart';

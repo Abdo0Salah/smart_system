@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smart_system/screens/Feedback/feedback_%20form.dart';
 import 'package:smart_system/screens/assinment_screen.dart';
 import 'package:smart_system/screens/attachment/attachment_screen.dart';
 import 'package:smart_system/screens/attachment/lecture_atta.dart';
-import 'package:smart_system/screens/feedback_screen.dart';
+import 'package:smart_system/screens/Feedback/feedback_screen.dart';
 import 'package:smart_system/screens/home/Materials.dart';
 import 'package:smart_system/screens/home/3.dart';
 import 'package:smart_system/screens/home/4.dart';
@@ -66,10 +67,11 @@ class MyApp extends StatelessWidget {
             MatPagee.routeName: (context) =>  MatPagee(),
             AssinmentScreen.routeName: (context) =>  AssinmentScreen(),
             AttachmentScreen.routeName: (context) =>  AttachmentScreen(),
-            FeedbackScreen.routeName: (context) =>  FeedbackScreen(),
             MeetingScreen.routeName: (context) =>  MeetingScreen(),
             PostScreen.routeName: (context) =>  PostScreen(),
             LectureAttavhment.routeName: (context) =>  LectureAttavhment(),
+            FeedbackForm.routeName: (context) =>  FeedbackForm(),
+            FeedbackScreen.routeName: (context) =>  FeedbackScreen(),
 
           },
         );

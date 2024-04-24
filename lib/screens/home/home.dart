@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:smart_system/screens/Quiz/quiz_screen.dart';
 import '../../models/home_model.dart';
 import '../../widget/home_widget.dart';
+import '../profile/profile_screen.dart';
 import 'subject_registration.dart';
 import 'Materials.dart';
 import '3.dart';
@@ -10,7 +12,7 @@ import '4.dart';
 import '5.dart';
 import '6.dart';
 import '7.dart';
-import '8.dart';
+// import '8.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'Home';
@@ -179,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
         {
           Navigator.pushNamed(
             context,
-            P.routeName,
+            Profile.routeName,
           );
         }
         break;
@@ -195,7 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
         {
           Navigator.pushNamed(
             context,
-            Q.routeName,
+            QuizScreen.routeName,
           );
         }
         break;

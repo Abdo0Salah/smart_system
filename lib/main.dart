@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smart_system/screens/Feedback/feedback_screen.dart';
 import 'package:smart_system/screens/assinment_screen.dart';
 import 'package:smart_system/screens/attachment/attachment_screen.dart';
 import 'package:smart_system/screens/attachment/lecture_atta.dart';
-import 'package:smart_system/screens/feedback_screen.dart';
-import 'package:smart_system/screens/home/2.dart';
 import 'package:smart_system/screens/home/3.dart';
 import 'package:smart_system/screens/home/4.dart';
 import 'package:smart_system/screens/home/5.dart';
@@ -20,6 +19,8 @@ import 'package:smart_system/screens/login_signup/reset_password_screen.dart';
 import 'package:smart_system/screens/login_signup/signup_screen.dart';
 import 'package:smart_system/screens/meeting_screen.dart';
 import 'package:smart_system/screens/post_screen.dart';
+import 'package:smart_system/screens/profile/profile_screen.dart';
+import 'package:smart_system/screens/profile/profile_screen2.dart';
 import 'package:smart_system/screens/ui_splashes/splash0/splash0_screen.dart';
 import 'package:smart_system/screens/ui_splashes/splash1/splash1_screen.dart';
 import 'package:smart_system/subject_group.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: SubjectGroups.routeName,
+          initialRoute: splash0.routeName,
           routes: {
             splash0.routeName: (context) => splash0(),
             splash1.routeName: (context) => splash1(),
@@ -55,11 +56,9 @@ class MyApp extends StatelessWidget {
             ResetPasswordScreen.routeName: (context) => ResetPasswordScreen(),
             HomeScreen.routeName: (context) => HomeScreen(),
             SubjectRegistration.routeName: (context) => SubjectRegistration(),
-            M.routeName: (context) => M(),
             T.routeName: (context) => T(),
             N.routeName: (context) => N(),
             Ss.routeName: (context) => Ss(),
-            P.routeName: (context) => P(),
             S.routeName: (context) => S(),
             Q.routeName: (context) => Q(),
             SubjectGroups.routeName: (context) =>  SubjectGroups(),
@@ -70,6 +69,8 @@ class MyApp extends StatelessWidget {
             MeetingScreen.routeName: (context) =>  MeetingScreen(),
             PostScreen.routeName: (context) =>  PostScreen(),
             LectureAttavhment.routeName: (context) =>  LectureAttavhment(),
+            Profile.routeName:(context) => Profile(),
+            Profile2.routeName:(context) => Profile2(),
 
           },
         );

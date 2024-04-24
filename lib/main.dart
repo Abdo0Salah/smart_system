@@ -27,6 +27,7 @@ import 'package:smart_system/screens/ui_splashes/splash0/splash0_screen.dart';
 import 'package:smart_system/screens/ui_splashes/splash1/splash1_screen.dart';
 import 'package:smart_system/subject_group.dart';
 
+import 'Attendance/attendance_screen.dart';
 import 'mat_page.dart';
 
 void main() {
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: SubjectGroups.routeName,
+          initialRoute: AttendanceScreen.routeName,
           routes: {
             splash0.routeName: (context) => splash0(),
             splash1.routeName: (context) => splash1(),
@@ -75,7 +76,7 @@ class MyApp extends StatelessWidget {
             PostScreen.routeName: (context) =>  PostScreen(),
             LectureAttavhment.routeName: (context) =>  LectureAttavhment(),
             AddAnswerScreen.routeName: (context) =>  AddAnswerScreen(),
-
+            AttendanceScreen.routeName: (context) =>  AttendanceScreen(),
 
 
 

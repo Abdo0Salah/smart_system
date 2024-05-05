@@ -84,7 +84,8 @@ class _LoginScreenState extends State<SignUpScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8 , right: 15 , left: 15 , bottom: 8),
-                      child: TextField(
+                      child: TextFormField(
+                        // controller: ,
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
@@ -100,7 +101,8 @@ class _LoginScreenState extends State<SignUpScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8 , right: 15 , left: 15 , bottom: 8),
-                      child: TextField(
+                      child: TextFormField(
+                        // controller: ,
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
@@ -116,7 +118,8 @@ class _LoginScreenState extends State<SignUpScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8 , right: 15 , left: 15 , bottom: 8),
-                      child: TextField(
+                      child: TextFormField(
+                        // controller: ,
                         obscureText: true,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
@@ -133,7 +136,8 @@ class _LoginScreenState extends State<SignUpScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8 , right: 15 , left: 15 , bottom: 8),
-                      child: TextField(
+                      child: TextFormField(
+                        // controller: ,
                         obscureText: true,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(

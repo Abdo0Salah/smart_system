@@ -65,7 +65,8 @@ class ForgetPassword extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 8 , bottom: 8 ),
-                child: TextField(
+                child: TextFormField(
+                  // controller: ,
                   obscureText: true,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(

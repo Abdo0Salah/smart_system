@@ -60,6 +60,7 @@ class ResetPasswordScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 100 , bottom: 40 , left: 20 , right: 20),
               child: TextFormField(
+                // controller: ,
                 style: TextStyle(color: Color(0xff746868)),
                 decoration: const InputDecoration(
                   hintTextDirection: TextDirection.rtl,

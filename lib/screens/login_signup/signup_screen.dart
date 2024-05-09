@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_system/screens/home/home.dart';
 import 'package:smart_system/screens/login_signup/login_screen.dart';
 import '../../cubit/user_cubit.dart';
 import '../../cubit/user_state.dart';
@@ -27,7 +28,7 @@ class _LoginScreenState extends State<SignUpScreen> {
                 "created successfully,check your email for confirmation and login"),
           ),
         );
-        Navigator.pushNamed(context, LoginScreen.routeName);
+        Navigator.pushNamed(context, HomeScreen.routeName);
       } else if (state is SignUpFailure) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(state.errMessage),
@@ -116,7 +117,7 @@ class _LoginScreenState extends State<SignUpScreen> {
                               child: CustomInputField(
                                 prefixIcon: true,
                                 iconss: Icons.person_rounded,
-                                hintText: 'Your UertName',
+                                hintText: 'Your UserName',
                                 isDense: true,
                                 controller:
                                     context.read<UserCubit>().signUpUserName,

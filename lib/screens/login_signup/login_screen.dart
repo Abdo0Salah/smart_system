@@ -155,17 +155,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 15, right: 15, left: 15, bottom: 15),
-                    child: state is SignInLoading
-                        ? const CircularProgressIndicator()
-                        : CustomFormButton(
-                            innerText: 'Sign In',
-                            onPressed: () {
-                              context.read<UserCubit>().signIn();
-                            },
-                          ),
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          top: 15, right: 15, left: 15, bottom: 15),
+                      child: state is SignInLoading
+                          ? const CircularProgressIndicator()
+                          : CustomFormButton(
+                              innerText: 'Sign In',
+                              onPressed: () {
+                                context.read<UserCubit>().signIn();
+                              },
+                            ),
+                    ),
                   ),
                 ],
               ),

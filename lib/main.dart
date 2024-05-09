@@ -1,5 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smart_system/repositories/user_repository.dart';
 import 'package:smart_system/screens/Feedback/feedback_%20form.dart';
 import 'package:smart_system/screens/Feedback/feedback_screen.dart';
 import 'package:smart_system/screens/Quiz/quiz_screen.dart';
@@ -12,7 +15,6 @@ import 'package:smart_system/screens/attachment/lecture_atta.dart';
 import 'package:smart_system/screens/home/3.dart';
 import 'package:smart_system/screens/home/4.dart';
 import 'package:smart_system/screens/home/5.dart';
-import 'package:smart_system/screens/home/6.dart';
 import 'package:smart_system/screens/home/7.dart';
 import 'package:smart_system/screens/home/8.dart';
 import 'package:smart_system/screens/home/Attendance/attendance_screen.dart';
@@ -32,10 +34,21 @@ import 'package:smart_system/screens/ui_splashes/splash0/splash0_screen.dart';
 import 'package:smart_system/screens/ui_splashes/splash1/splash1_screen.dart';
 import 'package:smart_system/subject_group.dart';
 
+import 'cache/cache_helper.dart';
+import 'core/api/dio_consumer.dart';
+import 'cubit/user_cubit.dart';
 import 'mat_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  CacheHelper().init();
+  runApp(
+    BlocProvider(
+      create: (context) =>
+          UserCubit(UserRepository(api: DioConsumer(dio: Dio()))),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

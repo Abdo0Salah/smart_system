@@ -95,7 +95,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(15.0),
-                      child: TextField(
+                      child: TextFormField(
+                        // controller: ,
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
@@ -113,7 +114,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(15.0),
-                      child: TextField(
+                      child: TextFormField(
+                        // controller: ,
                         obscureText: true,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(

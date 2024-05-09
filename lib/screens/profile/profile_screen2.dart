@@ -74,6 +74,7 @@ class Profile2 extends StatelessWidget {
                   width: 365,
                   height: 40,
                   child: TextFormField(
+                    // controller: ,
                     obscureText: true,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
@@ -107,6 +108,7 @@ class Profile2 extends StatelessWidget {
                   width: 365,
                   height: 40,
                   child: TextFormField(
+                    // controller: ,
                     obscureText: true,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
@@ -140,6 +142,7 @@ class Profile2 extends StatelessWidget {
                   width: 365,
                   height: 40,
                   child: TextFormField(
+                    // controller: ,
                     obscureText: true,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
@@ -173,6 +176,7 @@ class Profile2 extends StatelessWidget {
                   width: 365,
                   height: 40,
                   child: TextFormField(
+                    // controller: ,
                     obscureText: true,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
@@ -206,6 +210,7 @@ class Profile2 extends StatelessWidget {
                   width: 365,
                   height: 40,
                   child: TextFormField(
+                    // controller: ,
                     obscureText: true,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
@@ -239,6 +244,7 @@ class Profile2 extends StatelessWidget {
                   width: 365,
                   height: 40,
                   child: TextFormField(
+                    // controller: ,
                     obscureText: true,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
@@ -272,6 +278,7 @@ class Profile2 extends StatelessWidget {
                   width: 365,
                   height: 40,
                   child: TextFormField(
+                    // controller: ,
                     obscureText: true,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
@@ -305,6 +312,7 @@ class Profile2 extends StatelessWidget {
                   width: 365,
                   height: 40,
                   child: TextFormField(
+                    // controller: ,
                     obscureText: true,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(

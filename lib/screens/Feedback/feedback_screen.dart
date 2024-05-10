@@ -52,7 +52,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                         color: const Color(0xff555555),
                         fontWeight: FontWeight.w700,
                         fontSize: 30.sp),
-                    textAlign: TextAlign.center,
+                     textAlign: TextAlign.center,
                   ),
                   SizedBox(
                     height: 50.h,
@@ -60,7 +60,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                   Padding(
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(20)),
                         boxShadow: [

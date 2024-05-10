@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_system/screens/home/home.dart';
 import 'package:smart_system/screens/login_signup/login_screen.dart';
 import '../../cubit/user_cubit.dart';
 import '../../cubit/user_state.dart';
@@ -13,10 +12,10 @@ class SignUpScreen extends StatefulWidget {
   static const String routeName = 'SignUpScreen';
 
   @override
-  State<SignUpScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<SignUpScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,7 +27,7 @@ class _LoginScreenState extends State<SignUpScreen> {
                 "created successfully,check your email for confirmation and login"),
           ),
         );
-        Navigator.pushNamed(context, HomeScreen.routeName);
+        Navigator.pushNamed(context, LoginScreen.routeName);
       } else if (state is SignUpFailure) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(state.errMessage),
@@ -183,8 +182,8 @@ class _LoginScreenState extends State<SignUpScreen> {
                                 iconss: Icons.rule,
                                 hintText: 'rule',
                                 isDense: true,
-                                obscureText: true,
-                                suffixIcon: true,
+                                obscureText: false,
+                                suffixIcon: false,
                                 controller: context.read<UserCubit>().signUrule,
                               ),
                             ),

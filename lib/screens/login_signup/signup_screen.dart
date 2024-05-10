@@ -12,10 +12,10 @@ class SignUpScreen extends StatefulWidget {
   static const String routeName = 'SignUpScreen';
 
   @override
-  State<SignUpScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<SignUpScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -116,7 +116,7 @@ class _LoginScreenState extends State<SignUpScreen> {
                               child: CustomInputField(
                                 prefixIcon: true,
                                 iconss: Icons.person_rounded,
-                                hintText: 'Your UertName',
+                                hintText: 'Your UserName',
                                 isDense: true,
                                 controller:
                                     context.read<UserCubit>().signUpUserName,
@@ -182,8 +182,8 @@ class _LoginScreenState extends State<SignUpScreen> {
                                 iconss: Icons.rule,
                                 hintText: 'rule',
                                 isDense: true,
-                                obscureText: true,
-                                suffixIcon: true,
+                                obscureText: false,
+                                suffixIcon: false,
                                 controller: context.read<UserCubit>().signUrule,
                               ),
                             ),

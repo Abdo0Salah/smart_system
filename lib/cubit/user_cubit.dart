@@ -11,6 +11,8 @@ class UserCubit extends Cubit<UserState> {
   final UserRepository userRepository;
   //Sign in Form key
   GlobalKey<FormState> signInFormKey = GlobalKey();
+//  GlobalObjectKey<FormState> signInFormKey = GlobalObjectKey(Object);
+  //final List<GlobalObjectKey<FormState>> signInFormKey = List.generate(10, (index) => GlobalObjectKey<FormState>(index));
   //Sign in email
   TextEditingController signInuserName = TextEditingController();
   //Sign in password

@@ -1,16 +1,11 @@
 import 'package:dartz/dartz.dart';
-
 import 'package:jwt_decoder/jwt_decoder.dart';
-
 import '../apiModels/sign_in_model.dart';
 import '../apiModels/sign_up_model.dart';
 import '../cache/cache_helper.dart';
 import '../core/api/api_consumer.dart';
 import '../core/api/end_ponits.dart';
 import '../core/errors/exceptions.dart';
-
-
-
 class UserRepository {
   final ApiConsumer api;
 
@@ -28,7 +23,7 @@ class UserRepository {
         },
       );
       final user = SignInModel.fromJson(response);
-      final decodedToken = JwtDecoder.decode(user!.token);
+      final decodedToken = JwtDecoder.decode(user.token);
 
        CacheHelper().saveData(key: ApiKey.token, value: user.token);
       CacheHelper().saveData(key: ApiKey.id, value: decodedToken["jti"]);
@@ -62,9 +57,6 @@ class UserRepository {
           ApiKey.password: password,
           ApiKey.confirmPassword: confirmPassword,
           ApiKey.role: role,
-      //    ApiKey.location:
-           //   '{"name":"methalfa","address":"meet halfa","coordinates":[30.1572709,31.224779]}',
-       //   ApiKey.profilePic: await uploadImageToAPI(profilePic)
         },
       );
       final signUPModel = SignUpModel.fromJson(response);

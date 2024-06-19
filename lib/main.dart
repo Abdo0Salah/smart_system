@@ -34,6 +34,10 @@ import 'package:smart_system/screens/ui_splashes/splash0/splash0_screen.dart';
 import 'package:smart_system/screens/ui_splashes/splash1/splash1_screen.dart';
 import 'package:smart_system/subject_group.dart';
 
+import 'adminHome/screens/admin_home/admin-home.dart';
+import 'adminHome/screens/admin_home/courses.dart';
+import 'adminHome/screens/admin_home/edit_course.dart';
+import 'adminHome/screens/admin_home/new_course.dart';
 import 'cache/cache_helper.dart';
 import 'core/api/dio_consumer.dart';
 import 'cubit/user_cubit.dart';
@@ -65,7 +69,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: splash0.routeName,
+          initialRoute: AdminHomeScreen.routeName,
           routes: {
             splash0.routeName: (context) => splash0(),
             splash1.routeName: (context) => splash1(),
@@ -98,6 +102,10 @@ class MyApp extends StatelessWidget {
             Profile.routeName:(context) => Profile(),
             Profile2.routeName:(context) => Profile2(),
             AttendanceScreen.routeName:(context) => AttendanceScreen(),
+            AdminHomeScreen.routeName:(context) => AdminHomeScreen(),
+            CoursesScreen.routeName:(context) => CoursesScreen(),
+            NewCourseScreen.routeName:(context) => NewCourseScreen(),
+            EditCourseScreen.routeName:(context) => EditCourseScreen(),
           },
         );
       },

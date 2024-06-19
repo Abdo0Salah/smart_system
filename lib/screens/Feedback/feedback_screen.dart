@@ -203,8 +203,8 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                       children: [
                         Expanded(
                           child: Container(
-                            padding: EdgeInsets.all(15),
-                            decoration: BoxDecoration(
+                            padding: const EdgeInsets.all(15),
+                            decoration: const BoxDecoration(
                               color: Color(0xffD3E7FF),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10)),
@@ -228,7 +228,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                                 SizedBox(
                                   width: 10.w,
                                 ),
-                                Icon(
+                                const Icon(
                                   Icons.edit,
                                   color: Colors.green,
                                 ),
@@ -241,8 +241,8 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                         ),
                         Expanded(
                           child: Container(
-                            padding: EdgeInsets.all(15),
-                            decoration: BoxDecoration(
+                            padding: const EdgeInsets.all(15),
+                            decoration: const BoxDecoration(
                               color: Color(0xffD3E7FF),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10)),

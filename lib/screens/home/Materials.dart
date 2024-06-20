@@ -198,7 +198,7 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                   child: Container(
                     height: 5,
                     width: 235,
-                    color: const Color(0xff2C4A7A),
+                     color: const Color(0xff2C4A7A),
                   ),
                 ),
                 Expanded(

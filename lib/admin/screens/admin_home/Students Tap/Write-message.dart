@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'Student_list-result.dart';
+
 class WriteMessage extends StatefulWidget {
   const WriteMessage({super.key});
   static const String routeName = 'WriteMessage';
@@ -132,30 +134,34 @@ class _WriteMessageState extends State<WriteMessage> {
                           children: [
                             Spacer(),
                             TextButton(onPressed: (){
+                              Navigator.pop(
+                                context,
+                                StudentListResult.routeName,
+                              );
 
                             },
-                                style: ButtonStyle(
+                                style: const ButtonStyle(
 
                                     backgroundColor: MaterialStatePropertyAll(
                                         Colors.white
                                     )
                                 ),
-                                child: Text("  Cancel   ",
+                                child: const Text("  Cancel   ",
                                   style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w500,
                                       color: Colors.blue
                                   ),)),
-                            SizedBox(width: 15,),
+                            const SizedBox(width: 15,),
 
                             TextButton(onPressed: (){},
-                                style: ButtonStyle(
+                                style: const ButtonStyle(
 
                                     backgroundColor: MaterialStatePropertyAll(
                                         Colors.blue
                                     )
                                 ),
-                                child: Text("  Send   ",
+                                child: const Text("  Send   ",
                                   style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w400,
@@ -169,7 +175,7 @@ class _WriteMessageState extends State<WriteMessage> {
                   ),
                 ),
               ),
-              SizedBox(height: 10,)
+              const SizedBox(height: 10,)
             ],
           ),
         ),

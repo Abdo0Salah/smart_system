@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../model/adminHome_courses_model.dart';
-import '../screens/admin_home/edit_course.dart';
+import '../screens/admin_home/courses tap/edit_course.dart';
 
 class AdminHomeCoursesWidget extends StatelessWidget {
   AdminHomeCoursesModel adminHomeCoursesModel;

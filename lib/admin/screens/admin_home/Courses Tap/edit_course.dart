@@ -152,7 +152,7 @@ class _EditCourseScreenState extends State<EditCourseScreen> {
                                   children: [
                                     TextButton(
                                       onPressed: () {
-                                        Navigator.pushNamed(
+                                        Navigator.pop(
                                           context,
                                           CoursesScreen.routeName,
                                         );
@@ -166,7 +166,7 @@ class _EditCourseScreenState extends State<EditCourseScreen> {
                                     ),
                                     ElevatedButton(
                                       onPressed: () {
-                                        Navigator.pushNamed(
+                                        Navigator.pop(
                                           context,
                                           CoursesScreen.routeName,
                                         );

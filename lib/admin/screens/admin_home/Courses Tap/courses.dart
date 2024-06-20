@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../model/adminHome_courses_model.dart';
-import '../../widget/adminHome_courses_widget.dart';
-import 'admin-home.dart';
+import '../../../model/adminHome_courses_model.dart';
+import '../../../widget/adminHome_courses_widget.dart';
+import '../admin-home.dart';
 import 'new_course.dart';
 
 class CoursesScreen extends StatefulWidget {
@@ -33,6 +33,10 @@ class _CoursesScreenState extends State<CoursesScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        // appBar: AppBar(
+        //   backgroundColor: Colors.transparent,
+        //   elevation: 0,
+        // ),
         backgroundColor: const Color(0xffF5F9FE),
         body: Center(
           child: Padding(

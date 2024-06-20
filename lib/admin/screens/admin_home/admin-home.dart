@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../model/admin_home_model.dart';
 import '../../widget/adminHome-widget.dart';
-import 'courses.dart';
+import 'Students Tap/Students_List.dart';
+import 'courses tap/courses.dart';
 
 class AdminHomeScreen extends StatefulWidget {
   static const String routeName = 'AdminHomeScreen';
@@ -87,14 +88,14 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 
   void go(int index) {
     switch (index) {
-    // case 0:
-    //   {
-    //     Navigator.pushNamed(
-    //       context,
-    //       SubjectRegistration.routeName,
-    //     );
-    //   }
-    //   break;
+    case 0:
+      {
+        Navigator.pushNamed(
+          context,
+          StudentsList.routeName,
+        );
+      }
+      break;
       case 1:
         {
           Navigator.pushNamed(

@@ -34,10 +34,13 @@ import 'package:smart_system/screens/ui_splashes/splash0/splash0_screen.dart';
 import 'package:smart_system/screens/ui_splashes/splash1/splash1_screen.dart';
 import 'package:smart_system/subject_group.dart';
 
-import 'adminHome/screens/admin_home/admin-home.dart';
-import 'adminHome/screens/admin_home/courses.dart';
-import 'adminHome/screens/admin_home/edit_course.dart';
-import 'adminHome/screens/admin_home/new_course.dart';
+import 'admin/screens/admin_home/Students Tap/Student_list-result.dart';
+import 'admin/screens/admin_home/Students Tap/Students_List.dart';
+import 'admin/screens/admin_home/Students Tap/Write-message.dart';
+import 'admin/screens/admin_home/admin-home.dart';
+import 'admin/screens/admin_home/courses tap/courses.dart';
+import 'admin/screens/admin_home/courses tap/edit_course.dart';
+import 'admin/screens/admin_home/courses tap/new_course.dart';
 import 'cache/cache_helper.dart';
 import 'core/api/dio_consumer.dart';
 import 'cubit/user_cubit.dart';
@@ -71,6 +74,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           initialRoute: AdminHomeScreen.routeName,
           routes: {
+
+            //student
             splash0.routeName: (context) => splash0(),
             splash1.routeName: (context) => splash1(),
             LoginScreen.routeName: (context) => LoginScreen(),
@@ -102,7 +107,12 @@ class MyApp extends StatelessWidget {
             Profile.routeName:(context) => Profile(),
             Profile2.routeName:(context) => Profile2(),
             AttendanceScreen.routeName:(context) => AttendanceScreen(),
+
+            //admin
             AdminHomeScreen.routeName:(context) => AdminHomeScreen(),
+            StudentsList.routeName: (context) => StudentsList(),
+            WriteMessage.routeName: (context) => WriteMessage(),
+            StudentListResult.routeName: (context) => StudentListResult(),
             CoursesScreen.routeName:(context) => CoursesScreen(),
             NewCourseScreen.routeName:(context) => NewCourseScreen(),
             EditCourseScreen.routeName:(context) => EditCourseScreen(),

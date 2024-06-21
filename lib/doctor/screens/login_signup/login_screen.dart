@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_system/doctor/screens/doctor_home.dart';
 import 'package:smart_system/doctor/screens/login_signup/forget_pass.dart';
 import 'package:smart_system/doctor/screens/login_signup/signup_screen.dart';
 
@@ -157,7 +158,7 @@ class _LoginScreenState extends State<LoginScreenDoctor> {
                   ),
                 ),
                 onPressed: (){
-
+                  Navigator.of(context).pushNamed(DoctorHomeScreen.routeName);
                 },
                 child:
                 const Text(

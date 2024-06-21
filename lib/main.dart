@@ -12,6 +12,8 @@ import 'package:smart_system/admin/screens/login_signup/forget_pass.dart';
 import 'package:smart_system/admin/screens/login_signup/login_screen.dart';
 import 'package:smart_system/admin/screens/login_signup/reset_password_screen.dart';
 import 'package:smart_system/admin/screens/login_signup/signup_screen.dart';
+import 'package:smart_system/doctor/screens/courses%20tap/add_attachment.dart';
+import 'package:smart_system/doctor/screens/courses%20tap/add_new_group.dart';
 import 'package:smart_system/doctor/screens/login_signup/Verification_screen.dart';
 import 'package:smart_system/doctor/screens/login_signup/forget_pass.dart';
 import 'package:smart_system/doctor/screens/login_signup/login_screen.dart';
@@ -90,7 +92,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: splash0.routeName,
+          initialRoute: AddNewGroup.routeName,
           routes: {
             //student
             splash0.routeName: (context) => splash0(),
@@ -153,6 +155,8 @@ class MyApp extends StatelessWidget {
             DoctorHomeScreen.routeName:(context) => DoctorHomeScreen(),
             DoctorSelectCoursesScreen.routeName:(context) => DoctorSelectCoursesScreen(),
             DoctorCoursesScreen.routeName:(context) => DoctorCoursesScreen(),
+            AddNewGroup.routeName:(context) => AddNewGroup(),
+            AddAttachment.routeName:(context) => AddAttachment(),
 
 
 

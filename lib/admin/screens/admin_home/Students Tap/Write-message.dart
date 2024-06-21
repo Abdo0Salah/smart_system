@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_system/admin/screens/admin_home/Students%20Tap/message_list.dart';
 
 import 'Student_list-result.dart';
 
@@ -154,7 +155,9 @@ class _WriteMessageState extends State<WriteMessage> {
                                   ),)),
                             const SizedBox(width: 15,),
 
-                            TextButton(onPressed: (){},
+                            TextButton(onPressed: (){
+                              Navigator.of(context).pushNamed(MessageList.routeName);
+                            },
                                 style: const ButtonStyle(
 
                                     backgroundColor: MaterialStatePropertyAll(

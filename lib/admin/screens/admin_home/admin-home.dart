@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smart_system/admin/screens/admin_home/Staff%20Tap/staff_member.dart';
+import 'package:smart_system/admin/screens/admin_home/profile%20Tap/profile_screen.dart';
 
 import '../../model/admin_home_model.dart';
 import '../../widget/adminHome-widget.dart';
@@ -104,23 +106,24 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
           );
         }
         break;
-    // case 2:
-    //   {
-    //     Navigator.pushNamed(
-    //       context,
-    //       T.routeName,
-    //     );
-    //   }
-    //   break;
-    //
-    // case 3:
-    //   {
-    //     Navigator.pushNamed(
-    //       context,
-    //       N.routeName,
-    //     );
-    //   }
-    //   break;
+    case 2:
+      {
+        Navigator.pushNamed(
+          context,
+          StaffMember.routeName,
+        );
+      }
+      break;
+
+   case 3:
+      {
+        Navigator.pushNamed(
+          context,
+          ProfileAdmin.routeName,
+        );
+      }
+      break;
+
     // case 4:
     //   {
     //     Navigator.pushNamed(

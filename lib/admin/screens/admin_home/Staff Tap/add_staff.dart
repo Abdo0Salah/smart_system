@@ -154,7 +154,7 @@ class AddStaff extends StatelessWidget {
                               ),
                             ),
                             onPressed: () {
-                              Navigator.pushNamed(
+                              Navigator.pop(
                                 context,
                                 StaffMember.routeName,
                               );
@@ -185,7 +185,7 @@ class AddStaff extends StatelessWidget {
                               ),
                             ),
                             onPressed: () {
-                              Navigator.pushNamed(
+                              Navigator.pop(
                                 context,
                                 StaffMember.routeName,
                               );

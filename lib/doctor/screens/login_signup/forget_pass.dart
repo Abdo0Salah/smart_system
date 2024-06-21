@@ -5,7 +5,7 @@ import 'package:smart_system/doctor/screens/login_signup/login_screen.dart';
 
 
 class ForgetPasswordDoctor extends StatelessWidget {
-  static const String routeName = 'ForgetPass';
+  static const String routeName = 'ForgetPasswordDoctor';
 
   @override
   Widget build(BuildContext context) {

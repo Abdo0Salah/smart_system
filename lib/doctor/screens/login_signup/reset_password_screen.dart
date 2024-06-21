@@ -5,7 +5,7 @@ import 'package:smart_system/doctor/screens/login_signup/login_screen.dart';
 
 
 class ResetPasswordScreenDoctor extends StatelessWidget {
-  static const String routeName = ' Rest';
+  static const String routeName = ' ResetPasswordScreenDoctor';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -5,7 +5,7 @@ import 'package:smart_system/admin/screens/login_signup/login_screen.dart';
 
 
 class ResetPasswordScreenAdmin extends StatelessWidget {
-  static const String routeName = ' Rest';
+  static const String routeName = ' ResetPasswordScreenAdmin';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

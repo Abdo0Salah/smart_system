@@ -5,7 +5,7 @@ import 'package:smart_system/admin/screens/login_signup/reset_password_screen.da
 
 
 class VerificationScreenAdmin extends StatelessWidget {
-  static const String routeName = 'Verfy';
+  static const String routeName = 'VerificationScreenAdmin';
 
   @override
   Widget build(BuildContext context) {

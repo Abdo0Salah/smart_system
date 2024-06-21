@@ -7,7 +7,7 @@ import 'package:smart_system/admin/screens/login_signup/signup_screen.dart';
 
 
 class LoginScreenAdmin extends StatefulWidget {
-  static const String routeName = 'LoginScreen';
+  static const String routeName = 'LoginScreenAdmin';
 
   @override
   State<LoginScreenAdmin> createState() => _LoginScreenState();

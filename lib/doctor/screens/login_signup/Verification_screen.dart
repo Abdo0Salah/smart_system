@@ -5,7 +5,7 @@ import 'package:smart_system/doctor/screens/login_signup/reset_password_screen.d
 
 
 class VerificationScreenDoctor extends StatelessWidget {
-  static const String routeName = 'Verfy';
+  static const String routeName = 'VerificationScreenDoctor';
 
   @override
   Widget build(BuildContext context) {

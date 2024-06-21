@@ -92,7 +92,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: AddNewGroup.routeName,
+          initialRoute: splash0.routeName,
           routes: {
             //student
             splash0.routeName: (context) => splash0(),

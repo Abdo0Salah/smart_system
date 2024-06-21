@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../models/group_model.dart';
+import '../../models/group_model.dart';
 import '../model/doctor_group_model.dart';
 
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../screens/attachment/lecture_atta.dart';
-import '../widgets/doctor_lecture_item.dart';
+
+import '../../../widget/doctor_lecture_item.dart';
+import '../add_attachment.dart';
 import 'doctor_lecture_atta.dart';
 
 
@@ -51,7 +52,13 @@ class DoctorAttachmentScreen extends StatelessWidget {
                         ],
                       ),
                     IconButton(
-                        onPressed: (){},
+                        onPressed: (){
+
+                          Navigator.pushNamed(
+                            context,
+                            AddAttachment.routeName,
+                          );
+                        },
                         color: Colors.black,
                         iconSize: 30,
                         style: ButtonStyle(

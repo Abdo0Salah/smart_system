@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smart_system/doctor/screens/courses%20tap/add_attachment.dart';
 
+import 'doctor_subject_group.dart.dart';
+
 class AddNewGroup extends StatelessWidget {
   static const String routeName = 'AddNewGroup';
 
@@ -17,9 +19,9 @@ class AddNewGroup extends StatelessWidget {
             width: 48,
             child: FloatingActionButton(
               onPressed: () {
-                Navigator.pushNamed(
+                Navigator.pop(
                   context,
-                  AddAttachment.routeName,
+                  DoctorSubjectGroups.routeName,
                 );
               },
               elevation: 10,

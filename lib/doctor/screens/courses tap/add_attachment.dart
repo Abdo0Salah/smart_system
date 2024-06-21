@@ -177,7 +177,7 @@ class AddAttachment extends StatelessWidget {
                     ),
                   ),
                   onPressed: (){
-                  //  Navigator.of(context).pushNamed(ResetPasswordScreenAdmin.routeName);
+                   Navigator.of(context).pop(AddAttachment.routeName);
                   },
                   child:Row(
                     mainAxisAlignment: MainAxisAlignment.center,

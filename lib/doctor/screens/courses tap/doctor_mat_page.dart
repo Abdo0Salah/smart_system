@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:smart_system/doctor/Abdo/widgets/DoctorMaterialItem.dart';
+import 'package:smart_system/doctor/widget/DoctorMaterialItem.dart';
 import 'package:smart_system/screens/assignment/assinment_screen.dart';
-import 'package:smart_system/screens/attachment/attachment_screen.dart';
-import 'package:smart_system/screens/Feedback/feedback_screen.dart';
 import 'package:smart_system/screens/meeting_screen.dart';
 import 'package:smart_system/screens/post/post_screen.dart';
-import 'package:smart_system/widget/material_item.dart';
-
-
+import '../../model/DoctotMaterialModel.dart';
 import 'doctor_attachment/doctor_attachment_screen.dart';
-import 'model/DoctotMaterialModel.dart';
 
 class DoctorMatPagee extends StatefulWidget {
   static const String routeName = 'DoctorMatPagee';

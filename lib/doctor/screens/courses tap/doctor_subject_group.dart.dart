@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:smart_system/doctor/Abdo/widgets/doctor_groub_item.dart';
+import 'package:smart_system/doctor/widget/doctor_groub_item.dart';
 import 'package:smart_system/models/group_model.dart';
 import 'package:smart_system/widget/groub_item.dart';
 
-import '../../admin/screens/admin_home/Students Tap/Student_list-result.dart';
+import '../../../admin/screens/admin_home/Students Tap/Student_list-result.dart';
 import 'doctor_mat_page.dart';
-import 'model/doctor_group_model.dart';
+import '../../model/doctor_group_model.dart';
+import 'add_new_group.dart';
 
 
 class DoctorSubjectGroups extends StatelessWidget {
@@ -36,6 +37,11 @@ class DoctorSubjectGroups extends StatelessWidget {
                 Spacer(),
                 InkWell(
                   onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      AddNewGroup.routeName,
+                    );
+
                   },
                   child: Container(
                     child: Center(

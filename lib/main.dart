@@ -61,10 +61,11 @@ import 'admin/screens/admin_home/courses tap/new_course.dart';
 import 'cache/cache_helper.dart';
 import 'core/api/dio_consumer.dart';
 import 'cubit/user_cubit.dart';
-import 'doctor/Abdo/doctor_attachment/doctor_attachment_screen.dart';
-import 'doctor/Abdo/doctor_attachment/doctor_lecture_atta.dart';
-import 'doctor/Abdo/doctor_subject_group.dart.dart';
-import 'doctor/Abdo/doctor_mat_page.dart';
+
+import 'doctor/screens/courses tap/doctor_attachment/doctor_attachment_screen.dart';
+import 'doctor/screens/courses tap/doctor_attachment/doctor_lecture_atta.dart';
+import 'doctor/screens/courses tap/doctor_subject_group.dart.dart';
+import 'doctor/screens/courses tap/doctor_mat_page.dart';
 import 'doctor/screens/courses tap/doctor_courses.dart';
 import 'doctor/screens/courses tap/doctor_select_courses.dart';
 import 'doctor/screens/doctor_home.dart';
@@ -96,7 +97,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: DoctorSubjectGroups.routeName,
+          initialRoute: splash0.routeName,
           routes: {
             //student
             splash0.routeName: (context) => splash0(),

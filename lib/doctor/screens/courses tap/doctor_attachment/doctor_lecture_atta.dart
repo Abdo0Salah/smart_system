@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../widget/lecture_item.dart';
-import '../widgets/doctor_lecture_item.dart';
-import '../widgets/doctor_lecture_item_details.dart';
+
 
 class DoctorLectureAttavhment extends StatelessWidget {
   const DoctorLectureAttavhment({super.key});

@@ -6,6 +6,7 @@ import '../../model/doctor_courses_model.dart';
 
 import '../../widget/doctor_courses_widget.dart';
 import '../doctor_home.dart';
+import 'doctor_subject_group.dart.dart';
 
 class DoctorCoursesScreen extends StatefulWidget {
   static const String routeName = 'DoctorCoursesScreen';
@@ -143,10 +144,10 @@ class _DoctorCoursesScreenState extends State<DoctorCoursesScreen> {
                         .map((home) => InkWell(
                       child: DoctorCoursesWidget(home),
                       onTap: () {
-                        // Navigator.pushNamed(
-                        //   context,
-                        //   SubjectGroups.routeName,
-                        // );
+                        Navigator.pushNamed(
+                          context,
+                          DoctorSubjectGroups.routeName,
+                        );
                       },
                     ))
                         .toList(),

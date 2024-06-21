@@ -2,6 +2,11 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smart_system/admin/screens/admin_home/Staff%20Tap/add_staff.dart';
+import 'package:smart_system/admin/screens/admin_home/Staff%20Tap/staff_member.dart';
+import 'package:smart_system/admin/screens/admin_home/Students%20Tap/message_list.dart';
+import 'package:smart_system/admin/screens/admin_home/profile%20Tap/profile_screen.dart';
+import 'package:smart_system/admin/screens/admin_home/profile%20Tap/profile_screen2.dart';
 import 'package:smart_system/admin/screens/login_signup/Verification_screen.dart';
 import 'package:smart_system/admin/screens/login_signup/forget_pass.dart';
 import 'package:smart_system/admin/screens/login_signup/login_screen.dart';
@@ -129,10 +134,15 @@ class MyApp extends StatelessWidget {
             AdminHomeScreen.routeName:(context) => AdminHomeScreen(),
             StudentsList.routeName: (context) => StudentsList(),
             WriteMessage.routeName: (context) => WriteMessage(),
+            MessageList.routeName: (context) => MessageList(),
             StudentListResult.routeName: (context) => StudentListResult(),
             CoursesScreen.routeName:(context) => CoursesScreen(),
             NewCourseScreen.routeName:(context) => NewCourseScreen(),
             EditCourseScreen.routeName:(context) => EditCourseScreen(),
+            StaffMember.routeName:(context) => StaffMember(),
+            AddStaff.routeName:(context) => AddStaff(),
+            ProfileAdmin.routeName:(context) => ProfileAdmin(),
+            Profile2Admin.routeName:(context) => Profile2Admin(),
 
             //doctor
             LoginScreenDoctor.routeName: (context) => LoginScreenDoctor(),

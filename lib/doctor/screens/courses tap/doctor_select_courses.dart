@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../model/doctor_select_courses_model.dart';
 
 import '../../widget/doctor_select_courses_widget.dart';
+import 'doctor_courses.dart';
 
 
 class DoctorSelectCoursesScreen extends StatefulWidget {
@@ -117,6 +118,38 @@ class _DoctorSelectCoursesScreenState extends State<DoctorSelectCoursesScreen> {
                       },
                     ))
                         .toList(),
+                  ),
+                ),
+
+                Padding(
+                  padding:
+                  const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
+                  child: Center(
+                    child: TextButton(
+                      style: OutlinedButton.styleFrom(
+                        side: const BorderSide(
+                          color: Color(0xffbccad9),
+                          style: BorderStyle.solid,
+                          width: 2.5,
+                        ),
+                        fixedSize: Size(200, 50),
+                        backgroundColor: Color(0xffcbd9f1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(9),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pushNamed(DoctorCoursesScreen.routeName);
+                      },
+                      child: const Text(
+                        "Save",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
 

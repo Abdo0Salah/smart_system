@@ -2,21 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:smart_system/admin/screens/admin_home/Staff%20Tap/add_staff.dart';
-import 'package:smart_system/admin/screens/admin_home/Staff%20Tap/staff_member.dart';
-import 'package:smart_system/admin/screens/admin_home/Students%20Tap/message_list.dart';
-import 'package:smart_system/admin/screens/admin_home/profile%20Tap/profile_screen.dart';
-import 'package:smart_system/admin/screens/admin_home/profile%20Tap/profile_screen2.dart';
-import 'package:smart_system/admin/screens/login_signup/Verification_screen.dart';
-import 'package:smart_system/admin/screens/login_signup/forget_pass.dart';
-import 'package:smart_system/admin/screens/login_signup/login_screen.dart';
-import 'package:smart_system/admin/screens/login_signup/reset_password_screen.dart';
-import 'package:smart_system/admin/screens/login_signup/signup_screen.dart';
-import 'package:smart_system/doctor/screens/login_signup/Verification_screen.dart';
-import 'package:smart_system/doctor/screens/login_signup/forget_pass.dart';
-import 'package:smart_system/doctor/screens/login_signup/login_screen.dart';
-import 'package:smart_system/doctor/screens/login_signup/reset_password_screen.dart';
-import 'package:smart_system/doctor/screens/login_signup/signup_screen.dart';
 import 'package:smart_system/repositories/user_repository.dart';
 import 'package:smart_system/screens/Feedback/feedback_%20form.dart';
 import 'package:smart_system/screens/Feedback/feedback_screen.dart';
@@ -49,19 +34,12 @@ import 'package:smart_system/screens/ui_splashes/splash0/splash0_screen.dart';
 import 'package:smart_system/screens/ui_splashes/splash1/splash1_screen.dart';
 import 'package:smart_system/subject_group.dart';
 
-import 'admin/screens/admin_home/Students Tap/Student_list-result.dart';
-import 'admin/screens/admin_home/Students Tap/Students_List.dart';
-import 'admin/screens/admin_home/Students Tap/Write-message.dart';
-import 'admin/screens/admin_home/admin-home.dart';
-import 'admin/screens/admin_home/courses tap/courses.dart';
-import 'admin/screens/admin_home/courses tap/edit_course.dart';
-import 'admin/screens/admin_home/courses tap/new_course.dart';
+import 'admin screen/Students Tap/Student_list-result.dart';
+import 'admin screen/Students Tap/Students_List.dart';
+import 'admin screen/Students Tap/Write-message.dart';
 import 'cache/cache_helper.dart';
 import 'core/api/dio_consumer.dart';
 import 'cubit/user_cubit.dart';
-import 'doctor/screens/courses tap/doctor_courses.dart';
-import 'doctor/screens/courses tap/doctor_select_courses.dart';
-import 'doctor/screens/doctor_home.dart';
 import 'mat_page.dart';
 
 void main() {
@@ -90,9 +68,11 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: splash0.routeName,
+          initialRoute: StudentsList.routeName,
           routes: {
-            //student
+            StudentsList.routeName: (context) => StudentsList(),
+            WriteMessage.routeName: (context) => WriteMessage(),
+            StudentListResult.routeName: (context) => StudentListResult(),
             splash0.routeName: (context) => splash0(),
             splash1.routeName: (context) => splash1(),
             LoginScreen.routeName: (context) => LoginScreen(),
@@ -124,39 +104,6 @@ class MyApp extends StatelessWidget {
             Profile.routeName:(context) => Profile(),
             Profile2.routeName:(context) => Profile2(),
             AttendanceScreen.routeName:(context) => AttendanceScreen(),
-
-            //admin
-            LoginScreenAdmin.routeName: (context) => LoginScreenAdmin(),
-            SignUpScreenAdmin.routeName: (context) => SignUpScreenAdmin(),
-            ForgetPasswordAdmin.routeName: (context) => ForgetPasswordAdmin(),
-            VerificationScreenAdmin.routeName: (context) => VerificationScreenAdmin(),
-            ResetPasswordScreenAdmin.routeName: (context) => ResetPasswordScreenAdmin(),
-            AdminHomeScreen.routeName:(context) => AdminHomeScreen(),
-            StudentsList.routeName: (context) => StudentsList(),
-            WriteMessage.routeName: (context) => WriteMessage(),
-            MessageList.routeName: (context) => MessageList(),
-            StudentListResult.routeName: (context) => StudentListResult(),
-            CoursesScreen.routeName:(context) => CoursesScreen(),
-            NewCourseScreen.routeName:(context) => NewCourseScreen(),
-            EditCourseScreen.routeName:(context) => EditCourseScreen(),
-            StaffMember.routeName:(context) => StaffMember(),
-            AddStaff.routeName:(context) => AddStaff(),
-            ProfileAdmin.routeName:(context) => ProfileAdmin(),
-            Profile2Admin.routeName:(context) => Profile2Admin(),
-
-            //doctor
-            LoginScreenDoctor.routeName: (context) => LoginScreenDoctor(),
-            SignUpScreenDoctor.routeName: (context) => SignUpScreenDoctor(),
-            ForgetPasswordDoctor.routeName: (context) => ForgetPasswordDoctor(),
-            VerificationScreenDoctor.routeName: (context) => VerificationScreenDoctor(),
-            ResetPasswordScreenDoctor.routeName: (context) => ResetPasswordScreenDoctor(),
-            DoctorHomeScreen.routeName:(context) => DoctorHomeScreen(),
-            DoctorSelectCoursesScreen.routeName:(context) => DoctorSelectCoursesScreen(),
-            DoctorCoursesScreen.routeName:(context) => DoctorCoursesScreen(),
-
-
-
-
           },
         );
       },

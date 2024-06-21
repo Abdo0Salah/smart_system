@@ -158,7 +158,7 @@ class AddAttachment extends StatelessWidget {
                         borderRadius: BorderRadius.circular(2),
                       ),
                       prefixIcon: Image.asset('assets/images/doctor/select_file.png'),
-                      hintText: 'Enter the Title',
+                      hintText: 'Select video',
                     )),
               ),
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_system/admin/screens/login_signup/login_screen.dart';
 import 'package:smart_system/screens/login_signup/login_screen.dart';
 import 'package:smart_system/screens/ui_splashes/splash1/Grid.dart';
 
@@ -29,7 +30,7 @@ class splash1 extends StatelessWidget{
               ),
               InkWell(
                   onTap: (){
-                    Navigator.of(context).pushNamed(LoginScreen.routeName);
+                    Navigator.of(context).pushNamed(LoginScreenAdmin.routeName);
                   },
                   child: Grid(image0: "assets/images/splash1/Rectangle 5.png", image1: "assets/images/splash1/images 55559.png", text: "Doctors/Staff")),
               SizedBox(
@@ -38,7 +39,7 @@ class splash1 extends StatelessWidget{
               ),
               InkWell(
                   onTap: (){
-                    Navigator.of(context).pushNamed(LoginScreen.routeName);
+                    Navigator.of(context).pushNamed(LoginScreenAdmin.routeName);
                   },
                   child: Grid(image0: "assets/images/splash1/Rectangle 6.png", image1: "assets/images/splash1/download (1) 7.png", text: "Parent")),
               SizedBox(
@@ -47,7 +48,7 @@ class splash1 extends StatelessWidget{
               ),
               InkWell(
                   onTap: (){
-                    Navigator.of(context).pushNamed(LoginScreen.routeName);
+                    Navigator.of(context).pushNamed(LoginScreenAdmin.routeName);
                   },
                   child: Grid(image0: "assets/images/splash1/Rectangle 7.png", image1: "assets/images/splash1/download 1.png", text: "Admin")),
             ],

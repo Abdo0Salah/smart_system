@@ -2,6 +2,16 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smart_system/admin/screens/login_signup/Verification_screen.dart';
+import 'package:smart_system/admin/screens/login_signup/forget_pass.dart';
+import 'package:smart_system/admin/screens/login_signup/login_screen.dart';
+import 'package:smart_system/admin/screens/login_signup/reset_password_screen.dart';
+import 'package:smart_system/admin/screens/login_signup/signup_screen.dart';
+import 'package:smart_system/doctor/screens/login_signup/Verification_screen.dart';
+import 'package:smart_system/doctor/screens/login_signup/forget_pass.dart';
+import 'package:smart_system/doctor/screens/login_signup/login_screen.dart';
+import 'package:smart_system/doctor/screens/login_signup/reset_password_screen.dart';
+import 'package:smart_system/doctor/screens/login_signup/signup_screen.dart';
 import 'package:smart_system/repositories/user_repository.dart';
 import 'package:smart_system/screens/Feedback/feedback_%20form.dart';
 import 'package:smart_system/screens/Feedback/feedback_screen.dart';
@@ -75,9 +85,8 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: DoctorHomeScreen.routeName,
+          initialRoute: splash0.routeName,
           routes: {
-
             //student
             splash0.routeName: (context) => splash0(),
             splash1.routeName: (context) => splash1(),
@@ -112,6 +121,11 @@ class MyApp extends StatelessWidget {
             AttendanceScreen.routeName:(context) => AttendanceScreen(),
 
             //admin
+            LoginScreenAdmin.routeName: (context) => LoginScreenAdmin(),
+            SignUpScreenAdmin.routeName: (context) => SignUpScreenAdmin(),
+            ForgetPasswordAdmin.routeName: (context) => ForgetPasswordAdmin(),
+            VerificationScreenAdmin.routeName: (context) => VerificationScreenAdmin(),
+            ResetPasswordScreenAdmin.routeName: (context) => ResetPasswordScreenAdmin(),
             AdminHomeScreen.routeName:(context) => AdminHomeScreen(),
             StudentsList.routeName: (context) => StudentsList(),
             WriteMessage.routeName: (context) => WriteMessage(),
@@ -121,6 +135,11 @@ class MyApp extends StatelessWidget {
             EditCourseScreen.routeName:(context) => EditCourseScreen(),
 
             //doctor
+            LoginScreenDoctor.routeName: (context) => LoginScreenDoctor(),
+            SignUpScreenDoctor.routeName: (context) => SignUpScreenDoctor(),
+            ForgetPasswordDoctor.routeName: (context) => ForgetPasswordDoctor(),
+            VerificationScreenDoctor.routeName: (context) => VerificationScreenDoctor(),
+            ResetPasswordScreenDoctor.routeName: (context) => ResetPasswordScreenDoctor(),
             DoctorHomeScreen.routeName:(context) => DoctorHomeScreen(),
             DoctorSelectCoursesScreen.routeName:(context) => DoctorSelectCoursesScreen(),
             DoctorCoursesScreen.routeName:(context) => DoctorCoursesScreen(),

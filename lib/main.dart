@@ -44,6 +44,9 @@ import 'admin/screens/admin_home/courses tap/new_course.dart';
 import 'cache/cache_helper.dart';
 import 'core/api/dio_consumer.dart';
 import 'cubit/user_cubit.dart';
+import 'doctor/screens/courses tap/doctor_courses.dart';
+import 'doctor/screens/courses tap/doctor_select_courses.dart';
+import 'doctor/screens/doctor_home.dart';
 import 'mat_page.dart';
 
 void main() {
@@ -72,7 +75,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: AdminHomeScreen.routeName,
+          initialRoute: DoctorHomeScreen.routeName,
           routes: {
 
             //student
@@ -116,6 +119,15 @@ class MyApp extends StatelessWidget {
             CoursesScreen.routeName:(context) => CoursesScreen(),
             NewCourseScreen.routeName:(context) => NewCourseScreen(),
             EditCourseScreen.routeName:(context) => EditCourseScreen(),
+
+            //doctor
+            DoctorHomeScreen.routeName:(context) => DoctorHomeScreen(),
+            DoctorSelectCoursesScreen.routeName:(context) => DoctorSelectCoursesScreen(),
+            DoctorCoursesScreen.routeName:(context) => DoctorCoursesScreen(),
+
+
+
+
           },
         );
       },

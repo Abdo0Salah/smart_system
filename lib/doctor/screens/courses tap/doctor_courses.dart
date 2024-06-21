@@ -1,69 +1,64 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:smart_system/screens/Quiz/quiz_screen.dart';
-import 'package:smart_system/screens/home/Attendance/attendance_screen.dart';
-import '../../models/home_model.dart';
-import '../../widget/home_widget.dart';
-import '../profile/profile_screen.dart';
-import 'subject_registration.dart';
-import 'Materials.dart';
-import '3.dart';
-import '4.dart';
-import '5.dart';
 
-import '7.dart';
+import '../../model/doctor_courses_model.dart';
 
+import '../../widget/doctor_courses_widget.dart';
+import '../doctor_home.dart';
 
-class HomeScreen extends StatefulWidget {
-  static const String routeName = 'Home';
-  List<HomeModel> homeModel = [
-    HomeModel("Subject Registration", "assets/images/note.png", 0),
-    HomeModel("Materials", "assets/images/material.png", 1),
-    HomeModel("TimeTable", "assets/images/timeTable.png", 2),
-    HomeModel("Notification", "assets/images/Notification.png", 3),
-    HomeModel("Student Attendance", "assets/images/Attendence.png", 4),
-    HomeModel("Profile", "assets/images/Profile.png", 5),
-    HomeModel("Student Results", "assets/images/Results.png", 6),
-    HomeModel("Quizzes", "assets/images/Quizzes.png", 7),
-    HomeModel("Log Out", "assets/images/admin-logOut.png", 8),
+class DoctorCoursesScreen extends StatefulWidget {
+  static const String routeName = 'DoctorCoursesScreen';
+  List<DoctorCoursesModel> doctorCoursesModel = [
+    DoctorCoursesModel("Selected Topic", "assets/images/Selected Topic.png", 0),
+    DoctorCoursesModel("Network", "assets/images/Network.png", 1),
+    DoctorCoursesModel("Robotics", "assets/images/Robotics.png", 2),
+    DoctorCoursesModel(
+        "image processing", "assets/images/image processing.png", 3),
+    DoctorCoursesModel("Selected Topic", "assets/images/Selected Topic.png", 0),
+    DoctorCoursesModel("Network", "assets/images/Network.png", 1),
+    DoctorCoursesModel("Robotics", "assets/images/Robotics.png", 2),
+    DoctorCoursesModel(
+        "image processing", "assets/images/image processing.png", 3),
   ];
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<DoctorCoursesScreen> createState() => _DoctorCoursesScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _DoctorCoursesScreenState extends State<DoctorCoursesScreen> {
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         // drawer: Container( color: Colors.blue,
         //     child: const Column()),
-        backgroundColor:  const Color(0xffF5F9FE),
+        backgroundColor: const Color(0xffF5F9FE),
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              // crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(top: 10.h , left: 15.w),
+                      padding: EdgeInsets.only(top: 10.h, left: 15.w),
                       child: CircleAvatar(
                         backgroundColor: const Color(0xffC4C4C4),
                         radius: 30.r,
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 20.w , top: 10.h),
+                      padding: EdgeInsets.only(left: 20.w, top: 10.h),
                       child: Center(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Student name",
+                              "Doctor name",
                               style: GoogleFonts.inter(
                                   fontWeight: FontWeight.bold, fontSize: 15.sp),
                             ),
@@ -78,14 +73,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     const Spacer(),
-                    const Icon(
-                      Icons.close,
-                      size: 35,
+                    InkWell(
+                      onTap: () {
+                        Navigator.pop(
+                          context,
+                          DoctorHomeScreen.routeName,
+                        );
+                      },
+                      child: const Icon(
+                        Icons.close,
+                        size: 35,
+                      ),
                     ),
                   ],
                 ),
                 SizedBox(
-                  height: 30.h,
+                  height: 25.h,
                 ),
                 Padding(
                   padding: EdgeInsets.only(bottom: 20.h),
@@ -111,19 +114,41 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
+
+                Padding(
+                  padding: EdgeInsets.only(left: 10.w, top: 10.h, bottom: 10.h),
+                  child: Text(
+                    'Courses',
+                    style: GoogleFonts.fjordOne(
+                        color: Colors.black,
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w400),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 4.w, bottom: 20.h),
+                  child: Container(
+                    height: 5,
+                    width: 200,
+                    color: const Color(0xff2C4A7A),
+                  ),
+                ),
                 Expanded(
                   child: GridView(
                     gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
+                    const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                     ),
-                    children: widget.homeModel
+                    children: widget.doctorCoursesModel
                         .map((home) => InkWell(
-                              child: HomeWidget(home),
-                              onTap: () {
-                                go(home.index);
-                              },
-                            ))
+                      child: DoctorCoursesWidget(home),
+                      onTap: () {
+                        // Navigator.pushNamed(
+                        //   context,
+                        //   SubjectGroups.routeName,
+                        // );
+                      },
+                    ))
                         .toList(),
                   ),
                 ),
@@ -133,76 +158,5 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
-  }
-
-  void go(int index) {
-    switch (index) {
-      case 0:
-        {
-          Navigator.pushNamed(
-            context,
-            SubjectRegistration.routeName,
-          );
-        }
-        break;
-
-      case 1:
-        {
-          Navigator.pushNamed(
-            context,
-            MaterialsScreen.routeName,
-          );
-        }
-        break;
-      case 2:
-        {
-          Navigator.pushNamed(
-            context,
-            T.routeName,
-          );
-        }
-        break;
-
-      case 3:
-        {
-          Navigator.pushNamed(
-            context,
-            N.routeName,
-          );
-        }
-        break;
-      case 4:
-        {
-          Navigator.pushNamed(
-            context,
-            AttendanceScreen.routeName,
-          );
-        }
-        break;
-      case 5:
-        {
-          Navigator.pushNamed(
-            context,
-            Profile.routeName,
-          );
-        }
-        break;
-      case 6:
-        {
-          Navigator.pushNamed(
-            context,
-            S.routeName,
-          );
-        }
-        break;
-      case 7:
-        {
-          Navigator.pushNamed(
-            context,
-            QuizScreen.routeName,
-          );
-        }
-        break;
-    }
   }
 }

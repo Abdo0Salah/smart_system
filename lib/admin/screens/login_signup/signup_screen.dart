@@ -8,7 +8,7 @@ import 'forget_pass.dart';
 
 
 class SignUpScreenAdmin extends StatefulWidget {
-  static const String routeName = 'SignUpScreen';
+  static const String routeName = 'SignUpScreenAdmin';
 
   @override
   State<SignUpScreenAdmin> createState() => _LoginScreenState();

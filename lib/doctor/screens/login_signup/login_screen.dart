@@ -6,7 +6,7 @@ import 'package:smart_system/doctor/screens/login_signup/signup_screen.dart';
 
 
 class LoginScreenDoctor extends StatefulWidget {
-  static const String routeName = 'LoginScreen';
+  static const String routeName = 'LoginScreenDoctor';
 
   @override
   State<LoginScreenDoctor> createState() => _LoginScreenState();

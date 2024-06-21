@@ -6,7 +6,7 @@ import 'login_screen.dart';
 
 
 class ForgetPasswordAdmin extends StatelessWidget {
-  static const String routeName = 'ForgetPass';
+  static const String routeName = 'ForgetPasswordAdmin';
 
   @override
   Widget build(BuildContext context) {

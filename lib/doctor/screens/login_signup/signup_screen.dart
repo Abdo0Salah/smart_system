@@ -7,7 +7,7 @@ import 'forget_pass.dart';
 
 
 class SignUpScreenDoctor extends StatefulWidget {
-  static const String routeName = 'SignUpScreen';
+  static const String routeName = 'SignUpScreenDoctor';
 
   @override
   State<SignUpScreenDoctor> createState() => _LoginScreenState();

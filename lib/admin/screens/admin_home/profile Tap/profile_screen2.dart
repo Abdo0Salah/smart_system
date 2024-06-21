@@ -4,7 +4,7 @@ import 'package:smart_system/admin/screens/admin_home/profile%20Tap/profile_scre
 
 
 class Profile2Admin extends StatelessWidget {
-  static const String routeName = 'profile2';
+  static const String routeName = 'Profile2Admin';
 
   @override
   Widget build(BuildContext context) {

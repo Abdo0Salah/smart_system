@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_system/admin/screens/admin_home/profile%20Tap/profile_screen2.dart';
 
 class ProfileAdmin extends StatelessWidget {
-  static const String routeName = 'profile';
+  static const String routeName = 'ProfileAdmin';
 
   @override
   Widget build(BuildContext context) {

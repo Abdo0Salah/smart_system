@@ -152,7 +152,8 @@ class AddNewGroup extends StatelessWidget {
                       'موضوعات مختاره /الفرقه التالته /التيرم التاني 2023_2024',
                 )),
               ),
-              SizedBox(height: 50),
+              SizedBox(
+                  height: 50),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(

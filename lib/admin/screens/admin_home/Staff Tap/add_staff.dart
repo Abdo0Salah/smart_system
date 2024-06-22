@@ -139,68 +139,70 @@ class AddStaff extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(20),
-                      child: Row(
-                        children: [
-                          TextButton(
-                            style: OutlinedButton.styleFrom(
-                              side: const BorderSide(color: Color(0xffFFFFFF),
-                                style: BorderStyle.solid,
-                                width: 2.5,
+                      child: Expanded(
+                        child: Row(
+                          children: [
+                            TextButton(
+                              style: OutlinedButton.styleFrom(
+                                side: const BorderSide(color: Color(0xffFFFFFF),
+                                  style: BorderStyle.solid,
+                                  width: 2.5,
+                                ),
+                                fixedSize: Size(150, 45),
+                                backgroundColor: Color(0xffFFFFFF),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
                               ),
-                              fixedSize: Size(150, 45),
-                              backgroundColor: Color(0xffFFFFFF),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                            onPressed: () {
-                              Navigator.pop(
-                                context,
-                                StaffMember.routeName,
-                              );
-                            },
-                            child:
-                            const Text(
-                              "Cancel",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.blue,
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          TextButton(
-                            style: OutlinedButton.styleFrom(
-                              side: const BorderSide(color: Color(0xff0096FF),
-                                style: BorderStyle.solid,
-                                width: 2.5,
-                              ),
-                              fixedSize: Size(150, 45),
-                              backgroundColor: Color(0xff0096FF),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
+                              onPressed: () {
+                                Navigator.pop(
+                                  context,
+                                  StaffMember.routeName,
+                                );
+                              },
+                              child:
+                              const Text(
+                                "Cancel",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.blue,
+                                ),
                               ),
                             ),
-                            onPressed: () {
-                              Navigator.pop(
-                                context,
-                                StaffMember.routeName,
-                              );
-                            },
-                            child:
-                            const Text(
-                              "Add",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
+                            SizedBox(
+                              width: 20,
+                            ),
+                            TextButton(
+                              style: OutlinedButton.styleFrom(
+                                side: const BorderSide(color: Color(0xff0096FF),
+                                  style: BorderStyle.solid,
+                                  width: 2.5,
+                                ),
+                                fixedSize: Size(150, 45),
+                                backgroundColor: Color(0xff0096FF),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.pop(
+                                  context,
+                                  StaffMember.routeName,
+                                );
+                              },
+                              child:
+                              const Text(
+                                "Add",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ],

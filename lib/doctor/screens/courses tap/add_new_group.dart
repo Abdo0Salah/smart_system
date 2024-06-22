@@ -158,32 +158,34 @@ class AddNewGroup extends StatelessWidget {
                   height: 50),
               Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.push_pin_outlined,
-                      size: 30,
-                    ),
-                    SizedBox(width: 10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Pin Group',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 15,
-                        ),
-                        ),
-                        SizedBox(height: 10),
-                        Container(
-                          width: 280,
-                          height: 1,
-                          color: Color(0xff554A4A),
-                        ),
-                      ],
-                    ),
-                    Image.asset('assets/images/doctor/line-md_switch-filled.png'),
-                  ],
+                child: Expanded(
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.push_pin_outlined,
+                        size: 30,
+                      ),
+                      SizedBox(width: 10),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Pin Group',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 15,
+                          ),
+                          ),
+                          SizedBox(height: 10),
+                          Container(
+                            width: 280,
+                            height: 1,
+                            color: Color(0xff554A4A),
+                          ),
+                        ],
+                      ),
+                      Image.asset('assets/images/doctor/line-md_switch-filled.png'),
+                    ],
+                  ),
                 ),
               ),
             ],

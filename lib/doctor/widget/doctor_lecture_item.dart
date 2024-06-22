@@ -51,7 +51,7 @@ class DoctorLectureItem extends StatelessWidget {
                 IconButton(
                   iconSize: 30,
                   style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(Colors.white)
+                      backgroundColor: MaterialStateProperty.all(Colors.white)
                   ),
                   icon: const Icon(Icons.edit,
                     size: 20,
@@ -63,7 +63,7 @@ class DoctorLectureItem extends StatelessWidget {
                 ),
                 IconButton(
                   style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(Colors.white)
+                      backgroundColor: MaterialStateProperty.all(Colors.white)
                   ),
                   icon: const Icon(Icons.delete,
                     size: 20,

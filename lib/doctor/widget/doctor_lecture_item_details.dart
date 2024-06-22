@@ -31,7 +31,7 @@ class DoctorLectureItemDetails extends StatelessWidget {
               children: [
                 IconButton(
                   style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(Colors.white)
+                      backgroundColor: MaterialStateProperty.all(Colors.white)
                   ),
                   icon: const Icon(Icons.delete,
                     size: 20,

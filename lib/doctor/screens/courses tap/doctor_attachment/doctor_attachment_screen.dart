@@ -62,7 +62,7 @@ class DoctorAttachmentScreen extends StatelessWidget {
                         color: Colors.black,
                         iconSize: 30,
                         style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(Color(0xFFAAC8E4))
+                      backgroundColor: MaterialStateProperty.all(Color(0xFFAAC8E4))
                     ),
                        // hoverColor:  Colors.black,
                         icon:   Icon(Icons.add))

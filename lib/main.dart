@@ -68,6 +68,8 @@ import 'cache/cache_helper.dart';
 import 'core/api/dio_consumer.dart';
 import 'cubit/user_cubit.dart';
 
+import 'doctor/screens/courses tap/Create Meeting App/creat_meeting.dart';
+import 'doctor/screens/courses tap/Create Meeting App/meeting_information.dart';
 import 'doctor/screens/courses tap/doctor_attachment/doctor_attachment_screen.dart';
 import 'doctor/screens/courses tap/doctor_attachment/doctor_lecture_atta.dart';
 import 'doctor/screens/courses tap/doctor_subject_group.dart.dart';
@@ -103,7 +105,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: CreateQuiz.routeName,
+          initialRoute: DoctorHomeScreen.routeName,
           routes: {
             //student
             splash0.routeName: (context) => splash0(),
@@ -168,13 +170,14 @@ class MyApp extends StatelessWidget {
             DoctorCoursesScreen.routeName:(context) => DoctorCoursesScreen(),
             AddNewGroup.routeName:(context) => AddNewGroup(),
             AddAttachment.routeName:(context) => AddAttachment(),
-
             DoctorSubjectGroups.routeName:(context) => DoctorSubjectGroups(),
             DoctorMatPagee.routeName:(context) => DoctorMatPagee(),
             DoctorAttachmentScreen.routeName:(context) => DoctorAttachmentScreen(),
             DoctorLectureAttavhment.routeName:(context) => DoctorLectureAttavhment(),
             AddNewPost.routeName:(context) => AddNewPost(),
             AddAssignment.routeName:(context) => AddAssignment(),
+            CreateMeetingScreen.routeName:(context) => CreateMeetingScreen(),
+            MeetingInformationScreen.routeName:(context) => MeetingInformationScreen(),
             DoctorProfile1.routeName:(context) => DoctorProfile1(),
             DoctorProfile2.routeName:(context) => DoctorProfile2(),
             CourseNameQr.routeName:(context) => CourseNameQr(),

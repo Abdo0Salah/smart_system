@@ -19,7 +19,6 @@ import 'package:smart_system/doctor/screens/courses%20tap/Assignments%20tap/add_
 import 'package:smart_system/doctor/screens/courses%20tap/add_attachment.dart';
 import 'package:smart_system/doctor/screens/courses%20tap/add_new_group.dart';
 import 'package:smart_system/doctor/screens/courses%20tap/post%20tap/add_new_post.dart';
-import 'package:smart_system/doctor/screens/courses%20tap/quis%20tab/doctor_obtions_quis.dart';
 import 'package:smart_system/doctor/screens/login_signup/Verification_screen.dart';
 import 'package:smart_system/doctor/screens/login_signup/forget_pass.dart';
 import 'package:smart_system/doctor/screens/login_signup/login_screen.dart';
@@ -27,7 +26,6 @@ import 'package:smart_system/doctor/screens/login_signup/reset_password_screen.d
 import 'package:smart_system/doctor/screens/login_signup/signup_screen.dart';
 import 'package:smart_system/doctor/screens/profile%20Tap/profile_screen.dart';
 import 'package:smart_system/doctor/screens/profile%20Tap/profile_screen2.dart';
-import 'package:smart_system/doctor/screens/courses%20tap/quis%20tab/create_quiz.dart';
 import 'package:smart_system/repositories/user_repository.dart';
 import 'package:smart_system/screens/Feedback/feedback_%20form.dart';
 import 'package:smart_system/screens/Feedback/feedback_screen.dart';
@@ -81,6 +79,8 @@ import 'doctor/screens/courses tap/doctor_courses.dart';
 import 'doctor/screens/courses tap/doctor_select_courses.dart';
 import 'doctor/screens/courses tap/post tap/doctorpost_screen.dart';
 import 'doctor/screens/doctor_home.dart';
+import 'doctor/screens/quis tab/create_quiz.dart';
+import 'doctor/screens/quis tab/doctor_obtions_quis.dart';
 import 'mat_page.dart';
 
 void main() {

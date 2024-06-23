@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_system/doctor/screens/profile%20Tap/profile_screen.dart';
+import 'package:smart_system/doctor/screens/quis%20tab/create_quiz.dart';
 import ' Attendence Report tap/Attendence Report Screen.dart';
 import '../model/doctor_home_model.dart';
 import '../widget/doctor_home_widget.dart';
 import 'courses tap/doctor_courses.dart';
 import 'courses tap/doctor_select_courses.dart';
-import 'courses tap/quis tab/create_quiz.dart';
+
 
 
 

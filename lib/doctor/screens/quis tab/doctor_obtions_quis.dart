@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../widget/add_option_widget.dart';
+
+import '../../widget/add_option_widget.dart';
 import 'create_quiz.dart';
 
 class DoctorObtionsQuis extends StatefulWidget {
@@ -112,15 +113,13 @@ class _DoctorObtionsQuisState extends State<DoctorObtionsQuis> {
               ),
               Container(
                 height: 200.h,
-                child: Expanded(
-                  child: ListView.builder(
-                    itemBuilder: (context, index) {
-                      return   AddOptionWidget();
-                    },
-                    itemCount: numberOfOptions,
-        
-        
-                  ),
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    return AddOptionWidget();
+                  },
+                  itemCount: numberOfOptions,
+
+
                 ),
               ),
               SizedBox(

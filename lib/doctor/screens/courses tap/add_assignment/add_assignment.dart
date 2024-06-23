@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smart_system/admin/screens/admin_home/Staff%20Tap/staff_member.dart';
 
-class AddStaff extends StatelessWidget {
-  static const String routeName = 'AddStaff';
+class AddAssignment extends StatelessWidget {
+  static const String routeName = 'AddAssignment';
 
   @override
   Widget build(BuildContext context) {
@@ -11,11 +11,23 @@ class AddStaff extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 30, bottom: 20),
+                child: Text(
+                  'Add Assignment',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ),
             Padding(
-              padding: const EdgeInsets.only(top: 100, left: 15, right: 15),
+              padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
               child: Container(
                 width: 400,
-                height: 580,
+                height: 550,
                 decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
@@ -31,21 +43,9 @@ class AddStaff extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 70, bottom: 70),
-                        child: Text(
-                          'Add Staff',
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 25 ,bottom: 8),
-                      child: Text('Name',
+                      padding: const EdgeInsets.only(top: 40 , left: 25 ,bottom: 8),
+                      child: Text('Title',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 15,
@@ -68,16 +68,13 @@ class AddStaff extends StatelessWidget {
                               ),
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            prefixIcon: Icon(Icons.person_pin,
-                            color: Colors.blue,
-                            ),
                           ),
                         ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 25 ,bottom: 8),
-                      child: Text('Email Address',
+                      child: Text('Description',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 15,
@@ -89,10 +86,12 @@ class AddStaff extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 20 , bottom: 25, right: 20),
                       child: Container(
                         width: 350,
-                        height: 45,
+                        height: 120,
                         child: TextFormField(
                           // controller: ,
                           decoration: InputDecoration(
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 100.0, horizontal: 15.0),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0xffA9A9A9),
@@ -100,16 +99,13 @@ class AddStaff extends StatelessWidget {
                               ),
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            prefixIcon: Icon(Icons.email,
-                              color: Colors.blue,
-                            ),
                           ),
                         ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 25 ,bottom: 8),
-                      child: Text(' Enter the Password',
+                      child: Text(' Upload Assignment File',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 15,
@@ -121,7 +117,7 @@ class AddStaff extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 20 , bottom: 25, right: 20),
                       child: Container(
                         width: 350,
-                        height: 45,
+                        height: 60,
                         child: TextFormField(
                           // controller: ,
                           obscureText: true,
@@ -133,82 +129,79 @@ class AddStaff extends StatelessWidget {
                               ),
                               borderRadius: BorderRadius.circular(8),
                             ),
+                            prefixIcon: Icon(Icons.cloud_upload,
+                              color: Colors.black,
+                            ),
+                            hintText: 'Attachment File',
+                            hintStyle: TextStyle(color: Colors.black),
                           ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Expanded(
-                        child: Row(
-                          children: [
-                            TextButton(
-                              style: OutlinedButton.styleFrom(
-                                side: const BorderSide(color: Color(0xffFFFFFF),
-                                  style: BorderStyle.solid,
-                                  width: 2.5,
-                                ),
-                                fixedSize: Size(150, 45),
-                                backgroundColor: Color(0xffFFFFFF),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              onPressed: () {
-                                Navigator.pop(
-                                  context,
-                                  StaffMember.routeName,
-                                );
-                              },
-                              child:
-                              const Text(
-                                "Cancel",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.blue,
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            TextButton(
-                              style: OutlinedButton.styleFrom(
-                                side: const BorderSide(color: Color(0xff0096FF),
-                                  style: BorderStyle.solid,
-                                  width: 2.5,
-                                ),
-                                fixedSize: Size(150, 45),
-                                backgroundColor: Color(0xff0096FF),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              onPressed: () {
-                                Navigator.pop(
-                                  context,
-                                  StaffMember.routeName,
-                                );
-                              },
-                              child:
-                              const Text(
-                                "Add",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ],
+                      padding: const EdgeInsets.only(left: 25 ,bottom: 8),
+                      child: Text(' Submitted Date',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
-                  ],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20 , bottom: 25, right: 20),
+                      child: Container(
+                        width: 350,
+                        height: 60,
+                        child: TextFormField(
+                          // controller: ,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xffA9A9A9),
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            suffixIcon: Icon(Icons.calendar_today_rounded,
+                              color: Colors.black,
+                            ),
+
+                        ),
+                      ),
+                    ),),
+    ],
                 ),
               ),
             ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 15 , top: 50, bottom: 15 , right: 15),
+              child: TextButton(
+                style: OutlinedButton.styleFrom(
+                  side: const BorderSide(color: Color(0xff7462FF),
+                    style: BorderStyle.solid),
+                  fixedSize: Size(300, 50),
+                  backgroundColor: Color(0xff7462FF),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                ),
+                onPressed: (){
+                  //   Navigator.of(context).pop(AddAttachment.routeName);
+                },
+                child: const Text(
+                  "Upload Assignment",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ),
+
           ],
         ),
       ),

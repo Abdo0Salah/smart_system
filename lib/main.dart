@@ -12,13 +12,19 @@ import 'package:smart_system/admin/screens/login_signup/forget_pass.dart';
 import 'package:smart_system/admin/screens/login_signup/login_screen.dart';
 import 'package:smart_system/admin/screens/login_signup/reset_password_screen.dart';
 import 'package:smart_system/admin/screens/login_signup/signup_screen.dart';
+import 'package:smart_system/doctor/screens/Qr%20Scanner/course_name.dart';
+import 'package:smart_system/doctor/screens/courses%20tap/add_assignment/add_assignment.dart';
 import 'package:smart_system/doctor/screens/courses%20tap/add_attachment.dart';
 import 'package:smart_system/doctor/screens/courses%20tap/add_new_group.dart';
+import 'package:smart_system/doctor/screens/courses%20tap/add_post/add_new_post.dart';
 import 'package:smart_system/doctor/screens/login_signup/Verification_screen.dart';
 import 'package:smart_system/doctor/screens/login_signup/forget_pass.dart';
 import 'package:smart_system/doctor/screens/login_signup/login_screen.dart';
 import 'package:smart_system/doctor/screens/login_signup/reset_password_screen.dart';
 import 'package:smart_system/doctor/screens/login_signup/signup_screen.dart';
+import 'package:smart_system/doctor/screens/profile%20Tap/profile_screen.dart';
+import 'package:smart_system/doctor/screens/profile%20Tap/profile_screen2.dart';
+import 'package:smart_system/doctor/screens/quiz%20tap/create_quiz.dart';
 import 'package:smart_system/repositories/user_repository.dart';
 import 'package:smart_system/screens/Feedback/feedback_%20form.dart';
 import 'package:smart_system/screens/Feedback/feedback_screen.dart';
@@ -97,7 +103,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: splash0.routeName,
+          initialRoute: CreateQuiz.routeName,
           routes: {
             //student
             splash0.routeName: (context) => splash0(),
@@ -167,6 +173,12 @@ class MyApp extends StatelessWidget {
             DoctorMatPagee.routeName:(context) => DoctorMatPagee(),
             DoctorAttachmentScreen.routeName:(context) => DoctorAttachmentScreen(),
             DoctorLectureAttavhment.routeName:(context) => DoctorLectureAttavhment(),
+            AddNewPost.routeName:(context) => AddNewPost(),
+            AddAssignment.routeName:(context) => AddAssignment(),
+            DoctorProfile1.routeName:(context) => DoctorProfile1(),
+            DoctorProfile2.routeName:(context) => DoctorProfile2(),
+            CourseNameQr.routeName:(context) => CourseNameQr(),
+            CreateQuiz.routeName:(context) => CreateQuiz(),
           },
         );
       },

@@ -14,6 +14,7 @@ import 'package:smart_system/admin/screens/login_signup/reset_password_screen.da
 import 'package:smart_system/admin/screens/login_signup/signup_screen.dart';
 import 'package:smart_system/doctor/screens/courses%20tap/add_attachment.dart';
 import 'package:smart_system/doctor/screens/courses%20tap/add_new_group.dart';
+import 'package:smart_system/doctor/screens/courses%20tap/add_post/add_new_post.dart';
 import 'package:smart_system/doctor/screens/login_signup/Verification_screen.dart';
 import 'package:smart_system/doctor/screens/login_signup/forget_pass.dart';
 import 'package:smart_system/doctor/screens/login_signup/login_screen.dart';
@@ -97,7 +98,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: splash0.routeName,
+          initialRoute: AddNewPost.routeName,
           routes: {
             //student
             splash0.routeName: (context) => splash0(),
@@ -167,6 +168,7 @@ class MyApp extends StatelessWidget {
             DoctorMatPagee.routeName:(context) => DoctorMatPagee(),
             DoctorAttachmentScreen.routeName:(context) => DoctorAttachmentScreen(),
             DoctorLectureAttavhment.routeName:(context) => DoctorLectureAttavhment(),
+            AddNewPost.routeName:(context) => AddNewPost(),
           },
         );
       },

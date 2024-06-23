@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../widget/lecture_assignment_item.dart';
 import '../../../widget/doctorlecture_assignment_item.dart';
+import 'add_assignment.dart';
 class DoctorAssignmentScreen extends StatelessWidget {
   static const String routeName = 'DoctorAssignmentScreen';
 
@@ -16,10 +17,10 @@ class DoctorAssignmentScreen extends StatelessWidget {
           IconButton(
               onPressed: (){
 
-               // Navigator.pushNamed(
-                  // context,
-                  // AddAttachment.routeName,
-            //    );
+               Navigator.pushNamed(
+                  context,
+                 AddAssignment.routeName,
+               );
               },
               color: Colors.black,
               iconSize: 30,

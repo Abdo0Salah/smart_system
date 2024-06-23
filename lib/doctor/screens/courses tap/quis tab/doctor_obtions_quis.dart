@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../widget/add_option_widget.dart';
+import 'create_quiz.dart';
 
 class DoctorObtionsQuis extends StatefulWidget {
   const DoctorObtionsQuis({super.key});
@@ -169,7 +170,11 @@ class _DoctorObtionsQuisState extends State<DoctorObtionsQuis> {
               child: Row(
                 children: [
                   Spacer(),
-                  TextButton(onPressed: (){},
+                  TextButton(onPressed: (){
+                    Navigator.of(context).pop(CreateQuiz.routeName);
+
+
+                  },
                     child: Text("Add New Question",
                       style: TextStyle(
                           color: Colors.white,
@@ -188,7 +193,10 @@ class _DoctorObtionsQuisState extends State<DoctorObtionsQuis> {
             Row(
               children: [
                 Expanded(
-                  child: TextButton(onPressed: (){},
+                  child: TextButton(onPressed: (){
+                    Navigator.of(context).pop(CreateQuiz.routeName);
+
+                  },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text("Create Quiz",

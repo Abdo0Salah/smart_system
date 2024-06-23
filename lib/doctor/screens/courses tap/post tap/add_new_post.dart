@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'doctorpost_screen.dart';
+
 
 class AddNewPost extends StatelessWidget {
   static const String routeName = 'AddNewPost';
@@ -114,7 +116,7 @@ class AddNewPost extends StatelessWidget {
                       ),
                     ),
                     onPressed: (){
-                   //   Navigator.of(context).pop(AddAttachment.routeName);
+                   Navigator.of(context).pop(DoctorPostScreen.routeName);
                     },
                     child: const Text(
                           "Add Post",

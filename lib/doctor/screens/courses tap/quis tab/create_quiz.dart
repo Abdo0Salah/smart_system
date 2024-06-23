@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'doctor_obtions_quis.dart';
+
 class CreateQuiz extends StatefulWidget {
   static const String routeName = 'CreateQuiz';
 
@@ -124,7 +126,7 @@ class _CreateQuizState extends State<CreateQuiz> {
                           ),
                         ),
                         onPressed: () {
-                         // Navigator.of(context).pushNamed(LoginScreenDoctor.routeName);
+                          Navigator.of(context).pushNamed(DoctorObtionsQuis.routeName);
                         },
                         child: const Text(
                           "Add Option",

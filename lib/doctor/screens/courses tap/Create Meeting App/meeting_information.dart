@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:smart_system/admin/screens/admin_home/profile%20Tap/profile_screen.dart';
+import 'package:smart_system/doctor/screens/doctor_home.dart';
 
+
+import '../../profile Tap/profile_screen.dart';
 import 'creat_meeting.dart';
 
 class MeetingInformationScreen extends StatefulWidget {
@@ -245,12 +247,29 @@ class _MeetingInformationScreenState extends State<MeetingInformationScreen> {
         currentIndex: _selectedIndex, //New
         onTap: _onItemTapped,
         items: <BottomNavigationBarItem>[
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+           BottomNavigationBarItem(
+            icon: InkWell(
+              child: const Icon(Icons.home),
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  DoctorHomeScreen.routeName,
+                );
+              },
+            ),
             label: 'Home',
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.table_view_outlined),
+           BottomNavigationBarItem(
+            icon: InkWell(
+              child: const Icon(Icons.table_view_outlined),
+              onTap: () {
+                // Navigator.pushNamed(
+                //   context,
+                //   DoctorHomeScreen.routeName,
+                // );
+              },
+            ),
+
             label: 'TimeTable',
           ),
           BottomNavigationBarItem(
@@ -259,10 +278,10 @@ class _MeetingInformationScreenState extends State<MeetingInformationScreen> {
                 Icons.account_circle_outlined,
               ),
               onTap: () {
-                // Navigator.pushNamed(
-                //   context,
-                //   ProfileAdmin.routeName,
-                // );
+                Navigator.pushNamed(
+                  context,
+                  DoctorProfile1.routeName,
+                );
               },
             ),
             label: 'Profile',

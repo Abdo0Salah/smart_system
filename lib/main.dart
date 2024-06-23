@@ -62,12 +62,16 @@ import 'cache/cache_helper.dart';
 import 'core/api/dio_consumer.dart';
 import 'cubit/user_cubit.dart';
 
+import 'doctor/screens/ Attendence Report tap/Attendence Report Screen.dart';
+import 'doctor/screens/courses tap/Assignments tap/doctor_assignment_screen.dart';
 import 'doctor/screens/courses tap/doctor_attachment/doctor_attachment_screen.dart';
 import 'doctor/screens/courses tap/doctor_attachment/doctor_lecture_atta.dart';
 import 'doctor/screens/courses tap/doctor_subject_group.dart.dart';
 import 'doctor/screens/courses tap/doctor_mat_page.dart';
 import 'doctor/screens/courses tap/doctor_courses.dart';
 import 'doctor/screens/courses tap/doctor_select_courses.dart';
+import 'doctor/screens/courses tap/post tap/doctorpost_screen.dart';
+import 'doctor/screens/courses tap/quis tab/doctor_obtions_quis.dart';
 import 'doctor/screens/doctor_home.dart';
 import 'mat_page.dart';
 
@@ -97,7 +101,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: splash0.routeName,
+          initialRoute: AttendenceReportScreen.routeName,
           routes: {
             //student
             splash0.routeName: (context) => splash0(),
@@ -167,6 +171,12 @@ class MyApp extends StatelessWidget {
             DoctorMatPagee.routeName:(context) => DoctorMatPagee(),
             DoctorAttachmentScreen.routeName:(context) => DoctorAttachmentScreen(),
             DoctorLectureAttavhment.routeName:(context) => DoctorLectureAttavhment(),
+
+
+            DoctorAssignmentScreen.routeName:(context) => DoctorAssignmentScreen(),
+            DoctorPostScreen.routeName:(context) => DoctorPostScreen(),
+            DoctorObtionsQuis.routeName:(context) => DoctorObtionsQuis(),
+            AttendenceReportScreen.routeName:(context) => AttendenceReportScreen(),
           },
         );
       },

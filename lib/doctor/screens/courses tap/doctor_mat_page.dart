@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:smart_system/doctor/screens/courses%20tap/post%20tap/doctorpost_screen.dart';
 import 'package:smart_system/doctor/widget/DoctorMaterialItem.dart';
 import 'package:smart_system/screens/assignment/assinment_screen.dart';
 import 'package:smart_system/screens/meeting_screen.dart';
 import 'package:smart_system/screens/post/post_screen.dart';
 import '../../model/DoctotMaterialModel.dart';
+import 'Assignments tap/doctor_assignment_screen.dart';
 import 'doctor_attachment/doctor_attachment_screen.dart';
 
 class DoctorMatPagee extends StatefulWidget {
@@ -69,7 +71,7 @@ class _DoctorMatPageeState extends State<DoctorMatPagee> {
         {
           Navigator.pushNamed(
             context,
-            PostScreen.routeName,
+            DoctorPostScreen.routeName,
             ///
           );
         }
@@ -89,7 +91,7 @@ class _DoctorMatPageeState extends State<DoctorMatPagee> {
         {
           Navigator.pushNamed(
             context,
-            AssinmentScreen.routeName,
+            DoctorAssignmentScreen.routeName,
             ///
           );
         }

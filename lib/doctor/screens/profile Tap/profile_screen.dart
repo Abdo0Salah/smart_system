@@ -3,9 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_system/admin/screens/admin_home/admin-home.dart';
 import 'package:smart_system/admin/screens/admin_home/profile%20Tap/profile_screen2.dart';
+import 'package:smart_system/doctor/screens/doctor_home.dart';
+import 'package:smart_system/doctor/screens/profile%20Tap/profile_screen2.dart';
 
-class ProfileAdmin extends StatelessWidget {
-  static const String routeName = 'ProfileAdmin';
+class DoctorProfile1 extends StatelessWidget {
+  static const String routeName = 'DoctorProfile1';
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +52,7 @@ class ProfileAdmin extends StatelessWidget {
                   Image.asset('assets/images/admin/profile1.png'),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text("admin name",
+                    child: Text("Doctor name",
                       style: TextStyle(
                         fontSize: 36,
                         fontWeight: FontWeight.w700,
@@ -81,7 +83,7 @@ class ProfileAdmin extends StatelessWidget {
                       ),
                     ),
                     onPressed: (){
-                      Navigator.of(context).pushNamed(Profile2Admin.routeName);
+                      Navigator.of(context).pushNamed(DoctorProfile2.routeName);
                     },
                     child:
                         Padding(
@@ -124,7 +126,7 @@ class ProfileAdmin extends StatelessWidget {
                       ),
                     ),
                     onPressed: (){
-                      Navigator.of(context).pushNamed(AdminHomeScreen.routeName);
+                      Navigator.of(context).pushNamed(DoctorHomeScreen.routeName);
                     },
                     child:
                         Text(

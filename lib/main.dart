@@ -21,6 +21,8 @@ import 'package:smart_system/doctor/screens/login_signup/forget_pass.dart';
 import 'package:smart_system/doctor/screens/login_signup/login_screen.dart';
 import 'package:smart_system/doctor/screens/login_signup/reset_password_screen.dart';
 import 'package:smart_system/doctor/screens/login_signup/signup_screen.dart';
+import 'package:smart_system/doctor/screens/profile%20Tap/profile_screen.dart';
+import 'package:smart_system/doctor/screens/profile%20Tap/profile_screen2.dart';
 import 'package:smart_system/repositories/user_repository.dart';
 import 'package:smart_system/screens/Feedback/feedback_%20form.dart';
 import 'package:smart_system/screens/Feedback/feedback_screen.dart';
@@ -171,6 +173,8 @@ class MyApp extends StatelessWidget {
             DoctorLectureAttavhment.routeName:(context) => DoctorLectureAttavhment(),
             AddNewPost.routeName:(context) => AddNewPost(),
             AddAssignment.routeName:(context) => AddAssignment(),
+            DoctorProfile1.routeName:(context) => DoctorProfile1(),
+            DoctorProfile2.routeName:(context) => DoctorProfile2(),
           },
         );
       },

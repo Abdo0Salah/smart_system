@@ -23,10 +23,11 @@ class _DoctorObtionsQuisState extends State<DoctorObtionsQuis> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Create Quiz "),
+        title: const Text("Create Quiz ",style: TextStyle(color: Colors.black),),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.black)
       ),
       backgroundColor: const Color(0xffEFF3F7FF),
       body: SingleChildScrollView(

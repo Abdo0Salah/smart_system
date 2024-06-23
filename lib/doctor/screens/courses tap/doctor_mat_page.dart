@@ -4,7 +4,6 @@ import 'package:smart_system/screens/assignment/assinment_screen.dart';
 import 'package:smart_system/screens/meeting_screen.dart';
 import 'package:smart_system/screens/post/post_screen.dart';
 import '../../model/DoctotMaterialModel.dart';
-import 'Create Meeting App/meeting_information.dart';
 import 'doctor_attachment/doctor_attachment_screen.dart';
 
 class DoctorMatPagee extends StatefulWidget {
@@ -99,7 +98,7 @@ class _DoctorMatPageeState extends State<DoctorMatPagee> {
         {
           Navigator.pushNamed(
             context,
-            MeetingInformationScreen.routeName,
+            MeetingScreen.routeName,
             ///
           );
         }

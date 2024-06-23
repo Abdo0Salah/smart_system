@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class PostScreen extends StatelessWidget {
-  const PostScreen({super.key});
-  static const String routeName = 'post';
+class DoctorPostScreen extends StatelessWidget {
+  const DoctorPostScreen({super.key});
+  static const String routeName = 'DoctorPostScreen';
   @override
   Widget build(BuildContext context) {
     return SafeArea(

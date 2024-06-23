@@ -139,7 +139,7 @@ class _DoctorSelectCoursesScreenState extends State<DoctorSelectCoursesScreen> {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.of(context).pushNamed(DoctorCoursesScreen.routeName);
+                        Navigator.of(context).pop();
                       },
                       child: const Text(
                         "Save",

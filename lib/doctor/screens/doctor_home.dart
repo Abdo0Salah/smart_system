@@ -5,6 +5,7 @@ import 'package:smart_system/doctor/screens/profile%20Tap/profile_screen.dart';
 import ' Attendence Report tap/Attendence Report Screen.dart';
 import '../model/doctor_home_model.dart';
 import '../widget/doctor_home_widget.dart';
+import 'courses tap/doctor_courses.dart';
 import 'courses tap/doctor_select_courses.dart';
 import 'courses tap/quis tab/create_quiz.dart';
 
@@ -132,20 +133,20 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
 
   void go(int index) {
     switch (index) {
-      // case 0:
-      //   {
-      //     Navigator.pushNamed(
-      //       context,
-      //       SubjectRegistration.routeName,
-      //     );
-      //   }
-      //   break;
+      case 0:
+        {
+          Navigator.pushNamed(
+            context,
+            DoctorSelectCoursesScreen.routeName,
+          );
+        }
+        break;
 
       case 1:
         {
           Navigator.pushNamed(
             context,
-            DoctorSelectCoursesScreen.routeName,
+            DoctorCoursesScreen.routeName,
           );
         }
         break;

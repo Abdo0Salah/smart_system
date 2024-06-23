@@ -138,7 +138,7 @@ class _DoctorObtionsQuisState extends State<DoctorObtionsQuis> {
                   ),),
               style: ButtonStyle(
 
-                backgroundColor: WidgetStatePropertyAll(Colors.white)
+                backgroundColor: MaterialStateProperty.all(Colors.white)
               ),),
             ),
             Padding(
@@ -184,7 +184,7 @@ class _DoctorObtionsQuisState extends State<DoctorObtionsQuis> {
                       ),),
                     style: ButtonStyle(
 
-                        backgroundColor: WidgetStatePropertyAll(Colors.black)
+                        backgroundColor: MaterialStateProperty.all(Colors.black)
                     ),),
                 ],
               ),
@@ -208,7 +208,7 @@ class _DoctorObtionsQuisState extends State<DoctorObtionsQuis> {
                         ),),
                     ),
                     style: ButtonStyle(
-                        backgroundColor: WidgetStatePropertyAll(Colors.blue)
+                        backgroundColor: MaterialStateProperty.all(Colors.blue)
                     ),
                   ),
                 ),

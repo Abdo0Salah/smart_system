@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smart_system/admin/screens/admin_home/Staff%20Tap/staff_member.dart';
 
+import 'doctor_assignment_screen.dart';
+
 class AddAssignment extends StatelessWidget {
   static const String routeName = 'AddAssignment';
 
@@ -189,7 +191,7 @@ class AddAssignment extends StatelessWidget {
                   ),
                 ),
                 onPressed: (){
-                  //   Navigator.of(context).pop(AddAttachment.routeName);
+                    Navigator.of(context).pop(DoctorAssignmentScreen.routeName);
                 },
                 child: const Text(
                   "Upload Assignment",

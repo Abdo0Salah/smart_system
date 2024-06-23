@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'add_new_post.dart';
+
 class DoctorPostScreen extends StatelessWidget {
   const DoctorPostScreen({super.key});
   static const String routeName = 'DoctorPostScreen';
@@ -29,7 +31,14 @@ class DoctorPostScreen extends StatelessWidget {
                         ],
                       ),
                       Spacer(),
-                      Icon(Icons.add),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            AddNewPost.routeName,
+                          );
+                        },
+                          child: Icon(Icons.add)),
                     ],
                   ),
                   SizedBox(

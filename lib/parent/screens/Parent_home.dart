@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_system/parent/screens/parent_home/faculty_calls%20tap/faculty_calls.dart';
 import 'package:smart_system/parent/screens/parent_home/profile%20Tap/profile_screen.dart';
+import 'package:smart_system/parent/screens/parent_home/student_TimeTable_tap/student_timeTable.dart';
 import '../model/parent_home_model.dart';
 import '../widget/parent_home_widget.dart';
 import 'login_signup/login_screen.dart';
@@ -113,14 +114,14 @@ class _ParentHomeScreenState extends State<ParentHomeScreen> {
         }
         break;
 
-    // case 1:
-    //   {
-    //     Navigator.pushNamed(
-    //       context,
-    //       DoctorCoursesScreen.routeName,
-    //     );
-    //   }
-    //   break;
+    case 1:
+      {
+        Navigator.pushNamed(
+          context,
+          StudentTimeTableScreen.routeName,
+        );
+      }
+      break;
       case 2:
         {
           Navigator.pushNamed(

@@ -37,37 +37,32 @@ import 'package:smart_system/parent/screens/parent_home/profile%20Tap/profile_sc
 import 'package:smart_system/parent/screens/parent_home/profile%20Tap/profile_screen2.dart';
 import 'package:smart_system/parent/screens/parent_home/student_TimeTable_tap/student_timeTable.dart';
 import 'package:smart_system/repositories/user_repository.dart';
-import 'package:smart_system/screens/Feedback/feedback_%20form.dart';
-import 'package:smart_system/screens/Feedback/feedback_screen.dart';
-import 'package:smart_system/screens/Quiz/quiz_screen.dart';
-import 'package:smart_system/screens/Quiz/start_quiz.dart';
-import 'package:smart_system/screens/assignment/add_answer_screen.dart';
-import 'package:smart_system/screens/assignment/assinment_screen.dart';
-import 'package:smart_system/screens/assignment/openAssignmentScreen.dart';
-import 'package:smart_system/screens/attachment/attachment_screen.dart';
-import 'package:smart_system/screens/attachment/lecture_atta.dart';
-import 'package:smart_system/screens/home/3.dart';
-import 'package:smart_system/screens/home/4.dart';
-import 'package:smart_system/screens/home/5.dart';
-import 'package:smart_system/screens/home/7.dart';
-import 'package:smart_system/screens/home/8.dart';
-import 'package:smart_system/screens/home/Attendance/attendance_screen.dart';
-import 'package:smart_system/screens/home/Materials.dart';
-import 'package:smart_system/screens/home/home.dart';
-import 'package:smart_system/screens/home/subject_registration.dart';
-import 'package:smart_system/screens/login_signup/Verification_screen.dart';
-import 'package:smart_system/screens/login_signup/forget_pass.dart';
-import 'package:smart_system/screens/login_signup/login_screen.dart';
-import 'package:smart_system/screens/login_signup/reset_password_screen.dart';
-import 'package:smart_system/screens/login_signup/signup_screen.dart';
-import 'package:smart_system/screens/meeting_screen.dart';
-import 'package:smart_system/screens/post/post_screen.dart';
-import 'package:smart_system/screens/profile/profile_screen.dart';
-import 'package:smart_system/screens/profile/profile_screen2.dart';
-import 'package:smart_system/screens/ui_splashes/splash0/splash0_screen.dart';
-import 'package:smart_system/screens/ui_splashes/splash1/splash1_screen.dart';
-import 'package:smart_system/subject_group.dart';
 
+
+import 'package:smart_system/Student/screens/home/materials-tap/subject_group.dart';
+
+import 'Student/screens/home/Attendance-tap/attendance_screen.dart';
+import 'Student/screens/home/Quiz-tap/quiz_screen.dart';
+import 'Student/screens/home/Quiz-tap/start_quiz.dart';
+import 'Student/screens/home/home.dart';
+import 'Student/screens/home/materials-tap/Feedback/feedback_ form.dart';
+import 'Student/screens/home/materials-tap/Feedback/feedback_screen.dart';
+import 'Student/screens/home/materials-tap/Materials.dart';
+import 'Student/screens/home/materials-tap/assignment/add_answer_screen.dart';
+import 'Student/screens/home/materials-tap/assignment/assinment_screen.dart';
+import 'Student/screens/home/materials-tap/assignment/openAssignmentScreen.dart';
+import 'Student/screens/home/materials-tap/attachment/attachment_screen.dart';
+import 'Student/screens/home/materials-tap/attachment/lecture_atta.dart';
+import 'Student/screens/home/materials-tap/meeting/meeting_screen.dart';
+import 'Student/screens/home/materials-tap/post/post_screen.dart';
+import 'Student/screens/home/profile-tap/profile_screen.dart';
+import 'Student/screens/home/profile-tap/profile_screen2.dart';
+import 'Student/screens/home/subject-reg-tap/subject_registration.dart';
+import 'Student/screens/login_signup/Verification_screen.dart';
+import 'Student/screens/login_signup/forget_pass.dart';
+import 'Student/screens/login_signup/login_screen.dart';
+import 'Student/screens/login_signup/reset_password_screen.dart';
+import 'Student/screens/login_signup/signup_screen.dart';
 import 'admin/screens/admin_home/Students Tap/Student_list-result.dart';
 import 'admin/screens/admin_home/Students Tap/Students_List.dart';
 import 'admin/screens/admin_home/Students Tap/Write-message.dart';
@@ -94,7 +89,10 @@ import 'doctor/screens/courses tap/post tap/doctorpost_screen.dart';
 import 'doctor/screens/doctor_home.dart';
 import 'doctor/screens/quis tab/create_quiz.dart';
 import 'doctor/screens/quis tab/doctor_obtions_quis.dart';
-import 'mat_page.dart';
+import 'Student/screens/home/materials-tap/mat_page.dart';
+import 'package:smart_system/ui_splashes/splash1/splash1_screen.dart';
+import 'package:smart_system/ui_splashes/splash0/splash0_screen.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -122,9 +120,8 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: splash0.routeName,
+          initialRoute: HomeScreen.routeName,
           routes: {
-
             //student
             splash0.routeName: (context) => splash0(),
             splash1.routeName: (context) => splash1(),
@@ -138,11 +135,6 @@ class MyApp extends StatelessWidget {
             MaterialsScreen.routeName: (context) => MaterialsScreen(),
             QuizScreen.routeName: (context) => QuizScreen(),
             StartQuiz.routeName: (context) => StartQuiz(),
-            T.routeName: (context) => T(),
-            N.routeName: (context) => N(),
-            Ss.routeName: (context) => Ss(),
-            S.routeName: (context) => S(),
-            Q.routeName: (context) => Q(),
             SubjectGroups.routeName: (context) =>  SubjectGroups(),
             MatPagee.routeName: (context) =>  MatPagee(),
             AssinmentScreen.routeName: (context) =>  AssinmentScreen(),

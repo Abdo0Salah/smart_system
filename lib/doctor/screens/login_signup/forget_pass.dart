@@ -10,6 +10,11 @@ class ForgetPasswordDoctor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       backgroundColor: Color(0xffF0F3F7),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -17,16 +22,6 @@ class ForgetPasswordDoctor extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: InkWell(
-                    onTap: (){
-                      Navigator.of(context).pushNamed(LoginScreenDoctor.routeName);
-                    },
-                    child: Icon(Icons.arrow_back,
-                      color: Color(0xff1B406D),
-                    )),
-              ),
               Padding(
                 padding: const EdgeInsets.all(30.0),
                 child:

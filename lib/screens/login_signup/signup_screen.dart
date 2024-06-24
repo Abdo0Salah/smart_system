@@ -35,6 +35,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
       }
     }, builder: (context, state) {
       return Scaffold(
+        appBar: AppBar(
+          iconTheme: const IconThemeData(color: Colors.black),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
         backgroundColor: Color(0xffF0F3F7),
         body: SingleChildScrollView(
           child: Form(

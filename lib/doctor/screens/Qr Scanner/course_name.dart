@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 
@@ -9,23 +10,24 @@ class CourseNameQr extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text("Course Name ",
+            style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 22.sp,
+              color: Colors.black,
+            ),
+          ),
+          iconTheme: const IconThemeData(color: Colors.black),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
         backgroundColor: Color(0xffF0F3F7),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Padding(
-                padding:
-                const EdgeInsets.only(left: 30 ,  top: 20, bottom: 30),
-                child: Text(
-                  'Course Name',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(

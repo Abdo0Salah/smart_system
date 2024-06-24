@@ -18,21 +18,16 @@ class _LoginScreenState extends State<ParentLoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       backgroundColor: Color(0xffF0F3F7),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20 , left: 20 , right: 20),
-              child: InkWell(
-                  onTap: (){
-
-                  },
-                  child: Icon(Icons.arrow_back,
-                    color: Color(0xff1B406D),
-                  )),
-            ),
             Padding(
               padding: const EdgeInsets.only(top: 10 , right: 40 , left: 40),
               child: Image.asset('assets/images/Login/login_logo.png'),

@@ -7,12 +7,17 @@ class AddStaff extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       backgroundColor: Color(0xffF0F3F7),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 100, left: 15, right: 15),
+              padding: const EdgeInsets.only(left: 15, right: 15),
               child: Container(
                 width: 400,
                 height: 580,

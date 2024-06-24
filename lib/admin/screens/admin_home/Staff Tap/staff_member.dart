@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'add_staff.dart';
 
@@ -9,6 +10,11 @@ class StaffMember extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          iconTheme: const IconThemeData(color: Colors.black),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
         backgroundColor: Color(0xffF0F3F7),
         floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
         floatingActionButton: Padding(
@@ -44,7 +50,7 @@ class StaffMember extends StatelessWidget {
               Center(
                 child: Padding(
                   padding:
-                  const EdgeInsets.only(right: 20, top: 60, bottom: 20),
+                  const EdgeInsets.only(right: 20, bottom: 20),
                   child: Text(
                     'Staff Member',
                     style: TextStyle(

@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_system/admin/screens/login_signup/forget_pass.dart';
 import 'package:smart_system/admin/screens/login_signup/reset_password_screen.dart';
 
@@ -10,40 +12,36 @@ class VerificationScreenAdmin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Verification",
+          style: TextStyle(
+            fontWeight: FontWeight.w400,
+            fontSize: 22.sp,
+            color: Colors.black,
+          ),
+        ),
+        centerTitle: true,
+        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        ),
       backgroundColor: Color(0xffF0F3F7),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20 , left: 20),
-              child: InkWell(
-                  onTap: (){
-                    Navigator.of(context).pushNamed(ForgetPasswordAdmin.routeName);
-                  },
-                  child: Icon(Icons.arrow_back,
-                  color: Color(0xff1B406D),
-                  )),
-            ),
-            Center(
-              child: Column(
-                children: [
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 40),
-                    child: Text('Verification',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w400,
+                    padding: const EdgeInsets.only(top: 70),
+                    child: Center(
+                      child: Text(
+                          "Enter Verification Code",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                          )
+                      ),
                     ),
-                    ),
-                  ),
-                  Text(
-                      "Enter Verification Code",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                      )
                   ),
                   Padding(
                     padding: const EdgeInsets.all(30.0),
@@ -188,9 +186,6 @@ class VerificationScreenAdmin extends StatelessWidget {
                 ],
               ),
             ),
-          ],
-        ),
-      ),
     );
   }
 }

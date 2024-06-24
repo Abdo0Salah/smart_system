@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MessageList extends StatelessWidget {
   static const String routeName = 'MessageList';
@@ -7,22 +8,23 @@ class MessageList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Message List ",
+          style: TextStyle(
+            fontWeight: FontWeight.w400,
+            fontSize: 22.sp,
+            color: Colors.black,
+          ),
+        ),
+        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       backgroundColor: Color(0xffF0F3F7),
         body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.only(top : 60 , bottom: 40),
-              child: Text('Message List',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ),
-          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(

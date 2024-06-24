@@ -124,7 +124,7 @@ class _ParentHomeScreenState extends State<ParentHomeScreen> {
       break;
       case 2:
         {
-          Navigator.pushNamed(
+          Navigator.pop(
             context,
             ParentLoginScreen.routeName,
           );

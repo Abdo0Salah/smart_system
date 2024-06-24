@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:smart_system/doctor/screens/login_signup/login_screen.dart';
 import 'package:smart_system/doctor/screens/profile%20Tap/profile_screen.dart';
 import 'package:smart_system/doctor/screens/quis%20tab/create_quiz.dart';
 import ' Attendence Report tap/Attendence Report Screen.dart';
@@ -197,6 +198,14 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
           Navigator.pushNamed(
             context,
             CreateQuiz.routeName,
+          );
+        }
+        break;
+      case 8:
+        {
+          Navigator.pop(
+            context,
+            LoginScreenDoctor.routeName,
           );
         }
         break;

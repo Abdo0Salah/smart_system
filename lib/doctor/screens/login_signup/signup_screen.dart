@@ -18,6 +18,11 @@ class _LoginScreenState extends State<SignUpScreenDoctor> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       backgroundColor: Color(0xffF0F3F7),
       body: SingleChildScrollView(
         child: Column(

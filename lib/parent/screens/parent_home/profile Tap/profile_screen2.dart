@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_system/parent/screens/parent_home/profile%20Tap/profile_screen.dart';
 
 
@@ -11,30 +12,25 @@ class ParentProfile2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text("Edit Profile",
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 22.sp,
+              color: Colors.black,
+            ),
+          ),
+          centerTitle: true,
+          iconTheme: const IconThemeData(color: Colors.black),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
         backgroundColor: Color(0xffF0F3F7),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(bottom: 10, top: 20, left: 20),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 100),
-                      child: Text(
-                        'Edit Profile',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xff000000),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
               Center(
                 child: Column(
                   children: [

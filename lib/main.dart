@@ -35,6 +35,7 @@ import 'package:smart_system/parent/screens/login_signup/signup_screen.dart';
 import 'package:smart_system/parent/screens/parent_home/faculty_calls%20tap/faculty_calls.dart';
 import 'package:smart_system/parent/screens/parent_home/profile%20Tap/profile_screen.dart';
 import 'package:smart_system/parent/screens/parent_home/profile%20Tap/profile_screen2.dart';
+import 'package:smart_system/parent/screens/parent_home/student_TimeTable_tap/student_timeTable.dart';
 import 'package:smart_system/repositories/user_repository.dart';
 import 'package:smart_system/screens/Feedback/feedback_%20form.dart';
 import 'package:smart_system/screens/Feedback/feedback_screen.dart';
@@ -212,6 +213,7 @@ class MyApp extends StatelessWidget {
             ParentProfile2.routeName: (context) => ParentProfile2(),
             ParentHomeScreen.routeName: (context) => ParentHomeScreen(),
             FaculityCalls.routeName: (context) => FaculityCalls(),
+            StudentTimeTableScreen.routeName: (context) => StudentTimeTableScreen(),
 
 
 

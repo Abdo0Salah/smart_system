@@ -137,7 +137,7 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                       ),
                     ),
                     SizedBox(
-                      width: 10.h,
+                      width: 10.w,
                     ),
                     Expanded(
                       child: Container(

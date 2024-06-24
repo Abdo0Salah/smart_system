@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smart_system/doctor/model/DoctotMaterialModel.dart';
 
-import '../model/DoctotMaterialModel.dart';
 
 
 class DoctorMaterialItem extends StatelessWidget {

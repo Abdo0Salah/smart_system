@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:smart_system/doctor/model/doctor_group_model.dart';
 import 'package:smart_system/doctor/widget/doctor_groub_item.dart';
 
-import '../../model/doctor_group_model.dart';
 import 'add_new_group.dart';
 import 'doctor_mat_page.dart';
 

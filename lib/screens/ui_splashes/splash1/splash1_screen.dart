@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_system/admin/screens/login_signup/login_screen.dart';
 import 'package:smart_system/doctor/screens/login_signup/login_screen.dart';
+import 'package:smart_system/parent/screens/login_signup/login_screen.dart';
 import 'package:smart_system/screens/login_signup/login_screen.dart';
 import 'package:smart_system/screens/ui_splashes/splash1/Grid.dart';
 
@@ -40,7 +41,7 @@ class splash1 extends StatelessWidget{
               ),
               InkWell(
                   onTap: (){
-                    Navigator.of(context).pushNamed(LoginScreenAdmin.routeName);
+                    Navigator.of(context).pushNamed(ParentLoginScreen.routeName);
                   },
                   child: Grid(image0: "assets/images/splash1/Rectangle 6.png", image1: "assets/images/splash1/download (1) 7.png", text: "Parent")),
               SizedBox(

@@ -26,6 +26,14 @@ import 'package:smart_system/doctor/screens/login_signup/reset_password_screen.d
 import 'package:smart_system/doctor/screens/login_signup/signup_screen.dart';
 import 'package:smart_system/doctor/screens/profile%20Tap/profile_screen.dart';
 import 'package:smart_system/doctor/screens/profile%20Tap/profile_screen2.dart';
+import 'package:smart_system/parent/screens/login_signup/Verification_screen.dart';
+import 'package:smart_system/parent/screens/login_signup/forget_pass.dart';
+import 'package:smart_system/parent/screens/login_signup/login_screen.dart';
+import 'package:smart_system/parent/screens/login_signup/reset_password_screen.dart';
+import 'package:smart_system/parent/screens/login_signup/signup_screen.dart';
+import 'package:smart_system/parent/screens/parent_home/faculty_calls%20tap/faculty_calls.dart';
+import 'package:smart_system/parent/screens/parent_home/profile%20Tap/profile_screen.dart';
+import 'package:smart_system/parent/screens/parent_home/profile%20Tap/profile_screen2.dart';
 import 'package:smart_system/repositories/user_repository.dart';
 import 'package:smart_system/screens/Feedback/feedback_%20form.dart';
 import 'package:smart_system/screens/Feedback/feedback_screen.dart';
@@ -191,6 +199,18 @@ class MyApp extends StatelessWidget {
             DoctorAssignmentScreen.routeName:(context) => DoctorAssignmentScreen(),
             DoctorObtionsQuis.routeName:(context) => DoctorObtionsQuis(),
             AttendenceReportScreen.routeName:(context) => AttendenceReportScreen(),
+
+
+            //parent
+            ParentLoginScreen.routeName: (context) => ParentLoginScreen(),
+            ParentSignUpScreen.routeName: (context) => ParentSignUpScreen(),
+            ParentForgetPassword.routeName: (context) => ParentForgetPassword(),
+            ParentVerificationScreen.routeName: (context) => ParentVerificationScreen(),
+            ParentResetPasswordScreen.routeName: (context) => ParentResetPasswordScreen(),
+            ParentProfile1.routeName: (context) => ParentProfile1(),
+            ParentProfile2.routeName: (context) => ParentProfile2(),
+
+            FaculityCalls.routeName: (context) => FaculityCalls(),
 
 
 

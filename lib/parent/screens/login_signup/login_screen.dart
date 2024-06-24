@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:smart_system/parent/screens/login_signup/forget_pass.dart';
 import 'package:smart_system/parent/screens/login_signup/signup_screen.dart';
 
+import '../Parent_home.dart';
+
 
 
 class ParentLoginScreen extends StatefulWidget {
@@ -157,7 +159,7 @@ class _LoginScreenState extends State<ParentLoginScreen> {
                   ),
                 ),
                 onPressed: (){
-                 // Navigator.of(context).pushNamed(DoctorHomeScreen.routeName);
+                 Navigator.of(context).pushNamed(ParentHomeScreen.routeName);
                 },
                 child:
                 const Text(

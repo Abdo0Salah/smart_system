@@ -1,7 +1,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_system/parent/screens/parent_home/profile%20Tap/profile_screen2.dart';
+
+import '../../Parent_home.dart';
 
 
 class ParentProfile1 extends StatelessWidget {
@@ -118,21 +121,21 @@ class ParentProfile1 extends StatelessWidget {
                         width: 2.5,
                       ),
                       fixedSize: Size(224, 60),
-                      backgroundColor: Color(0xff2C3E50),
+                      backgroundColor: const Color(0xff2C3E50),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
                     onPressed: (){
-                    //  Navigator.of(context).pushNamed(DoctorHomeScreen.routeName);
+                      Navigator.of(context).pushNamed(ParentHomeScreen.routeName);
                     },
                     child:
                         Text(
                           "Back To Home",
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 24.sp,
                             fontWeight: FontWeight.w500,
-                            color: Color(0xffD5F4FF),
+                            color: const Color(0xffD5F4FF),
                           ),
                         ),
                   ),

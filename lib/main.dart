@@ -26,6 +26,7 @@ import 'package:smart_system/doctor/screens/login_signup/reset_password_screen.d
 import 'package:smart_system/doctor/screens/login_signup/signup_screen.dart';
 import 'package:smart_system/doctor/screens/profile%20Tap/profile_screen.dart';
 import 'package:smart_system/doctor/screens/profile%20Tap/profile_screen2.dart';
+import 'package:smart_system/parent/screens/Parent_home.dart';
 import 'package:smart_system/parent/screens/login_signup/Verification_screen.dart';
 import 'package:smart_system/parent/screens/login_signup/forget_pass.dart';
 import 'package:smart_system/parent/screens/login_signup/login_screen.dart';
@@ -209,7 +210,7 @@ class MyApp extends StatelessWidget {
             ParentResetPasswordScreen.routeName: (context) => ParentResetPasswordScreen(),
             ParentProfile1.routeName: (context) => ParentProfile1(),
             ParentProfile2.routeName: (context) => ParentProfile2(),
-
+            ParentHomeScreen.routeName: (context) => ParentHomeScreen(),
             FaculityCalls.routeName: (context) => FaculityCalls(),
 
 

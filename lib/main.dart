@@ -80,6 +80,8 @@ import 'core/api/dio_consumer.dart';
 import 'cubit/user_cubit.dart';
 
 import 'doctor/screens/Qr Scanner/course_name_qr.dart';
+import 'doctor/screens/Qr Scanner/date_calender.dart';
+import 'doctor/screens/Qr Scanner/qr_scanner.dart';
 import 'doctor/screens/courses tap/Create Meeting App/creat_meeting.dart';
 import 'doctor/screens/courses tap/Create Meeting App/meeting_information.dart';
 import 'doctor/screens/courses tap/doctor_attachment/doctor_attachment_screen.dart';
@@ -197,6 +199,8 @@ class MyApp extends StatelessWidget {
             DoctorProfile1.routeName:(context) => DoctorProfile1(),
             DoctorProfile2.routeName:(context) => DoctorProfile2(),
             CourseNameQr.routeName:(context) => CourseNameQr(),
+            QrScannerScreen.routeName:(context) => QrScannerScreen(),
+            DatePickerExample.routeName:(context) => DatePickerExample(),
             CourseNameQrScreen.routeName:(context) => CourseNameQrScreen(),
             CreateQuiz.routeName:(context) => CreateQuiz(),
             DoctorPostScreen.routeName:(context) => DoctorPostScreen(),

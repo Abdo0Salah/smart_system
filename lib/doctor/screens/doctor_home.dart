@@ -7,6 +7,7 @@ import ' Attendence Report tap/Attendence Report Screen.dart';
 import '../model/doctor_home_model.dart';
 import '../widget/doctor_home_widget.dart';
 import 'Qr Scanner/course_name_qr.dart';
+import 'Qr Scanner/qr_scanner.dart';
 import 'courses tap/doctor_courses.dart';
 import 'courses tap/doctor_select_courses.dart';
 import 'login_signup/login_screen.dart';
@@ -190,7 +191,7 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
         {
           Navigator.pushNamed(
             context,
-            CourseNameQrScreen.routeName,
+            QrScannerScreen.routeName,
           );
         }
         break;

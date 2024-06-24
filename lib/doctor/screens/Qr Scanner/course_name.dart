@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../doctor_home.dart';
+
 
 
 class CourseNameQr extends StatelessWidget {
@@ -9,15 +11,15 @@ class CourseNameQr extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xffF0F3F7),
+        backgroundColor: const Color(0xffF0F3F7),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Padding(
+              const Padding(
                 padding:
-                const EdgeInsets.only(left: 30 ,  top: 20, bottom: 30),
+                EdgeInsets.only(left: 30 ,  top: 20, bottom: 30),
                 child: Text(
                   'Course Name',
                   style: TextStyle(
@@ -396,7 +398,7 @@ class CourseNameQr extends StatelessWidget {
                     ),
                   ),
                   onPressed: (){
-                    //   Navigator.of(context).pop(AddAttachment.routeName);
+                       Navigator.of(context).pushNamed(DoctorHomeScreen.routeName);
                   },
                   child: const Text(
                     "Save Attendence",

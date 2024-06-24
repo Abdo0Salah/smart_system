@@ -33,9 +33,7 @@ class CourseNameQrScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // SizedBox(
-              //   height: 5.h,
-              // ),
+
               Padding(
                 padding: EdgeInsets.only(top: 30.h),
                 child: Container(
@@ -63,20 +61,27 @@ class CourseNameQrScreen extends StatelessWidget {
                 ),
               ),
               Container(
+                margin: EdgeInsets.symmetric(horizontal: 5.w, vertical: 25.h) ,
                 decoration: BoxDecoration(
                   color: const Color(0xff8EAFD9),
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(5),
                 ),
-                padding:  EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
-                      'Finish',
-                      style: GoogleFonts.aBeeZee(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 20.sp,
-                        fontStyle: FontStyle.italic,
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed(CourseNameQr.routeName);
+                      },
+                      child: Text(
+                        'Finish',
+                        style: GoogleFonts.aBeeZee(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 20.sp,
+                          fontStyle: FontStyle.italic,
+                          color: Colors.black
+                        ),
                       ),
                     ),
                     const SizedBox(width: 10),
@@ -87,45 +92,15 @@ class CourseNameQrScreen extends StatelessWidget {
                         thickness: 1,
                       ),
                     ),
-                     SizedBox(width: 10.w),
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child:  Icon(
-                        Icons.arrow_forward_ios,
-                        size: 20,
-                      ),
+                    SizedBox(width: 10.w),
+                    const Icon(
+                      Icons.arrow_forward_ios,
+                      size: 20,
                     ),
                   ],
                 ),
               ),
 
-              // Padding(
-              //   padding: const EdgeInsets.only(left: 15 , top: 20, bottom: 15 , right: 15),
-              //   child: TextButton(
-              //     style: OutlinedButton.styleFrom(
-              //       side: const BorderSide(color: Color(0xff82A0D2),
-              //         style: BorderStyle.solid,
-              //         width: 2,
-              //       ),
-              //       fixedSize: Size(200, 70),
-              //       backgroundColor: Color(0xff8EAFD9),
-              //       shape: RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.circular(9),
-              //       ),
-              //     ),
-              //     onPressed: (){
-              //          Navigator.of(context).pop(CourseNameQr.routeName);
-              //     },
-              //     child:  Text(
-              //       "Finish",
-              //       style: GoogleFonts.aBeeZee(
-              //         fontSize: 24,
-              //         fontWeight: FontWeight.w400,
-              //         color: Colors.black,
-              //       ),
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../model/creat_quis_moddel.dart';
 import 'doctor_obtions_quis.dart';
 
 class CreateQuiz extends StatefulWidget {
@@ -11,7 +12,8 @@ class CreateQuiz extends StatefulWidget {
 
 class _CreateQuizState extends State<CreateQuiz> {
   String? selectedValue = null;
-
+  TextEditingController quitionController = TextEditingController();
+  GlobalKey<FormState> quitionFormKey = GlobalKey();
   final _dropdownFormKey = GlobalKey<FormState>();
 
   List<DropdownMenuItem<String>> get dropdownItems {
@@ -23,8 +25,12 @@ class _CreateQuizState extends State<CreateQuiz> {
     ];
     return menuItems;
   }
-
+  List<CreatQuisModdel> creatQuisModdel = [];
   @override
+  void dispose() {
+    quitionController.dispose();
+    super.dispose();
+  }
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -46,6 +52,7 @@ class _CreateQuizState extends State<CreateQuiz> {
               ),
               Form(
                 key: _dropdownFormKey,
+
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,8 +83,14 @@ class _CreateQuizState extends State<CreateQuiz> {
                               filled: true,
                               fillColor: Colors.white,
                             ),
-                            validator: (value) =>
-                                value == null ? "Select Course name" : null,
+                            // validator: (value) =>
+                            //     value == null ? "Select Course name" : null,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "Select Course name";
+                              }
+                              return null;
+                            },
                             dropdownColor: Colors.white,
                             value: selectedValue,
                             onChanged: (String? newValue) {
@@ -93,7 +106,8 @@ class _CreateQuizState extends State<CreateQuiz> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 20),
-                      child: Text('Questions',
+                      child: Text(
+                        'Questions',
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w400,
@@ -101,17 +115,28 @@ class _CreateQuizState extends State<CreateQuiz> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 10 , bottom: 40 , left: 20 , right: 20),
-                      child: TextFormField(
-                        style: TextStyle(color: Color(0xff746868)),
-                        decoration: const InputDecoration(
-                          hintTextDirection: TextDirection.ltr,
-                          hintText: '1. Create new question',
+                      padding: const EdgeInsets.only(
+                          top: 10, bottom: 40, left: 20, right: 20),
+                      child: Form(
+                        key: quitionFormKey,
+                        child: TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please write question';
+                            }
+                            return null;
+                          },
+                          controller: quitionController,
+                          style: TextStyle(color: Color(0xff746868)),
+                          decoration: const InputDecoration(
+                            hintTextDirection: TextDirection.ltr,
+                            hintText: '1. Create new question',
+                          ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 30 , top: 20),
+                      padding: const EdgeInsets.only(left: 30, top: 20),
                       child: TextButton(
                         style: OutlinedButton.styleFrom(
                           side: const BorderSide(
@@ -125,9 +150,6 @@ class _CreateQuizState extends State<CreateQuiz> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        onPressed: () {
-                          Navigator.of(context).pushNamed(DoctorObtionsQuis.routeName);
-                        },
                         child: const Text(
                           "Add Option",
                           style: TextStyle(
@@ -136,6 +158,24 @@ class _CreateQuizState extends State<CreateQuiz> {
                             color: Colors.blue,
                           ),
                         ),
+                            onPressed: () {
+                              if (quitionFormKey.currentState!.validate()&&
+                                  _dropdownFormKey.currentState!.validate())
+                              {
+                                Navigator.of(context)
+                                    .pushNamed(DoctorObtionsQuis.routeName,
+                                    arguments: CreatQuisModdel(
+                                      courseName: selectedValue.toString(),
+                                      quiestion:quitionController.text ))
+                                    .then((_) {quitionController.clear();});                                   ScaffoldMessenger.of(context).showSnackBar(
+
+                                    SnackBar(
+                                        content: Text('Question added!')
+                                    ));  }
+
+                                          },
+
+
                       ),
                     ),
                   ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
+import '../../model/creat_quis_moddel.dart';
 import '../../widget/add_option_widget.dart';
 import 'create_quiz.dart';
 
@@ -20,6 +21,7 @@ class _DoctorObtionsQuisState extends State<DoctorObtionsQuis> {
 
   Widget build(BuildContext context) {
 
+    var args = ModalRoute.of(context)?.settings.arguments as CreatQuisModdel;
 
     return Scaffold(
       appBar: AppBar(
@@ -49,7 +51,7 @@ class _DoctorObtionsQuisState extends State<DoctorObtionsQuis> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      "Network",
+                      "${args.courseName}",
                       style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
                     ),
                   ),
@@ -63,7 +65,7 @@ class _DoctorObtionsQuisState extends State<DoctorObtionsQuis> {
                 height: 15,
               ),
               Text(
-                "what is tcp/ip ?",
+                "${args.quiestion}",
                 style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 18,

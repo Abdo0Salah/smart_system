@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_system/admin/screens/admin_home/admin-home.dart';
 import 'package:smart_system/admin/screens/login_signup/forget_pass.dart';
 import 'package:smart_system/admin/screens/login_signup/signup_screen.dart';

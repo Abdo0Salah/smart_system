@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import '../model/doctor_group_model.dart';
-
 
 class DoctorGroubItem extends StatelessWidget {
   DoctorGroupModel doctorgroubModel;

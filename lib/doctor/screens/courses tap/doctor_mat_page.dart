@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smart_system/Doctor/screens/courses%20tap/post%20tap/doctorpost_screen.dart';
-import 'package:smart_system/Doctor/widget/DoctorMaterialItem.dart';
+import 'package:smart_system/doctor/screens/courses%20tap/post%20tap/doctorpost_screen.dart';
+import 'package:smart_system/doctor/widget/DoctorMaterialItem.dart';
+
+
 import '../../model/DoctotMaterialModel.dart';
 import 'Assignments tap/doctor_assignment_screen.dart';
 import 'Create Meeting App/meeting_information.dart';

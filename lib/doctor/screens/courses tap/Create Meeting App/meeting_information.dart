@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_system/doctor/screens/doctor_home.dart';
 
-
 import '../../profile Tap/profile_screen.dart';
 import 'creat_meeting.dart';
 
@@ -80,7 +79,7 @@ class _MeetingInformationScreenState extends State<MeetingInformationScreen> {
                       color: Colors.black,
                     ),
                   ),
-                  const SizedBox(height: 30.0),
+                  SizedBox(height: 30.h),
                   Container(
                     height: 2,
                     width: 400,
@@ -194,38 +193,45 @@ class _MeetingInformationScreenState extends State<MeetingInformationScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          // Handle edit meeting action
-                        },
-                        icon: const Icon(Icons.edit),
-                        label: Text(
-                          'Edit Meeting',
-                          style: GoogleFonts.fjordOne(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 15.sp,
-                            color: Colors.white,
+                      Expanded(
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            // Handle edit meeting action
+                          },
+                          icon: const Icon(
+                            Icons.edit,
                           ),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xffA1D8A1),
+                          label: Text(
+                            'Edit Meeting',
+                            style: GoogleFonts.fjordOne(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15.sp,
+                              color: Colors.white,
+                            ),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xffA1D8A1),
+                          ),
                         ),
                       ),
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          // Handle delete meeting action
-                        },
-                        icon: const Icon(Icons.delete),
-                        label: Text(
-                          'Delete Meeting',
-                          style: GoogleFonts.fjordOne(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 15.sp,
-                            color: Colors.white,
+                      SizedBox(width: 10.w),
+                      Expanded(
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            // Handle delete meeting action
+                          },
+                          icon: const Icon(Icons.delete),
+                          label: Text(
+                            'Delete Meeting',
+                            style: GoogleFonts.fjordOne(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15.sp,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xffFB5B5B),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xffFB5B5B),
+                          ),
                         ),
                       ),
                     ],
@@ -247,7 +253,7 @@ class _MeetingInformationScreenState extends State<MeetingInformationScreen> {
         currentIndex: _selectedIndex, //New
         onTap: _onItemTapped,
         items: <BottomNavigationBarItem>[
-           BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: InkWell(
               child: const Icon(Icons.home),
               onTap: () {
@@ -259,7 +265,7 @@ class _MeetingInformationScreenState extends State<MeetingInformationScreen> {
             ),
             label: 'Home',
           ),
-           BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: InkWell(
               child: const Icon(Icons.table_view_outlined),
               onTap: () {
@@ -269,7 +275,6 @@ class _MeetingInformationScreenState extends State<MeetingInformationScreen> {
                 // );
               },
             ),
-
             label: 'TimeTable',
           ),
           BottomNavigationBarItem(

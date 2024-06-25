@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Tabs/all_tap.dart';
 import 'Tabs/lecture_tab.dart';
@@ -19,7 +20,7 @@ class AttachmentScreen extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.only(topRight: Radius.circular(30)),
+                borderRadius: BorderRadius.only(topRight: Radius.circular(30).r),
               ),
               child: Column(
                 children: [

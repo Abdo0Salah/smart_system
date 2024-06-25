@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../screens/home/materials-tap/assignment/openAssignmentScreen.dart';
 
@@ -13,9 +14,9 @@ class LectureAssignmentItem extends StatelessWidget {
 
       decoration: BoxDecoration(
 
-          borderRadius: BorderRadius.circular(20), color: Colors.white),
+          borderRadius: BorderRadius.circular(20).r, color: Colors.white),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0).w,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -24,59 +25,59 @@ class LectureAssignmentItem extends StatelessWidget {
         children: [
         Text(
         "Assignment name",
-          style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20),
+          style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20.sp),
         ),
-        Spacer(),
-        Icon(Icons.file_copy_outlined, size: 15),
+        const Spacer(),
+        const Icon(Icons.file_copy_outlined, size: 15),
 
           ],
       ),
             SizedBox(
-              height: 15,
+              height: 15.h,
             ),
             Row(
 
               children: [
                 Text(
                   "assign date",
-                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16,
+                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16.sp,
                   color: Colors.grey),
                 ),
                 Spacer(),
                 Text(
                   "17 nov 2024",
-                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16.sp),
                 ),
               ],
             ),
             SizedBox(
-              height: 15,
+              height: 15.h,
             ),
             Row(
 
               children: [
                 Text(
                   "last date",
-                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16,
+                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16.sp,
                       color: Colors.grey),
                 ),
                 Spacer(),
                 Text(
                   "20 nov 2024",
-                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16.sp),
                 ),
               ],
             ),
 
             SizedBox(
-              height: 15,
+              height: 15.h,
             ),
             Row(
 
               children: [
                 Text(
                   " status",
-                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16,
+                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16.sp,
                       color: Colors.grey),
                 ),
                 Spacer(),
@@ -89,16 +90,16 @@ class LectureAssignmentItem extends StatelessWidget {
                        offset: Offset(2, 4) // changes position of shadow
                    ),
                  ],
-               borderRadius: BorderRadius.all(Radius.circular(12)),
+               borderRadius: BorderRadius.all(Radius.circular(12).r),
                color: Color.fromARGB(255, 251, 177, 177)
 
              ),
 
                child:   Padding(
-                 padding: const EdgeInsets.all(12.0),
+                 padding: const EdgeInsets.all(12.0).w,
                  child: Text(
                  ifSubmitted ?  " Submitted" :  " not Submitted",
-                   style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20,
+                   style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20.sp,
                       ),
                  ),
                ),
@@ -126,7 +127,7 @@ class LectureAssignmentItem extends StatelessWidget {
                   ),
                   child:  Text(
                   "Open Assignment ",
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20,color: Colors.black),
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20.sp,color: Colors.black),
                 ),),
               ),
             )

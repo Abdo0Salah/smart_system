@@ -11,7 +11,7 @@ class HomeMaterialWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        margin: EdgeInsets.all(5),
+        margin: EdgeInsets.all(5).w,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20.r),
@@ -19,8 +19,8 @@ class HomeMaterialWidget extends StatelessWidget {
         child: Column(
           children: [
             Expanded(child: Image.asset(homeMaterialModel.image , width: 200, )),
-            const SizedBox(
-              height: 30,
+             SizedBox(
+              height: 30.h,
             ),
             Expanded(
               child: Text(
@@ -31,7 +31,7 @@ class HomeMaterialWidget extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 20.h,
             ),
 
           ],

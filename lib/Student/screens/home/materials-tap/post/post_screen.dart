@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PostScreen extends StatelessWidget {
   const PostScreen({super.key});
@@ -10,16 +11,16 @@ class PostScreen extends StatelessWidget {
         body: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(20).w,
               child: Column(
                 children: [
                   Row(
                     children: [
                       CircleAvatar(
-                        radius: 30,
+                        radius: 30.r,
                       ),
                       SizedBox(
-                        width: 10,
+                        width: 10.w,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,15 +34,15 @@ class PostScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 30.h,
                   ),
                   Container(
                     width: double.infinity,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0).w,
                       child: Text(
                           " there is no lecture in this  week good Good luck for all dear student.",
-                          style: TextStyle(fontSize: 20)),
+                          style: TextStyle(fontSize: 20.sp)),
                     ),
                     decoration: BoxDecoration(
                         boxShadow: [
@@ -53,22 +54,22 @@ class PostScreen extends StatelessWidget {
                           ),
                         ],
                         color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                        borderRadius: BorderRadius.all(Radius.circular(10).r)),
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 40.h,
                   ),
                   Container(
                     width: double.infinity,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0).w,
                       child: Row(
                         children: [
                           CircleAvatar(
-                            radius: 20,
+                            radius: 20.r,
                           ),
                           SizedBox(
-                            width: 10,
+                            width: 10.w,
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,7 +91,7 @@ class PostScreen extends StatelessWidget {
                           ),
                         ],
                         color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                        borderRadius: BorderRadius.all(Radius.circular(10).r)),
                   ),
                 ],
               ),
@@ -110,11 +111,11 @@ class PostScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SizedBox(
-                      width: 5,
+                      width: 5.w,
                     ),
                     CircleAvatar(),
                     SizedBox(
-                      width: 5,
+                      width: 5.w,
                     )
                   ],
                 ),
@@ -123,13 +124,13 @@ class PostScreen extends StatelessWidget {
                 label: Text("Add Comment",style: TextStyle(color: Colors.black)),
                 enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(10),
-                        topLeft: Radius.circular(10)),
+                        topRight: Radius.circular(10).r,
+                        topLeft: Radius.circular(10).r),
                     borderSide: BorderSide(color: Colors.blue)),
                 focusedBorder: OutlineInputBorder(
                     borderRadius:BorderRadius.only(
-                        topRight: Radius.circular(10),
-                        topLeft: Radius.circular(10)),
+                        topRight: Radius.circular(10).r,
+                        topLeft: Radius.circular(10).r),
                     borderSide: BorderSide(color: Colors.blue)),
               ),
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 import '../../../models/group_model.dart';
@@ -18,7 +19,7 @@ GroupModel c =GroupModel(groupName: "groupName", doctorName: "doctorName", subje
         elevation: 0,
         title: Text('Selected topic',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: 20.sp,
           fontWeight: FontWeight.w400,
           color: Colors.black
         )),
@@ -26,7 +27,7 @@ GroupModel c =GroupModel(groupName: "groupName", doctorName: "doctorName", subje
       body: Column(
         children: [
           SizedBox(
-            height: 110,
+            height: 40.h,
           ),
           Expanded(
             child:InkWell(
@@ -38,13 +39,13 @@ GroupModel c =GroupModel(groupName: "groupName", doctorName: "doctorName", subje
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(25),
-                        topLeft: Radius.circular(25))),
+                        topRight: Radius.circular(25).w,
+                        topLeft: Radius.circular(25).w)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(12.0),
+                      padding: const EdgeInsets.all(12.0).w,
                       child: Text("All Groups"),
                     ),
                     Expanded(

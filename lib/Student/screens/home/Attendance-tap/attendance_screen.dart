@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Tabs/all_taps.dart';
 import 'Tabs/lecture_tabs.dart';
@@ -31,9 +32,9 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          title: const Text('Attendance  ',
+          title:  Text('Attendance  ',
               style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.w400,
                   color: Colors.black)),
           iconTheme:const IconThemeData(
@@ -46,24 +47,24 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
               //  mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 20,
+                  height: 20.h,
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding:  EdgeInsets.all(8.0).w,
                   child: DropdownButtonFormField(
                       hint: Text("Select Subject name"),
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white, width: 2),
-                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.white, width: 2.w),
+                          borderRadius: BorderRadius.circular(20).r,
                         ),
                         border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white, width: 2),
-                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.white, width: 2.w),
+                          borderRadius: BorderRadius.circular(20).r,
                         ),
                         disabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white, width: 2),
-                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.white, width: 2.w),
+                          borderRadius: BorderRadius.circular(20.r),
                         ),
                         filled: true,
                         fillColor: Colors.white,
@@ -80,12 +81,12 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                       items: dropdownItems),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 20.h,
                 ),
                 Expanded(
                   flex: 5,
                   child: Container(
-                    height: 450,
+                    height: 450.h,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Color(0xffEFF3F7FF),
@@ -96,7 +97,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                         decoration: BoxDecoration(
                           color: Colors.transparent,
                           borderRadius:
-                              BorderRadius.only(topRight: Radius.circular(30)),
+                              BorderRadius.only(topRight: Radius.circular(30).r),
                         ),
                         child: Column(
                           children: [

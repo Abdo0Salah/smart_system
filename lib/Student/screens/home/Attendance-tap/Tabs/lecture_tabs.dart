@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_progress_bar/animated_progress_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LectureTaps extends StatelessWidget {
   LectureTaps({super.key});
@@ -9,7 +10,7 @@ class LectureTaps extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xffEFF3F7FF),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0).w,
         child: Column(
           children: [
             Row(
@@ -17,8 +18,8 @@ class LectureTaps extends StatelessWidget {
                 SizedBox(
 
                     /// set the [width] and [height] of the displayable area
-                    height: 150,
-                    width: 150,
+                    height: 150.h,
+                    width: 150.w,
                     child: AnimatedProgressBar(
                       /// set [stroke]
                       stroke: 20,
@@ -40,12 +41,12 @@ class LectureTaps extends StatelessWidget {
                     Row(
                       children: [
                         Container(
-                          height: 25,
-                          width: 25,
+                          height: 25.h,
+                          width: 25.w,
                           color: Color.fromRGBO(229, 198, 70, 1),
                         ),
                         SizedBox(
-                          width: 30,
+                          width: 30.w,
                         ),
                         Text(
                           "absent",
@@ -56,9 +57,9 @@ class LectureTaps extends StatelessWidget {
                     SizedBox(height: 10,),
                     Row(
                       children: [
-                        Container(height: 25, width: 25, color: Colors.grey),
+                        Container(height: 25.h, width: 25.w, color: Colors.grey),
                         SizedBox(
-                          width: 30,
+                          width: 30.w,
                         ),
                         Text(
                           "present",
@@ -84,14 +85,14 @@ class LectureTaps extends StatelessWidget {
                     Container(
                       color: Color.fromRGBO(208, 208, 206, 1),
                       child: Padding(
-                        padding: const EdgeInsets.all(4.0),
+                        padding: const EdgeInsets.all(4.0).w,
                         child: Row(
                           children: [
                             Icon(
                               Icons.square,
                               color: Colors.white,
                             ),
-                            SizedBox(width: 15,),                                Expanded(flex: 2,
+                            SizedBox(width: 15.w,),                                Expanded(flex: 2,
                               child: Text(
                                 "ID",
                               ),
@@ -114,14 +115,14 @@ class LectureTaps extends StatelessWidget {
                     Container(
                       color: Colors.white,
                       child: Padding(
-                        padding: const EdgeInsets.all(4.0),
+                        padding: const EdgeInsets.all(4.0).w,
                         child:   Row(
                           children: [
                             Icon(
                               Icons.done_outline,
                               color: Colors.green,
                             ),
-                            SizedBox(width: 15,),
+                            SizedBox(width: 15.w,),
                             Expanded(flex: 2,
                               child: Text(
                                 "201255554554",
@@ -148,14 +149,14 @@ class LectureTaps extends StatelessWidget {
                     Container(
                       color: Colors.white,
                       child: Padding(
-                        padding: const EdgeInsets.all(4.0),
+                        padding: const EdgeInsets.all(4.0).w,
                         child:   Row(
                           children: [
                             Icon(
                               Icons.close,
                               color: Colors.red,
                             ),
-                            SizedBox(width: 15,),
+                            SizedBox(width: 15.w,),
                             Expanded(flex: 2,
                               child: Text(
                                 "201255554554",
@@ -192,7 +193,7 @@ class LectureTaps extends StatelessWidget {
                 ),
                 child: Text("Scane QR",
                   style: TextStyle(
-                      fontSize: 22,
+                      fontSize: 22.sp,
                       fontWeight: FontWeight.w400,
                       color: Colors.white
                   ),)),

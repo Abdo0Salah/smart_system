@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_system/doctor/screens/courses%20tap/add_attachment.dart';
 
 import 'doctor_subject_group.dart.dart';
@@ -10,6 +11,18 @@ class AddNewGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text("Selected Topic",
+            style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 22.sp,
+              color: Colors.black,
+            ),
+          ),
+          iconTheme: const IconThemeData(color: Colors.black),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
         backgroundColor: Color(0xffF0F3F7),
         floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
         floatingActionButton: Padding(
@@ -43,16 +56,6 @@ class AddNewGroup extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 30, bottom: 30),
-                child: Text(
-                  'Selected Topic',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
               SizedBox(
                 height: 50,
               ),

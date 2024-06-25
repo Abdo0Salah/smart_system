@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_system/admin/screens/admin_home/Staff%20Tap/staff_member.dart';
 
 import 'doctor_assignment_screen.dart';
@@ -9,22 +10,22 @@ class AddAssignment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Add Assignment",
+          style: TextStyle(
+            fontWeight: FontWeight.w400,
+            fontSize: 22.sp,
+            color: Colors.black,
+          ),
+        ),
+        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       backgroundColor: Color(0xffF0F3F7),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 30, bottom: 20),
-                child: Text(
-                  'Add Assignment',
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ),
             Padding(
               padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
               child: Container(

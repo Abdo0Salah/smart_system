@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:smart_system/doctor/model/doctor_group_model.dart';
 import 'package:smart_system/doctor/widget/doctor_groub_item.dart';
-import 'package:smart_system/models/group_model.dart';
-import 'package:smart_system/widget/groub_item.dart';
 
-import '../../../admin/screens/admin_home/Students Tap/Student_list-result.dart';
-
-import '../../model/doctor_group_model.dart';
 import 'add_new_group.dart';
 import 'doctor_mat_page.dart';
+
 
 
 class DoctorSubjectGroups extends StatelessWidget {
@@ -15,7 +12,8 @@ class DoctorSubjectGroups extends StatelessWidget {
   const DoctorSubjectGroups({super.key});
   @override
   Widget build(BuildContext context) {
-    DoctorGroupModel c =DoctorGroupModel(groupName: "groupName", doctorName: "doctorName", subjectName: "subjectName");
+    DoctorGroupModel c =DoctorGroupModel(groupName: "groupName",
+        doctorName: "doctorName", subjectName: "subjectName");
     return Scaffold(
       backgroundColor:Color(0xffEFF3F7FF)
       ,

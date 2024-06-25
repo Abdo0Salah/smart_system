@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../model/creat_quis_moddel.dart';
 import 'doctor_obtions_quis.dart';
@@ -34,22 +35,23 @@ class _CreateQuizState extends State<CreateQuiz> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text("Create Quiz ",
+            style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 22.sp,
+              color: Colors.black,
+            ),
+          ),
+          centerTitle: true,
+          iconTheme: const IconThemeData(color: Colors.black),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
         backgroundColor: Color(0xffF0F3F7),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 30, bottom: 20),
-                  child: Text(
-                    'Create Quiz',
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-              ),
               Form(
                 key: _dropdownFormKey,
 

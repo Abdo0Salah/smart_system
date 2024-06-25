@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class AddAttachment extends StatelessWidget {
@@ -8,6 +9,11 @@ class AddAttachment extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          iconTheme: const IconThemeData(color: Colors.black),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
         backgroundColor: Color(0xffF0F3F7),
         body: SingleChildScrollView(
           child: Column(

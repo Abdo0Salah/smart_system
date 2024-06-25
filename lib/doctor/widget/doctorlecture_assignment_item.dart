@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../screens/assignment/openAssignmentScreen.dart';
-
-class DoctorlectureAssignmentItem  extends StatelessWidget {
+class DoctorlectureAssignmentItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,13 +12,14 @@ class DoctorlectureAssignmentItem  extends StatelessWidget {
           Row(
             children: [
               CircleAvatar(
-                child: Image.asset('assets/images/doctor/file.png',
-                ),                        ),
+                child: Image.asset(
+                  'assets/images/doctor/file.png',
+                ),
+              ),
               Text(
                 "  Assignment 1",
                 style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20),
               ),
-
             ],
           ),
           SizedBox(
@@ -28,7 +27,7 @@ class DoctorlectureAssignmentItem  extends StatelessWidget {
           ),
           Row(
             children: [
-            Icon(Icons.calendar_month),
+              Icon(Icons.calendar_month),
               Text(
                 "17 nov 2024",
                 style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
@@ -50,7 +49,8 @@ class DoctorlectureAssignmentItem  extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-          Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               InkWell(
                 child: Container(
@@ -74,7 +74,7 @@ class DoctorlectureAssignmentItem  extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Text(
-                          "Edit" ,
+                          "Edit",
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 20,
@@ -94,7 +94,7 @@ class DoctorlectureAssignmentItem  extends StatelessWidget {
                             spreadRadius: 2,
                             blurRadius: 10,
                             offset: Offset(2, 4) // changes position of shadow
-                        ),
+                            ),
                       ],
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                       color: Color.fromARGB(255, 251, 177, 177)),
@@ -107,7 +107,7 @@ class DoctorlectureAssignmentItem  extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Text(
-                          "Delete" ,
+                          "Delete",
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 20,
@@ -123,7 +123,6 @@ class DoctorlectureAssignmentItem  extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-         
         ]),
       ),
     );

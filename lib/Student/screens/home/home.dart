@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_system/Student/screens/home/profile-tap/profile_screen.dart';
+import 'package:smart_system/Student/screens/home/student-result/student_result.dart';
 import 'package:smart_system/Student/screens/login_signup/login_screen.dart';
 
 import '../../models/home_model.dart';
@@ -9,6 +10,7 @@ import '../../widget/home_widget.dart';
 
 import 'Attendance-tap/attendance_screen.dart';
 import 'Quiz-tap/quiz_screen.dart';
+import 'notification/notification_screen.dart';
 import 'subject-reg-tap/subject_registration.dart';
 import 'materials-tap/Materials.dart';
 
@@ -162,13 +164,13 @@ class _HomeScreenState extends State<HomeScreen> {
       //   }
       //   break;
 
-      // case 3:
-      //   {
-      //     Navigator.pushNamed(
-      //       context,
-      //       N.routeName,
-      //     );
-      //   }
+       case 3:
+        {
+        Navigator.pushNamed(
+            context,
+          NotificationScreen.routeName,
+          );
+        }
         break;
       case 4:
         {
@@ -186,14 +188,14 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         }
         break;
-      // case 6:
-      //   {
-      //     Navigator.pushNamed(
-      //       context,
-      //       S.routeName,
-      //     );
-      //   }
-      //   break;
+      case 6:
+        {
+          Navigator.pushNamed(
+            context,
+            StudentResultScreen.routeName,
+          );
+        }
+        break;
       case 7:
         {
           Navigator.pushNamed(

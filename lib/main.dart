@@ -55,8 +55,10 @@ import 'Student/screens/home/materials-tap/attachment/attachment_screen.dart';
 import 'Student/screens/home/materials-tap/attachment/lecture_atta.dart';
 import 'Student/screens/home/materials-tap/meeting/meeting_screen.dart';
 import 'Student/screens/home/materials-tap/post/post_screen.dart';
+import 'Student/screens/home/notification/notification_screen.dart';
 import 'Student/screens/home/profile-tap/profile_screen.dart';
 import 'Student/screens/home/profile-tap/profile_screen2.dart';
+import 'Student/screens/home/student-result/student_result.dart';
 import 'Student/screens/home/subject-reg-tap/subject_registration.dart';
 import 'Student/screens/login_signup/Verification_screen.dart';
 import 'Student/screens/login_signup/forget_pass.dart';
@@ -120,7 +122,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: splash0.routeName,
+          initialRoute: HomeScreen.routeName,
           routes: {
             //student
             splash0.routeName: (context) => splash0(),
@@ -133,6 +135,8 @@ class MyApp extends StatelessWidget {
             HomeScreen.routeName: (context) => HomeScreen(),
             SubjectRegistration.routeName: (context) => SubjectRegistration(),
             MaterialsScreen.routeName: (context) => MaterialsScreen(),
+            NotificationScreen.routeName: (context) => NotificationScreen(),
+            StudentResultScreen.routeName: (context) => StudentResultScreen(),
             QuizScreen.routeName: (context) => QuizScreen(),
             StartQuiz.routeName: (context) => StartQuiz(),
             SubjectGroups.routeName: (context) =>  SubjectGroups(),

@@ -122,7 +122,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: AttendanceScreen.routeName,
+          initialRoute: splash0.routeName,
           routes: {
 
             //student

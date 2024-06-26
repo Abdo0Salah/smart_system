@@ -27,6 +27,11 @@ class ApiKey {
   static String email = "email";
   static String confirmPassword = "confirmPassword";
   static String role = "role";
+  static String phone = "phone";
+  static String level = "level";
+  static String term = "term";
+  static String gender = "gender";
+  static String ssn = "ssn";
  // static String profilePic = "profilePic";
 
 

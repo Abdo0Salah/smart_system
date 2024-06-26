@@ -13,26 +13,25 @@ class UserCubit extends Cubit<UserState> {
   GlobalKey<FormState> signInFormKey = GlobalKey();
 //  GlobalObjectKey<FormState> signInFormKey = GlobalObjectKey(Object);
   //final List<GlobalObjectKey<FormState>> signInFormKey = List.generate(10, (index) => GlobalObjectKey<FormState>(index));
-  //Sign in email
   TextEditingController signInuserName = TextEditingController();
-  //Sign in password
   TextEditingController signInPassword = TextEditingController();
-  //Sign Up Form key
   GlobalKey<FormState> signUpFormKey = GlobalKey();
   //Profile Pic
   XFile? profilePic;
   //Sign up name
   TextEditingController signUpUserName = TextEditingController();
   TextEditingController signUpName = TextEditingController();
-  //Sign up phone number
   //TextEditingController signUpPhoneNumber = TextEditingController();
-  //Sign up email
   TextEditingController signUpEmail = TextEditingController();
-  //Sign up password
   TextEditingController signUpPassword = TextEditingController();
-  //Sign up confirm password
   TextEditingController confirmPassword = TextEditingController();
   TextEditingController signUrule = TextEditingController();
+  TextEditingController signUpPhone = TextEditingController();
+  TextEditingController signUpLevel = TextEditingController();
+  TextEditingController signUpTerm = TextEditingController();
+  TextEditingController signUpGender = TextEditingController();
+  TextEditingController signUpSsn = TextEditingController();
+
   SignInModel? user;
 
   uploadProfilePic(XFile image) {
@@ -49,7 +48,11 @@ class UserCubit extends Cubit<UserState> {
       password: signUpPassword.text,
       confirmPassword: confirmPassword.text,
       role: signUrule.text,
-     // profilePic: profilePic!,
+      phone: signUpPhone.text,
+      level: signUpLevel.text,
+      term: signUpTerm.text,
+      gender: signUpGender.text,
+      ssn: signUpSsn.text,
     );
    response.fold(
      (errMessage) => emit(SignUpFailure(errMessage: errMessage)),

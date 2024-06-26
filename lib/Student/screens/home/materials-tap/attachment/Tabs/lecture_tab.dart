@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../widget/lecture_item.dart';
 import '../lecture_atta.dart';
@@ -10,7 +11,7 @@ class LectureTap extends StatelessWidget {
   Widget build(BuildContext context) {
     return   Expanded(
       child: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(12.0).w,
         child: GridView(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,

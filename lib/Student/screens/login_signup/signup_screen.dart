@@ -9,7 +9,6 @@ import '../../../widgets/custom_form_button.dart';
 import '../../../widgets/custom_input_field.dart';
 import 'login_screen.dart';
 
-
 class SignUpScreen extends StatefulWidget {
   static const String routeName = 'SignUpScreen';
 
@@ -29,7 +28,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 "created successfully,check your email for confirmation and login"),
           ),
         );
-        Navigator.pushNamed(context, LoginScreen.routeName);
+        Navigator.pop(context, LoginScreen.routeName);
       } else if (state is SignUpFailure) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(state.errMessage),
@@ -80,7 +79,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               child: InkWell(
                                 onTap: () {
                                   Navigator.of(context)
-                                      .pushNamed(LoginScreen.routeName);
+                                      .pop(LoginScreen.routeName);
                                 },
                                 child: const Text(
                                   'Login',
@@ -97,7 +96,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               child: InkWell(
                                 onTap: () {
                                   Navigator.of(context)
-                                      .pushNamed(SignUpScreen.routeName);
+                                      .pop(SignUpScreen.routeName);
                                 },
                                 child: const Text(
                                   'Sign Up',
@@ -194,6 +193,71 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 controller: context.read<UserCubit>().signUrule,
                               ),
                             ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 8, right: 15, left: 15, bottom: 8),
+                              child: CustomInputField(
+                                prefixIcon: true,
+                                iconss: Icons.phone,
+                                hintText: 'phone',
+                                isDense: true,
+                                obscureText: false,
+                                suffixIcon: false,
+                                controller: context.read<UserCubit>().signUpPhone,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 8, right: 15, left: 15, bottom: 8),
+                              child: CustomInputField(
+                                prefixIcon: true,
+                                iconss: Icons.numbers,
+                                hintText: 'level',
+                                isDense: true,
+                                obscureText: false,
+                                suffixIcon: false,
+                                controller: context.read<UserCubit>().signUpLevel,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 8, right: 15, left: 15, bottom: 8),
+                              child: CustomInputField(
+                                prefixIcon: true,
+                                iconss: Icons.class_,
+                                hintText: 'term',
+                                isDense: true,
+                                obscureText: false,
+                                suffixIcon: false,
+                                controller: context.read<UserCubit>().signUpTerm,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 8, right: 15, left: 15, bottom: 8),
+                              child: CustomInputField(
+                                prefixIcon: true,
+                                iconss: Icons.person,
+                                hintText: 'gender',
+                                isDense: true,
+                                obscureText: false,
+                                suffixIcon: false,
+                                controller: context.read<UserCubit>().signUpGender,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 8, right: 15, left: 15, bottom: 8),
+                              child: CustomInputField(
+                                prefixIcon: true,
+                                iconss: Icons.rule,
+                                hintText: 'Ssn',
+                                isDense: true,
+                                obscureText: false,
+                                suffixIcon: false,
+                                controller: context.read<UserCubit>().signUpSsn,
+                              ),
+                            ),
                           ],
                         ),
                       ],
@@ -209,6 +273,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           innerText: 'Signup',
                           onPressed: () {
                             context.read<UserCubit>().signUp();
+
                           },
                         ),
                 ),

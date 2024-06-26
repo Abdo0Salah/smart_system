@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../attachment/lecture_atta.dart';
 import 'add_answer_screen.dart';
@@ -15,13 +16,13 @@ class OpenAssignmentScreen extends StatelessWidget {
         elevation: 0,
         title: Text('Assignment  ',
             style: TextStyle(
-                fontSize: 20,
+                fontSize: 20.sp,
                 fontWeight: FontWeight.w400,
                 color: Colors.black
             )),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0).w,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -35,18 +36,18 @@ class OpenAssignmentScreen extends StatelessWidget {
                   ),
                 ],
               color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(8))
+              borderRadius: BorderRadius.all(Radius.circular(8).r)
 
             ),
             child:  Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0).w,
               child: Text(
                 " Assignment sheet ex",
-                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20,
+                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20.sp,
                     color: Colors.black),
               ),
             ),),
-            SizedBox(height: 30,),
+            SizedBox(height: 30.h,),
             Row(
               children: [
                 RawMaterialButton(
@@ -65,13 +66,13 @@ class OpenAssignmentScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  padding: EdgeInsets.all(15.0),
+                  padding: EdgeInsets.all(15.0).w,
                   shape: CircleBorder(),
                 ),
-                SizedBox(width: 15,),
+                SizedBox(width: 15.w,),
               Text(
                 "add answer",
-                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20,
+                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20.sp,
                       color: Colors.black),
                 ),
               ],

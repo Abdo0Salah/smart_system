@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smart_system/Admin/screens/admin_home/admin-home.dart';
 import 'package:smart_system/Student/screens/home/materials-tap/assignment/Tabs/all_tap.dart';
 import 'package:smart_system/Student/screens/home/materials-tap/assignment/Tabs/lecture_tab.dart';
 import 'package:smart_system/Student/screens/home/materials-tap/assignment/Tabs/section-tap.dart';
@@ -22,7 +24,7 @@ class AssinmentScreen extends StatelessWidget {
             elevation: 0,
             title: Text('Assignment of network',
                 style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 20.sp,
                     fontWeight: FontWeight.w400,
                     color: Colors.black
                 )),
@@ -37,7 +39,7 @@ class AssinmentScreen extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.transparent,
-                  borderRadius: BorderRadius.only(topRight: Radius.circular(30)),
+                  borderRadius: BorderRadius.only(topRight: Radius.circular(30).r),
                 ),
                 child: Column(
                   children: [

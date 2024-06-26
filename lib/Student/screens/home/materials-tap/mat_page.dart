@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_system/Student/screens/home/materials-tap/post/post_screen.dart';
 
 import '../../../models/material_model.dart';
@@ -6,7 +7,7 @@ import '../../../widget/material_item.dart';
 import 'Feedback/feedback_screen.dart';
 import 'assignment/assinment_screen.dart';
 import 'attachment/attachment_screen.dart';
-import 'meeting/meeting_screen.dart';
+import 'meeting/meeting_information.dart';
 
 class MatPagee extends StatefulWidget {
   static const String routeName = 'mat';
@@ -36,7 +37,7 @@ class _MatPageeState extends State<MatPagee> {
         body: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(12.0).w,
               child: TextFormField(
                 decoration: InputDecoration(
                   fillColor: Colors.white ,
@@ -44,13 +45,13 @@ class _MatPageeState extends State<MatPagee> {
                   filled: true,
                   enabledBorder: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(20).w),
                   border: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(20).w),
                   focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(20).w),
                   suffixIcon: const Icon(Icons.search),
                   label: const Text("search"),
                 ),
@@ -58,7 +59,7 @@ class _MatPageeState extends State<MatPagee> {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(12.0).w,
                 child: GridView(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,

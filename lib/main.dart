@@ -41,7 +41,9 @@ import 'package:smart_system/repositories/user_repository.dart';
 
 import 'package:smart_system/Student/screens/home/materials-tap/subject_group.dart';
 
+import 'Student/screens/home/Attendance-tap/qr/Qr_read_screen.dart';
 import 'Student/screens/home/Attendance-tap/attendance_screen.dart';
+import 'Student/screens/home/Attendance-tap/qr/accepted_qr.dart';
 import 'Student/screens/home/Quiz-tap/quiz_screen.dart';
 import 'Student/screens/home/Quiz-tap/start_quiz.dart';
 import 'Student/screens/home/home.dart';
@@ -53,7 +55,7 @@ import 'Student/screens/home/materials-tap/assignment/assinment_screen.dart';
 import 'Student/screens/home/materials-tap/assignment/openAssignmentScreen.dart';
 import 'Student/screens/home/materials-tap/attachment/attachment_screen.dart';
 import 'Student/screens/home/materials-tap/attachment/lecture_atta.dart';
-import 'Student/screens/home/materials-tap/meeting/meeting_screen.dart';
+import 'Student/screens/home/materials-tap/meeting/meeting_information.dart';
 import 'Student/screens/home/materials-tap/post/post_screen.dart';
 import 'Student/screens/home/notification/notification_screen.dart';
 import 'Student/screens/home/profile-tap/profile_screen.dart';
@@ -124,6 +126,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           initialRoute: HomeScreen.routeName,
           routes: {
+
             //student
             splash0.routeName: (context) => splash0(),
             splash1.routeName: (context) => splash1(),
@@ -153,7 +156,8 @@ class MyApp extends StatelessWidget {
             Profile.routeName:(context) => Profile(),
             Profile2.routeName:(context) => Profile2(),
             AttendanceScreen.routeName:(context) => AttendanceScreen(),
-
+            QrReadScreen.routeName:(context) => QrReadScreen(),
+            AcceptedQrScreen.routeName:(context) => AcceptedQrScreen(),
             //admin
             LoginScreenAdmin.routeName: (context) => LoginScreenAdmin(),
             SignUpScreenAdmin.routeName: (context) => SignUpScreenAdmin(),

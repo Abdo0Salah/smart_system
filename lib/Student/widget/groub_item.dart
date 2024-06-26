@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../models/group_model.dart';
 
@@ -9,24 +10,24 @@ class GroubItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8.0).w,
       child: Card(
         elevation: 10,
         child: Row(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0).w,
               child: Image.network("https://news.mit.edu/sites/default/files/styles/news_article__image_gallery/public/images/201706/MIT-Predicting-Reactions-1_0.jpg?itok=q5Dlcw3w",
               fit: BoxFit.cover,
-              height: 70,
-              width: 70,),
+              height: 70.h,
+              width: 70.w,),
             ),
             Column(
               children: [
                 Text(groubModel.groupName,style: TextStyle(
                   color: Colors.blue,
                   fontWeight: FontWeight.w500,
-                  fontSize: 16,
+                  fontSize: 16.sp,
                 ),
                 ),
                 Row(
@@ -36,7 +37,7 @@ class GroubItem extends StatelessWidget {
                     Text(groubModel.doctorName,style: TextStyle(
                       color: Colors.grey,
                       fontWeight: FontWeight.w400,
-                      fontSize: 14,
+                      fontSize: 14.sp,
                     ),
                     ),
                   ],
@@ -49,7 +50,7 @@ class GroubItem extends StatelessWidget {
                     Text(groubModel.subjectName,style: TextStyle(
                       color: Colors.grey,
                       fontWeight: FontWeight.w400,
-                      fontSize: 14,
+                      fontSize: 14.sp,
                     ),
                     ),
                   ],

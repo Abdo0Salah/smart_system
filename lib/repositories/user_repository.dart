@@ -44,7 +44,11 @@ class UserRepository {
     required String password,
     required String confirmPassword,
     required String role,
-    //required XFile profilePic,
+    required String phone,
+    required String level,
+    required String term,
+    required String gender,
+    required String ssn,
   }) async {
     try {
       final response = await api.post(

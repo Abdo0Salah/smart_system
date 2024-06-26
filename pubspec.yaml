@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: 3.5.0-275.0.dev
+  sdk: 3.1.5
 
 
 # Dependencies specify other packages that your package needs in order to work.
@@ -47,7 +47,7 @@ dependencies:
   shared_preferences: ^2.2.2
   dartz: ^0.10.1
   qr_code_scanner: ^1.0.1
-  mobile_scanner: ^5.1.1
+  mobile_scanner: ^4.0.1
 dev_dependencies:
   animated_progress_bar: ^0.0.3
   flutter_test:

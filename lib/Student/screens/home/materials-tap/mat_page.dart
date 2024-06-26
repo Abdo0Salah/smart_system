@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:smart_system/Admin/screens/admin_home/admin-home.dart';
 import 'package:smart_system/Student/screens/home/materials-tap/post/post_screen.dart';
 
 import '../../../models/material_model.dart';
@@ -8,7 +7,7 @@ import '../../../widget/material_item.dart';
 import 'Feedback/feedback_screen.dart';
 import 'assignment/assinment_screen.dart';
 import 'attachment/attachment_screen.dart';
-import 'meeting/meeting_screen.dart';
+import 'meeting/meeting_information.dart';
 
 class MatPagee extends StatefulWidget {
   static const String routeName = 'mat';

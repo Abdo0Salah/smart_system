@@ -32,14 +32,12 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          title:  Text('Attendance  ',
+          title: Text('Attendance  ',
               style: TextStyle(
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w400,
                   color: Colors.black)),
-          iconTheme:const IconThemeData(
-            color: Colors.black
-          ) ,
+          iconTheme: const IconThemeData(color: Colors.black),
         ),
         body: Form(
             key: _dropdownFormKey,
@@ -50,20 +48,23 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                   height: 20.h,
                 ),
                 Padding(
-                  padding:  EdgeInsets.all(8.0).w,
+                  padding: EdgeInsets.all(8.0).w,
                   child: DropdownButtonFormField(
                       hint: Text("Select Subject name"),
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white, width: 2.w),
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 2.w),
                           borderRadius: BorderRadius.circular(20).r,
                         ),
                         border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white, width: 2.w),
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 2.w),
                           borderRadius: BorderRadius.circular(20).r,
                         ),
                         disabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white, width: 2.w),
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 2.w),
                           borderRadius: BorderRadius.circular(20.r),
                         ),
                         filled: true,
@@ -96,8 +97,8 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.transparent,
-                          borderRadius:
-                              BorderRadius.only(topRight: Radius.circular(30).r),
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(30).r),
                         ),
                         child: Column(
                           children: [

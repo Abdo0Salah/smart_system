@@ -76,19 +76,30 @@ class DoctorAttachmentScreen extends StatelessWidget {
                           crossAxisSpacing: 20),
                       children:<Widget>[
                         InkWell(
-                          child: DoctorLectureItem(),
+                          child: DoctorLectureItem(num: "01",),
                           onTap: () {
                             Navigator.pushNamed(
                               context,
                               DoctorLectureAttavhment.routeName,
                             );
                           },),
-                        DoctorLectureItem(),
-                        DoctorLectureItem(),
-                        DoctorLectureItem(),
-                        DoctorLectureItem(),
-                        DoctorLectureItem(),
-                        DoctorLectureItem(),
+                        InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                DoctorLectureAttavhment.routeName,
+                              );
+                            },
+                            child: DoctorLectureItem(num: "02",)),
+                        InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                DoctorLectureAttavhment.routeName,
+                              );
+                            },
+                            child: DoctorLectureItem(num: "03",)),
+
                                 
                       ],
                                 

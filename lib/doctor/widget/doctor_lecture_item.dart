@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class DoctorLectureItem extends StatelessWidget {
-  const DoctorLectureItem({super.key});
-
+  DoctorLectureItem({required this.num});
+  String? num ;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,7 +14,7 @@ class DoctorLectureItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Lecture 01",
+              "Lecture $num",
               style: TextStyle(fontWeight: FontWeight.w400, fontSize: 21),
             ),
             Text(

@@ -35,7 +35,7 @@ class DoctorLectureAttavhment extends StatelessWidget {
                         CircleAvatar(
                           child: Image.asset('assets/images/doctor/pdf.png'),                        ),
                         Text(
-                          "Lecture 01.pdf",
+                          "Lecture.pdf",
                           style: TextStyle(
                               fontWeight: FontWeight.w400, fontSize: 21),
                         ),
@@ -82,7 +82,7 @@ class DoctorLectureAttavhment extends StatelessWidget {
                         CircleAvatar(
                           child: Image.asset('assets/images/doctor/video.png'),                        ),
                         Text(
-                          "Lecture 01.pdf",
+                          "Lecture.mp4",
                           style: TextStyle(
                               fontWeight: FontWeight.w400, fontSize: 21),
                         ),

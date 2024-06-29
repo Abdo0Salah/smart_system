@@ -13,6 +13,9 @@ class UserRepository {
   final ApiConsumer api;
 
   UserRepository({required this.api});
+
+
+ /// STUDENT
   Future<Either<String, SignInModel>> signIn({
     required String userName,
     required String password,
@@ -28,8 +31,9 @@ class UserRepository {
       final user = SignInModel.fromJson(response);
       final decodedToken = JwtDecoder.decode(user.token);
 
-      CacheHelper().saveData(key: ApiKey.token, value: user.token);
-      CacheHelper().saveData(key: ApiKey.id, value: decodedToken["jti"]);
+      await   CacheHelper().saveData(key: ApiKey.token, value: user.token);
+      await  CacheHelper().saveData(key: ApiKey.id, value: decodedToken["jti"]);
+      await CacheHelper().saveData(key: 'isLoggedIn', value: true);
 
       return Right(user);
     } on ServerException catch (e) {
@@ -101,13 +105,47 @@ class UserRepository {
       return Left(e.errModel.errorMessage);
     }
   }
+
   Future<Either<String, void>> logout() async {
     try {
       await api.post(EndPoint.logout);
+      await CacheHelper().removeData(key: ApiKey.token);
+      await CacheHelper().removeData(key: ApiKey.id);
+      await CacheHelper().saveData(key: 'isLoggedIn', value: false);
       return Right(null);
     } on DioException catch (e) {
       handleDioExceptions(e);
       return Left("Unexpected error occurred.");
     }
   }
+  Future<bool> isLoggedIn() async {
+    return CacheHelper().getData(key: 'isLoggedIn') ?? false;
+  }
+
+/// PARENT
+
+  // Future<Either<String, SignInModel>> signInParent({
+  //   required String userNameParent,
+  //   required String passwordParent,
+  // }) async {
+  //   try {
+  //     final response = await api.post(
+  //       EndPoint.signInParent,
+  //       data: {
+  //         ApiKey.userNameParent: userNameParent,
+  //         ApiKey.passwordParent: passwordParent,
+  //       },
+  //     );
+  //     final user = SignInModel.fromJson(response);
+  //     final decodedToken = JwtDecoder.decode(user.token);
+  //
+  //     CacheHelper().saveData(key: ApiKey.token, value: user.token);
+  //     CacheHelper().saveData(key: ApiKey.id, value: decodedToken["jti"]);
+  //
+  //     return Right(user);
+  //   } on ServerException catch (e) {
+  //     return Left(e.errModel.errorMessage);
+  //   }
+  // }
+
 }

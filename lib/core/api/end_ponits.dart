@@ -1,4 +1,5 @@
 class EndPoint {
+  //student
   static String baseUrl = "http://eirpsystem.runasp.net";
   static String signIn = "/api/Students/login";
   static String signUp = "/api/Students/register";
@@ -7,9 +8,13 @@ class EndPoint {
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
   }
+//parent
+  static String signInParent = "/api/Parents/register";
+
 }
 ///
 class ApiKey {
+  ///Student
   // شكل الريسبونس في حالة الايرور
   static String status = "status";
   static String errorMessage = "message";
@@ -37,4 +42,8 @@ class ApiKey {
  // static String profilePic = "profilePic";
 
 
+///Parent
+
+   static String userNameParent = "userName";
+   static String passwordParent = "password";
 }

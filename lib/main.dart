@@ -94,33 +94,33 @@ import 'Student/screens/home/materials-tap/mat_page.dart';
 import 'package:smart_system/ui_splashes/splash1/splash1_screen.dart';
 import 'package:smart_system/ui_splashes/splash0/splash0_screen.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  CacheHelper().init();
+  await CacheHelper().init();
+  final isLoggedIn = await CacheHelper().getData(key: 'isLoggedIn') ?? false;
   runApp(
     BlocProvider(
       create: (context) =>
           UserCubit(UserRepository(api: DioConsumer(dio: Dio()))),
-      child: const MyApp(),
+      child:  MyApp(isLoggedIn: isLoggedIn),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+   final bool isLoggedIn;
+    MyApp({super.key, required this.isLoggedIn});
 
-  // This widget is the root of your application.
-  @override
+    @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      // Use builder only if you need to use library outside ScreenUtilInit context
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: splash0.routeName,
+          initialRoute:  isLoggedIn ? HomeScreen.routeName : splash0.routeName,
           routes: {
             LectureAttavhmentDetails.routeName: (context) => LectureAttavhmentDetails(),
             //student

@@ -131,7 +131,7 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
                   BoxShadow(
                     color: Colors.black,
                     offset: Offset(1, 0),
-                    blurRadius: 5,
+                    blurRadius: 3,
                     spreadRadius: 2,
                   ),
                 ]
@@ -150,9 +150,9 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black,
-                            offset: Offset(1, 0),
-                            blurRadius: 5,
-                            spreadRadius: 2,
+                            offset: Offset(0, 1),
+                            blurRadius: 3,
+                            spreadRadius: 0,
                           ),
                         ]
                     ),

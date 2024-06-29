@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-
-
-
 class LectureAttavhmentDetails extends StatelessWidget {
   const LectureAttavhmentDetails({super.key});
   static const String routeName = 'LectureAttavhmentDetails';

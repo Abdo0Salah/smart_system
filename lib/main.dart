@@ -38,8 +38,8 @@ import 'package:smart_system/parent/screens/parent_home/profile%20Tap/profile_sc
 import 'package:smart_system/parent/screens/parent_home/student_TimeTable_tap/student_timeTable.dart';
 import 'package:smart_system/repositories/user_repository.dart';
 
-
 import 'package:smart_system/Student/screens/home/materials-tap/subject_group.dart';
+import 'package:smart_system/testo.dart';
 
 import 'Student/screens/home/Attendance-tap/qr/Qr_read_screen.dart';
 import 'Student/screens/home/Attendance-tap/attendance_screen.dart';
@@ -77,7 +77,6 @@ import 'admin/screens/admin_home/courses tap/new_course.dart';
 import 'cache/cache_helper.dart';
 import 'core/api/dio_consumer.dart';
 import 'cubit/user_cubit.dart';
-
 import 'doctor/screens/Qr Scanner/course_name_qr.dart';
 import 'doctor/screens/Qr Scanner/date_calender.dart';
 import 'doctor/screens/Qr Scanner/qr_scanner.dart';
@@ -96,7 +95,6 @@ import 'doctor/screens/quis tab/doctor_obtions_quis.dart';
 import 'Student/screens/home/materials-tap/mat_page.dart';
 import 'package:smart_system/ui_splashes/splash1/splash1_screen.dart';
 import 'package:smart_system/ui_splashes/splash0/splash0_screen.dart';
-
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -124,9 +122,8 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: HomeScreen.routeName,
+          initialRoute: splash0.routeName,
           routes: {
-
             //student
             splash0.routeName: (context) => splash0(),
             splash1.routeName: (context) => splash1(),
@@ -136,91 +133,103 @@ class MyApp extends StatelessWidget {
             VerificationScreen.routeName: (context) => VerificationScreen(),
             ResetPasswordScreen.routeName: (context) => ResetPasswordScreen(),
             HomeScreen.routeName: (context) => HomeScreen(),
-            SubjectRegistration.routeName: (context) => SubjectRegistration(),
+            SubjectRegistrationScreen.routeName: (context) =>
+                SubjectRegistrationScreen(),
             MaterialsScreen.routeName: (context) => MaterialsScreen(),
             NotificationScreen.routeName: (context) => NotificationScreen(),
             StudentResultScreen.routeName: (context) => StudentResultScreen(),
             QuizScreen.routeName: (context) => QuizScreen(),
             StartQuiz.routeName: (context) => StartQuiz(),
-            SubjectGroups.routeName: (context) =>  SubjectGroups(),
-            MatPagee.routeName: (context) =>  MatPagee(),
-            AssinmentScreen.routeName: (context) =>  AssinmentScreen(),
-            OpenAssignmentScreen.routeName: (context) =>  OpenAssignmentScreen(),
-            AddAnswerScreen.routeName: (context) =>  AddAnswerScreen(),
-            AttachmentScreen.routeName: (context) =>  AttachmentScreen(),
-            FeedbackScreen.routeName: (context) =>  FeedbackScreen(),
-            FeedbackForm.routeName: (context) =>  FeedbackForm(),
-            MeetingScreen.routeName: (context) =>  MeetingScreen(),
-            PostScreen.routeName: (context) =>  PostScreen(),
-            LectureAttavhment.routeName: (context) =>  LectureAttavhment(),
-            Profile.routeName:(context) => Profile(),
-            Profile2.routeName:(context) => Profile2(),
-            AttendanceScreen.routeName:(context) => AttendanceScreen(),
-            QrReadScreen.routeName:(context) => QrReadScreen(),
-            AcceptedQrScreen.routeName:(context) => AcceptedQrScreen(),
+            SubjectGroups.routeName: (context) => SubjectGroups(),
+            MatPagee.routeName: (context) => MatPagee(),
+            AssinmentScreen.routeName: (context) => AssinmentScreen(),
+            OpenAssignmentScreen.routeName: (context) => OpenAssignmentScreen(),
+            AddAnswerScreen.routeName: (context) => AddAnswerScreen(),
+            AttachmentScreen.routeName: (context) => AttachmentScreen(),
+            FeedbackScreen.routeName: (context) => FeedbackScreen(),
+            FeedbackForm.routeName: (context) => FeedbackForm(),
+            MeetingScreen.routeName: (context) => MeetingScreen(),
+            PostScreen.routeName: (context) => PostScreen(),
+            LectureAttavhment.routeName: (context) => LectureAttavhment(),
+            Profile.routeName: (context) => Profile(),
+            Profile2.routeName: (context) => Profile2(),
+            AttendanceScreen.routeName: (context) => AttendanceScreen(),
+            QrReadScreen.routeName: (context) => QrReadScreen(),
+            AcceptedQrScreen.routeName: (context) => AcceptedQrScreen(),
             //admin
             LoginScreenAdmin.routeName: (context) => LoginScreenAdmin(),
             SignUpScreenAdmin.routeName: (context) => SignUpScreenAdmin(),
             ForgetPasswordAdmin.routeName: (context) => ForgetPasswordAdmin(),
-            VerificationScreenAdmin.routeName: (context) => VerificationScreenAdmin(),
-            ResetPasswordScreenAdmin.routeName: (context) => ResetPasswordScreenAdmin(),
-            AdminHomeScreen.routeName:(context) => AdminHomeScreen(),
+            VerificationScreenAdmin.routeName: (context) =>
+                VerificationScreenAdmin(),
+            ResetPasswordScreenAdmin.routeName: (context) =>
+                ResetPasswordScreenAdmin(),
+            AdminHomeScreen.routeName: (context) => AdminHomeScreen(),
             StudentsList.routeName: (context) => StudentsList(),
             WriteMessage.routeName: (context) => WriteMessage(),
             MessageList.routeName: (context) => MessageList(),
             StudentListResult.routeName: (context) => StudentListResult(),
-            CoursesScreen.routeName:(context) => CoursesScreen(),
-            NewCourseScreen.routeName:(context) => NewCourseScreen(),
-            EditCourseScreen.routeName:(context) => EditCourseScreen(),
-            StaffMember.routeName:(context) => StaffMember(),
-            AddStaff.routeName:(context) => AddStaff(),
-            ProfileAdmin.routeName:(context) => ProfileAdmin(),
-            Profile2Admin.routeName:(context) => Profile2Admin(),
+            CoursesScreen.routeName: (context) => CoursesScreen(),
+            NewCourseScreen.routeName: (context) => NewCourseScreen(),
+            EditCourseScreen.routeName: (context) => EditCourseScreen(),
+            StaffMember.routeName: (context) => StaffMember(),
+            AddStaff.routeName: (context) => AddStaff(),
+            ProfileAdmin.routeName: (context) => ProfileAdmin(),
+            Profile2Admin.routeName: (context) => Profile2Admin(),
 
             //doctor
             LoginScreenDoctor.routeName: (context) => LoginScreenDoctor(),
             SignUpScreenDoctor.routeName: (context) => SignUpScreenDoctor(),
             ForgetPasswordDoctor.routeName: (context) => ForgetPasswordDoctor(),
-            VerificationScreenDoctor.routeName: (context) => VerificationScreenDoctor(),
-            ResetPasswordScreenDoctor.routeName: (context) => ResetPasswordScreenDoctor(),
-            DoctorHomeScreen.routeName:(context) => DoctorHomeScreen(),
-            DoctorSelectCoursesScreen.routeName:(context) => DoctorSelectCoursesScreen(),
-            DoctorCoursesScreen.routeName:(context) => DoctorCoursesScreen(),
-            AddNewGroup.routeName:(context) => AddNewGroup(),
-            AddAttachment.routeName:(context) => AddAttachment(),
-            DoctorSubjectGroups.routeName:(context) => DoctorSubjectGroups(),
-            DoctorMatPagee.routeName:(context) => DoctorMatPagee(),
-            DoctorAttachmentScreen.routeName:(context) => DoctorAttachmentScreen(),
-            DoctorLectureAttavhment.routeName:(context) => DoctorLectureAttavhment(),
-            AddNewPost.routeName:(context) => AddNewPost(),
-            AddAssignment.routeName:(context) => AddAssignment(),
-            CreateMeetingScreen.routeName:(context) => CreateMeetingScreen(),
-            MeetingInformationScreen.routeName:(context) => MeetingInformationScreen(),
-            DoctorProfile1.routeName:(context) => DoctorProfile1(),
-            DoctorProfile2.routeName:(context) => DoctorProfile2(),
-            CourseNameQr.routeName:(context) => CourseNameQr(),
-            QrScannerScreen.routeName:(context) => QrScannerScreen(),
-            DatePickerExample.routeName:(context) => DatePickerExample(),
-            CourseNameQrScreen.routeName:(context) => CourseNameQrScreen(),
-            CreateQuiz.routeName:(context) => CreateQuiz(),
-            DoctorPostScreen.routeName:(context) => DoctorPostScreen(),
-            DoctorAssignmentScreen.routeName:(context) => DoctorAssignmentScreen(),
-            DoctorObtionsQuis.routeName:(context) => DoctorObtionsQuis(),
-            AttendenceReportScreen.routeName:(context) => AttendenceReportScreen(),
+            VerificationScreenDoctor.routeName: (context) =>
+                VerificationScreenDoctor(),
+            ResetPasswordScreenDoctor.routeName: (context) =>
+                ResetPasswordScreenDoctor(),
+            DoctorHomeScreen.routeName: (context) => DoctorHomeScreen(),
+            DoctorSelectCoursesScreen.routeName: (context) =>
+                DoctorSelectCoursesScreen(),
+            DoctorCoursesScreen.routeName: (context) => DoctorCoursesScreen(),
+            AddNewGroup.routeName: (context) => AddNewGroup(),
+            AddAttachment.routeName: (context) => AddAttachment(),
+            DoctorSubjectGroups.routeName: (context) => DoctorSubjectGroups(),
+            DoctorMatPagee.routeName: (context) => DoctorMatPagee(),
+            DoctorAttachmentScreen.routeName: (context) =>
+                DoctorAttachmentScreen(),
+            DoctorLectureAttavhment.routeName: (context) =>
+                DoctorLectureAttavhment(),
+            AddNewPost.routeName: (context) => AddNewPost(),
+            AddAssignment.routeName: (context) => AddAssignment(),
+            CreateMeetingScreen.routeName: (context) => CreateMeetingScreen(),
+            MeetingInformationScreen.routeName: (context) =>
+                MeetingInformationScreen(),
+            DoctorProfile1.routeName: (context) => DoctorProfile1(),
+            DoctorProfile2.routeName: (context) => DoctorProfile2(),
+            CourseNameQr.routeName: (context) => CourseNameQr(),
+            QrScannerScreen.routeName: (context) => QrScannerScreen(),
+            DatePickerExample.routeName: (context) => DatePickerExample(),
+            CourseNameQrScreen.routeName: (context) => CourseNameQrScreen(),
+            CreateQuiz.routeName: (context) => CreateQuiz(),
+            DoctorPostScreen.routeName: (context) => DoctorPostScreen(),
+            DoctorAssignmentScreen.routeName: (context) =>
+                DoctorAssignmentScreen(),
+            DoctorObtionsQuis.routeName: (context) => DoctorObtionsQuis(),
+            AttendenceReportScreen.routeName: (context) =>
+                AttendenceReportScreen(),
 
             //parent
             ParentLoginScreen.routeName: (context) => ParentLoginScreen(),
             ParentSignUpScreen.routeName: (context) => ParentSignUpScreen(),
             ParentForgetPassword.routeName: (context) => ParentForgetPassword(),
-            ParentVerificationScreen.routeName: (context) => ParentVerificationScreen(),
-            ParentResetPasswordScreen.routeName: (context) => ParentResetPasswordScreen(),
+            ParentVerificationScreen.routeName: (context) =>
+                ParentVerificationScreen(),
+            ParentResetPasswordScreen.routeName: (context) =>
+                ParentResetPasswordScreen(),
             ParentProfile1.routeName: (context) => ParentProfile1(),
             ParentProfile2.routeName: (context) => ParentProfile2(),
             ParentHomeScreen.routeName: (context) => ParentHomeScreen(),
             FaculityCalls.routeName: (context) => FaculityCalls(),
-            StudentTimeTableScreen.routeName: (context) => StudentTimeTableScreen(),
-
-
+            StudentTimeTableScreen.routeName: (context) =>
+                StudentTimeTableScreen(),
           },
         );
       },

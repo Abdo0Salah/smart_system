@@ -2,6 +2,7 @@ class EndPoint {
   static String baseUrl = "http://eirpsystem.runasp.net";
   static String signIn = "/api/Students/login";
   static String signUp = "/api/Students/register";
+  static String subjectRegisteration = "/api/Courses/GetAll";
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
   }

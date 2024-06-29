@@ -1,7 +1,22 @@
+import '../apiModels/subjectRegisteration_model.dart';
 
 class UserState {}
 
 final class UserInitial extends UserState {}
+
+final class SubjectRegisterationSuccess extends UserState {
+  final List<SubjectRegisterationModel> subjectR;
+
+  SubjectRegisterationSuccess({required this.subjectR});
+}
+
+final class SubjectRegisterationLoading extends UserState {}
+
+final class SubjectRegisterationFailure extends UserState {
+  final String errMessage;
+
+  SubjectRegisterationFailure({required this.errMessage});
+}
 
 final class SignInSuccess extends UserState {}
 
@@ -15,9 +30,7 @@ final class SignInFailure extends UserState {
   SignInFailure({required this.errMessage});
 }
 
-final class SignUpSuccess extends UserState {
-
-}
+final class SignUpSuccess extends UserState {}
 
 final class SignUpLoading extends UserState {}
 
@@ -27,11 +40,12 @@ final class SignUpFailure extends UserState {
   SignUpFailure({required this.errMessage});
 }
 
-final class GetUserSuccess extends UserState {
- // final UserModel user;
-
-//  GetUserSuccess({required this.user});
-}
+// final class GetUserSuccess extends UserState {
+//  // final UserModel user;
+//
+// //  GetUserSuccess({required this.user});
+//
+// }
 
 final class GetUserLoading extends UserState {}
 

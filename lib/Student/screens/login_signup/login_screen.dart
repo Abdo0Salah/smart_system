@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
               content: Text("success"),
             ),
           );
-          //    context.read<UserCubit>().getUserProfile();
+          //context.read<UserCubit>().SubjectRegisteration();
           Navigator.pushNamed(context, HomeScreen.routeName);
         } else if (state is SignInFailure) {
           ScaffoldMessenger.of(context).showSnackBar(

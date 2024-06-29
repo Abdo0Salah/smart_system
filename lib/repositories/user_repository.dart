@@ -2,10 +2,12 @@ import 'package:dartz/dartz.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 import '../apiModels/sign_in_model.dart';
 import '../apiModels/sign_up_model.dart';
+import '../apiModels/subjectRegisteration_model.dart';
 import '../cache/cache_helper.dart';
 import '../core/api/api_consumer.dart';
 import '../core/api/end_ponits.dart';
 import '../core/errors/exceptions.dart';
+
 class UserRepository {
   final ApiConsumer api;
 
@@ -25,11 +27,8 @@ class UserRepository {
       final user = SignInModel.fromJson(response);
       final decodedToken = JwtDecoder.decode(user.token);
 
-       CacheHelper().saveData(key: ApiKey.token, value: user.token);
+      CacheHelper().saveData(key: ApiKey.token, value: user.token);
       CacheHelper().saveData(key: ApiKey.id, value: decodedToken["jti"]);
-
-     // print("888888888888888888888888888888888888888${ decodedToken["jti"]}");
-
 
       return Right(user);
     } on ServerException catch (e) {
@@ -37,7 +36,7 @@ class UserRepository {
     }
   }
 
-  Future<Either<String, SignUpModel>>signUp({
+  Future<Either<String, SignUpModel>> signUp({
     required String userName,
     required String name,
     required String email,
@@ -64,9 +63,9 @@ class UserRepository {
         },
       );
       final signUPModel = SignUpModel.fromJson(response);
-      return  Right(signUPModel);
+      return Right(signUPModel);
     } on ServerException catch (e) {
-       return Left(e.errModel.errorMessage);
+      return Left(e.errModel.errorMessage);
     }
   }
 
@@ -82,4 +81,23 @@ class UserRepository {
   //     return Left(e.errModel.errorMessage);
   //   }
   // }
+
+  Future<Either<String, List<SubjectRegisterationModel>>>
+      SubjectRegisteration() async {
+    try {
+      final response = await api.get(
+        EndPoint.subjectRegisteration,
+      );
+      // final subject = SubjectRegisterationModel.fromJson(response);
+      // print(subject.listOfObject?[0]);
+      List<dynamic> parsedList = response as List<dynamic>;
+      List<SubjectRegisterationModel> subjectList = parsedList
+          .map((json) => SubjectRegisterationModel.fromJson(json))
+          .toList();
+      return Right(subjectList);
+      // return Right(subject as List<SubjectRegisterationModel>);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
+  }
 }

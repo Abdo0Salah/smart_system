@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_system/Student/screens/home/profile-tap/profile_screen.dart';
 import 'package:smart_system/Student/screens/home/student-result/student_result.dart';
 import 'package:smart_system/Student/screens/login_signup/login_screen.dart';
 
+import '../../../cubit/user_cubit.dart';
+import '../../../testo.dart';
 import '../../models/home_model.dart';
 import '../../widget/home_widget.dart';
 
@@ -13,8 +16,6 @@ import 'Quiz-tap/quiz_screen.dart';
 import 'notification/notification_screen.dart';
 import 'subject-reg-tap/subject_registration.dart';
 import 'materials-tap/Materials.dart';
-
-
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'Home';
@@ -41,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         // drawer: Container( color: Colors.blue,
         //     child: const Column()),
-        backgroundColor:  const Color(0xffF5F9FE),
+        backgroundColor: const Color(0xffF5F9FE),
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(10.0),
@@ -51,14 +52,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(top: 10.h , left: 15.w),
+                      padding: EdgeInsets.only(top: 10.h, left: 15.w),
                       child: CircleAvatar(
                         backgroundColor: const Color(0xffC4C4C4),
                         radius: 30.r,
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 20.w , top: 10.h),
+                      padding: EdgeInsets.only(left: 20.w, top: 10.h),
                       child: Center(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -140,9 +141,11 @@ class _HomeScreenState extends State<HomeScreen> {
     switch (index) {
       case 0:
         {
+          context.read<UserCubit>().SubjectRegisteration();
           Navigator.pushNamed(
             context,
-            SubjectRegistration.routeName,
+            SubjectRegistrationScreen.routeName,
+            //  SubjectRegistration.routeName,
           );
         }
         break;
@@ -164,11 +167,11 @@ class _HomeScreenState extends State<HomeScreen> {
       //   }
       //   break;
 
-       case 3:
+      case 3:
         {
-        Navigator.pushNamed(
+          Navigator.pushNamed(
             context,
-          NotificationScreen.routeName,
+            NotificationScreen.routeName,
           );
         }
         break;

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:smart_system/cubit/user_state.dart';
-
 import '../apiModels/sign_in_model.dart';
+import '../apiModels/subjectRegisteration_model.dart';
 import '../repositories/user_repository.dart';
 
 class UserCubit extends Cubit<UserState> {
@@ -33,7 +33,7 @@ class UserCubit extends Cubit<UserState> {
   TextEditingController signUpSsn = TextEditingController();
 
   SignInModel? user;
-
+  SubjectRegisterationModel? SubjectR;
   uploadProfilePic(XFile image) {
     profilePic = image;
     emit(UploadProfilePic());
@@ -54,9 +54,9 @@ class UserCubit extends Cubit<UserState> {
       gender: signUpGender.text,
       ssn: signUpSsn.text,
     );
-   response.fold(
-     (errMessage) => emit(SignUpFailure(errMessage: errMessage)),
-    (signUpModel) => emit(SignUpSuccess()),
+    response.fold(
+      (errMessage) => emit(SignUpFailure(errMessage: errMessage)),
+      (signUpModel) => emit(SignUpSuccess()),
     );
   }
 
@@ -65,7 +65,6 @@ class UserCubit extends Cubit<UserState> {
     final response = await userRepository.signIn(
       userName: signInuserName.text,
       password: signInPassword.text,
-
     );
     response.fold(
       (errMessage) => emit(SignInFailure(errMessage: errMessage)),
@@ -81,4 +80,14 @@ class UserCubit extends Cubit<UserState> {
   //     (user) => emit(GetUserSuccess(user: user)),
   //   );
   // }
+
+  SubjectRegisteration() async {
+     emit(SubjectRegisterationLoading());
+    final response = await userRepository.SubjectRegisteration();
+    print(response.toString());
+    response.fold(
+      (errMessage) => emit(SubjectRegisterationFailure(errMessage: errMessage)),
+      (subjectR) => emit(SubjectRegisterationSuccess(subjectR: subjectR)),
+    );
+  }
 }

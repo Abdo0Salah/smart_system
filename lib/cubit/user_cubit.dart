@@ -90,4 +90,12 @@ class UserCubit extends Cubit<UserState> {
       (subjectR) => emit(SubjectRegisterationSuccess(subjectR: subjectR)),
     );
   }
+  Future<void> logout() async {
+    emit(UserLogoutLoading());
+    final response = await userRepository.logout();
+    response.fold(
+          (error) => emit(UserLogoutFailure(errMessage: error)),
+          (_) => emit(UserLogoutSuccess()),
+    );
+  }
 }

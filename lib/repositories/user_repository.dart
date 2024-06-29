@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 import '../apiModels/sign_in_model.dart';
 import '../apiModels/sign_up_model.dart';
@@ -98,6 +99,15 @@ class UserRepository {
       // return Right(subject as List<SubjectRegisterationModel>);
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage);
+    }
+  }
+  Future<Either<String, void>> logout() async {
+    try {
+      await api.post(EndPoint.logout);
+      return Right(null);
+    } on DioException catch (e) {
+      handleDioExceptions(e);
+      return Left("Unexpected error occurred.");
     }
   }
 }

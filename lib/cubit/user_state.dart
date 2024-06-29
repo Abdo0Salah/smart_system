@@ -54,3 +54,12 @@ final class GetUserFailure extends UserState {
 
   GetUserFailure({required this.errMessage});
 }
+class UserLogoutLoading extends UserState {}
+
+class UserLogoutSuccess extends UserState {}
+
+class UserLogoutFailure extends UserState {
+  final String errMessage;
+
+  UserLogoutFailure({required this.errMessage});
+}

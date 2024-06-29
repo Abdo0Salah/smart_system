@@ -209,7 +209,9 @@ class _HomeScreenState extends State<HomeScreen> {
         break;
       case 8:
         {
-          Navigator.pushNamed(
+
+        context.read<UserCubit>().logout();
+          Navigator.pop(
             context,
             LoginScreen.routeName,
           );

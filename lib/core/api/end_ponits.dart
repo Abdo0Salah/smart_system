@@ -3,6 +3,7 @@ class EndPoint {
   static String signIn = "/api/Students/login";
   static String signUp = "/api/Students/register";
   static String subjectRegisteration = "/api/Courses/GetAll";
+  static const String logout = "/api/Students/logout";
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
   }

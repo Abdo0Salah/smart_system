@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../../doctor/screens/courses tap/doctor_attachment/doctor_lecture_atta.dart';
 import '../../../../../widget/lecture_item.dart';
 import '../lecture_atta.dart';
+import '../lecture_atta-details.dart';
 
 class LectureTap extends StatelessWidget {
    LectureTap({super.key});
@@ -18,19 +20,29 @@ class LectureTap extends StatelessWidget {
               mainAxisSpacing: 20,
               crossAxisSpacing: 20),
           children:<Widget>[
-            InkWell(child: LectureItem(),
+            InkWell(child: LectureItem(num: "01",),
             onTap: () {
               Navigator.pushNamed(
                 context,
-                LectureAttavhment.routeName,
+                LectureAttavhmentDetails.routeName,
               );
             },),
-            LectureItem(),
-            LectureItem(),
-            LectureItem(),
-            LectureItem(),
-            LectureItem(),
-            LectureItem(),
+            InkWell(  onTap: () {
+              Navigator.pushNamed(
+                context,
+                LectureAttavhmentDetails.routeName,
+              );
+            },
+                child: LectureItem(num: "02")),
+            InkWell(
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    LectureAttavhmentDetails.routeName,
+                  );
+                },
+                child: LectureItem(num: "03")),
+
 
           ],
 

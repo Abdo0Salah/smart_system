@@ -21,7 +21,7 @@ class LectureTaps extends StatelessWidget {
 
                     /// set the [width] and [height] of the displayable area
                     height: 150.h,
-                    width: 150.w,
+                    width: 170.w,
                     child: AnimatedProgressBar(
                       /// set [stroke]
                       stroke: 20,
@@ -33,7 +33,7 @@ class LectureTaps extends StatelessWidget {
                       style: PaintingStyle.fill,
 
                       /// Percentage progress is a number between [0] and [1], for example, to display [50] percent of the graph, this number must be [0.5].
-                      percentage: 0.5,
+                      percentage: 0.50,
                     )),
                 Spacer(),
                 Column(

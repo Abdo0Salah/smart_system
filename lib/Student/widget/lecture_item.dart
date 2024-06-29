@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LectureItem extends StatelessWidget {
-  const LectureItem({super.key});
-
+  LectureItem({required this.num});
+  String? num ;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,7 +15,7 @@ class LectureItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Lecture 01",
+              "Lecture $num",
               style: TextStyle(fontWeight: FontWeight.w400, fontSize: 21.sp),
             ),
             Text(

@@ -40,7 +40,8 @@ class _AttendenceReportScreenState extends State<AttendenceReportScreen> {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: DropdownButtonFormField(
+              child:
+              DropdownButtonFormField(
                   hint: Text("Select Course name"),
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
@@ -58,8 +59,12 @@ class _AttendenceReportScreenState extends State<AttendenceReportScreen> {
                     filled: true,
                     fillColor: Colors.white,
                   ),
-                  validator: (value) =>
-                      value == null ? "Select Subject name" : null,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Select Subject name';
+                    }
+                    return null;
+                  },
                   dropdownColor: Colors.white,
                   value: selectedValue,
                   onChanged: (String? newValue) {
@@ -728,7 +733,7 @@ class _AttendenceReportScreenState extends State<AttendenceReportScreen> {
                 ),
               ),
             )
-          ],
+                ],
         ));
   }
 }

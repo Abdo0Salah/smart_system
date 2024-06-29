@@ -37,10 +37,7 @@ import 'package:smart_system/parent/screens/parent_home/profile%20Tap/profile_sc
 import 'package:smart_system/parent/screens/parent_home/profile%20Tap/profile_screen2.dart';
 import 'package:smart_system/parent/screens/parent_home/student_TimeTable_tap/student_timeTable.dart';
 import 'package:smart_system/repositories/user_repository.dart';
-
 import 'package:smart_system/Student/screens/home/materials-tap/subject_group.dart';
-import 'package:smart_system/testo.dart';
-
 import 'Student/screens/home/Attendance-tap/qr/Qr_read_screen.dart';
 import 'Student/screens/home/Attendance-tap/attendance_screen.dart';
 import 'Student/screens/home/Attendance-tap/qr/accepted_qr.dart';
@@ -53,6 +50,7 @@ import 'Student/screens/home/materials-tap/Materials.dart';
 import 'Student/screens/home/materials-tap/assignment/add_answer_screen.dart';
 import 'Student/screens/home/materials-tap/assignment/assinment_screen.dart';
 import 'Student/screens/home/materials-tap/assignment/openAssignmentScreen.dart';
+import 'Student/screens/home/materials-tap/attachment/lecture_atta-details.dart';
 import 'Student/screens/home/materials-tap/attachment/attachment_screen.dart';
 import 'Student/screens/home/materials-tap/attachment/lecture_atta.dart';
 import 'Student/screens/home/materials-tap/meeting/meeting_information.dart';
@@ -124,6 +122,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           initialRoute: splash0.routeName,
           routes: {
+            LectureAttavhmentDetails.routeName: (context) => LectureAttavhmentDetails(),
             //student
             splash0.routeName: (context) => splash0(),
             splash1.routeName: (context) => splash1(),

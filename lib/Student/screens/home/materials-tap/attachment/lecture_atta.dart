@@ -22,8 +22,8 @@ class LectureAttavhment extends StatelessWidget {
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, mainAxisSpacing: 20, crossAxisSpacing: 20),
               children: <Widget>[
-                LectureItem(),
-                LectureItem(),
+                LectureItem(num: "1",),
+                LectureItem(num: "2",),
               ],
             ),
           ),

@@ -19,7 +19,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
       DropdownMenuItem(child: Text("CV"), value: "CV"),
       DropdownMenuItem(child: Text("Select topic"), value: "Select topic"),
       DropdownMenuItem(child: Text("Robotics"), value: "Robotics"),
-      DropdownMenuItem(child: Text("England"), value: "England"),
+      DropdownMenuItem(child: Text("Security"), value: "England"),
     ];
     return menuItems;
   }
@@ -70,8 +70,13 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                         filled: true,
                         fillColor: Colors.white,
                       ),
-                      validator: (value) =>
-                          value == null ? "Select Subject name" : null,
+
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Select Subject name';
+                        }
+                        return null;
+                      },
                       dropdownColor: Colors.white,
                       value: selectedValue,
                       onChanged: (String? newValue) {
@@ -84,6 +89,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                 SizedBox(
                   height: 20.h,
                 ),
+                if(_dropdownFormKey.currentState?.validate() ?? false)
                 Expanded(
                   flex: 5,
                   child: Container(
@@ -123,6 +129,8 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                     ),
                   ),
                 )
+                else
+                  Container(color: Colors.white,)
               ],
             )));
   }

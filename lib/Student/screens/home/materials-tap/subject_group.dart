@@ -32,8 +32,10 @@ GroupModel c =GroupModel(groupName: "groupName", doctorName: "doctorName", subje
           Expanded(
             child:InkWell(
               onTap: () {
+
                 Navigator.of(context)
-                    .pushReplacementNamed(MatPagee.routeName);
+                    .pushReplacementNamed(MatPagee.routeName,);
+
               },
               child: Container(
                 decoration: BoxDecoration(

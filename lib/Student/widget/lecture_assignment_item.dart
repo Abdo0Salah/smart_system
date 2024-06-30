@@ -57,7 +57,7 @@ class LectureAssignmentItem extends StatelessWidget {
           Row(
             children: [
               Text(
-                "$assignmentLastDare",
+                "Last Date",
                 style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 16.sp,
@@ -65,7 +65,7 @@ class LectureAssignmentItem extends StatelessWidget {
               ),
               Spacer(),
               Text(
-                "20 nov 2024",
+                "$assignmentLastDare",
                 style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16.sp),
               ),
             ],
@@ -94,7 +94,8 @@ class LectureAssignmentItem extends StatelessWidget {
                           ),
                     ],
                     borderRadius: BorderRadius.all(Radius.circular(12).r),
-                    color: Color.fromARGB(255, 251, 177, 177)),
+                    color:  ifSubmitted ? Color.fromARGB(255, 246, 174, 174):
+                    Color.fromARGB(185, 100, 250, 100)),
                 child: Padding(
                   padding: const EdgeInsets.all(12.0).w,
                   child: Text(

@@ -4,7 +4,7 @@ class NotificationModel {
   final String name;
   final String message;
   final String date;
-  final IconData avatar;
+  final CircleAvatar avatar;
 
   NotificationModel({
     required this.name,

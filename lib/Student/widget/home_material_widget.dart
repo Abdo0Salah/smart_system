@@ -11,39 +11,45 @@ class HomeMaterialWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        margin: EdgeInsets.all(5).w,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20.r),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
         ),
         child: Column(
-          children: [
-            Expanded(child: Image.asset(homeMaterialModel.image , width: 200, )),
-             SizedBox(
-              height: 30.h,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+              flex: 3,
+              child: Image.asset(
+                homeMaterialModel.image,
+              ),
             ),
             Expanded(
-              child: Text(
-                homeMaterialModel.title,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.fjordOne(
-                    fontSize: 15.sp, fontWeight: FontWeight.w400),
-              ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 2.w, vertical: 2.h),
-              decoration: BoxDecoration(
-                color: const Color(0xff8EAFD9),
-                borderRadius: BorderRadius.circular(5),
-              ),
-              padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 2.h),
-              child: Expanded(
+              flex: 2,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h),
                 child: Row(
-                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      homeMaterialModel.title,
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.fjordOne(
+                          fontSize: 12.sp, fontWeight: FontWeight.w400),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: const Color(0xff8EAFD9),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     TextButton(
                       onPressed: () {
@@ -54,12 +60,11 @@ class HomeMaterialWidget extends StatelessWidget {
                         'Details',
                         style: GoogleFonts.aBeeZee(
                             fontWeight: FontWeight.w300,
-                            fontSize: 15.sp,
+                            fontSize: 12.sp,
                             fontStyle: FontStyle.italic,
                             color: Colors.black),
                       ),
                     ),
-                    const SizedBox(width: 10),
                     const SizedBox(
                       height: 20,
                       child: VerticalDivider(
@@ -67,10 +72,9 @@ class HomeMaterialWidget extends StatelessWidget {
                         thickness: 1,
                       ),
                     ),
-                    SizedBox(width: 10.w),
                     const Icon(
                       Icons.arrow_forward_ios,
-                      size: 15,
+                      size: 12,
                     ),
                   ],
                 ),

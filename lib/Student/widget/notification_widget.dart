@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../models/notification_model.dart';
 
@@ -10,18 +12,32 @@ class NotificationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+      margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
       child: ListTile(
         leading: CircleAvatar(
-          child: Icon(notification.avatar),
+          backgroundColor: Colors.white,
+          child: notification.avatar,
         ),
-        title: Text(notification.name),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        title: Text(
+          notification.name,
+          style: GoogleFonts.fjordOne(
+              fontWeight: FontWeight.w500, fontSize: 15.sp),
+        ),
+        subtitle: Row(
           children: [
-            Text(notification.message),
-            SizedBox(height: 4.0),
-            Text(notification.date, style: TextStyle(fontSize: 12.0)),
+            Expanded(
+              flex: 2,
+              child: Text(
+                notification.message,
+                style: GoogleFonts.cairo(
+                    fontWeight: FontWeight.w500, fontSize: 10.sp),
+              ),
+            ),
+            SizedBox(width: 40.w),
+            Expanded(
+                flex: 1,
+                child:
+                    Text(notification.date, style: TextStyle(fontSize: 9.sp))),
           ],
         ),
       ),

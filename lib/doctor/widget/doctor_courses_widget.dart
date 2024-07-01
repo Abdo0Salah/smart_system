@@ -19,44 +19,47 @@ class DoctorCoursesWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Expanded(
+              flex: 3,
               child: Image.asset(
                 doctorCoursesModel.image,
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: 20.w, top: 5.h, bottom: 5.h, right: 10.w),
-                  child: Text(
-                    doctorCoursesModel.title,
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.fjordOne(
-                        fontSize: 15.sp, fontWeight: FontWeight.w400),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding:  EdgeInsets.only(right: 20.w),
-                    child: const Icon(
-                      Icons.delete,
-                      color: Colors.red,
-                    ),
-                  ),
-                )
-              ],
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 2.w, vertical: 2.h),
-              decoration: BoxDecoration(
-                color: const Color(0xff8EAFD9),
-                borderRadius: BorderRadius.circular(5),
-              ),
-              padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 2.h),
-              child: Expanded(
+            Expanded(
+              flex: 2,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h),
                 child: Row(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        doctorCoursesModel.title,
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.fjordOne(
+                            fontSize: 10.sp, fontWeight: FontWeight.w400),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: const Icon(
+                        Icons.delete,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: const Color(0xff8EAFD9),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     TextButton(
                       onPressed: () {
@@ -67,12 +70,11 @@ class DoctorCoursesWidget extends StatelessWidget {
                         'Details',
                         style: GoogleFonts.aBeeZee(
                             fontWeight: FontWeight.w300,
-                            fontSize: 15.sp,
+                            fontSize: 12.sp,
                             fontStyle: FontStyle.italic,
                             color: Colors.black),
                       ),
                     ),
-                    const SizedBox(width: 10),
                     const SizedBox(
                       height: 20,
                       child: VerticalDivider(
@@ -80,10 +82,9 @@ class DoctorCoursesWidget extends StatelessWidget {
                         thickness: 1,
                       ),
                     ),
-                    SizedBox(width: 10.w),
                     const Icon(
                       Icons.arrow_forward_ios,
-                      size: 15,
+                      size: 12,
                     ),
                   ],
                 ),

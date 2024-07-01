@@ -8,43 +8,60 @@ class NotificationScreen extends StatelessWidget {
   static const String routeName = 'NotificationScreen';
   final List<NotificationModel> notifications = [
     NotificationModel(
-      name: "Dr Ehab Roushdy",
-      message: "The next lecture we will take the sample Today. Be Ready.",
-      date: "Today",
-      avatar: Icons.person,
-    ),
+        name: "Dr Ehab Roushdy",
+        message: "The next lecture we will take the sample Today. Be Ready.",
+        date: "Today",
+        avatar: const CircleAvatar(
+          backgroundImage: AssetImage("assets/images/avatar1.png"),
+          backgroundColor: Colors.white,
+        )),
     NotificationModel(
       name: "Dr Nabile Lashin",
       message: "There is no lecture this week.",
       date: "2 days ago",
-      avatar: Icons.person,
+      avatar: const CircleAvatar(
+        backgroundImage: AssetImage("assets/images/avatar1.png"),
+        backgroundColor: Colors.white,
+      ),
     ),
     NotificationModel(
       name: "Dr Osama",
       message: "The next lecture we will take the exam. Be Ready.",
       date: "05/10/2021",
-      avatar: Icons.person,
+      avatar: const CircleAvatar(
+        backgroundImage: AssetImage("assets/images/avatar1.png"),
+        backgroundColor: Colors.white,
+      ),
     ),
     NotificationModel(
       name: "Dr waleed",
       message: "The lecture is ready. All students read it.",
       date: "02/10/2021",
-      avatar: Icons.person,
+      avatar: const CircleAvatar(
+        backgroundImage: AssetImage("assets/images/avatar1.png"),
+        backgroundColor: Colors.white,
+      ),
     ),
     NotificationModel(
       name: "Dr Hanaa",
       message: "The next lecture we will take the exam. Be Ready.",
       date: "30/09/2021",
-      avatar: Icons.person,
+      avatar: const CircleAvatar(
+        backgroundImage: AssetImage("assets/images/avatar3.png"),
+        backgroundColor: Colors.white,
+      ),
     ),
   ];
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
+    return SafeArea(
+        child: Scaffold(
       appBar: AppBar(
-        title: Text("Notification",
+        title: Text(
+          "Notification",
           style: GoogleFonts.fjordOne(
-            fontWeight: FontWeight.w400, fontSize: 22.sp,
+            fontWeight: FontWeight.w400,
+            fontSize: 22.sp,
             color: Colors.black,
           ),
         ),

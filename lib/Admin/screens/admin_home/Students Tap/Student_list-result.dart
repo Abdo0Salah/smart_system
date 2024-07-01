@@ -1,12 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Write-message.dart';
 
-class StudentListResult extends StatelessWidget {
+class StudentListResult extends StatefulWidget {
   const StudentListResult({super.key});
   static const String routeName = 'StudentListResult';
+
   @override
+  State<StudentListResult> createState() => _StudentListResultState();
+}
+
+class _StudentListResultState extends State<StudentListResult> {
+  bool _isChecked = false;
+  bool _isChecked2 = false;
+  bool _isChecked3= false;
+  bool _isChecked4 = false;
+  bool _isCheckedall = false;
+  @override
+
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -66,17 +81,24 @@ class StudentListResult extends StatelessWidget {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: [
-                            Container(
-                              width: 15,
-                              height: 15,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black),
-                                borderRadius: BorderRadius.circular(5),
-                                color: Colors.transparent,
+                            Expanded(flex: 1,
+                              child: Checkbox(
+                                value: _isCheckedall,
+                                onChanged: (bool? value) {
+                                  _isChecked = true;
+                                  _isChecked2 = true;
+                                  _isChecked3 = true;
+                                  _isChecked4 = true;
+
+                                  setState(() {
+                                    _isCheckedall = value ?? false;
+                                    _isChecked = value ?? false;
+                                    _isChecked2 = value ?? false;
+                                    _isChecked3 = value ?? false;
+                                    _isChecked4 = value ?? false;
+                                  });
+                                },
                               ),
-                            ),
-                            const SizedBox(
-                              width: 15,
                             ),
                             const Expanded(
                               flex: 2,
@@ -112,22 +134,21 @@ class StudentListResult extends StatelessWidget {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: [
-                            Container(
-                              width: 15,
-                              height: 15,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black),
-                                borderRadius: BorderRadius.circular(5),
-                                color: Colors.transparent,
+                            Expanded(flex: 1,
+                              child: Checkbox(
+                                value: _isChecked,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    _isChecked = value ?? false;
+                                  });
+                                },
                               ),
                             ),
-                            SizedBox(
-                              width: 15,
-                            ),
+
                             Expanded(
                               flex: 2,
                               child: Text(
-                                "201442140",
+                                "2014421240",
                               ),
                             ),
                             Expanded(
@@ -170,13 +191,14 @@ class StudentListResult extends StatelessWidget {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: [
-                            Container(
-                              width: 15,
-                              height: 15,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black),
-                                borderRadius: BorderRadius.circular(5),
-                                color: Colors.transparent,
+                            Expanded(flex: 1,
+                              child: Checkbox(
+                                value: _isChecked2,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    _isChecked2 = value ?? false;
+                                  });
+                                },
                               ),
                             ),
                             SizedBox(
@@ -185,7 +207,7 @@ class StudentListResult extends StatelessWidget {
                             Expanded(
                               flex: 2,
                               child: Text(
-                                "20494261540",
+                                "2049420540",
                               ),
                             ),
                             Expanded(
@@ -230,13 +252,14 @@ class StudentListResult extends StatelessWidget {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: [
-                            Container(
-                              width: 15,
-                              height: 15,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black),
-                                borderRadius: BorderRadius.circular(5),
-                                color: Colors.transparent,
+                            Expanded(flex: 1,
+                              child: Checkbox(
+                                value: _isChecked3,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    _isChecked3 = value ?? false;
+                                  });
+                                },
                               ),
                             ),
                             SizedBox(
@@ -286,13 +309,14 @@ class StudentListResult extends StatelessWidget {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: [
-                            Container(
-                              width: 15,
-                              height: 15,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black),
-                                borderRadius: BorderRadius.circular(5),
-                                color: Colors.transparent,
+                            Expanded(flex: 1,
+                              child: Checkbox(
+                                value: _isChecked4,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    _isChecked4 = value ?? false;
+                                  });
+                                },
                               ),
                             ),
                             SizedBox(

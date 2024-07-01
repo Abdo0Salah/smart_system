@@ -120,7 +120,9 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute:  isLoggedIn ? HomeScreen.routeName : splash0.routeName,
+          initialRoute:
+         // AdminHomeScreen.routeName,
+          isLoggedIn ? HomeScreen.routeName : splash0.routeName,
           routes: {
             LectureAttavhmentDetails.routeName: (context) => LectureAttavhmentDetails(),
             //student

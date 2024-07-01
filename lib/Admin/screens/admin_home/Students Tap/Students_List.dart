@@ -14,6 +14,9 @@ class _StudentsListState extends State<StudentsList> {
   var selectedDate2 = DateTime.now();
   String? selectedValue = null;
   String? selectedValue2 = null;
+  TextEditingController rateController = TextEditingController();
+  GlobalKey<FormState> rateFormKey = GlobalKey();
+
   final _dropdownFormKey = GlobalKey<FormState>();
   List<DropdownMenuItem<String>> get dropdownItems {
     List<DropdownMenuItem<String>> menuItems = [
@@ -84,8 +87,12 @@ class _StudentsListState extends State<StudentsList> {
                         filled: true,
                         fillColor: Colors.white,
                       ),
-                      validator: (value) =>
-                          value == null ? "Select Subject name" : null,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Select Subject name";
+                        }
+                        return null;
+                      },
                       dropdownColor: Colors.white,
                       value: selectedValue,
                       onChanged: (String? newValue) {
@@ -216,8 +223,12 @@ class _StudentsListState extends State<StudentsList> {
                         filled: true,
                         fillColor: Colors.white,
                       ),
-                      validator: (value) =>
-                          value == null ? "Course name" : null,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Course name";
+                        }
+                        return null;
+                      },
                       dropdownColor: Colors.white,
                       value: selectedValue2,
                       onChanged: (String? newValue) {
@@ -236,23 +247,48 @@ class _StudentsListState extends State<StudentsList> {
                   const SizedBox(
                     height: 10,
                   ),
-                  TextFormField(
-                      decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 2,
+                  Form(
+                    key: rateFormKey,
+                    child: TextFormField(
+                      controller:rateController ,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please write Attendanse rate';
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                width: 2,
+                              ),
+                              borderRadius: BorderRadius.circular(5),
                             ),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          hintText: ">=75%")),
+                            hintText: ">=75%")),
+                  ),
                   const SizedBox(
                     height: 50,
                   ),
                   InkWell(
+                    // onTap: () {
+                    //
+                    //   Navigator.pushNamed(context, StudentListResult.routeName);
+                    // },
                     onTap: () {
-                      Navigator.pushNamed(context, StudentListResult.routeName);
+                      if (_dropdownFormKey.currentState!.validate()&&
+                          _dropdownFormKey.currentState!.validate())
+                      {
+                        Navigator.of(context)
+                            .pushNamed(StudentListResult.routeName,
+                            )
+                            .then((_) {rateController.clear();});                                   ScaffoldMessenger.of(context).showSnackBar(
+
+                            SnackBar(
+                                content: Text('Done!')
+                            ));  }
+
                     },
                     child: Container(
                       child: Center(

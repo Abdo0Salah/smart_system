@@ -52,10 +52,11 @@ class SubjectRegisterationModel {
 
   int? id;
   String? name;
-  String? level;
-  String? term;
+  int? level;
+  int? term;
   int? hours;
   String? code;
+  int? deptId ;
   String? link;
 
   SubjectRegisterationModel({
@@ -65,6 +66,7 @@ class SubjectRegisterationModel {
     this.term,
     this.hours,
     this.code,
+    this.deptId,
     this.link,
   });
 
@@ -76,6 +78,7 @@ class SubjectRegisterationModel {
       term: json['term'],
       hours: json['hours'] is int ? json['hours'] : int.tryParse(json['hours'].toString()),
       code: json['code'],
+      deptId : json['deptId'],
       link: json['link'],
     );
   }
@@ -88,12 +91,13 @@ class SubjectRegisterationModel {
       'term': term,
       'hours': hours,
       'code': code,
+      'deptId':deptId,
       'link': link,
     };
   }
 
   @override
   String toString() {
-    return 'SubjectRegistrationModel(id: $id, name: $name, level: $level, term: $term, hours: $hours, code: $code, link: $link)';
+    return 'SubjectRegistrationModel(id: $id, name: $name, level: $level, term: $term, hours: $hours, code: $code,deptId:$deptId, link: $link)';
   }
 }

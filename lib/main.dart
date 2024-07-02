@@ -101,7 +101,7 @@ void main() async {
   runApp(
     BlocProvider(
       create: (context) =>
-          UserCubit(UserRepository(api: DioConsumer(dio: Dio()))),
+          UserCubit(UserRepository(api: DioConsumer(dio: Dio())),),
       child:  MyApp(isLoggedIn: isLoggedIn),
     ),
   );
@@ -151,7 +151,7 @@ class MyApp extends StatelessWidget {
             PostScreen.routeName: (context) => PostScreen(),
             LectureAttavhment.routeName: (context) => LectureAttavhment(),
             Profile.routeName: (context) => Profile(),
-            Profile2.routeName: (context) => Profile2(),
+            UserProfileScreen.routeName: (context) => UserProfileScreen(),
             AttendanceScreen.routeName: (context) => AttendanceScreen(),
             QrReadScreen.routeName: (context) => QrReadScreen(),
             AcceptedQrScreen.routeName: (context) => AcceptedQrScreen(),

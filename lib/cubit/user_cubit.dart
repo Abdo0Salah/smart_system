@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:smart_system/core/api/end_ponits.dart';
 import 'package:smart_system/cubit/user_state.dart';
 import '../apiModels/sign_in_model.dart';
 import '../apiModels/subjectRegisteration_model.dart';
 import '../repositories/user_repository.dart';
 
 class UserCubit extends Cubit<UserState> {
+
   UserCubit(this.userRepository) : super(UserInitial());
+
   final UserRepository userRepository;
+
+
   //Sign in Form key
   GlobalKey<FormState> signInFormKey = GlobalKey();
 //  GlobalObjectKey<FormState> signInFormKey = GlobalObjectKey(Object);
@@ -49,8 +54,8 @@ class UserCubit extends Cubit<UserState> {
       confirmPassword: confirmPassword.text,
       role: signUrule.text,
       phone: signUpPhone.text,
-      level: signUpLevel.text,
-      term: signUpTerm.text,
+      level: int.parse(signUpLevel.text ),
+      term: int.parse(signUpTerm.text),
       gender: signUpGender.text,
       ssn: signUpSsn.text,
     );
@@ -71,15 +76,29 @@ class UserCubit extends Cubit<UserState> {
       (signInModel) => emit(SignInSuccess()),
     );
   }
-
-  // getUserProfile() async {
-  //   emit(GetUserLoading());
-  //   final response = await userRepository.getUserProfile();
-  //   response.fold(
-  //     (errMessage) => emit(GetUserFailure(errMessage: errMessage)),
-  //     (user) => emit(GetUserSuccess(user: user)),
-  //   );
-  // }
+///profile
+//   getUserProfile() async {
+//     emit(GetUserLoading());
+//     final response = await userRepository.getUserProfile();
+//     response.fold(
+//           (errMessage) => emit(GetUserFailure(errMessage: errMessage)),
+//           (user) => emit(GetUserSuccess(user: user)),
+//     );
+//   }
+  Future<void> getUserProfile() async {
+    emit(GetUserLoading());
+    final result = await userRepository.getUserProfile();
+    result.fold(
+          (error) {
+        print('Error: $error');
+        emit(GetUserFailure(errMessage:error));
+      },
+          (user) {
+        print('User data received in Cubit: $user');
+        emit(GetUserSuccess(user: user));
+      },
+    );
+  }
 
   SubjectRegisteration() async {
      emit(SubjectRegisterationLoading());

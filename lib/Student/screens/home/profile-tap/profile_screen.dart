@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_system/Student/screens/home/profile-tap/profile_screen2.dart';
 
+import '../../../../cubit/user_cubit.dart';
 import '../home.dart';
 
 
@@ -69,7 +71,8 @@ class Profile extends StatelessWidget {
                         ),
                       ),
                       onPressed: (){
-                        Navigator.of(context).pushNamed(Profile2.routeName);
+                        context.read<UserCubit>().getUserProfile();
+                        Navigator.of(context).pushNamed(UserProfileScreen.routeName);
                       },
                       child:
                           Padding(

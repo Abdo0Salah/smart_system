@@ -4,6 +4,7 @@ import 'package:jwt_decoder/jwt_decoder.dart';
 import '../apiModels/sign_in_model.dart';
 import '../apiModels/sign_up_model.dart';
 import '../apiModels/subjectRegisteration_model.dart';
+import '../apiModels/user_model.dart';
 import '../cache/cache_helper.dart';
 import '../core/api/api_consumer.dart';
 import '../core/api/end_ponits.dart';
@@ -12,7 +13,7 @@ import '../core/errors/exceptions.dart';
 class UserRepository {
   final ApiConsumer api;
 
-  UserRepository({required this.api});
+  UserRepository( {required this.api});
 
 
  /// STUDENT
@@ -49,8 +50,8 @@ class UserRepository {
     required String confirmPassword,
     required String role,
     required String phone,
-    required String level,
-    required String term,
+    required int level,
+    required int term,
     required String gender,
     required String ssn,
   }) async {
@@ -64,6 +65,11 @@ class UserRepository {
           ApiKey.email: email,
           ApiKey.password: password,
           ApiKey.confirmPassword: confirmPassword,
+          ApiKey.level: level,
+          ApiKey.term: term,
+          ApiKey.phone: phone,
+          ApiKey.gender: gender,
+          ApiKey.ssn: ssn,
           ApiKey.role: role,
         },
       );
@@ -73,19 +79,39 @@ class UserRepository {
       return Left(e.errModel.errorMessage);
     }
   }
+///profile
+//   Future<Either<String, UserModel>> getUserProfile() async {
+//     try {
+//       final response = await api.get(
+//         EndPoint.getUserDataEndPoint(
+//           // CacheHelper().getData(key: ApiKey.id),
+//         ),
+//       );
+//       return Right(UserModel.fromJson(response));
+//     } on ServerException catch (e) {
+//       return Left(e.errModel.errorMessage);
+//     }
+//   }
 
-  // Future<Either<String, UserModel>> getUserProfile() async {
-  //   try {
-  //     final response = await api.get(
-  //       EndPoint.getUserDataEndPoint(
-  //         CacheHelper().getData(key: ApiKey.id),
-  //       ),
-  //     );
-  //     return Right(UserModel.fromJson(response));
-  //   } on ServerException catch (e) {
-  //     return Left(e.errModel.errorMessage);
-  //   }
-  // }
+  Future<Either<String, UserModel>> getUserProfile() async {
+    try {
+      final response = await api.get(
+        EndPoint.getUserDataEndPoint(
+          // CacheHelper().getData(key: ApiKey.id),
+        ),
+      );
+      if (response == null) {
+        throw Exception('API response is null');
+      }
+      return Right(UserModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    } catch (e) {
+      // Handle other exceptions
+      return Left(e.toString());
+    }
+  }
+
 
   Future<Either<String, List<SubjectRegisterationModel>>>
       SubjectRegisteration() async {

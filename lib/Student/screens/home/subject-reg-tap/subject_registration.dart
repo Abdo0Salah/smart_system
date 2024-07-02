@@ -140,8 +140,8 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
                 children: [
                   Container(
                     width: double.infinity.w,
-                    height: 40.h,
-                    decoration: const BoxDecoration(
+                    height: 60.h,
+                    decoration:  BoxDecoration(
                         color: Color(0xffE8EAEC),
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(20),
@@ -150,51 +150,61 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black,
-                            offset: Offset(0, 1),
-                            blurRadius: 3,
-                            spreadRadius: 0,
+                            offset: Offset(0.w, 1.h),
+                            blurRadius: 3.r,
+                            spreadRadius: 0.r,
                           ),
                         ]
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0).w,
+                      padding:  EdgeInsets.all(8.w),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            "s.No",
-                            style: GoogleFonts.gabriela(
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 12.sp),
+                          Expanded(
+                            child: Text(
+                              "s.No",
+                              style: GoogleFonts.gabriela(
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 12.sp),
+                            ),
                           ),
-                          Text(
-                            "Subject name",
-                            style: GoogleFonts.gabriela(
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 12.sp),
+                          Expanded(
+                            child: Text(
+                              "Subject name",
+                              style: GoogleFonts.gabriela(
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 12.sp),
+                            ),
                           ),
-                          Text(
-                            "subject code",
-                            style: GoogleFonts.gabriela(
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 12.sp),
+                          Expanded(
+                            child: Text(
+                              "subject code",
+                              style: GoogleFonts.gabriela(
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 12.sp),
+                            ),
                           ),
-                          Text(
-                            "subject credit",
-                            style: GoogleFonts.gabriela(
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 12.sp),
+                          Expanded(
+                            child: Text(
+                              "subject credit",
+                              style: GoogleFonts.gabriela(
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 12.sp),
+                            ),
                           ),
-                          Text(
-                            "Preference",
-                            style: GoogleFonts.gabriela(
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 12.sp),
+                          Expanded(
+                            child: Text(
+                              "Preference",
+                              style: GoogleFonts.gabriela(
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 12.sp),
+                            ),
                           ),
                         ],
                       ),
@@ -215,8 +225,8 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(
-              12).h,
+          padding:  EdgeInsets.all(
+              12.w),
           child: Center(
             child: TextButton(
               style: OutlinedButton.styleFrom(

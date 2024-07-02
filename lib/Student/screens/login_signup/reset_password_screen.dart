@@ -48,7 +48,7 @@ class ResetPasswordScreen extends StatelessWidget {
               child: Text(
                 'fci.zu.edu.eg@21365468098 التابعة ل',
                 style: TextStyle(
-                  fontSize: 20.sp,
+                  fontSize: 17.sp,
                   fontWeight: FontWeight.w400,
                 ),
               ),

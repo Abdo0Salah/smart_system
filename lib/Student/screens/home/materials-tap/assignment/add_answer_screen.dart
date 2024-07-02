@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'assinment_screen.dart';
+
 class AddAnswerScreen extends StatelessWidget {
   const AddAnswerScreen({super.key});
   static const String routeName = 'AddAnswerScreen';
@@ -77,7 +79,9 @@ class AddAnswerScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 100,),
-                  TextButton(onPressed: (){},
+                  TextButton(onPressed: (){
+                    Navigator.pushReplacementNamed(context, AssinmentScreen.routeName);
+                  },
                       style: ButtonStyle(
 
                           backgroundColor: MaterialStatePropertyAll(Colors.blue)

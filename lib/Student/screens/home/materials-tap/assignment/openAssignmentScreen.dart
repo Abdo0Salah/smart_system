@@ -58,7 +58,7 @@ class OpenAssignmentScreen extends StatelessWidget {
                   elevation: 2.0,
                   fillColor: Colors.blue,
                   child: InkWell(
-                    onTap: (){ Navigator.pushNamed(context, AddAnswerScreen.routeName);},
+                    onTap: (){ Navigator.popAndPushNamed(context, AddAnswerScreen.routeName);},
 
                     child: Icon(
                       Icons.add,

@@ -79,39 +79,45 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                           children: [
                             Row(
                               children: [
-                                CircleAvatar(
-                                  backgroundColor: const Color(0xffC4C4C4),
-                                  radius: 20.r,
+                                Expanded(flex:1,
+                                  child: CircleAvatar(
+                                    backgroundColor: const Color(0xffC4C4C4),
+                                    radius: 20.r,
+                                  ),
                                 ),
-                                Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Student name",
-                                          style: GoogleFonts.inter(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 12.sp),
-                                        ),
-                                        Text(
-                                          "201524587545@fci.zu.edu.eg",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.normal,
-                                              fontSize: 12.sp),
-                                        ),
-                                      ],
+                                Expanded(flex: 3,
+                                  child: Center(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Student name",
+                                            style: GoogleFonts.inter(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 12.sp),
+                                          ),
+                                          Text(
+                                            "201524587545@fci.zu.edu.eg",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.normal,
+                                                fontSize: 10.sp),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
                                 const Spacer(),
-                                Text(
-                                  "22.03.2021",
-                                  style: GoogleFonts.inter(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 12.sp),
+                                Expanded(flex: 2,
+                                  child: Text(
+                                    "22.03.2021",
+                                    style: GoogleFonts.inter(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 12.sp),
+                                  ),
                                 ),
                               ],
                             ),

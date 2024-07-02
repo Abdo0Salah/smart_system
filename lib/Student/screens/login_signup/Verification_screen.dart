@@ -135,22 +135,26 @@ class VerificationScreen extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding:  EdgeInsets.all(30.w),
+                  padding:  EdgeInsets.all(25.w),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text("If you didn’t receive a code, ",
-                          style: TextStyle(
-                            color: const Color(0xffABABAB),
-                            fontSize: 17.sp,
-                            fontWeight: FontWeight.w400,
-                          )),
-                      Text("Resend",
-                          style: TextStyle(
-                            color: const Color(0xffE85C4D),
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w400,
-                          )),
+                      Expanded(flex:4,
+                        child: Text("If you did’t receive a code, ",
+                            style: TextStyle(
+                              color: const Color(0xffABABAB),
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w400,
+                            )),
+                      ),
+                      Expanded(flex:1,
+                        child: Text("Resend",
+                            style: TextStyle(
+                              color: const Color(0xffE85C4D),
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w400,
+                            )),
+                      ),
                     ],
                   ),
                 ),

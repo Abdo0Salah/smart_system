@@ -170,6 +170,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               innerText: 'Sign In',
                               onPressed: () {
                                 context.read<UserCubit>().signIn();
+                                context.read<UserCubit>().getUserProfile();
+
                               },
                             ),
                     ),

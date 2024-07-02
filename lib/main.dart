@@ -151,7 +151,7 @@ class MyApp extends StatelessWidget {
             PostScreen.routeName: (context) => PostScreen(),
             LectureAttavhment.routeName: (context) => LectureAttavhment(),
             Profile.routeName: (context) => Profile(),
-            UserProfileScreen.routeName: (context) => UserProfileScreen(),
+            Profile2.routeName: (context) => Profile2(),
             AttendanceScreen.routeName: (context) => AttendanceScreen(),
             QrReadScreen.routeName: (context) => QrReadScreen(),
             AcceptedQrScreen.routeName: (context) => AcceptedQrScreen(),

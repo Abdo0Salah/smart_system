@@ -31,9 +31,9 @@ class UserRepository {
       );
       final user = SignInModel.fromJson(response);
       final decodedToken = JwtDecoder.decode(user.token);
-
+      //print(decodedToken);
       await   CacheHelper().saveData(key: ApiKey.token, value: user.token);
-      await  CacheHelper().saveData(key: ApiKey.id, value: decodedToken["jti"]);
+      await CacheHelper().saveData(key: ApiKey.id, value: decodedToken["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
       await CacheHelper().saveData(key: 'isLoggedIn', value: true);
 
       return Right(user);
@@ -97,9 +97,10 @@ class UserRepository {
     try {
       final response = await api.get(
         EndPoint.getUserDataEndPoint(
-          // CacheHelper().getData(key: ApiKey.id),
+           CacheHelper().getData(key: ApiKey.id),
         ),
       );
+
       if (response == null) {
         throw Exception('API response is null');
       }

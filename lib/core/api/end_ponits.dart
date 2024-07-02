@@ -1,3 +1,5 @@
+
+
 class EndPoint {
   //student
   static String baseUrl = "http://eirpsystem.runasp.net";
@@ -6,9 +8,9 @@ class EndPoint {
   // static String profileuser = "/api/Students/{id}";
   static String subjectRegisteration = "/api/Courses/GetAll";
   static const String logout = "/api/Students/logout";
-  static String getUserDataEndPoint() {
-    // return "/api/Students/$id";
-    return "/api/Students/82";
+  static String getUserDataEndPoint(id) {
+     return "/api/Students/$id";
+   // return "/api/Students/82";
   }
 
 //parent

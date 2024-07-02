@@ -101,7 +101,7 @@ void main() async {
   runApp(
     BlocProvider(
       create: (context) =>
-          UserCubit(UserRepository(api: DioConsumer(dio: Dio()))),
+          UserCubit(UserRepository(api: DioConsumer(dio: Dio())),),
       child:  MyApp(isLoggedIn: isLoggedIn),
     ),
   );

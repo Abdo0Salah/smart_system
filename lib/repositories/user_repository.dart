@@ -49,8 +49,8 @@ class UserRepository {
     required String confirmPassword,
     required String role,
     required String phone,
-    required String level,
-    required String term,
+    required int level,
+    required int term,
     required String gender,
     required String ssn,
   }) async {
@@ -64,6 +64,11 @@ class UserRepository {
           ApiKey.email: email,
           ApiKey.password: password,
           ApiKey.confirmPassword: confirmPassword,
+          ApiKey.level: level,
+          ApiKey.term: term,
+          ApiKey.phone: phone,
+          ApiKey.gender: gender,
+          ApiKey.ssn: ssn,
           ApiKey.role: role,
         },
       );

@@ -49,8 +49,8 @@ class UserCubit extends Cubit<UserState> {
       confirmPassword: confirmPassword.text,
       role: signUrule.text,
       phone: signUpPhone.text,
-      level: signUpLevel.text,
-      term: signUpTerm.text,
+      level: int.parse(signUpLevel.text ),
+      term: int.parse(signUpTerm.text),
       gender: signUpGender.text,
       ssn: signUpSsn.text,
     );

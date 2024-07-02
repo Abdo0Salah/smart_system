@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_system/Student/screens/login_signup/signup_screen.dart';
 import '../../../cubit/user_cubit.dart';
 import '../../../cubit/user_state.dart';
@@ -45,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
             backgroundColor: Colors.transparent,
             elevation: 0,
           ),
-          backgroundColor: Color(0xffF0F3F7),
+          backgroundColor: const Color(0xffF0F3F7),
           body: SingleChildScrollView(
             child: Form(
               key: context.read<UserCubit>().signInFormKey,
@@ -54,25 +55,24 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsets.only(top: 10, right: 40, left: 40),
+                         EdgeInsets.only(top: 10.h, right: 40.w, left: 40.w),
                     child: Image.asset('assets/images/Login/login_logo.png'),
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.only(bottom: 15, left: 15, right: 15),
+                         EdgeInsets.only(bottom: 15.h, left: 15.w, right: 15.w),
                     child: Container(
-                      // width: 390,
-                      // height: 320,
+                      width: double.infinity,
                       decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withOpacity(1),
-                              spreadRadius: 2,
-                              blurRadius: 5,
-                              offset: Offset(0, 3),
+                              spreadRadius: 2.r,
+                              blurRadius: 5.r,
+                              offset: Offset(0.w, 3.h),
                             ),
                           ],
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(20.r),
                           color: Colors.white),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -82,29 +82,30 @@ class _LoginScreenState extends State<LoginScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              const Padding(
+                               Padding(
                                 padding: EdgeInsets.only(
-                                    left: 20, top: 20, right: 20, bottom: 10),
+                                    left: 20.w, top: 20.h, right: 20.w
+                                    , bottom: 10.h),
                                 child: Text(
                                   'Login',
                                   style: TextStyle(
-                                    fontSize: 25,
+                                    fontSize: 25.sp,
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 20, top: 20, right: 20, bottom: 10),
+                                padding:  EdgeInsets.only(
+                                    left: 20.w, top: 20.h, right: 20.w, bottom: 10.h),
                                 child: InkWell(
                                   onTap: () {
                                     Navigator.of(context)
                                         .pushNamed(SignUpScreen.routeName);
                                   },
-                                  child: const Text(
+                                  child:  Text(
                                     'Sign Up',
                                     style: TextStyle(
-                                      fontSize: 25,
+                                      fontSize: 25.sp,
                                       fontWeight: FontWeight.w400,
                                     ),
                                   ),
@@ -112,13 +113,16 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ],
                           ),
-                          const Divider(
-                            thickness: 3,
-                            color: Color(0xff1B406D),
-                            endIndent: 230,
+                           Padding(
+                             padding:  EdgeInsets.symmetric(horizontal: 10.w),
+                             child: Divider(
+                              thickness: 3.h,
+                              color: const Color(0xff1B406D),
+                              endIndent: 200.w
                           ),
+                           ),
                           Padding(
-                            padding: const EdgeInsets.all(15.0),
+                            padding:  EdgeInsets.all(15.w),
                             child: CustomInputField(
                               iconss: Icons.mail,
                               prefixIcon: true,
@@ -128,7 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(15.0),
+                            padding:  EdgeInsets.all(15.w),
                             child: CustomInputField(
                               iconss: Icons.password_outlined,
                               hintText: 'Your password',
@@ -140,17 +144,17 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding:  EdgeInsets.all(10.w),
                             child: InkWell(
                               onTap: () {
                                 Navigator.of(context).pushReplacementNamed(
                                     ForgetPassword.routeName);
                               },
-                              child: const Text(
+                              child:  Text(
                                 'Forget Password!',
                                 textAlign: TextAlign.right,
                                 style: TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 18.sp,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -162,8 +166,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Center(
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                          top: 15, right: 15, left: 15, bottom: 15),
+                      padding:  EdgeInsets.only(
+                          top: 15.h, right: 15.w, left: 15.w, bottom: 15.h),
                       child: state is SignInLoading
                           ? const CircularProgressIndicator()
                           : CustomFormButton(

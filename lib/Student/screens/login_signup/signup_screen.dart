@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../cubit/user_cubit.dart';
 import '../../../cubit/user_state.dart';
@@ -41,7 +42,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
-        backgroundColor: Color(0xffF0F3F7),
+        backgroundColor: const Color(0xffF0F3F7),
         body: SingleChildScrollView(
           child: Form(
             key: context.read<UserCubit>().signUpFormKey,
@@ -50,20 +51,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Image.asset('assets/images/Login/login_logo.png'),
                 Padding(
                   padding:
-                      const EdgeInsets.only(bottom: 8, right: 15, left: 15),
+                       EdgeInsets.only(bottom: 8.h
+                           , right: 15.w, left: 15.w),
                   child: Container(
-                    //  width: 390,
-                    //   height: 400,
+                     width: double.infinity,
                     decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey.withOpacity(1),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: Offset(0, 3),
+                            spreadRadius: 2.r,
+                            blurRadius: 5.r,
+                            offset: Offset(0.w, 3.h),
                           ),
                         ],
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.r),
                         color: Colors.white),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -74,34 +75,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 20, top: 20, right: 20, bottom: 10),
+                              padding:  EdgeInsets.only(
+                                  left: 20.w, top: 20.h, right: 20.w, bottom: 10.h),
                               child: InkWell(
                                 onTap: () {
                                   Navigator.of(context)
                                       .pop(LoginScreen.routeName);
                                 },
-                                child: const Text(
+                                child:  Text(
                                   'Login',
                                   style: TextStyle(
-                                    fontSize: 25,
+                                    fontSize: 25.sp,
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 20, top: 20, right: 20, bottom: 10),
+                              padding:  EdgeInsets.only(
+                                  left: 20.w, top: 20.h, right: 20.w, bottom: 10.h),
                               child: InkWell(
                                 onTap: () {
                                   Navigator.of(context)
                                       .pop(SignUpScreen.routeName);
                                 },
-                                child: const Text(
+                                child:  Text(
                                   'Sign Up',
                                   style: TextStyle(
-                                    fontSize: 25,
+                                    fontSize: 25.sp,
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
@@ -109,16 +110,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                           ],
                         ),
-                        const Divider(
-                          thickness: 3,
-                          color: Color(0xff1B406D),
-                          indent: 230,
+                         Padding(
+                           padding:  EdgeInsets.symmetric(horizontal: 10.w),
+                           child: Divider(
+                            thickness: 3.h,
+                            color: const Color(0xff1B406D),
+                            indent: 200.w,
                         ),
+                         ),
                         Column(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 8, right: 15, left: 15, bottom: 8),
+                              padding:  EdgeInsets.only(
+                                  top: 8.h, right: 15.w, left: 15.w, bottom: 8.h),
                               child: CustomInputField(
                                 prefixIcon: true,
                                 iconss: Icons.person_rounded,
@@ -129,8 +133,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 8, right: 15, left: 15, bottom: 8),
+                              padding:  EdgeInsets.only(
+                                  top: 8.h, right: 15.w, left: 15.w, bottom: 8.h),
                               child: CustomInputField(
                                 prefixIcon: true,
                                 iconss: Icons.person,
@@ -141,8 +145,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 8, right: 15, left: 15, bottom: 8),
+                              padding:  EdgeInsets.only(
+                                  top: 8.h, right: 15.w, left: 15.w, bottom: 8.h),
                               child: CustomInputField(
                                 prefixIcon: true,
                                 iconss: Icons.mail,
@@ -153,8 +157,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 8, right: 15, left: 15, bottom: 8),
+                              padding:  EdgeInsets.only(
+                                  top: 8.h, right: 15.w, left: 15.w, bottom: 8.h),
                               child: CustomInputField(
                                 prefixIcon: true,
                                 iconss: Icons.key,
@@ -167,8 +171,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 8, right: 15, left: 15, bottom: 8),
+                              padding:  EdgeInsets.only(
+                                  top: 8.h, right: 15.w, left: 15.w, bottom: 8.h),
                               child: CustomInputField(
                                 prefixIcon: true,
                                 iconss: Icons.key,
@@ -181,8 +185,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 8, right: 15, left: 15, bottom: 8),
+                              padding:  EdgeInsets.only(
+                                  top: 8.h, right: 15.w, left: 15.w, bottom: 8.h),
                               child: CustomInputField(
                                 prefixIcon: true,
                                 iconss: Icons.rule,
@@ -194,8 +198,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 8, right: 15, left: 15, bottom: 8),
+                              padding:  EdgeInsets.only(
+                                  top: 8.h, right: 15.w, left: 15.w, bottom: 8.h),
                               child: CustomInputField(
                                 prefixIcon: true,
                                 iconss: Icons.phone,
@@ -207,8 +211,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 8, right: 15, left: 15, bottom: 8),
+                              padding:  EdgeInsets.only(
+                                  top: 8.h, right: 15.w, left: 15.w, bottom: 8.h),
                               child: CustomInputField(
                                 prefixIcon: true,
                                 iconss: Icons.numbers,
@@ -220,8 +224,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 8, right: 15, left: 15, bottom: 8),
+                              padding:  EdgeInsets.only(
+                                  top: 8.h, right: 15.w, left: 15.w, bottom: 8.h),
                               child: CustomInputField(
                                 prefixIcon: true,
                                 iconss: Icons.class_,
@@ -233,8 +237,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 8, right: 15, left: 15, bottom: 8),
+                              padding:  EdgeInsets.only(
+                                  top: 8.h, right: 15.w, left: 15.w, bottom: 8.h),
                               child: CustomInputField(
                                 prefixIcon: true,
                                 iconss: Icons.person,
@@ -246,8 +250,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 8, right: 15, left: 15, bottom: 8),
+                              padding:  EdgeInsets.only(
+                                  top: 8.h, right: 15.w, left: 15.w, bottom: 8.h),
                               child: CustomInputField(
                                 prefixIcon: true,
                                 iconss: Icons.rule,
@@ -265,8 +269,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                      top: 8, right: 15, left: 15, bottom: 8),
+                  padding:  EdgeInsets.only(
+                      top: 8.h, right: 15.w, left: 15.w, bottom: 8.h),
                   child: state is SignUpLoading
                       ? const CircularProgressIndicator()
                       : CustomFormButton(

@@ -1,13 +1,18 @@
+
+
 class EndPoint {
   //student
   static String baseUrl = "http://eirpsystem.runasp.net";
   static String signIn = "/api/Students/login";
   static String signUp = "/api/Students/register";
+  // static String profileuser = "/api/Students/{id}";
   static String subjectRegisteration = "/api/Courses/GetAll";
   static const String logout = "/api/Students/logout";
   static String getUserDataEndPoint(id) {
-    return "user/get-user/$id";
+     return "/api/Students/$id";
+   // return "/api/Students/82";
   }
+
 //parent
   static String signInParent = "/api/Parents/register";
 
@@ -41,6 +46,15 @@ class ApiKey {
   static String ssn = "ssn";
  // static String profilePic = "profilePic";
 
+// شكل الريكويست بتاع البروفايل
+  static String universityEmail = "universityEmail";
+  // static String ssnProfile = "ssn";
+  // static String phoneProfile = "phone";
+  // static String genderProfile = "gender";
+  // static String levelProfile = "level";
+  // static String termProfile = "term";
+  static String parentPhone = "parentPhone";
+  static String parentEmail = "parentEmail";
 
 ///Parent
 

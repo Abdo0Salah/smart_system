@@ -7,8 +7,12 @@ import '../apiModels/subjectRegisteration_model.dart';
 import '../repositories/user_repository.dart';
 
 class UserCubit extends Cubit<UserState> {
+
   UserCubit(this.userRepository) : super(UserInitial());
+
   final UserRepository userRepository;
+
+
   //Sign in Form key
   GlobalKey<FormState> signInFormKey = GlobalKey();
 //  GlobalObjectKey<FormState> signInFormKey = GlobalObjectKey(Object);
@@ -71,15 +75,29 @@ class UserCubit extends Cubit<UserState> {
       (signInModel) => emit(SignInSuccess()),
     );
   }
-
-  // getUserProfile() async {
-  //   emit(GetUserLoading());
-  //   final response = await userRepository.getUserProfile();
-  //   response.fold(
-  //     (errMessage) => emit(GetUserFailure(errMessage: errMessage)),
-  //     (user) => emit(GetUserSuccess(user: user)),
-  //   );
-  // }
+///profile
+//   getUserProfile() async {
+//     emit(GetUserLoading());
+//     final response = await userRepository.getUserProfile();
+//     response.fold(
+//           (errMessage) => emit(GetUserFailure(errMessage: errMessage)),
+//           (user) => emit(GetUserSuccess(user: user)),
+//     );
+//   }
+  Future<void> getUserProfile() async {
+    emit(GetUserLoading());
+    final result = await userRepository.getUserProfile();
+    result.fold(
+          (error) {
+        print('Error: $error');
+        emit(GetUserFailure(errMessage:error));
+      },
+          (user) {
+        print('User data received in Cubit: $user');
+        emit(GetUserSuccess(user: user));
+      },
+    );
+  }
 
   SubjectRegisteration() async {
      emit(SubjectRegisterationLoading());

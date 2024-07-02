@@ -4,6 +4,7 @@ import 'package:jwt_decoder/jwt_decoder.dart';
 import '../apiModels/sign_in_model.dart';
 import '../apiModels/sign_up_model.dart';
 import '../apiModels/subjectRegisteration_model.dart';
+import '../apiModels/user_model.dart';
 import '../cache/cache_helper.dart';
 import '../core/api/api_consumer.dart';
 import '../core/api/end_ponits.dart';
@@ -12,7 +13,7 @@ import '../core/errors/exceptions.dart';
 class UserRepository {
   final ApiConsumer api;
 
-  UserRepository({required this.api});
+  UserRepository( {required this.api});
 
 
  /// STUDENT
@@ -30,9 +31,9 @@ class UserRepository {
       );
       final user = SignInModel.fromJson(response);
       final decodedToken = JwtDecoder.decode(user.token);
-
+      //print(decodedToken);
       await   CacheHelper().saveData(key: ApiKey.token, value: user.token);
-      await  CacheHelper().saveData(key: ApiKey.id, value: decodedToken["jti"]);
+      await CacheHelper().saveData(key: ApiKey.id, value: decodedToken["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
       await CacheHelper().saveData(key: 'isLoggedIn', value: true);
 
       return Right(user);
@@ -78,19 +79,40 @@ class UserRepository {
       return Left(e.errModel.errorMessage);
     }
   }
+///profile
+//   Future<Either<String, UserModel>> getUserProfile() async {
+//     try {
+//       final response = await api.get(
+//         EndPoint.getUserDataEndPoint(
+//           // CacheHelper().getData(key: ApiKey.id),
+//         ),
+//       );
+//       return Right(UserModel.fromJson(response));
+//     } on ServerException catch (e) {
+//       return Left(e.errModel.errorMessage);
+//     }
+//   }
 
-  // Future<Either<String, UserModel>> getUserProfile() async {
-  //   try {
-  //     final response = await api.get(
-  //       EndPoint.getUserDataEndPoint(
-  //         CacheHelper().getData(key: ApiKey.id),
-  //       ),
-  //     );
-  //     return Right(UserModel.fromJson(response));
-  //   } on ServerException catch (e) {
-  //     return Left(e.errModel.errorMessage);
-  //   }
-  // }
+  Future<Either<String, UserModel>> getUserProfile() async {
+    try {
+      final response = await api.get(
+        EndPoint.getUserDataEndPoint(
+           CacheHelper().getData(key: ApiKey.id),
+        ),
+      );
+
+      if (response == null) {
+        throw Exception('API response is null');
+      }
+      return Right(UserModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    } catch (e) {
+      // Handle other exceptions
+      return Left(e.toString());
+    }
+  }
+
 
   Future<Either<String, List<SubjectRegisterationModel>>>
       SubjectRegisteration() async {

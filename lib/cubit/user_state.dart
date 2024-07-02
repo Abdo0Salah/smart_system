@@ -1,4 +1,5 @@
 import '../apiModels/subjectRegisteration_model.dart';
+import '../apiModels/user_model.dart';
 
 class UserState {}
 
@@ -40,12 +41,12 @@ final class SignUpFailure extends UserState {
   SignUpFailure({required this.errMessage});
 }
 
-// final class GetUserSuccess extends UserState {
-//  // final UserModel user;
-//
-// //  GetUserSuccess({required this.user});
-//
-// }
+final class GetUserSuccess extends UserState {
+ final UserModel user;
+
+ GetUserSuccess({required this.user});
+
+}
 
 final class GetUserLoading extends UserState {}
 

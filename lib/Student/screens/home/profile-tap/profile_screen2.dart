@@ -90,6 +90,7 @@ import '../../../../cache/cache_helper.dart';
 import '../../../../core/api/end_ponits.dart';
 import '../home.dart';
 import 'done.dart';
+
 class Profile2 extends StatefulWidget {
   static const String routeName = 'profile2';
 
@@ -105,9 +106,15 @@ class _Profile2State extends State<Profile2> {
         if (state is UpdateUserFailure) {
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text(state.errMessage)));
-        } else if (state is UpdateUserSuccess) {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text('Profile updated successfully')));
+        }
+        else if (state is UpdateUserSuccess) {
+          ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Profile updated successfully')));
+
+          Navigator.pushReplacementNamed(
+            context,
+            Profile.routeName,
+          );
         }
       },
       builder: (context, state) {
@@ -115,14 +122,18 @@ class _Profile2State extends State<Profile2> {
           final user = state.user;
           context.read<UserCubit>().nameController0.text = user.name ?? '';
           context.read<UserCubit>().emailController0.text = user.email ?? '';
-          context.read<UserCubit>().universityEmailController0.text= user.universityEmail ?? '';
+          context.read<UserCubit>().universityEmailController0.text =
+              user.universityEmail ?? '';
           context.read<UserCubit>().ssnController0.text = user.ssn ?? '';
           context.read<UserCubit>().phoneController0.text = user.phone ?? '';
           context.read<UserCubit>().genderController0.text = user.gender ?? '';
-          context.read<UserCubit>().levelController0.text = user.level.toString();
+          context.read<UserCubit>().levelController0.text =
+              user.level.toString();
           context.read<UserCubit>().termController0.text = user.term.toString();
-          context.read<UserCubit>().parentPhoneController0.text = user.parentPhone ?? '';
-          context.read<UserCubit>().parentEmailController0.text = user.parentEmail ?? '';
+          context.read<UserCubit>().parentPhoneController0.text =
+              user.parentPhone ?? '';
+          context.read<UserCubit>().parentEmailController0.text =
+              user.parentEmail ?? '';
 
           return Scaffold(
             appBar: AppBar(
@@ -146,41 +157,46 @@ class _Profile2State extends State<Profile2> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildTextField("Student Name", context.read<UserCubit>().nameController0),
-                    _buildTextField("Student Email", context.read<UserCubit>().emailController0),
-                    _buildTextField("University Email", context.read<UserCubit>().universityEmailController0),
-                    _buildTextField("Password", context.read<UserCubit>().passwordController0, obscureText: true),
-                    _buildTextField("SSN", context.read<UserCubit>().ssnController0),
-                    _buildTextField("Phone Number", context.read<UserCubit>().phoneController0),
-                    _buildTextField("Gender", context.read<UserCubit>().genderController0),
-                    _buildTextField("Level", context.read<UserCubit>().levelController0),
-                    _buildTextField("Term", context.read<UserCubit>().termController0),
-                    _buildTextField("Parent Phone", context.read<UserCubit>().parentPhoneController0),
-                    _buildTextField("Parent Email", context.read<UserCubit>().parentEmailController0),
+                    _buildTextField("Student Name",
+                        context.read<UserCubit>().nameController0),
+                    _buildTextField("Student Email",
+                        context.read<UserCubit>().emailController0),
+                    _buildTextField("University Email",
+                        context.read<UserCubit>().universityEmailController0),
+                    _buildTextField("Password",
+                        context.read<UserCubit>().passwordController0,
+                        obscureText: true),
+                    _buildTextField(
+                        "SSN", context.read<UserCubit>().ssnController0),
+                    _buildTextField("Phone Number",
+                        context.read<UserCubit>().phoneController0),
+                    _buildTextField(
+                        "Gender", context.read<UserCubit>().genderController0),
+                    _buildTextField(
+                        "Level", context.read<UserCubit>().levelController0),
+                    _buildTextField(
+                        "Term", context.read<UserCubit>().termController0),
+                    _buildTextField("Parent Phone",
+                        context.read<UserCubit>().parentPhoneController0),
+                    _buildTextField("Parent Email",
+                        context.read<UserCubit>().parentEmailController0),
                     SizedBox(height: 20),
                     Center(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          final cubit = context.read<UserCubit>();
-                          final userId = CacheHelper().getData(key: ApiKey.id) ?? '';
-                          cubit.updateUserProfile();
-                          // context.read<UserCubit>().getUserProfile();
-                          Navigator.pop(
-                            context,
-                            Profile.routeName,
-                          );
-                          setState(() {
-                            context.read<UserCubit>().getUserProfile();
-                          });
+                      child: state is UpdateUserLoading
+                          ? CircularProgressIndicator()
+                          : ElevatedButton(
+                              onPressed: () {
+                                final cubit = context.read<UserCubit>();
+                                final userId =
+                                    CacheHelper().getData(key: ApiKey.id) ?? '';
+                                cubit.updateUserProfile();
+                                // context.read<UserCubit>().getUserProfile();
+                                setState(() {});
 
-                        },
-                        child: Text("Update"),
-                      ),
-
-
-
-
-
+                                // context.read<UserCubit>().getUserProfile();
+                              },
+                              child: Text("Update"),
+                            ),
                     ),
                   ],
                 ),
@@ -190,7 +206,8 @@ class _Profile2State extends State<Profile2> {
         } else if (state is GetUserLoading) {
           return Center(child: CircularProgressIndicator());
         } else if (state is GetUserFailure) {
-          return Center(child: Text('Failed to load profile: ${state.errMessage}'));
+          return Center(
+              child: Text('Failed to load profile: ${state.errMessage}'));
         } else {
           return Container();
         }
@@ -198,7 +215,8 @@ class _Profile2State extends State<Profile2> {
     );
   }
 
-  Widget _buildTextField(String label, TextEditingController controller, {bool obscureText = false}) {
+  Widget _buildTextField(String label, TextEditingController controller,
+      {bool obscureText = false}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: TextField(

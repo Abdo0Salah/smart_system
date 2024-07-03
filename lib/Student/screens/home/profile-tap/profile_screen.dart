@@ -142,17 +142,16 @@ import 'package:smart_system/Student/screens/home/profile-tap/profile_screen2.da
 import 'package:smart_system/cubit/user_cubit.dart';
 import 'package:smart_system/cubit/user_state.dart';
 
+import '../../../../cache/cache_helper.dart';
+import '../../../../core/api/end_ponits.dart';
 import '../home.dart';
 
 class Profile extends StatelessWidget {
   static const String routeName = 'profile';
   @override
   Widget build(BuildContext context) {
+    context.read<UserCubit>().getUserProfile();
     return BlocConsumer<UserCubit, UserState>(listener: (context, state) {
-      if (state is GetUserFailure) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text(state.errMessage)));
-      }
     }, builder: (context, state) {
       return Scaffold(
         appBar: AppBar(
@@ -170,10 +169,7 @@ class Profile extends StatelessWidget {
           elevation: 0,
         ),
         backgroundColor: const Color(0xffF0F3F7),
-        body: state is GetUserLoading
-            ? const CircularProgressIndicator()
-            : state is GetUserSuccess
-            ? SingleChildScrollView(
+        body:  SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -186,7 +182,10 @@ class Profile extends StatelessWidget {
                             Image.asset('assets/images/profile/Vector.png'),
                             Padding(
                               padding:  EdgeInsets.all(8.w),
-                              child: Text("${state.user.name}",
+                              child: Text(
+                                "${CacheHelper().getData(key: ApiKey.userNameSaved)}",
+
+                                //"${state.user.name}",
                                 style: TextStyle(
                                   fontSize: 36.sp,
                                   fontWeight: FontWeight.w700,
@@ -196,7 +195,10 @@ class Profile extends StatelessWidget {
                             ),
                             Padding(
                               padding:  EdgeInsets.only(top: 6.h , bottom: 40.h),
-                              child: Text("${state.user.email}",
+                              child: Text(
+                                "${CacheHelper().getData(key: ApiKey.userEmailSaved)}",
+
+                                //"${state.user.email}",
                                 style:  TextStyle(
                                   fontSize: 22.sp,
                                   fontWeight: FontWeight.w500,
@@ -218,8 +220,8 @@ class Profile extends StatelessWidget {
                               ),
                               onPressed: (){
                                 context.read<UserCubit>().getUserProfile();
-                                context.read<UserCubit>().updateUserProfile();
-                                Navigator.of(context).pushNamed(Profile2.routeName);
+                               // context.read<UserCubit>().updateUserProfile();
+                                Navigator.of(context).pushReplacementNamed(Profile2.routeName);
                               },
                               child:
                                   Padding(
@@ -284,7 +286,7 @@ class Profile extends StatelessWidget {
                     ),
             ]),
         )
-            : Container(color: Colors.blue,),
+
       );
     });
   }

@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_system/Student/screens/home/profile-tap/profile_screen.dart';
 import 'package:smart_system/Student/screens/home/student-result/student_result.dart';
 import 'package:smart_system/Student/screens/login_signup/login_screen.dart';
+import '../../../cache/cache_helper.dart';
+import '../../../core/api/end_ponits.dart';
 import '../../../cubit/user_cubit.dart';
 import '../../../cubit/user_state.dart';
 import '../../../ui_splashes/splash0/splash0_screen.dart';
@@ -38,10 +40,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<UserCubit, UserState>(listener: (context, state) {
-      if (state is GetUserFailure) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text(state.errMessage)));
-      }
     }, builder: (context, state) {
       return SafeArea(
         child: Scaffold(
@@ -52,10 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  state is GetUserLoading
-                      ? const CircularProgressIndicator()
-                      : state is GetUserSuccess
-                  ?Row(
+                Row(
                     children: [
                       Padding(
                         padding: EdgeInsets.only(top: 10.h, left: 15.w),
@@ -71,51 +66,17 @@ class _HomeScreenState extends State<HomeScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "${state.user.name}",
+                                "${CacheHelper().getData(key: ApiKey.userNameSaved)}",
+
+                              //  "${state.user.name}",
                                 style: GoogleFonts.inter(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 15.sp),
                               ),
                               Text(
-                                  "${state.user.email}",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 8.sp),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      const Spacer(),
-                      const Icon(
-                        Icons.close,
-                        size: 35,
-                      ),
-                    ],
-                  )
-            : Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 10.h, left: 15.w),
-                        child: CircleAvatar(
-                          backgroundColor: const Color(0xffC4C4C4),
-                          radius: 30.r,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 20.w, top: 10.h),
-                        child: Center(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Student name",
-                                style: GoogleFonts.inter(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15.sp),
-                              ),
-                              Text(
-                                "201524587545@fci.zu.edu.eg",
+                                "${CacheHelper().getData(key: ApiKey.userEmailSaved)}",
+
+                                // "${state.user.email}",
                                 style: TextStyle(
                                     fontWeight: FontWeight.normal,
                                     fontSize: 8.sp),
@@ -131,6 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
+
                   SizedBox(
                     height: 30.h,
                   ),
@@ -232,7 +194,7 @@ class _HomeScreenState extends State<HomeScreen> {
         break;
       case 5:
         {
-          context.read<UserCubit>().getUserProfile();
+         // context.read<UserCubit>().getUserProfile();
           Navigator.pushNamed(
             context,
             Profile.routeName,

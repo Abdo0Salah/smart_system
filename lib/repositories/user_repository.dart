@@ -1,3 +1,4 @@
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
@@ -105,6 +106,11 @@ class UserRepository {
       if (response == null) {
         throw Exception('API response is null');
       }
+      final userr = UserModel.fromJson(response);
+        await CacheHelper().saveData(key: ApiKey.userNameSaved, value: userr.name);
+       await  CacheHelper().saveData(key: ApiKey.userEmailSaved, value: userr.email);
+      print( "7777777777777777777777777777${CacheHelper().getData(key: ApiKey.userNameSaved)}");
+      print ("${CacheHelper().getData(key: ApiKey.userEmailSaved)}");
       return Right(UserModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage);

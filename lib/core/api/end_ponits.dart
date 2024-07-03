@@ -57,6 +57,8 @@ class ApiKey {
   // static String termProfile = "term";
   static String parentPhone = "parentPhone";
   static String parentEmail = "parentEmail";
+  static String userNameSaved = "userNameSaved";
+  static String userEmailSaved = "userEmailSaved";
 
 ///Parent
 

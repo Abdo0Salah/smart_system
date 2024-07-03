@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_system/doctor/screens/doctor_home.dart';
 import 'package:smart_system/parent/screens/login_signup/login_screen.dart';
 
@@ -19,30 +21,39 @@ class _LoginScreenState extends State<ParentSignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme:  IconThemeData(color: Colors.black, size: 15.sp),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      backgroundColor: Color(0xffF0F3F7),
+      backgroundColor: const Color(0xffF0F3F7),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.asset('assets/images/Login/login_logo.png'),
             Padding(
-              padding: const EdgeInsets.only(bottom: 8,right: 15,left: 15),
+              padding:  EdgeInsets.all(10.w),
+              child: Center(
+                child: SizedBox(
+                    width: 200.w,
+                    height: 200.h,
+                    child: Image.asset('assets/images/Login/login_logo.png',
+                      fit: BoxFit.cover,)),
+              ),
+            ),
+            Padding(
+              padding:  EdgeInsets.only(bottom: 8.h,right: 15.w,left: 15.w),
               child: Container(
-                width: 390,
-                height: 400,
+                width: 390.w,
+                height: 400.h,
                 decoration: BoxDecoration(
                     boxShadow:[
                       BoxShadow(
                         color: Colors.grey.withOpacity(1),
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                        offset: Offset(0, 3),
+                        spreadRadius: 2.r,
+                        blurRadius: 5.r,
+                        offset: Offset(0.w, 3.h),
                       ),
                     ],
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20.r),
                     color: Colors.white
                 ),
                 child: Column(
@@ -54,28 +65,28 @@ class _LoginScreenState extends State<ParentSignUpScreen> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 20 , top: 20 , right: 20 , bottom: 10),
+                          padding:  EdgeInsets.only(left: 20.w , top: 20.h , right: 20.w , bottom: 10.h),
                           child: InkWell(
                             onTap: (){
                               Navigator.of(context).pushNamed(ParentLoginScreen.routeName);
                             },
                             child: Text('Login',
-                              style: TextStyle(
-                                fontSize: 25,
+                              style: GoogleFonts.fjordOne(
+                                fontSize: 25.sp,
                                 fontWeight:FontWeight.w400,
                               ),
                             ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 20 , top: 20 , right: 20 , bottom: 10),
+                          padding:  EdgeInsets.only(left: 20.w , top: 20.h , right: 20.w , bottom: 10.h),
                           child: InkWell(
                             onTap: (){
                               Navigator.of(context).pushNamed(ParentSignUpScreen.routeName);
                             },
                             child: Text('Sign Up',
-                              style: TextStyle(
-                                fontSize: 25,
+                              style: GoogleFonts.fjordOne(
+                                fontSize: 25.sp,
                                 fontWeight:FontWeight.w400,
                               ),
                             ),
@@ -84,73 +95,78 @@ class _LoginScreenState extends State<ParentSignUpScreen> {
                       ],
                     ),
                     Divider(
-                      thickness: 3,
-                      color: Color(0xff1B406D),
-                      indent: 230,
+                      thickness: 3.h,
+                      color: const Color(0xff1B406D),
+                      indent: 230.w,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 8 , right: 15 , left: 15 , bottom: 8),
+                      padding:  EdgeInsets.only(top: 8.h , right: 15.w , left: 15.w , bottom: 8.h),
                       child: TextField(
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xff1B406D),
-                              width: 3,
+                            borderSide: BorderSide(color: const Color(0xff1B406D),
+                              width: 3.w,
                             ),
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10.r),
                           ),
                           hintText: 'Student name',
-                          prefixIcon: const Icon(Icons.person_rounded, color: Color(0xff1B406D)),
+                          hintStyle: GoogleFonts.fjordOne(fontSize: 12.sp),
+                          prefixIcon:  Icon(Icons.person_rounded, color: const Color(0xff1B406D), size: 15.sp,),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 8 , right: 15 , left: 15 , bottom: 8),
+                      padding:  EdgeInsets.only(top: 8.h , right: 15.w , left: 15.w , bottom: 8.h),
                       child: TextField(
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xff1B406D),
-                              width: 3,
+                            borderSide: BorderSide(color: const Color(0xff1B406D),
+                              width: 3.w,
                             ),
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10.r),
                           ),
                           hintText: 'Email',
-                          prefixIcon: const Icon(Icons.mail, color: Color(0xff1B406D)),
+                          hintStyle: GoogleFonts.fjordOne(fontSize: 12.sp),
+                          prefixIcon:  Icon(Icons.mail, color: const Color(0xff1B406D), size: 15.sp,),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 8 , right: 15 , left: 15 , bottom: 8),
+                      padding:  EdgeInsets.only(top: 8.h , right: 15.w , left: 15.w , bottom: 8.h),
                       child: TextField(
                         obscureText: true,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xff1B406D),
-                              width: 3,
+                            borderSide: BorderSide(color: const Color(0xff1B406D),
+                              width: 3.w,
                             ),
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10.r),
                           ),
                           hintText: 'password',
-                          prefixIcon: const Icon(Icons.key, color: Color(0xff1B406D)),
-                          suffixIcon: const Icon(Icons.remove_red_eye, color: Color(0xff1B406D)),
+                          hintStyle: GoogleFonts.fjordOne(fontSize: 12.sp),
+                          prefixIcon:  Icon(Icons.key, color: const Color(0xff1B406D),size: 15.sp,),
+                          suffixIcon:  Icon(Icons.remove_red_eye, color: const Color(0xff1B406D),size: 15.sp,),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 8 , right: 15 , left: 15 , bottom: 8),
+                      padding:  EdgeInsets.only(top: 8.h , right: 15.w , left: 15.w , bottom: 8.h),
                       child: TextField(
                         obscureText: true,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xff1B406D),
-                              width: 3,
+                            borderSide: BorderSide(color: const Color(0xff1B406D),
+                              width: 3.w
+                              ,
                             ),
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10.r),
                           ),
                           hintText: 'Confirm Password',
-                          prefixIcon: const Icon(Icons.key, color: Color(0xff1B406D)),
-                          suffixIcon: const Icon(Icons.remove_red_eye, color: Color(0xff1B406D)),
+                          hintStyle: GoogleFonts.fjordOne(fontSize: 12.sp),
+                          prefixIcon:  Icon(Icons.key, color: const Color(0xff1B406D),size: 15.sp),
+                          suffixIcon:  Icon(Icons.remove_red_eye, color: const Color(0xff1B406D),size: 15.sp),
                         ),
                       ),
                     ),
@@ -158,30 +174,32 @@ class _LoginScreenState extends State<ParentSignUpScreen> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8 , right: 15 , left: 15 , bottom: 8),
-              child: TextButton(
-                style: OutlinedButton.styleFrom(
-                  side: const BorderSide(color: Color(0xff7aa1c9),
-                    style: BorderStyle.solid,
-                    width: 2,
+            Center(
+              child: Padding(
+                padding:  EdgeInsets.only(top: 15.h , right: 15.w , left: 15.w , bottom: 15.h),
+                child: TextButton(
+                  style: OutlinedButton.styleFrom(
+                    side:  BorderSide(color: const Color(0xff7aa1c9),
+                      style: BorderStyle.solid,
+                      width: 2.w,
+                    ),
+                    fixedSize: Size(300.w, 60.h),
+                    backgroundColor: const Color(0xff8bb8e3),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
                   ),
-                  fixedSize: Size(390, 70),
-                  backgroundColor: Color(0xff8bb8e3),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
-                onPressed: (){
-                  Navigator.of(context).pushNamed(DoctorHomeScreen.routeName);
-                },
-                child:
-                const Text(
-                  "Sign Up",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black,
+                  onPressed: (){
+                    Navigator.of(context).pushNamed(ParentLoginScreen.routeName);
+                  },
+                  child:
+                  Text(
+                    "SignUp",
+                    style: GoogleFonts.fjordOne(
+                      fontSize: 24.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),

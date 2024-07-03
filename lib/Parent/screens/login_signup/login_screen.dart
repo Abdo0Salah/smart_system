@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_system/parent/screens/login_signup/forget_pass.dart';
 import 'package:smart_system/parent/screens/login_signup/signup_screen.dart';
 
@@ -19,118 +21,134 @@ class _LoginScreenState extends State<ParentLoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme:  IconThemeData(color: Colors.black, size: 15.sp),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      backgroundColor: Color(0xffF0F3F7),
+      backgroundColor: const Color(0xffF0F3F7),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 10 , right: 40 , left: 40),
-              child: Image.asset('assets/images/Login/login_logo.png'),
+              padding:  EdgeInsets.all(10.w),
+              child: Center(
+                child: SizedBox(
+                    width: 200.w,
+                    height: 200.h,
+                    child: Image.asset('assets/images/Login/login_logo.png',
+                    fit: BoxFit.cover,)),
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 15 , left: 15, right: 15),
+              padding:  EdgeInsets.only(bottom: 15.h , left: 15.w, right: 15.w),
               child: Container(
-                width: 390,
-                height: 320,
+                width: 390.w,
+                height: 320.h,
                 decoration: BoxDecoration(
                     boxShadow:[
                       BoxShadow(
                         color: Colors.grey.withOpacity(1),
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                        offset: Offset(0, 3),
+                        spreadRadius: 2.r,
+                        blurRadius: 5.r,
+                        offset: Offset(0.w, 3.h),
                       ),
                     ],
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20.r),
                     color: Colors.white
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20 , top: 20 , right: 20 , bottom: 10),
-                          child: Text('Login',
-                            style: TextStyle(
-                              fontSize: 25,
-                              fontWeight:FontWeight.w400,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20 , top: 20 , right: 20 , bottom: 10),
-                          child: InkWell(
-                            onTap: (){
-                              Navigator.of(context).pushNamed(ParentSignUpScreen.routeName);
-                            },
-                            child: Text('Sign Up',
-                              style: TextStyle(
-                                fontSize: 25,
+                    Expanded(flex: 3,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding:  EdgeInsets.only(left: 20.w , top: 20.h , right: 20.w , bottom: 10.h),
+                            child: Text('Login',
+                              style: GoogleFonts.fjordOne(
+                                fontSize: 25.sp,
                                 fontWeight:FontWeight.w400,
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                          Padding(
+                            padding:  EdgeInsets.only(left: 20.w , top: 20.h , right: 20.w , bottom: 10.h),
+                            child: InkWell(
+                              onTap: (){
+                                Navigator.of(context).pushNamed(ParentSignUpScreen.routeName);
+                              },
+                              child: Text('Sign Up',
+                                style: GoogleFonts.fjordOne(
+                                  fontSize: 25.sp,
+                                  fontWeight:FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     Divider(
-                      thickness: 3,
-                      color: Color(0xff1B406D),
-                      endIndent: 230,
+                      thickness: 3.h,
+                      color: const Color(0xff1B406D),
+                      endIndent: 230.w,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: TextField(
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xff1B406D),
-                              width: 3,
+                    Expanded(flex: 3,
+                      child: Padding(
+                        padding:  EdgeInsets.all(10.w),
+                        child: TextField(
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: const Color(0xff1B406D),
+                                width: 3.w,
+                              ),
+                              borderRadius: BorderRadius.circular(10.r),
                             ),
-                            borderRadius: BorderRadius.circular(10),
+                            hintText: 'Username',
+                            hintStyle: GoogleFonts.fjordOne(fontSize: 12.sp),
+                            prefixIcon:  Icon(Icons.mail, color: const Color(0xff1B406D),size: 15.sp,),
                           ),
-                          hintText: 'Username@fci.zu.edu.eg',
-                          prefixIcon: const Icon(Icons.mail, color: Color(0xff1B406D)),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: TextField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xff1B406D),
-                              width: 3,
+                    Expanded(flex: 3,
+                      child: Padding(
+                        padding:  EdgeInsets.all(10.w),
+                        child: TextField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: const Color(0xff1B406D),
+                                width: 3.w,
+                              ),
+                              borderRadius: BorderRadius.circular(10.r),
                             ),
-                            borderRadius: BorderRadius.circular(10),
+                            hintText: 'Enter Your password',
+                            hintStyle: GoogleFonts.fjordOne(fontSize: 12.sp),
+                            prefixIcon:  Icon(Icons.password, color: const Color(0xff1B406D),size: 15.sp,),
+                            suffixIcon:  Icon(Icons.remove_red_eye, color: const Color(0xff1B406D),size: 15.sp,),
                           ),
-                          hintText: 'Enter Your password',
-                          prefixIcon: const Icon(Icons.password, color: Color(0xff1B406D)),
-                          suffixIcon: const Icon(Icons.remove_red_eye, color: Color(0xff1B406D)),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: InkWell(
-                        onTap: (){
-                          Navigator.of(context).pushReplacementNamed(ParentForgetPassword.routeName);
-                        },
-                        child: Text('Forget Password!',
-                          textAlign: TextAlign.right,
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
+                    Expanded(flex: 2,
+                      child: Padding(
+                        padding:  EdgeInsets.all(8.w),
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.of(context).pushReplacementNamed(ParentForgetPassword.routeName);
+                          },
+                          child: Text('Forget Password!',
+                            textAlign: TextAlign.right,
+                            style: GoogleFonts.fjordOne(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ),
@@ -139,30 +157,32 @@ class _LoginScreenState extends State<ParentLoginScreen> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 15 , right: 15 , left: 15 , bottom: 15),
-              child: TextButton(
-                style: OutlinedButton.styleFrom(
-                  side: const BorderSide(color: Color(0xff7aa1c9),
-                    style: BorderStyle.solid,
-                    width: 2,
+            Center(
+              child: Padding(
+                padding:  EdgeInsets.only(top: 15.h , right: 15.w , left: 15.w , bottom: 15.h),
+                child: TextButton(
+                  style: OutlinedButton.styleFrom(
+                    side:  BorderSide(color: const Color(0xff7aa1c9),
+                      style: BorderStyle.solid,
+                      width: 2.w,
+                    ),
+                    fixedSize: Size(300.w, 60.h),
+                    backgroundColor: const Color(0xff8bb8e3),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
                   ),
-                  fixedSize: Size(390, 70),
-                  backgroundColor: Color(0xff8bb8e3),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                onPressed: (){
-                 Navigator.of(context).pushNamed(ParentHomeScreen.routeName);
-                },
-                child:
-                const Text(
-                  "Log In",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black,
+                  onPressed: (){
+                   Navigator.of(context).pushNamed(ParentHomeScreen.routeName);
+                  },
+                  child:
+                   Text(
+                    "Log In",
+                    style: GoogleFonts.fjordOne(
+                      fontSize: 24.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),

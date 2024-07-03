@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'login_screen.dart';
 
@@ -12,7 +13,7 @@ class ResetPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme:  IconThemeData(color: Colors.black, size: 15.sp),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -30,7 +31,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 children: [
                   Text(
                     'اعادة ضبط كلمة المرور',
-                    style: TextStyle(
+                    style: GoogleFonts.fjordOne(
                       fontSize: 24.sp,
                       fontWeight: FontWeight.w400,
                     ),
@@ -47,7 +48,7 @@ class ResetPasswordScreen extends StatelessWidget {
               padding:  EdgeInsets.all(10.w),
               child: Text(
                 'fci.zu.edu.eg@21365468098 التابعة ل',
-                style: TextStyle(
+                style: GoogleFonts.fjordOne(
                   fontSize: 17.sp,
                   fontWeight: FontWeight.w400,
                 ),
@@ -58,18 +59,22 @@ class ResetPasswordScreen extends StatelessWidget {
               child: TextFormField(
                 // controller: ,
                 style: const TextStyle(color: Color(0xff746868)),
-                decoration: const InputDecoration(
-                  hintTextDirection: TextDirection.rtl,
-                  prefixIcon: Icon(Icons.remove_red_eye,
-                  color: Color(0xff1B406D),
-                  ),
-                  hintText: 'كلمة المرور الجديدة',
+                decoration:  InputDecoration(
+                    hintTextDirection: TextDirection.rtl,
+                    prefixIcon: Icon(Icons.remove_red_eye,size: 15.sp,
+                      color: const Color(0xff1B406D),
+                    ),
+                    hintText: 'كلمة المرور الجديدة',
+                    hintStyle: GoogleFonts.inter(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w500,
+                    )
                 ),
               ),
             ),
             Padding(
               padding:
-                   EdgeInsets.only(top: 35.h, bottom: 20.h, left: 20.w, right: 20.w),
+              EdgeInsets.only(top: 35.h, bottom: 20.h, left: 20.w, right: 20.w),
               child: TextButton(
                 style: OutlinedButton.styleFrom(
                   side:  BorderSide(
@@ -88,7 +93,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 },
                 child: Text(
                   "Save",
-                  style: TextStyle(
+                  style: GoogleFonts.fjordOne(
                     fontSize: 20.sp,
                     fontWeight: FontWeight.w400,
                     color: Colors.black,

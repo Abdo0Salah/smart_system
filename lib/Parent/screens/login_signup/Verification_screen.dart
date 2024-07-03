@@ -12,7 +12,8 @@ class ParentVerificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Verification",
+        title: Text(
+          "Verification",
           style: TextStyle(
             fontWeight: FontWeight.w400,
             fontSize: 22.sp,
@@ -24,167 +25,170 @@ class ParentVerificationScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      backgroundColor: Color(0xffF0F3F7),
+      backgroundColor: const Color(0xffF0F3F7),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 70),
-                    child: Text(
-                        "Enter Verification Code",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400,
-                        )
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextButton(
-                          style: OutlinedButton.styleFrom(
-                            side: const BorderSide(color: Color(0xff444444),
-                              width: 1,
-                            ),
-                            shape: CircleBorder(
-                              eccentricity: .1,
-                            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 70.h),
+                  child: Text("Enter Verification Code",
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w400,
+                      )),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(30.w),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextButton(
+                        style: OutlinedButton.styleFrom(
+                          fixedSize: Size(50.w, 50.h),
+                          side: BorderSide(
+                            color: const Color(0xff444444),
+                            width: 1.w,
                           ),
-                          onPressed: () {},
-                          child:
-                          const Text(
-                            "3",
-                            style: TextStyle(
-                              color: Color(0xff444444),
-                              fontSize: 27,
-                              fontWeight: FontWeight.w600,
-                            ),
+                          shape: CircleBorder(
+                            eccentricity: .1.r,
                           ),
                         ),
-                        TextButton(
-                          style: OutlinedButton.styleFrom(
-                            side: const BorderSide(color: Color(0xff444444),
-                              width: 1,
-                            ),
-                            shape: CircleBorder(
-                              eccentricity: .1,
-                            ),
+                        onPressed: () {},
+                        child: Text(
+                          "3",
+                          style: TextStyle(
+                            color: const Color(0xff444444),
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.w600,
                           ),
-                          onPressed: () {},
-                          child:
-                          const Text(
-                            "7",
-                            style: TextStyle(
-                              fontSize: 27,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xff444444),
-                            ),
-                          ),
-                        ),
-                        TextButton(
-                          style: OutlinedButton.styleFrom(
-                            side: const BorderSide(color: Color(0xff444444),
-                              width: 1,
-                            ),
-                            shape: CircleBorder(
-                              eccentricity: .1,
-                            ),
-                          ),
-                          onPressed: () {},
-                          child:
-                          const Text(
-                            "1",
-                            style: TextStyle(
-                              fontSize: 27,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xff444444),
-                            ),
-                          ),
-                        ),
-                        TextButton(
-                          style: OutlinedButton.styleFrom(
-                            side: const BorderSide(color: Color(0xff444444),
-                              width: 1,
-                            ),
-                            shape: CircleBorder(
-                              eccentricity: .1,
-                            ),
-                          ),
-                          onPressed: () {},
-                          child:
-                          const Text(
-                            "9",
-                            style: TextStyle(
-                              fontSize: 27,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xff444444),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(30),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                            "If you didn’t receive a code, ",
-                            style: TextStyle(
-                              color: Color(0xffABABAB),
-                              fontSize: 20,
-                              fontWeight: FontWeight.w400,
-                            )
-                        ),
-                        Text(
-                            "Resend",
-                            style: TextStyle(
-                              color: Color(0xffE85C4D),
-                              fontSize: 20,
-                              fontWeight: FontWeight.w400,
-                            )
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: TextButton(
-                      style: OutlinedButton.styleFrom(
-                        side: const BorderSide(color: Color(0xffbccad9),
-                          style: BorderStyle.solid,
-                          width: 2.5,
-                        ),
-                        fixedSize: Size(450, 70),
-                        backgroundColor: Color(0xffcbd9f1),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(9),
                         ),
                       ),
-                      onPressed: (){
-                        Navigator.of(context).pushNamed(ParentResetPasswordScreen.routeName);
-                      },
-                      child:
-                      const Text(
-                        "Send",
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black,
+                      TextButton(
+                        style: OutlinedButton.styleFrom(
+                          fixedSize: Size(50.w, 50.h),
+                          side: BorderSide(
+                            color: const Color(0xff444444),
+                            width: 1.w,
+                          ),
+                          shape: CircleBorder(
+                            eccentricity: .1.r,
+                          ),
                         ),
+                        onPressed: () {},
+                        child: Text(
+                          "1",
+                          style: TextStyle(
+                            color: const Color(0xff444444),
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      TextButton(
+                        style: OutlinedButton.styleFrom(
+                          fixedSize: Size(50.w, 50.h),
+                          side: BorderSide(
+                            color: const Color(0xff444444),
+                            width: 1.w,
+                          ),
+                          shape: CircleBorder(
+                            eccentricity: .1.r,
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          "8",
+                          style: TextStyle(
+                            color: const Color(0xff444444),
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      TextButton(
+                        style: OutlinedButton.styleFrom(
+                          fixedSize: Size(50.w, 50.h),
+                          side: BorderSide(
+                            color: const Color(0xff444444),
+                            width: 1.w,
+                          ),
+                          shape: CircleBorder(
+                            eccentricity: .1.r,
+                          ),
+                        ),
+                        onPressed: () {},
+                        child:  Text(
+                          "9",
+                          style: TextStyle(
+                            color: const Color(0xff444444),
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding:  EdgeInsets.all(25.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Expanded(flex:4,
+                        child: Text("If you did’t receive a code, ",
+                            style: TextStyle(
+                              color: const Color(0xffABABAB),
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w400,
+                            )),
+                      ),
+                      Expanded(flex:1,
+                        child: Text("Resend",
+                            style: TextStyle(
+                              color: const Color(0xffE85C4D),
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w400,
+                            )),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding:  EdgeInsets.all(20.w),
+                  child: TextButton(
+                    style: OutlinedButton.styleFrom(
+                      side:  BorderSide(
+                        color: const Color(0xffbccad9),
+                        style: BorderStyle.solid,
+                        width: 2.5.w,
+                      ),
+                      fixedSize: Size(250.w, 60.h),
+                      backgroundColor: const Color(0xffcbd9f1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(9.r),
+                      ),
+                    ),
+                    onPressed: (){
+                      Navigator.of(context).pushNamed(ParentResetPasswordScreen.routeName);
+                    },
+                    child:  Text(
+                      "Send",
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.black,
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),

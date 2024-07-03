@@ -23,13 +23,13 @@ class AddNewGroup extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
-        backgroundColor: Color(0xffF0F3F7),
+        backgroundColor: const Color(0xffF0F3F7),
         floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
         floatingActionButton: Padding(
-          padding: const EdgeInsets.all(30.0),
+          padding:  EdgeInsets.all(30.w),
           child: SizedBox(
-            height: 48,
-            width: 48,
+            height: 48.h,
+            width: 48.w,
             child: FloatingActionButton(
               onPressed: () {
                 Navigator.pop(
@@ -38,12 +38,12 @@ class AddNewGroup extends StatelessWidget {
                 );
               },
               elevation: 10,
-              backgroundColor: Color(0xff4C6ED7),
+              backgroundColor: const Color(0xff4C6ED7),
               child: Container(
-                decoration: const BoxDecoration(
+                decoration:  BoxDecoration(
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(60),
-                    topRight: Radius.circular(60),
+                    topLeft: Radius.circular(60.r),
+                    topRight: Radius.circular(60.r),
                   ),
                 ),
                 child: Image.asset('assets/images/doctor/correct.png'),
@@ -57,136 +57,139 @@ class AddNewGroup extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
-                height: 50,
+                height: 50.h,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 15, bottom: 5),
+                padding:  EdgeInsets.only(left: 15.w, bottom: 5.h),
                 child: Text(
                   'Group name',
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 15.sp,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding:  EdgeInsets.all(15.w),
                 child: TextFormField(
                     decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderSide: BorderSide(
-                      width: 1,
+                      width: 1.w,
                     ),
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(5.r),
                   ),
                   filled: true,
-                  fillColor: Color(0xffFDFDFD),
+                  fillColor: const Color(0xffFDFDFD),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      width: 1,
-                      color: Color(0xffBDBDBD),
+                      width: 1.w,
+                      color: const Color(0xffBDBDBD),
                     ),
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(5.r),
                   ),
                 )),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 15, bottom: 5, top: 10),
+                padding:  EdgeInsets.only(left: 15.w, bottom: 5.h, top: 10.h),
                 child: Text(
                   'Doctor /Staff ‘s name',
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 15.sp,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding:  EdgeInsets.all(15.w),
                 child: TextFormField(
                     decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderSide: BorderSide(
-                      width: 1,
+                      width: 1.w,
                     ),
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(5.r),
                   ),
                   filled: true,
-                  fillColor: Color(0xffFDFDFD),
+                  fillColor: const Color(0xffFDFDFD),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      width: 1,
-                      color: Color(0xffBDBDBD),
+                      width: 1.w,
+                      color: const Color(0xffBDBDBD),
                     ),
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(5.r),
                   ),
                   hintText: 'Ehab Rousdy',
                 )),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 15, bottom: 5, top: 10),
+                padding:  EdgeInsets.only(left: 15.w, bottom: 5.h, top: 10.h),
                 child: Text(
                   'Description of Group',
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 15.sp,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding:  EdgeInsets.all(15.w),
                 child: TextFormField(
                     decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(
-                      vertical: 35.0, horizontal: 5.0),
+                  contentPadding:  EdgeInsets.symmetric(
+                      vertical: 35.h, horizontal: 5.w),
                   border: OutlineInputBorder(
                     borderSide: BorderSide(
-                      width: 1,
+                      width: 1.w,
                     ),
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(5.r),
                   ),
                   filled: true,
-                  fillColor: Color(0xffFDFDFD),
+                  fillColor: const Color(0xffFDFDFD),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      width: 1,
-                      color: Color(0xffBDBDBD),
+                      width: 1.w,
+                      color: const Color(0xffBDBDBD),
                     ),
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(5.r),
                   ),
                   hintText:
                       'موضوعات مختاره /الفرقه التالته /التيرم التاني 2023_2024',
                 )),
               ),
               SizedBox(
-                  height: 50),
+                  height: 50.h),
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding:  EdgeInsets.all(10.w),
                 child: Expanded(
                   child: Row(
                     children: [
-                      Icon(
-                        Icons.push_pin_outlined,
-                        size: 30,
+                      Expanded(flex: 1,
+                        child: Icon(
+                          Icons.push_pin_outlined,
+                          size: 30.sp,
+                        ),
                       ),
-                      SizedBox(width: 10),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Pin Group',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 15,
-                          ),
-                          ),
-                          SizedBox(height: 10),
-                          Container(
-                            width: 280,
-                            height: 1,
-                            color: Color(0xff554A4A),
-                          ),
-                        ],
+                      SizedBox(width: 10.w),
+                      Expanded(flex: 4,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Pin Group',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15.sp,
+                            ),
+                            ),
+                            Container(
+                              width: 280.w,
+                              height: 1.h,
+                              color: const Color(0xff554A4A),
+                            ),
+                          ],
+                        ),
                       ),
-                      Image.asset('assets/images/doctor/line-md_switch-filled.png'),
+                      Expanded(flex:1,child: Image.asset('assets/images/doctor/line-md_switch-filled.png')),
                     ],
                   ),
                 ),

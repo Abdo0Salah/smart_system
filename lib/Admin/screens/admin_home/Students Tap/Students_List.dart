@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Student_list-result.dart';
 
@@ -112,19 +113,27 @@ class _StudentsListState extends State<StudentsList> {
                           Text(
                             "From date:",
                             style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w400),
+                                fontSize: 20.sp
+                                , fontWeight: FontWeight.w400),
                           ),
                           SizedBox(
-                            height: 5,
+                            height: 5.h,
                           ),
                           Container(
+                            width: 150.w,
+                            height: 40.h,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5.r),
+                              color: Colors.white,
+                            ),
                             child: Center(
                               child: Row(
                                 children: [
                                   InkWell(
                                     onTap: () => selectDate(context),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(12),
+                                      padding:  EdgeInsets.all(12.w),
                                       child: Text(
                                         selectedDate
                                             .toString()
@@ -136,16 +145,9 @@ class _StudentsListState extends State<StudentsList> {
                                       ),
                                     ),
                                   ),
-                                  Icon(Icons.calendar_month)
+                                  const Icon(Icons.calendar_month)
                                 ],
                               ),
-                            ),
-                            width: 130,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black),
-                              borderRadius: BorderRadius.circular(5),
-                              color: Colors.white,
                             ),
                           )
                         ],
@@ -155,19 +157,26 @@ class _StudentsListState extends State<StudentsList> {
                           Text(
                             "To date:",
                             style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w400),
+                                fontSize: 20.sp, fontWeight: FontWeight.w400),
                           ),
                           SizedBox(
-                            height: 5,
+                            height: 5.h,
                           ),
                           Container(
+                            width: 150.w,
+                            height: 40.h,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5.r),
+                              color: Colors.white,
+                            ),
                             child: Center(
                               child: Row(
                                 children: [
                                   InkWell(
                                     onTap: () => selectDate2(context),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(12),
+                                      padding:  EdgeInsets.all(12.w),
                                       child: Text(
                                         selectedDate2
                                             .toString()
@@ -179,16 +188,9 @@ class _StudentsListState extends State<StudentsList> {
                                       ),
                                     ),
                                   ),
-                                  Icon(Icons.calendar_month)
+                                  const Icon(Icons.calendar_month)
                                 ],
                               ),
-                            ),
-                            width: 130,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black),
-                              borderRadius: BorderRadius.circular(5),
-                              color: Colors.white,
                             ),
                           )
                         ],

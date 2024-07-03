@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_system/doctor/model/doctor_group_model.dart';
 import 'package:smart_system/doctor/widget/doctor_groub_item.dart';
 
@@ -15,14 +16,14 @@ class DoctorSubjectGroups extends StatelessWidget {
     DoctorGroupModel c =DoctorGroupModel(groupName: "groupName",
         doctorName: "doctorName", subjectName: "subjectName");
     return Scaffold(
-      backgroundColor:Color(0xffEFF3F7FF)
+      backgroundColor:const Color(0xffEFF3F7FF)
       ,
       appBar: AppBar(
         backgroundColor:Colors.transparent ,
         elevation: 0,
         title: Text('Selected topic',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: 20.sp,
           fontWeight: FontWeight.w400,
           color: Colors.black
         )),
@@ -30,10 +31,10 @@ class DoctorSubjectGroups extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:  EdgeInsets.all(8.w),
             child: Row(
               children: [
-                Spacer(),
+                const Spacer(),
                 InkWell(
                   onTap: () {
                     Navigator.pushNamed(
@@ -43,27 +44,31 @@ class DoctorSubjectGroups extends StatelessWidget {
 
                   },
                   child: Container(
+                    width: 150.w,
+                    height: 30.h,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(5.r),
+                      color: Colors.blue,
+                    ),
                     child: Center(
                       child: Row(
                         children: [
-                          Icon(Icons.add,
-                          color:Colors.white,),
-                          Text(
-                            "Add New Group",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500),
+                          const Expanded(flex: 1,
+                            child: Icon(Icons.add,
+                            color:Colors.white,),
+                          ),
+                          Expanded(flex: 3,
+                            child: Text(
+                              "Add New Group",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w500),
+                            ),
                           ),
                         ],
                       ),
-                    ),
-                    width: 130,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(5),
-                      color: Colors.blue,
                     ),
                   ),
                 ),
@@ -81,14 +86,14 @@ class DoctorSubjectGroups extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(25),
-                        topLeft: Radius.circular(25))),
+                        topRight: Radius.circular(25.r),
+                        topLeft: Radius.circular(25.r))),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Text("All Groups"),
+                      padding:  EdgeInsets.all(12.w),
+                      child: const Text("All Groups"),
                     ),
                     Expanded(
                       child: ListView.builder(

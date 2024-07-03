@@ -9,7 +9,7 @@ class FaculityCalls extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Faculity Calls",
+        title: Text("Faculty Calls",
           style: TextStyle(
             fontWeight: FontWeight.w400,
             fontSize: 22.sp,
@@ -21,66 +21,67 @@ class FaculityCalls extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      backgroundColor: Color(0xffF0F3F7),
+      backgroundColor: const Color(0xffF0F3F7),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding:  EdgeInsets.all(10.w
+            ),
             child: Column(
               children: [
                 Text('General',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 24.sp,
                     fontWeight: FontWeight.w500,
                     color: Colors.black,
                   ),
                 ),
                 Container(
-                  width: 90,
-                  height: 3,
-                  color: Color(0xff104A51),
+                  width: 120.w,
+                  height: 3.h,
+                  color: const Color(0xff104A51),
                 ),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:  EdgeInsets.all(5.w),
             child: Row(
               children: [
-                Image.asset('assets/images/admin/university_logo.png'),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                Expanded(flex:1,child: Image.asset('assets/images/admin/university_logo.png')),
+                Expanded(flex: 5,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 30),
-                        child: Text("حاسبات ومعلومات الزقازيق",
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w800,
-                          ),
+                      Text("حاسبات ومعلومات الزقازيق",
+                        style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
                       Row(
                         children: [
-                          Text("Your student has paied the College Expenses Today.",
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w400,
+                          Expanded(flex: 6,
+                            child: Text("Your student has paid the College Expenses Today.",
+                              style: TextStyle(
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ),
                           SizedBox(
-                            width: 20,
+                            width: 20.w,
                           ),
-                          Text("1m ago.",
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xff6C6C6C),
+                          Expanded(flex: 1,
+                            child: Text("1m ago.",
+                              style: TextStyle(
+                                fontSize: 9.sp,
+                                fontWeight: FontWeight.w500,
+                                color: const Color(0xff6C6C6C),
+                              ),
                             ),
                           ),
                         ],
@@ -92,45 +93,45 @@ class FaculityCalls extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 10,
-            height: 5,
+            width: 10.w,
+            height: 5.h,
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:  EdgeInsets.all(5.w),
             child: Row(
               children: [
-                Image.asset('assets/images/admin/university_logo.png'),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                Expanded(flex:1,child: Image.asset('assets/images/admin/university_logo.png')),
+                Expanded(flex: 5,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 30),
-                        child: Text("حاسبات ومعلومات الزقازيق",
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w800,
-                          ),
+                      Text("حاسبات ومعلومات الزقازيق",
+                        style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
                       Row(
                         children: [
-                          Text("Your student has paied the College Expenses Today.",
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w400,
+                          Expanded(flex: 6,
+                            child: Text("Your student has paid the College Expenses Today.",
+                              style: TextStyle(
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ),
                           SizedBox(
-                            width: 20,
+                            width: 20.w,
                           ),
-                          Text("1m ago.",
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xff6C6C6C),
+                          Expanded(flex: 1,
+                            child: Text("1m ago.",
+                              style: TextStyle(
+                                fontSize: 9.sp,
+                                fontWeight: FontWeight.w500,
+                                color: const Color(0xff6C6C6C),
+                              ),
                             ),
                           ),
                         ],
@@ -142,45 +143,145 @@ class FaculityCalls extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 10,
-            height: 5,
+            width: 10.w,
+            height: 5.h,
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:  EdgeInsets.all(5.w),
             child: Row(
               children: [
-                Image.asset('assets/images/admin/university_logo.png'),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                Expanded(flex:1,child: Image.asset('assets/images/admin/university_logo.png')),
+                Expanded(flex: 5,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 30),
-                        child: Text("حاسبات ومعلومات الزقازيق",
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w800,
-                          ),
+                      Text("حاسبات ومعلومات الزقازيق",
+                        style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
                       Row(
                         children: [
-                          Text("Your student has paied the College Expenses Today.",
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w400,
+                          Expanded(flex: 6,
+                            child: Text("Your student has paid the College Expenses Today.",
+                              style: TextStyle(
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ),
                           SizedBox(
-                            width: 20,
+                            width: 20.w,
                           ),
-                          Text("1m ago.",
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xff6C6C6C),
+                          Expanded(flex: 1,
+                            child: Text("1m ago.",
+                              style: TextStyle(
+                                fontSize: 9.sp,
+                                fontWeight: FontWeight.w500,
+                                color: const Color(0xff6C6C6C),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            width: 10.w,
+            height: 5.h,
+          ),
+          Padding(
+            padding:  EdgeInsets.all(5.w),
+            child: Row(
+              children: [
+                Expanded(flex:1,child: Image.asset('assets/images/admin/university_logo.png')),
+                Expanded(flex: 5,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("حاسبات ومعلومات الزقازيق",
+                        style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Expanded(flex: 6,
+                            child: Text("Your student has paid the College Expenses Today.",
+                              style: TextStyle(
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 20.w,
+                          ),
+                          Expanded(flex: 1,
+                            child: Text("1m ago.",
+                              style: TextStyle(
+                                fontSize: 9.sp,
+                                fontWeight: FontWeight.w500,
+                                color: const Color(0xff6C6C6C),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            width: 10.w,
+            height: 5.h,
+          ),
+          Padding(
+            padding:  EdgeInsets.all(5.w),
+            child: Row(
+              children: [
+                Expanded(flex:1,child: Image.asset('assets/images/admin/university_logo.png')),
+                Expanded(flex: 5,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("حاسبات ومعلومات الزقازيق",
+                        style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Expanded(flex: 6,
+                            child: Text("Your student has paid the College Expenses Today.",
+                              style: TextStyle(
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 20.w,
+                          ),
+                          Expanded(flex: 1,
+                            child: Text("1m ago.",
+                              style: TextStyle(
+                                fontSize: 9.sp,
+                                fontWeight: FontWeight.w500,
+                                color: const Color(0xff6C6C6C),
+                              ),
                             ),
                           ),
                         ],

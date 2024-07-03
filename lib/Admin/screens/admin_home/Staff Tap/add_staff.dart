@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_system/admin/screens/admin_home/Staff%20Tap/staff_member.dart';
 
 class AddStaff extends StatelessWidget {
@@ -12,25 +13,25 @@ class AddStaff extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      backgroundColor: Color(0xffF0F3F7),
+      backgroundColor: const Color(0xffF0F3F7),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
+              padding:  EdgeInsets.only(left: 15.w, right: 15.w),
               child: Container(
-                width: 400,
-                height: 580,
+                width: 400.w,
+                height: 580.w,
                 decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(1),
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                        offset: Offset(0, 3),
+                        spreadRadius: 2.r,
+                        blurRadius: 5.r,
+                        offset: Offset(0.w, 3.h),
                       ),
                     ],
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20.r),
                     color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,42 +39,42 @@ class AddStaff extends StatelessWidget {
                   children: [
                     Center(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 70, bottom: 70),
+                        padding:  EdgeInsets.only(top: 70.h, bottom: 70.h),
                         child: Text(
                           'Add Staff',
                           style: TextStyle(
-                            fontSize: 22,
+                            fontSize: 22.sp,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 25 ,bottom: 8),
+                      padding:  EdgeInsets.only(left: 25.w ,bottom: 8.h),
                       child: Text('Name',
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 20 , bottom: 25, right: 20),
+                      padding:  EdgeInsets.only(left: 20.w , bottom: 25.h, right: 20.w),
                       child: Container(
-                        width: 350,
-                        height: 45,
+                        width: 350.w,
+                        height: 45.h,
                         child: TextFormField(
                           // controller: ,
                           decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Color(0xffA9A9A9),
-                                width: 1,
+                                color: const Color(0xffA9A9A9),
+                                width: 1.w,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
-                            prefixIcon: Icon(Icons.person_pin,
+                            prefixIcon: const Icon(Icons.person_pin,
                             color: Colors.blue,
                             ),
                           ),
@@ -81,31 +82,31 @@ class AddStaff extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 25 ,bottom: 8),
+                      padding:  EdgeInsets.only(left: 25.w ,bottom: 8.h),
                       child: Text('Email Address',
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 20 , bottom: 25, right: 20),
+                      padding:  EdgeInsets.only(left: 20.w , bottom: 25.h, right: 20.w),
                       child: Container(
-                        width: 350,
-                        height: 45,
+                        width: 350.w,
+                        height: 45.h,
                         child: TextFormField(
                           // controller: ,
                           decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Color(0xffA9A9A9),
-                                width: 1,
+                                color: const Color(0xffA9A9A9),
+                                width: 1.w,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
-                            prefixIcon: Icon(Icons.email,
+                            prefixIcon: const Icon(Icons.email,
                               color: Colors.blue,
                             ),
                           ),
@@ -113,96 +114,100 @@ class AddStaff extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 25 ,bottom: 8),
+                      padding:  EdgeInsets.only(left: 25.w ,bottom: 8.h),
                       child: Text(' Enter the Password',
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 20 , bottom: 25, right: 20),
+                      padding:  EdgeInsets.only(left: 20.w , bottom: 25.h, right: 20.w),
                       child: Container(
-                        width: 350,
-                        height: 45,
+                        width: 350.w,
+                        height: 45.h,
                         child: TextFormField(
                           // controller: ,
                           obscureText: true,
                           decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Color(0xffA9A9A9),
-                                width: 1,
+                                color: const Color(0xffA9A9A9),
+                                width: 1.w,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                           ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Expanded(
+                    Expanded(
+                      child: Padding(
+                        padding:  EdgeInsets.all(8.w),
                         child: Row(
                           children: [
-                            TextButton(
-                              style: OutlinedButton.styleFrom(
-                                side: const BorderSide(color: Color(0xffFFFFFF),
-                                  style: BorderStyle.solid,
-                                  width: 2.5,
+                            Expanded(
+                              child: TextButton(
+                                style: OutlinedButton.styleFrom(
+                                  side:  BorderSide(color: Color(0xffFFFFFF),
+                                    style: BorderStyle.solid,
+                                    width: 2.5.w,
+                                  ),
+                                  fixedSize: Size(150.w, 45.h),
+                                  backgroundColor: const Color(0xffFFFFFF),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.r),
+                                  ),
                                 ),
-                                fixedSize: Size(150, 45),
-                                backgroundColor: Color(0xffFFFFFF),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              onPressed: () {
-                                Navigator.pop(
-                                  context,
-                                  StaffMember.routeName,
-                                );
-                              },
-                              child:
-                              const Text(
-                                "Cancel",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.blue,
+                                onPressed: () {
+                                  Navigator.pop(
+                                    context,
+                                    StaffMember.routeName,
+                                  );
+                                },
+                                child:
+                                 Text(
+                                  "Cancel",
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.blue,
+                                  ),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              width: 20,
+                              width: 20.w,
                             ),
-                            TextButton(
-                              style: OutlinedButton.styleFrom(
-                                side: const BorderSide(color: Color(0xff0096FF),
-                                  style: BorderStyle.solid,
-                                  width: 2.5,
+                            Expanded(
+                              child: TextButton(
+                                style: OutlinedButton.styleFrom(
+                                  side:  BorderSide(color: const Color(0xff0096FF),
+                                    style: BorderStyle.solid,
+                                    width: 2.5.w,
+                                  ),
+                                  fixedSize: Size(150.w, 45.h),
+                                  backgroundColor: const Color(0xff0096FF),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.r),
+                                  ),
                                 ),
-                                fixedSize: Size(150, 45),
-                                backgroundColor: Color(0xff0096FF),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              onPressed: () {
-                                Navigator.pop(
-                                  context,
-                                  StaffMember.routeName,
-                                );
-                              },
-                              child:
-                              const Text(
-                                "Add",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white,
+                                onPressed: () {
+                                  Navigator.pop(
+                                    context,
+                                    StaffMember.routeName,
+                                  );
+                                },
+                                child:
+                                 Text(
+                                  "Add",
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),

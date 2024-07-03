@@ -71,28 +71,32 @@ class ProfileAdmin extends StatelessWidget {
                         Navigator.of(context).pushNamed(Profile2Admin.routeName);
                       },
                       child:
-                          Padding(
-                            padding: const EdgeInsets.only(left: 30),
-                            child: Row(
-                              children: [
-                              Text(
+                      Padding(
+                        padding:  EdgeInsets.only(left: 30.w),
+                        child: Row(
+                          children: [
+                            Expanded(flex:2,
+                              child: Text(
                                 "Edit Profile",
                                 style: TextStyle(
-                                  fontSize: 24,
+                                  fontSize: 20.sp,
                                   fontWeight: FontWeight.w500,
-                                  color: Color(0xffD5F4FF),
+                                  color: const Color(0xffD5F4FF),
                                 ),
                               ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 20),
-                                  child: Icon(
-                                    color: Color(0xffD5F4FF),
-                                    size: 28,
+                            ),
+                            Expanded(flex:1,
+                              child: Padding(
+                                padding:  EdgeInsets.only(left: 20.w),
+                                child: Icon(
+                                    color: const Color(0xffD5F4FF),
+                                    size: 28.sp,
                                     Icons.edit
-                                  ),
                                 ),
-                            ],),
-                          ),
+                              ),
+                            ),
+                          ],),
+                      ),
                     ),
                     SizedBox(
                       width: 20,

@@ -24,6 +24,7 @@ GroupModel c =GroupModel(groupName: "groupName", doctorName: "doctorName", subje
           fontWeight: FontWeight.w400,
           color: Colors.black
         )),
+        iconTheme:  IconThemeData(color: Colors.black,size:15.sp ) ,
       ),
       body: Column(
         children: [

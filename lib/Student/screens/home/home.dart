@@ -7,6 +7,7 @@ import 'package:smart_system/Student/screens/home/student-result/student_result.
 import 'package:smart_system/Student/screens/login_signup/login_screen.dart';
 import '../../../cubit/user_cubit.dart';
 import '../../../cubit/user_state.dart';
+import '../../../ui_splashes/splash0/splash0_screen.dart';
 import '../../models/home_model.dart';
 import '../../widget/home_widget.dart';
 import 'Attendance-tap/attendance_screen.dart';
@@ -259,9 +260,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
         context.read<UserCubit>().logout();
 
-          Navigator.pop(
+          Navigator.popAndPushNamed(
             context,
-            LoginScreen.routeName,
+            splash0.routeName,
           );
         }
         break;

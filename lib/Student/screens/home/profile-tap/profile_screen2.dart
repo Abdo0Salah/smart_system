@@ -82,10 +82,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smart_system/Student/screens/home/profile-tap/profile_screen.dart';
 import 'package:smart_system/cubit/user_cubit.dart';
 import 'package:smart_system/cubit/user_state.dart';
+import 'package:smart_system/ui_splashes/splash0/splash0_screen.dart';
 import '../../../../cache/cache_helper.dart';
 import '../../../../core/api/end_ponits.dart';
+import '../home.dart';
+import 'done.dart';
 class Profile2 extends StatefulWidget {
   static const String routeName = 'profile2';
 
@@ -157,13 +161,18 @@ class _Profile2State extends State<Profile2> {
                     Center(
                       child: ElevatedButton(
                         onPressed: () {
-
+                          final cubit = context.read<UserCubit>();
+                          final userId = CacheHelper().getData(key: ApiKey.id) ?? '';
+                          cubit.updateUserProfile();
+                          // context.read<UserCubit>().getUserProfile();
+                          Navigator.pop(
+                            context,
+                            Profile.routeName,
+                          );
                           setState(() {
-                            final cubit = context.read<UserCubit>();
-                            final userId = CacheHelper().getData(key: ApiKey.id) ?? '';
-                            cubit.updateUserProfile();
                             context.read<UserCubit>().getUserProfile();
                           });
+
                         },
                         child: Text("Update"),
                       ),

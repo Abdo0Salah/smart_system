@@ -106,8 +106,7 @@ class _Profile2State extends State<Profile2> {
         if (state is UpdateUserFailure) {
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text(state.errMessage)));
-        }
-        else if (state is UpdateUserSuccess) {
+        } else if (state is UpdateUserSuccess) {
           ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('Profile updated successfully')));
 
@@ -184,18 +183,43 @@ class _Profile2State extends State<Profile2> {
                     Center(
                       child: state is UpdateUserLoading
                           ? CircularProgressIndicator()
-                          : ElevatedButton(
-                              onPressed: () {
-                                final cubit = context.read<UserCubit>();
-                                final userId =
-                                    CacheHelper().getData(key: ApiKey.id) ?? '';
-                                cubit.updateUserProfile();
-                                // context.read<UserCubit>().getUserProfile();
-                                setState(() {});
+                          : Padding(
+                              padding:  EdgeInsets.only(top: 4.h),
+                              child: Center(
+                                child: TextButton(
+                                  style: OutlinedButton.styleFrom(
+                                    side:  BorderSide(
+                                      color: Color(0xff171F1D),
+                                      style: BorderStyle.solid,
+                                      width: 2.5.w,
+                                    ),
+                                    fixedSize: Size(300.w, 45.h),
+                                    backgroundColor: Color(0xff171F1D),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.r),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    final cubit = context.read<UserCubit>();
+                                    final userId =
+                                        CacheHelper().getData(key: ApiKey.id) ??
+                                            '';
+                                    cubit.updateUserProfile();
+                                    // context.read<UserCubit>().getUserProfile();
+                                    setState(() {});
 
-                                // context.read<UserCubit>().getUserProfile();
-                              },
-                              child: Text("Update"),
+                                    // context.read<UserCubit>().getUserProfile();
+                                  },
+                                  child:  Text(
+                                    "Update",
+                                    style: TextStyle(
+                                      fontSize: 20.sp,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
                     ),
                   ],

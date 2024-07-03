@@ -168,6 +168,17 @@ class UserCubit extends Cubit<UserState> {
   }
 
 
+  Future<void> registerCourses(List<int> courseIds) async {
+    emit(CourseRegistrationLoading());
+    final response = await userRepository.registerCourses(courseIds);
+    response.fold(
+          (errMessage) => emit(CourseRegistrationFailure(errMessage: errMessage)),
+          (registerCoursesModel) => emit(CourseRegistrationSuccess(registerCoursesModel: registerCoursesModel)),
+    );
+  }
+
+
+
   Future<void> logout() async {
     emit(UserLogoutLoading());
     final response = await userRepository.logout();

@@ -1,3 +1,4 @@
+import '../apiModels/Register_Courses_Model.dart';
 import '../apiModels/subjectRegisteration_model.dart';
 import '../apiModels/update_user_model.dart';
 import '../apiModels/user_model.dart';
@@ -37,6 +38,24 @@ final class SubjectRegisterationFailure extends UserState {
 
   SubjectRegisterationFailure({required this.errMessage});
 }
+
+
+final class CourseRegistrationSuccess extends UserState {
+  final RegisterCoursesModel registerCoursesModel;
+
+  CourseRegistrationSuccess({required this.registerCoursesModel});
+}
+
+final class CourseRegistrationLoading extends UserState {}
+
+final class CourseRegistrationFailure extends UserState {
+  final String errMessage;
+
+  CourseRegistrationFailure({required this.errMessage});
+}
+
+
+
 
 final class SignInSuccess extends UserState {}
 

@@ -2,6 +2,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
+import '../apiModels/Register_Courses_Model.dart';
 import '../apiModels/sign_in_model.dart';
 import '../apiModels/sign_up_model.dart';
 import '../apiModels/subjectRegisteration_model.dart';
@@ -19,6 +20,7 @@ class UserRepository {
 
 
  /// STUDENT
+  /// ----------------------login-----------------------------
   Future<Either<String, SignInModel>> signIn({
     required String userName,
     required String password,
@@ -81,19 +83,27 @@ class UserRepository {
       return Left(e.errModel.errorMessage);
     }
   }
-///profile
-//   Future<Either<String, UserModel>> getUserProfile() async {
-//     try {
-//       final response = await api.get(
-//         EndPoint.getUserDataEndPoint(
-//           // CacheHelper().getData(key: ApiKey.id),
-//         ),
-//       );
-//       return Right(UserModel.fromJson(response));
-//     } on ServerException catch (e) {
-//       return Left(e.errModel.errorMessage);
-//     }
-//   }
+
+  Future<Either<String, void>> logout() async {
+    try {
+      await api.post(EndPoint.logout);
+      await CacheHelper().removeData(key: ApiKey.token);
+      await CacheHelper().removeData(key: ApiKey.id);
+      await CacheHelper().saveData(key: 'isLoggedIn', value: false);
+      return Right(null);
+    } on DioException catch (e) {
+      handleDioExceptions(e);
+      return Left("Unexpected error occurred.");
+    }
+  }
+
+  Future<bool> isLoggedIn() async {
+    return CacheHelper().getData(key: 'isLoggedIn') ?? false;
+  }
+
+
+
+///-----------------------------profile--------------------------
 
   Future<Either<String, UserModel>> getUserProfile() async {
     try {
@@ -109,8 +119,6 @@ class UserRepository {
       final userr = UserModel.fromJson(response);
         await CacheHelper().saveData(key: ApiKey.userNameSaved, value: userr.name);
        await  CacheHelper().saveData(key: ApiKey.userEmailSaved, value: userr.email);
-      print( "7777777777777777777777777777${CacheHelper().getData(key: ApiKey.userNameSaved)}");
-      print ("${CacheHelper().getData(key: ApiKey.userEmailSaved)}");
       return Right(UserModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage);
@@ -165,7 +173,7 @@ class UserRepository {
     }
   }
 
-
+///---------------------------------------------------
 
   Future<Either<String, List<SubjectRegisterationModel>>>
       SubjectRegisteration() async {
@@ -186,21 +194,51 @@ class UserRepository {
     }
   }
 
-  Future<Either<String, void>> logout() async {
+
+
+
+  Future<Either<String, RegisterCoursesModel>> registerCourses(List<int> courseIds,) async {
     try {
-      await api.post(EndPoint.logout);
-      await CacheHelper().removeData(key: ApiKey.token);
-      await CacheHelper().removeData(key: ApiKey.id);
-      await CacheHelper().saveData(key: 'isLoggedIn', value: false);
-      return Right(null);
-    } on DioException catch (e) {
-      handleDioExceptions(e);
-      return Left("Unexpected error occurred.");
+      final response = await api.post(
+        EndPoint.registerCourses(
+          CacheHelper().getData(key: ApiKey.id),
+        ),
+        data: courseIds,
+        options: Options(
+          contentType: 'application/json',
+        ),
+      );
+      if (response != null) {
+        return Right(RegisterCoursesModel.fromJson(response));
+      } else {
+        return Left('No response from server');
+      }
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
     }
   }
-  Future<bool> isLoggedIn() async {
-    return CacheHelper().getData(key: 'isLoggedIn') ?? false;
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /// PARENT
 

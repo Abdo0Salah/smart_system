@@ -8,7 +8,6 @@ import '../../../../cubit/user_cubit.dart';
 import '../../../../cubit/user_state.dart';
 import '../home.dart';
 
-
 class SubjectRegistrationScreen extends StatefulWidget {
   static const String routeName = 'SubjectRegistrationScreen';
 
@@ -17,6 +16,8 @@ class SubjectRegistrationScreen extends StatefulWidget {
 }
 
 class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
+  List<int> selectedCourses = [];
+
   @override
   void initState() {
     super.initState();
@@ -28,7 +29,6 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xffF5F9FE),
-
         body: BlocBuilder<UserCubit, UserState>(
           builder: (context, state) {
             if (state is SubjectRegisterationLoading) {
@@ -37,6 +37,12 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
               return _buildSubjectList(state.subjectR);
             } else if (state is SubjectRegisterationFailure) {
               return Center(child: Text('Failed to load subjects: ${state.errMessage}'));
+            } else if (state is CourseRegistrationLoading) {
+              return Center(child: CircularProgressIndicator());
+            } else if (state is CourseRegistrationFailure) {
+              return Center(child: Text('Failed to register courses: ${state.errMessage}'));
+            } else if (state is CourseRegistrationSuccess) {
+              return Center(child: Text(state.registerCoursesModel.message));
             } else {
               return Center(child: Text('Unknown state'));
             }
@@ -105,7 +111,7 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
           textAlign: TextAlign.center,
         ),
         SizedBox(
-          height:20.h,
+          height: 20.h,
         ),
         Text(
           "Max hours for Registration           18",
@@ -120,8 +126,9 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
         ),
         Expanded(
           child: Padding(
-            padding:  const EdgeInsets.only(right: 08,left: 08).w,
-            child: Container( decoration: const BoxDecoration(
+            padding: const EdgeInsets.only(right: 8, left: 8).w,
+            child: Container(
+              decoration: const BoxDecoration(
                 color: Color(0xffE8EAEC),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),
@@ -134,30 +141,30 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
                     blurRadius: 3,
                     spreadRadius: 2,
                   ),
-                ]
-            ),
+                ],
+              ),
               child: Column(
                 children: [
                   Container(
                     width: double.infinity.w,
                     height: 60.h,
-                    decoration:  BoxDecoration(
-                        color: Color(0xffE8EAEC),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20),
+                    decoration: const BoxDecoration(
+                      color: Color(0xffE8EAEC),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black,
+                          offset: Offset(0, 1),
+                          blurRadius: 3,
+                          spreadRadius: 0,
                         ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black,
-                            offset: Offset(0.w, 1.h),
-                            blurRadius: 3.r,
-                            spreadRadius: 0.r,
-                          ),
-                        ]
+                      ],
                     ),
                     child: Padding(
-                      padding:  EdgeInsets.all(8.w),
+                      padding: EdgeInsets.all(8.w),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -225,8 +232,7 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
           ),
         ),
         Padding(
-          padding:  EdgeInsets.all(
-              12.w),
+          padding: EdgeInsets.all(12.w),
           child: Center(
             child: TextButton(
               style: OutlinedButton.styleFrom(
@@ -236,13 +242,13 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
                   width: 2.5,
                 ),
                 fixedSize: Size(200, 50),
-                backgroundColor: Color(0xffcbd9f1),
+                backgroundColor: const Color(0xffcbd9f1),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(9),
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).pop();
+                context.read<UserCubit>().registerCourses(selectedCourses);
               },
               child: const Text(
                 "Save",
@@ -310,20 +316,23 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
                 ),
               ),
               Expanded(flex: 1,
-                child: Text(
-                  "",
-                  style: GoogleFonts.gabriela(
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 12.sp),
+                child: Checkbox(
+                  value: selectedCourses.contains(index ),
+                  onChanged: (bool? value) {
+                    setState(() {
+                      if (value == true) {
+                        selectedCourses.add(index );
+                      } else {
+                        selectedCourses.remove(index );
+                      }
+                    });
+                  },
                 ),
               ),
             ],
           ),
         ),
         SizedBox(height: 5.h,)
-
-
       ],
     );
   }

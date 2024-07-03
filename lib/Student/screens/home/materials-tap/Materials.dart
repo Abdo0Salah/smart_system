@@ -35,15 +35,12 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // drawer: Container( color: Colors.blue,
-        //     child: const Column()),
         backgroundColor: const Color(0xffF5F9FE),
         body: Center(
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding:  EdgeInsets.all(10.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              // crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Row(
                   children: [
@@ -83,9 +80,9 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                           HomeScreen.routeName,
                         );
                       },
-                      child: const Icon(
+                      child: Icon(
                         Icons.close,
-                        size: 35,
+                        size: 35.sp,
                       ),
                     ),
                   ],
@@ -99,9 +96,9 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                             color: const Color(0xffD9D9D9),
-                            borderRadius: BorderRadius.circular(10)),
+                            borderRadius: BorderRadius.circular(10.r)),
                         child: DropdownButton(
-                          padding: const EdgeInsets.only(left: 5, bottom: 2),
+                          padding:  EdgeInsets.only(left: 5.w, bottom: 2.h),
                           hint: _dropDownValue1 == null
                               ? Text('')
                               : Text(
@@ -112,9 +109,9 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                                       fontWeight: FontWeight.w400),
                                 ),
                           // dropdownColor: const Color(0xffD9D9D9) ,
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(20.r),
                           isExpanded: true,
-                          iconSize: 25.0.sp,
+                          iconSize: 25.sp,
                           style: GoogleFonts.inter(
                               color: Colors.grey,
                               fontSize: 14.sp,
@@ -144,9 +141,9 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                             color: const Color(0xffD9D9D9),
-                            borderRadius: BorderRadius.circular(10)),
+                            borderRadius: BorderRadius.circular(10.r)),
                         child: DropdownButton(
-                          padding: const EdgeInsets.only(left: 5, bottom: 2),
+                          padding:  EdgeInsets.only(left: 5.w, bottom: 2.h),
                           hint: _dropDownValue2 == null
                               ? Text('')
                               : Text(
@@ -157,7 +154,7 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                                       fontWeight: FontWeight.w400),
                                 ),
                           // dropdownColor: const Color(0xffD9D9D9) ,
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(20.r),
                           isExpanded: true,
                           iconSize: 25.0.sp,
                           style: GoogleFonts.inter(
@@ -197,8 +194,8 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                 Padding(
                   padding: EdgeInsets.only(left: 4.w, bottom: 20.h),
                   child: Container(
-                    height: 5,
-                    width: 235,
+                    height: 5.h,
+                    width: 235.w,
                      color: const Color(0xff2C4A7A),
                   ),
                 ),

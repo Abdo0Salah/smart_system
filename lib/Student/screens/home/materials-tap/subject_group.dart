@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 import '../../../models/group_model.dart';
@@ -12,7 +13,7 @@ class SubjectGroups extends StatelessWidget {
   Widget build(BuildContext context) {
 GroupModel c =GroupModel(groupName: "groupName", doctorName: "doctorName", subjectName: "subjectName");
     return Scaffold(
-      backgroundColor:Color(0xffEFF3F7FF)
+      backgroundColor:const Color(0xffEFF3F7FF)
       ,
       appBar: AppBar(
         backgroundColor:Colors.transparent ,
@@ -41,14 +42,18 @@ GroupModel c =GroupModel(groupName: "groupName", doctorName: "doctorName", subje
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(25).w,
-                        topLeft: Radius.circular(25).w)),
+                        topRight: Radius.circular(25.r),
+                        topLeft: Radius.circular(25.r))),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(12.0).w,
-                      child: Text("All Groups"),
+                      padding:  EdgeInsets.all(12.w),
+                      child: Text("All Groups",
+                      style: GoogleFonts.ubuntu(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w500,
+                      )),
                     ),
                     Expanded(
                       child: ListView.builder(

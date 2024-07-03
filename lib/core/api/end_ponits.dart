@@ -10,7 +10,9 @@ class EndPoint {
   static const String logout = "/api/Students/logout";
   static String getUserDataEndPoint(id) {
      return "/api/Students/$id";
-   // return "/api/Students/82";
+  }
+  static String ubdateUserDataEndPoint(id) {
+    return "/api/Students/update/$id";
   }
 
 //parent

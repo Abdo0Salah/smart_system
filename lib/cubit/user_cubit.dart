@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:smart_system/core/api/end_ponits.dart';
 import 'package:smart_system/cubit/user_state.dart';
 import '../apiModels/sign_in_model.dart';
 import '../apiModels/subjectRegisteration_model.dart';
+import '../cache/cache_helper.dart';
 import '../repositories/user_repository.dart';
 
 class UserCubit extends Cubit<UserState> {
@@ -38,6 +40,25 @@ class UserCubit extends Cubit<UserState> {
 
   SignInModel? user;
   SubjectRegisterationModel? SubjectR;
+
+
+  final TextEditingController nameController0 = TextEditingController();
+  final TextEditingController emailController0 = TextEditingController();
+  final TextEditingController universityEmailController0 = TextEditingController();
+  final TextEditingController passwordController0 = TextEditingController();
+  final TextEditingController ssnController0 = TextEditingController();
+  final TextEditingController phoneController0 = TextEditingController();
+  final TextEditingController genderController0 = TextEditingController();
+  final TextEditingController levelController0 = TextEditingController();
+  final TextEditingController termController0= TextEditingController();
+  final TextEditingController parentPhoneController0 = TextEditingController();
+  final TextEditingController parentEmailController0 = TextEditingController();
+
+
+
+
+
+
   uploadProfilePic(XFile image) {
     profilePic = image;
     emit(UploadProfilePic());
@@ -98,6 +119,43 @@ class UserCubit extends Cubit<UserState> {
       },
     );
   }
+
+
+  Future<void> updateUserProfile(
+    // required String id,
+    // required String name,
+    // required String email,
+    // required String universityEmail,
+    // required String password,
+    // required String ssn,
+    // required String phone,
+    // required String gender,
+    // required int level,
+    // required int term,
+    // required String parentPhone,
+    // required String parentEmail,
+  ) async {
+    emit(UpdateUserLoading());
+    final result = await userRepository.updateUser(
+      id: CacheHelper().getData(key: ApiKey.id) ?? '',
+      name: nameController0.text,
+      email: emailController0.text,
+      universityEmail: universityEmailController0.text,
+      password: passwordController0.text,
+      ssn: ssnController0.text,
+      phone: phoneController0.text,
+      gender: genderController0.text,
+      level: int.parse(levelController0.text),
+      term: int.parse(termController0.text),
+      parentPhone: parentPhoneController0.text,
+      parentEmail: parentEmailController0.text,
+    );
+    result.fold(
+          (error) => emit(UpdateUserFailure(errMessage: error)),
+          (updatedUser) => emit(UpdateUserSuccess(updatedUser: updatedUser)),
+    );
+  }
+
 
   SubjectRegisteration() async {
      emit(SubjectRegisterationLoading());

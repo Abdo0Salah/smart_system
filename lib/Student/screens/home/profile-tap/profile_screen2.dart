@@ -82,411 +82,124 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:smart_system/Student/screens/home/profile-tap/profile_screen.dart';
 import 'package:smart_system/cubit/user_cubit.dart';
 import 'package:smart_system/cubit/user_state.dart';
-
-class Profile2 extends StatelessWidget {
+import '../../../../cache/cache_helper.dart';
+import '../../../../core/api/end_ponits.dart';
+class Profile2 extends StatefulWidget {
   static const String routeName = 'profile2';
 
   @override
-  Widget build(BuildContext context) {
-    return BlocConsumer<UserCubit, UserState>(listener: (context, state) {
-      if (state is GetUserFailure) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text(state.errMessage)));
-      }
-    }, builder: (context, state) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Edit Profile",
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 22.sp,
-              color: Colors.black,
-            ),
-          ),
-          centerTitle: true,
-          iconTheme: const IconThemeData(color: Colors.black),
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-        ),
-        backgroundColor: Color(0xffF0F3F7),
-        body: state is GetUserLoading
-            ? const CircularProgressIndicator()
-            : state is GetUserSuccess
-                ? SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Center(
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                'assets/images/profile/Vector.png',
-                                width: 103,
-                                height: 99,
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 10, bottom: 30),
-                                child: Text(
-                                  "Change Picture",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 15,
-                                    color: Color(0xff000000),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 18, bottom: 8),
-                          child: Text(
-                            'Student name',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 10),
-                            child: Container(
-                              width: 365,
-                              height: 40,
-                              child: TextFormField(
-// controller: ,
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xffA9A9A9),
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  hintText: state.user.name,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 18, bottom: 8),
-                          child: Text(
-                            'Student Email',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 10),
-                            child: Container(
-                              width: 365,
-                              height: 40,
-                              child: TextFormField(
-// controller: ,
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xffA9A9A9),
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  hintText: state.user.email,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+  State<Profile2> createState() => _Profile2State();
+}
 
-                        Padding(
-                          padding: const EdgeInsets.only(left: 18, bottom: 8),
-                          child: Text(
-                            'Gender',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 10),
-                            child: Container(
-                              width: 365,
-                              height: 40,
-                              child: TextFormField(
-// controller: ,
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xffA9A9A9),
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  hintText: state.user.gender,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 18, bottom: 8),
-                          child: Text(
-                            'Phone Number',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 10),
-                            child: Container(
-                              width: 365,
-                              height: 40,
-                              child: TextFormField(
-// controller: ,
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xffA9A9A9),
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  hintText: state.user.phone,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 18, bottom: 8),
-                          child: Text(
-                            'ssn',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 10),
-                            child: Container(
-                              width: 365,
-                              height: 40,
-                              child: TextFormField(
-// controller: ,
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xffA9A9A9),
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  hintText: state.user.ssn,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 18, bottom: 8),
-                          child: Text(
-                            'Level',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 10),
-                            child: Container(
-                              width: 365,
-                              height: 40,
-                              child: TextFormField(
-// controller: ,
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xffA9A9A9),
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  hintText:"${ state.user.level}",
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 18, bottom: 8),
-                          child: Text(
-                            'Term',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 10),
-                            child: Container(
-                              width: 365,
-                              height: 40,
-                              child: TextFormField(
-// controller: ,
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xffA9A9A9),
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  hintText: "${state.user.term}",
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 18, bottom: 18),
-                          child: Text(
-                            'Current password',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 10),
-                            child: Container(
-                              width: 365,
-                              height: 40,
-                              child: TextFormField(
-// controller: ,
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xffA9A9A9),
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  hintText: '**',
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 18, bottom: 8),
-                          child: Text(
-                            'new password',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 10),
-                            child: Container(
-                              width: 365,
-                              height: 40,
-                              child: TextFormField(
-// controller: ,
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xffA9A9A9),
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  hintText: '**',
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8),
-                          child: Center(
-                            child: TextButton(
-                              style: OutlinedButton.styleFrom(
-                                side: const BorderSide(
-                                  color: Color(0xff171F1D),
-                                  style: BorderStyle.solid,
-                                  width: 2.5,
-                                ),
-                                fixedSize: Size(283, 40),
-                                backgroundColor: Color(0xff171F1D),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              onPressed: () {
-                                Navigator.of(context)
-                                    .pushNamed(Profile.routeName);
-                              },
-                              child: const Text(
-                                "Update",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+class _Profile2State extends State<Profile2> {
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<UserCubit, UserState>(
+      listener: (context, state) {
+        if (state is UpdateUserFailure) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(state.errMessage)));
+        } else if (state is UpdateUserSuccess) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text('Profile updated successfully')));
+        }
+      },
+      builder: (context, state) {
+        if (state is GetUserSuccess) {
+          final user = state.user;
+          context.read<UserCubit>().nameController0.text = user.name ?? '';
+          context.read<UserCubit>().emailController0.text = user.email ?? '';
+          context.read<UserCubit>().universityEmailController0.text= user.universityEmail ?? '';
+          context.read<UserCubit>().ssnController0.text = user.ssn ?? '';
+          context.read<UserCubit>().phoneController0.text = user.phone ?? '';
+          context.read<UserCubit>().genderController0.text = user.gender ?? '';
+          context.read<UserCubit>().levelController0.text = user.level.toString();
+          context.read<UserCubit>().termController0.text = user.term.toString();
+          context.read<UserCubit>().parentPhoneController0.text = user.parentPhone ?? '';
+          context.read<UserCubit>().parentEmailController0.text = user.parentEmail ?? '';
+
+          return Scaffold(
+            appBar: AppBar(
+              title: Text(
+                "Edit Profile",
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 22.sp,
+                  color: Colors.black,
+                ),
+              ),
+              centerTitle: true,
+              iconTheme: const IconThemeData(color: Colors.black),
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+            ),
+            backgroundColor: Color(0xffF0F3F7),
+            body: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildTextField("Student Name", context.read<UserCubit>().nameController0),
+                    _buildTextField("Student Email", context.read<UserCubit>().emailController0),
+                    _buildTextField("University Email", context.read<UserCubit>().universityEmailController0),
+                    _buildTextField("Password", context.read<UserCubit>().passwordController0, obscureText: true),
+                    _buildTextField("SSN", context.read<UserCubit>().ssnController0),
+                    _buildTextField("Phone Number", context.read<UserCubit>().phoneController0),
+                    _buildTextField("Gender", context.read<UserCubit>().genderController0),
+                    _buildTextField("Level", context.read<UserCubit>().levelController0),
+                    _buildTextField("Term", context.read<UserCubit>().termController0),
+                    _buildTextField("Parent Phone", context.read<UserCubit>().parentPhoneController0),
+                    _buildTextField("Parent Email", context.read<UserCubit>().parentEmailController0),
+                    SizedBox(height: 20),
+                    Center(
+                      child: ElevatedButton(
+                        onPressed: () {
+
+                          setState(() {
+                            final cubit = context.read<UserCubit>();
+                            final userId = CacheHelper().getData(key: ApiKey.id) ?? '';
+                            cubit.updateUserProfile();
+                            context.read<UserCubit>().getUserProfile();
+                          });
+                        },
+                        child: Text("Update"),
+                      ),
+
+
+
+
+
                     ),
-                  )
-                : Container(),
-      );
-    });
+                  ],
+                ),
+              ),
+            ),
+          );
+        } else if (state is GetUserLoading) {
+          return Center(child: CircularProgressIndicator());
+        } else if (state is GetUserFailure) {
+          return Center(child: Text('Failed to load profile: ${state.errMessage}'));
+        } else {
+          return Container();
+        }
+      },
+    );
+  }
+
+  Widget _buildTextField(String label, TextEditingController controller, {bool obscureText = false}) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: TextField(
+        controller: controller,
+        obscureText: obscureText,
+        decoration: InputDecoration(
+          labelText: label,
+          border: OutlineInputBorder(),
+        ),
+      ),
+    );
   }
 }

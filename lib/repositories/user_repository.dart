@@ -4,6 +4,7 @@ import 'package:jwt_decoder/jwt_decoder.dart';
 import '../apiModels/sign_in_model.dart';
 import '../apiModels/sign_up_model.dart';
 import '../apiModels/subjectRegisteration_model.dart';
+import '../apiModels/update_user_model.dart';
 import '../apiModels/user_model.dart';
 import '../cache/cache_helper.dart';
 import '../core/api/api_consumer.dart';
@@ -112,6 +113,52 @@ class UserRepository {
       return Left(e.toString());
     }
   }
+
+
+  Future<Either<String, UpdateUserModel>> updateUser({
+    required String id,
+    required String name,
+    required String email,
+    required String universityEmail,
+    required String password,
+    required String ssn,
+    required String phone,
+    required String gender,
+    required int level,
+    required int term,
+    required String parentPhone,
+    required String parentEmail,
+  }) async {
+    try {
+      final response = await api.put(
+        EndPoint.ubdateUserDataEndPoint(
+          CacheHelper().getData(key: ApiKey.id),
+
+        ),
+        data: {
+          "name": name,
+          "email": email,
+          "universityEmail": universityEmail,
+          "password": password,
+          "ssn": ssn,
+          "phone": phone,
+          "gender": gender,
+          "level": level,
+          "term": term,
+          "parentPhone": parentPhone,
+          "parentEmail": parentEmail,
+        },
+      );
+      if (response == null) {
+        throw Exception('API response is null');
+      }
+      final updateUserModel = UpdateUserModel.fromJson(response);
+      return Right(updateUserModel);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
+  }
+
 
 
   Future<Either<String, List<SubjectRegisterationModel>>>

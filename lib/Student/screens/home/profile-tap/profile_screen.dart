@@ -218,6 +218,7 @@ class Profile extends StatelessWidget {
                               ),
                               onPressed: (){
                                 context.read<UserCubit>().getUserProfile();
+                                context.read<UserCubit>().updateUserProfile();
                                 Navigator.of(context).pushNamed(Profile2.routeName);
                               },
                               child:

@@ -1,9 +1,28 @@
 import '../apiModels/subjectRegisteration_model.dart';
+import '../apiModels/update_user_model.dart';
 import '../apiModels/user_model.dart';
 
 class UserState {}
 
 final class UserInitial extends UserState {}
+
+final class UpdateUserLoading extends UserState {}
+
+final class UpdateUserSuccess extends UserState {
+  final UpdateUserModel updatedUser;
+
+  UpdateUserSuccess({required this.updatedUser});
+}
+
+final class UpdateUserFailure extends UserState {
+  final String errMessage;
+
+  UpdateUserFailure({required this.errMessage});
+}
+
+
+
+
 
 final class SubjectRegisterationSuccess extends UserState {
   final List<SubjectRegisterationModel> subjectR;

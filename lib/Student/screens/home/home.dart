@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: const Color(0xffF5F9FE),
           body: Center(
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding:  EdgeInsets.all(10.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               //  "${state.user.name}",
                                 style: GoogleFonts.inter(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 15.sp),
+                                    fontSize: 17.sp),
                               ),
                               Text(
                                 "${CacheHelper().getData(key: ApiKey.userEmailSaved)}",
@@ -79,16 +79,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                 // "${state.user.email}",
                                 style: TextStyle(
                                     fontWeight: FontWeight.normal,
-                                    fontSize: 8.sp),
+                                    fontSize: 10.sp),
                               ),
                             ],
                           ),
                         ),
                       ),
                       const Spacer(),
-                      const Icon(
+                       Icon(
                         Icons.close,
-                        size: 35,
+                        size: 30.sp,
                       ),
                     ],
                   ),
@@ -107,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontWeight: FontWeight.w500),
                         contentPadding: EdgeInsets.only(left: 50.w),
                         enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(90),
+                          borderRadius: BorderRadius.circular(90.r),
                           borderSide: const BorderSide(color: Colors.white),
                         ),
                         filled: true,

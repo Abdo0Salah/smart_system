@@ -10,8 +10,6 @@ import 'login_signup/login_screen.dart';
 
 
 
-
-
 class ParentHomeScreen extends StatefulWidget {
   static const String routeName = 'ParentHomeScreen';
   List<ParentHomeModel> parentHomeModel = [
@@ -34,7 +32,7 @@ class _ParentHomeScreenState extends State<ParentHomeScreen> {
         backgroundColor: const Color(0xffF5F9FE),
         body: Center(
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding:  EdgeInsets.all(10.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -56,22 +54,22 @@ class _ParentHomeScreenState extends State<ParentHomeScreen> {
                             Text(
                               "Parent name",
                               style: GoogleFonts.inter(
-                                  fontWeight: FontWeight.bold, fontSize: 15.sp),
+                                  fontWeight: FontWeight.bold, fontSize: 17.sp),
                             ),
                             Text(
                               "201524587545@fci.zu.edu.eg",
                               style: TextStyle(
                                   fontWeight: FontWeight.normal,
-                                  fontSize: 8.sp),
+                                  fontSize: 10.sp),
                             ),
                           ],
                         ),
                       ),
                     ),
                     const Spacer(),
-                    const Icon(
+                     Icon(
                       Icons.close,
-                      size: 35,
+                      size: 30.sp,
                     ),
                   ],
                 ),

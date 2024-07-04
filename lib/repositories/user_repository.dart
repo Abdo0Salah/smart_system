@@ -119,6 +119,7 @@ class UserRepository {
       final userr = UserModel.fromJson(response);
         await CacheHelper().saveData(key: ApiKey.userNameSaved, value: userr.name);
        await  CacheHelper().saveData(key: ApiKey.userEmailSaved, value: userr.email);
+      await  CacheHelper().saveData(key: ApiKey.userGenderSaved, value: userr.gender);
       return Right(UserModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage);

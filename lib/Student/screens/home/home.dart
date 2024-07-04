@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_system/Student/screens/home/profile-tap/profile_screen.dart';
 import 'package:smart_system/Student/screens/home/student-result/student_result.dart';
-import 'package:smart_system/Student/screens/login_signup/login_screen.dart';
 import '../../../cache/cache_helper.dart';
 import '../../../core/api/end_ponits.dart';
 import '../../../cubit/user_cubit.dart';
@@ -31,14 +30,19 @@ class HomeScreen extends StatefulWidget {
     HomeModel("Quizzes", "assets/images/Quizzes.png", 7),
     HomeModel("Log Out", "assets/images/admin-logOut.png", 8),
   ];
+  final String genderValue = CacheHelper().getData(key: ApiKey.userGenderSaved) ?? "male";
+
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
+
   Widget build(BuildContext context) {
+
     return BlocConsumer<UserCubit, UserState>(listener: (context, state) {
     }, builder: (context, state) {
       return SafeArea(
@@ -52,13 +56,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                 Row(
                     children: [
+
                       Padding(
                         padding: EdgeInsets.only(top: 10.h, left: 15.w),
                         child: CircleAvatar(
-                          backgroundColor: const Color(0xffC4C4C4),
                           radius: 30.r,
+                          backgroundColor: const Color(0xffC4C4C4),
+                          child: ClipOval(
+                            child: Image.asset(
+                              widget.genderValue == "male"
+                                  ? "assets/images/avatar1.png"
+                                  : "assets/images/avatar3.png",
+                              fit: BoxFit.fitWidth,
+                              width: 180,
+                              height: 180,
+                            ),
+                          ),
                         ),
                       ),
+
                       Padding(
                         padding: EdgeInsets.only(left: 20.w, top: 10.h),
                         child: Center(

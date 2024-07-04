@@ -43,6 +43,7 @@ import 'Student/screens/home/Attendance-tap/attendance_screen.dart';
 import 'Student/screens/home/Attendance-tap/qr/accepted_qr.dart';
 import 'Student/screens/home/Quiz-tap/quiz_screen.dart';
 import 'Student/screens/home/Quiz-tap/start_quiz.dart';
+import 'Student/screens/home/TESTO.dart';
 import 'Student/screens/home/home.dart';
 import 'Student/screens/home/materials-tap/Feedback/feedback_ form.dart';
 import 'Student/screens/home/materials-tap/Feedback/feedback_screen.dart';
@@ -126,6 +127,7 @@ class MyApp extends StatelessWidget {
          // splash0.routeName,
            isLoggedIn ? HomeScreen.routeName : splash0.routeName,
           routes: {
+            Testooo.routeName: (context) => Testooo(),
             Done.routeName: (context) => Done(),
             LectureAttavhmentDetails.routeName: (context) => LectureAttavhmentDetails(),
             //student

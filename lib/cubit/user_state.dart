@@ -1,4 +1,5 @@
 import '../apiModels/Register_Courses_Model.dart';
+import '../apiModels/getByLevelAndTerm.dart';
 import '../apiModels/subjectRegisteration_model.dart';
 import '../apiModels/update_user_model.dart';
 import '../apiModels/user_model.dart';
@@ -20,6 +21,24 @@ final class UpdateUserFailure extends UserState {
 
   UpdateUserFailure({required this.errMessage});
 }
+
+
+
+
+final class GetCoursesbyLevelAndTermSuccess extends UserState {
+  final List<GetCoursesbyLevelAndTermModel> courseR;
+
+  GetCoursesbyLevelAndTermSuccess({required this.courseR});
+}
+
+final class GetCoursesbyLevelAndTermLoading extends UserState {}
+
+final class GetCoursesbyLevelAndTermFailure extends UserState {
+  final String errMessage;
+
+  GetCoursesbyLevelAndTermFailure({required this.errMessage});
+}
+
 
 
 
@@ -102,3 +121,11 @@ class UserLogoutFailure extends UserState {
 
   UserLogoutFailure({required this.errMessage});
 }
+
+
+
+
+
+
+
+

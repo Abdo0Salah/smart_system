@@ -16,8 +16,8 @@ class EndPoint {
   static String registerCourses (id) {
     return "/api/Courses/RegisterCourses?studentId=$id";
   }
-  static String getCoursesbyLevelAndTerm (id) {
-    return "  api/Courses/GetByLevelAndTerm/$id/3/1";
+  static String getCoursesbyLevelAndTerm ({required id,required level,required term}) {
+    return "/api/Courses/GetByLevelAndTerm/$id/$level/$term";
   }
 
 
@@ -64,8 +64,16 @@ class ApiKey {
   static String userNameSaved = "userNameSaved";
   static String userEmailSaved = "userEmailSaved";
   static String userGenderSaved ="userGenderSaved";
+  static String userTermSaved ="userTermSaved";
+  static String userLevelSaved ="userLevelSaved";
+  static String selectedTerm ="selectedTerm";
+  static String selectedLevel ="selectedLevel";
 
-///Parent
+
+
+
+
+  ///Parent
 
    static String userNameParent = "userName";
    static String passwordParent = "password";

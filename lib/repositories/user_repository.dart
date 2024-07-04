@@ -1,8 +1,8 @@
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 import '../apiModels/Register_Courses_Model.dart';
+import '../apiModels/getByLevelAndTerm.dart';
 import '../apiModels/sign_in_model.dart';
 import '../apiModels/sign_up_model.dart';
 import '../apiModels/subjectRegisteration_model.dart';
@@ -16,10 +16,9 @@ import '../core/errors/exceptions.dart';
 class UserRepository {
   final ApiConsumer api;
 
-  UserRepository( {required this.api});
+  UserRepository({required this.api});
 
-
- /// STUDENT
+  /// STUDENT
   /// ----------------------login-----------------------------
   Future<Either<String, SignInModel>> signIn({
     required String userName,
@@ -36,8 +35,11 @@ class UserRepository {
       final user = SignInModel.fromJson(response);
       final decodedToken = JwtDecoder.decode(user.token);
       //print(decodedToken);
-      await   CacheHelper().saveData(key: ApiKey.token, value: user.token);
-      await CacheHelper().saveData(key: ApiKey.id, value: decodedToken["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
+      await CacheHelper().saveData(key: ApiKey.token, value: user.token);
+      await CacheHelper().saveData(
+          key: ApiKey.id,
+          value: decodedToken[
+              "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
       await CacheHelper().saveData(key: 'isLoggedIn', value: true);
 
       return Right(user);
@@ -101,15 +103,13 @@ class UserRepository {
     return CacheHelper().getData(key: 'isLoggedIn') ?? false;
   }
 
-
-
-///-----------------------------profile--------------------------
+  ///-----------------------------profile--------------------------
 
   Future<Either<String, UserModel>> getUserProfile() async {
     try {
       final response = await api.get(
         EndPoint.getUserDataEndPoint(
-           CacheHelper().getData(key: ApiKey.id),
+          CacheHelper().getData(key: ApiKey.id),
         ),
       );
 
@@ -117,9 +117,16 @@ class UserRepository {
         throw Exception('API response is null');
       }
       final userr = UserModel.fromJson(response);
-        await CacheHelper().saveData(key: ApiKey.userNameSaved, value: userr.name);
-       await  CacheHelper().saveData(key: ApiKey.userEmailSaved, value: userr.email);
-      await  CacheHelper().saveData(key: ApiKey.userGenderSaved, value: userr.gender);
+      await CacheHelper()
+          .saveData(key: ApiKey.userNameSaved, value: userr.name);
+      await CacheHelper()
+          .saveData(key: ApiKey.userEmailSaved, value: userr.email);
+      await CacheHelper()
+          .saveData(key: ApiKey.userGenderSaved, value: userr.gender);
+      await CacheHelper()
+          .saveData(key: ApiKey.userTermSaved, value: userr.term);
+      await CacheHelper()
+          .saveData(key: ApiKey.userLevelSaved, value: userr.level);
       return Right(UserModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage);
@@ -128,7 +135,6 @@ class UserRepository {
       return Left(e.toString());
     }
   }
-
 
   Future<Either<String, UpdateUserModel>> updateUser({
     required String id,
@@ -148,7 +154,6 @@ class UserRepository {
       final response = await api.put(
         EndPoint.ubdateUserDataEndPoint(
           CacheHelper().getData(key: ApiKey.id),
-
         ),
         data: {
           "name": name,
@@ -174,7 +179,7 @@ class UserRepository {
     }
   }
 
-///---------------------------------------------------
+  ///---------------------------------------------------
 
   Future<Either<String, List<SubjectRegisterationModel>>>
       SubjectRegisteration() async {
@@ -195,10 +200,9 @@ class UserRepository {
     }
   }
 
-
-
-
-  Future<Either<String, RegisterCoursesModel>> registerCourses(List<int> courseIds,) async {
+  Future<Either<String, RegisterCoursesModel>> registerCourses(
+    List<int> courseIds,
+  ) async {
     try {
       final response = await api.post(
         EndPoint.registerCourses(
@@ -223,25 +227,27 @@ class UserRepository {
 
 
 
+  Future<Either<String, List<GetCoursesbyLevelAndTermModel>>>
+  GetCoursesbyLevelAndTerm() async {
+    try {
+      final response = await api.get(
+        EndPoint.getCoursesbyLevelAndTerm(
+        id:  CacheHelper().getData(key: ApiKey.id),
+        level:CacheHelper().getData(key: ApiKey.selectedLevel)??CacheHelper().getData(key: ApiKey.userLevelSaved),
+        term: CacheHelper().getData(key: ApiKey.selectedTerm)??CacheHelper().getData(key: ApiKey.userTermSaved),
+        ),
+      );
+      List<dynamic> parsedList = response as List<dynamic>;
+      List<GetCoursesbyLevelAndTermModel> CourseList = parsedList
+          .map((json) => GetCoursesbyLevelAndTermModel.fromJson(json))
+          .toList();
+      return Right(CourseList);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/// PARENT
+  /// PARENT
 
   // Future<Either<String, SignInModel>> signInParent({
   //   required String userNameParent,
@@ -266,5 +272,4 @@ class UserRepository {
   //     return Left(e.errModel.errorMessage);
   //   }
   // }
-
 }

@@ -13,6 +13,7 @@ import '../../models/home_model.dart';
 import '../../widget/home_widget.dart';
 import 'Attendance-tap/attendance_screen.dart';
 import 'Quiz-tap/quiz_screen.dart';
+import 'TESTO.dart';
 import 'notification/notification_screen.dart';
 import 'subject-reg-tap/subject_registration.dart';
 import 'materials-tap/Materials.dart';
@@ -188,14 +189,14 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         }
         break;
-      // case 2:
-      //   {
-      //     Navigator.pushNamed(
-      //       context,
-      //       T.routeName,
-      //     );
-      //   }
-      //   break;
+      case 2:
+        {
+          // Navigator.pushNamed(
+          //   context,
+          //   Testooo.routeName,
+          // );
+        }
+        break;
 
       case 3:
         {

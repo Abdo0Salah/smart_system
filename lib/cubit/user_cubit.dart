@@ -9,11 +9,9 @@ import '../cache/cache_helper.dart';
 import '../repositories/user_repository.dart';
 
 class UserCubit extends Cubit<UserState> {
-
   UserCubit(this.userRepository) : super(UserInitial());
 
   final UserRepository userRepository;
-
 
   //Sign in Form key
   GlobalKey<FormState> signInFormKey = GlobalKey();
@@ -41,23 +39,18 @@ class UserCubit extends Cubit<UserState> {
   SignInModel? user;
   SubjectRegisterationModel? SubjectR;
 
-
   final TextEditingController nameController0 = TextEditingController();
   final TextEditingController emailController0 = TextEditingController();
-  final TextEditingController universityEmailController0 = TextEditingController();
+  final TextEditingController universityEmailController0 =
+      TextEditingController();
   final TextEditingController passwordController0 = TextEditingController();
   final TextEditingController ssnController0 = TextEditingController();
   final TextEditingController phoneController0 = TextEditingController();
   final TextEditingController genderController0 = TextEditingController();
   final TextEditingController levelController0 = TextEditingController();
-  final TextEditingController termController0= TextEditingController();
+  final TextEditingController termController0 = TextEditingController();
   final TextEditingController parentPhoneController0 = TextEditingController();
   final TextEditingController parentEmailController0 = TextEditingController();
-
-
-
-
-
 
   uploadProfilePic(XFile image) {
     profilePic = image;
@@ -74,7 +67,7 @@ class UserCubit extends Cubit<UserState> {
       confirmPassword: confirmPassword.text,
       role: signUrule.text,
       phone: signUpPhone.text,
-      level: int.parse(signUpLevel.text ),
+      level: int.parse(signUpLevel.text),
       term: int.parse(signUpTerm.text),
       gender: signUpGender.text,
       ssn: signUpSsn.text,
@@ -96,7 +89,8 @@ class UserCubit extends Cubit<UserState> {
       (signInModel) => emit(SignInSuccess()),
     );
   }
-///profile
+
+  ///profile
 //   getUserProfile() async {
 //     emit(GetUserLoading());
 //     final response = await userRepository.getUserProfile();
@@ -109,32 +103,31 @@ class UserCubit extends Cubit<UserState> {
     emit(GetUserLoading());
     final result = await userRepository.getUserProfile();
     result.fold(
-          (error) {
+      (error) {
         print('Error: $error');
-        emit(GetUserFailure(errMessage:error));
+        emit(GetUserFailure(errMessage: error));
       },
-          (user) {
+      (user) {
         print('User data received in Cubit: $user');
         emit(GetUserSuccess(user: user));
       },
     );
   }
 
-
   Future<void> updateUserProfile(
-    // required String id,
-    // required String name,
-    // required String email,
-    // required String universityEmail,
-    // required String password,
-    // required String ssn,
-    // required String phone,
-    // required String gender,
-    // required int level,
-    // required int term,
-    // required String parentPhone,
-    // required String parentEmail,
-  ) async {
+      // required String id,
+      // required String name,
+      // required String email,
+      // required String universityEmail,
+      // required String password,
+      // required String ssn,
+      // required String phone,
+      // required String gender,
+      // required int level,
+      // required int term,
+      // required String parentPhone,
+      // required String parentEmail,
+      ) async {
     emit(UpdateUserLoading());
     final result = await userRepository.updateUser(
       id: CacheHelper().getData(key: ApiKey.id) ?? '',
@@ -151,14 +144,13 @@ class UserCubit extends Cubit<UserState> {
       parentEmail: parentEmailController0.text,
     );
     result.fold(
-          (error) => emit(UpdateUserFailure(errMessage: error)),
-          (updatedUser) => emit(UpdateUserSuccess(updatedUser: updatedUser)),
+      (error) => emit(UpdateUserFailure(errMessage: error)),
+      (updatedUser) => emit(UpdateUserSuccess(updatedUser: updatedUser)),
     );
   }
 
-
   SubjectRegisteration() async {
-     emit(SubjectRegisterationLoading());
+    emit(SubjectRegisterationLoading());
     final response = await userRepository.SubjectRegisteration();
     print(response.toString());
     response.fold(
@@ -167,27 +159,24 @@ class UserCubit extends Cubit<UserState> {
     );
   }
 
-
   Future<void> registerCourses(List<int> courseIds) async {
     emit(CourseRegistrationLoading());
     final response = await userRepository.registerCourses(courseIds);
     response.fold(
-          (errMessage) => emit(CourseRegistrationFailure(errMessage: errMessage)),
-          (registerCoursesModel) => emit(CourseRegistrationSuccess(registerCoursesModel: registerCoursesModel)),
+      (errMessage) => emit(CourseRegistrationFailure(errMessage: errMessage)),
+      (registerCoursesModel) => emit(CourseRegistrationSuccess(
+          registerCoursesModel: registerCoursesModel)),
     );
   }
-
-
 
   Future<void> logout() async {
     emit(UserLogoutLoading());
     final response = await userRepository.logout();
     response.fold(
-          (error) => emit(UserLogoutFailure(errMessage: error)),
-          (_) => emit(UserLogoutSuccess()),
+      (error) => emit(UserLogoutFailure(errMessage: error)),
+      (_) => emit(UserLogoutSuccess()),
     );
   }
-
 
   Future<void> checkLoginStatus() async {
     final isLoggedIn = await userRepository.isLoggedIn();
@@ -197,4 +186,26 @@ class UserCubit extends Cubit<UserState> {
       emit(UserInitial());
     }
   }
+
+
+
+
+
+
+
+
+
+  GetCoursesbyLevelAndTerm() async {
+    emit(GetCoursesbyLevelAndTermLoading());
+    final response = await userRepository.GetCoursesbyLevelAndTerm();
+    print(response.toString());
+    response.fold(
+          (errMessage) => emit(GetCoursesbyLevelAndTermFailure(errMessage: errMessage)),
+          (courseR) => emit(GetCoursesbyLevelAndTermSuccess(courseR: courseR)),
+    );
+  }
+
+
+
+
 }

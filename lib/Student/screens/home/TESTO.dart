@@ -317,23 +317,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:smart_system/Student/screens/home/materials-tap/subject_group.dart';
 import 'package:smart_system/Student/screens/home/notification/notification_screen.dart';
-import '../../../../apiModels/getByLevelAndTerm.dart';
-import '../../../../cache/cache_helper.dart';
-import '../../../../core/api/end_ponits.dart';
 import '../../../../cubit/user_cubit.dart';
 import '../../../../cubit/user_state.dart';
+import '../../../apiModels/getByLevelAndTerm.dart';
+import '../../../cache/cache_helper.dart';
+import '../../../core/api/end_ponits.dart';
+import 'materials-tap/subject_group.dart';
 
-class MaterialsScreen extends StatefulWidget {
-  static const String routeName = 'MaterialsScreen';
-  final String genderValue = CacheHelper().getData(key: ApiKey.userGenderSaved);
+class Testooo extends StatefulWidget {
+  static const String routeName = 'Testooo';
+  final String genderValue = CacheHelper().getData(key: ApiKey.userGenderSaved) ;
 
   @override
-  _MaterialsScreenState createState() => _MaterialsScreenState();
+  _TestoooState createState() => _TestoooState();
 }
 
-class _MaterialsScreenState extends State<MaterialsScreen> {
+class _TestoooState extends State<Testooo> {
   @override
   void initState() {
     super.initState();
@@ -365,13 +365,16 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+
       child: Scaffold(
         backgroundColor: const Color(0xffF5F9FE),
         body: BlocBuilder<UserCubit, UserState>(
+
           builder: (context, state) {
             if (state is GetCoursesbyLevelAndTermLoading) {
               return Center(child: CircularProgressIndicator());
             } else if (state is GetCoursesbyLevelAndTermSuccess) {
+
               return _buildSubjectList(state.courseR);
             } else if (state is GetCoursesbyLevelAndTermFailure) {
               return Center(
@@ -418,12 +421,14 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                       Text(
                         "${CacheHelper().getData(key: ApiKey.userNameSaved)}",
                         style: GoogleFonts.inter(
-                            fontWeight: FontWeight.bold, fontSize: 15.sp),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15.sp),
                       ),
                       Text(
                         "${CacheHelper().getData(key: ApiKey.userEmailSaved)}",
                         style: TextStyle(
-                            fontWeight: FontWeight.normal, fontSize: 8.sp),
+                            fontWeight: FontWeight.normal,
+                            fontSize: 8.sp),
                       ),
                     ],
                   ),
@@ -452,33 +457,27 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                        flex: 3,
+                    Expanded(flex :3,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10).w,
+                        child: Text("Level",style: GoogleFonts.aBeeZee(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14.sp,
+                            fontStyle: FontStyle.italic,
+                            color: Colors.black),),
+                      )),
+                    Expanded(flex :3,
                         child: Padding(
                           padding: const EdgeInsets.only(left: 10).w,
-                          child: Text(
-                            "Level",
-                            style: GoogleFonts.aBeeZee(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14.sp,
-                                fontStyle: FontStyle.italic,
-                                color: Colors.black),
-                          ),
+                          child: Text("Term",style: GoogleFonts.aBeeZee(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14.sp,
+                          fontStyle: FontStyle.italic,
+                          color: Colors.black),),
                         )),
-                    Expanded(
-                        flex: 3,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 10).w,
-                          child: Text(
-                            "Term",
-                            style: GoogleFonts.aBeeZee(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14.sp,
-                                fontStyle: FontStyle.italic,
-                                color: Colors.black),
-                          ),
-                        )),
-                    Expanded(flex: 2, child: Spacer())
+
+                    Expanded(flex :2,
+                        child: Spacer())
                   ],
                 ),
                 Row(
@@ -490,23 +489,22 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: DropdownButtonFormField(
-                              hint: Text(CacheHelper()
-                                      .getData(key: ApiKey.selectedLevel) ??
-                                  "Level"),
+                              hint: Text(
+                                    CacheHelper().getData(key: ApiKey.selectedLevel)??"Level"),
                               decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
                                   borderSide:
-                                      BorderSide(color: Colors.white, width: 1),
+                                  BorderSide(color: Colors.white, width: 1),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 border: OutlineInputBorder(
                                   borderSide:
-                                      BorderSide(color: Colors.white, width: 1),
+                                  BorderSide(color: Colors.white, width: 1),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 disabledBorder: OutlineInputBorder(
                                   borderSide:
-                                      BorderSide(color: Colors.white, width: 1),
+                                  BorderSide(color: Colors.white, width: 1),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 filled: true,
@@ -525,12 +523,8 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                               onChanged: (String? newValue) {
                                 setState(() {
                                   selectedValue2 = newValue!;
-                                  CacheHelper().saveData(
-                                      key: ApiKey.selectedLevel,
-                                      value: selectedValue2);
-                                  print(CacheHelper()
-                                          .getData(key: ApiKey.selectedLevel) ??
-                                      "Level");
+                                  CacheHelper().saveData(key: ApiKey.selectedLevel, value: selectedValue2);
+                                  print(  CacheHelper().getData(key: ApiKey.selectedLevel)??"Level");
                                 });
                               },
                               items: dropdownLevel),
@@ -544,23 +538,22 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: DropdownButtonFormField(
-                              hint: Text(CacheHelper()
-                                      .getData(key: ApiKey.selectedTerm) ??
-                                  "Term"),
+
+                              hint: Text(CacheHelper().getData(key: ApiKey.selectedTerm)??"Term"),
                               decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
                                   borderSide:
-                                      BorderSide(color: Colors.white, width: 1),
+                                  BorderSide(color: Colors.white, width: 1),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 border: OutlineInputBorder(
                                   borderSide:
-                                      BorderSide(color: Colors.white, width: 1),
+                                  BorderSide(color: Colors.white, width: 1),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 disabledBorder: OutlineInputBorder(
                                   borderSide:
-                                      BorderSide(color: Colors.white, width: 1),
+                                  BorderSide(color: Colors.white, width: 1),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 filled: true,
@@ -579,17 +572,15 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                               onChanged: (String? newValue) {
                                 setState(() {
                                   selectedValue = newValue!;
-                                  CacheHelper().saveData(
-                                      key: ApiKey.selectedTerm,
-                                      value: selectedValue);
-                                  print(CacheHelper()
-                                      .getData(key: ApiKey.selectedTerm));
+                                  CacheHelper().saveData(key: ApiKey.selectedTerm, value: selectedValue);
+                                  print(  CacheHelper().getData(key: ApiKey.selectedTerm));
                                 });
                               },
                               items: dropdownTerm),
                         ),
                       ),
                     ),
+
                     Expanded(
                       flex: 2,
                       child: Container(
@@ -607,10 +598,10 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                                   //   DoctorObtionsQuis.routeName,
                                   // );
 
-                                  context
-                                      .read<UserCubit>()
-                                      .GetCoursesbyLevelAndTerm();
+                                  context.read<UserCubit>().GetCoursesbyLevelAndTerm();
+
                                 }
+
                               },
                               child: Text(
                                 'Done',
@@ -653,7 +644,7 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, // Adjust the number of columns here
                 childAspectRatio:
-                    0.75, // Adjust the aspect ratio to fit your design
+                0.75, // Adjust the aspect ratio to fit your design
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
               ),

@@ -4,12 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../apiModels/subjectRegisteration_model.dart';
+import '../../../../cache/cache_helper.dart';
+import '../../../../core/api/end_ponits.dart';
 import '../../../../cubit/user_cubit.dart';
 import '../../../../cubit/user_state.dart';
 import '../home.dart';
 
 class SubjectRegistrationScreen extends StatefulWidget {
   static const String routeName = 'SubjectRegistrationScreen';
+  final String genderValue = CacheHelper().getData(key: ApiKey.userGenderSaved) ;
 
   @override
   _SubjectRegistrationScreenState createState() => _SubjectRegistrationScreenState();
@@ -60,8 +63,18 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
             Padding(
               padding: EdgeInsets.only(top: 10.h, left: 15.w),
               child: CircleAvatar(
-                backgroundColor: const Color(0xffC4C4C4),
                 radius: 30.r,
+                backgroundColor: const Color(0xffC4C4C4),
+                child: ClipOval(
+                  child: Image.asset(
+                    widget.genderValue == "male"
+                        ? "assets/images/avatar1.png"
+                        : "assets/images/avatar3.png",
+                    fit: BoxFit.fitWidth,
+                    width: 180,
+                    height: 180,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -71,13 +84,13 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Student name",
+                      "${CacheHelper().getData(key: ApiKey.userNameSaved)}",
                       style: GoogleFonts.inter(
                           fontWeight: FontWeight.bold,
                           fontSize: 15.sp),
                     ),
                     Text(
-                      "201524587545@fci.zu.edu.eg",
+                      "${CacheHelper().getData(key: ApiKey.userEmailSaved)}",
                       style: TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: 8.sp),

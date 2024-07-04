@@ -16,6 +16,11 @@ class EndPoint {
   static String registerCourses (id) {
     return "/api/Courses/RegisterCourses?studentId=$id";
   }
+  static String getCoursesbyLevelAndTerm (id) {
+    return "  api/Courses/GetByLevelAndTerm/$id/3/1";
+  }
+
+
   //= "/api/Courses/RegisterCourses";
 
 

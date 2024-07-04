@@ -30,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           );
           //context.read<UserCubit>().SubjectRegisteration();
-          Navigator.pushNamed(context, HomeScreen.routeName);
+          Navigator.popAndPushNamed(context, HomeScreen.routeName);
         } else if (state is SignInFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

@@ -30,7 +30,7 @@ class HomeScreen extends StatefulWidget {
     HomeModel("Quizzes", "assets/images/Quizzes.png", 7),
     HomeModel("Log Out", "assets/images/admin-logOut.png", 8),
   ];
-  final String genderValue = CacheHelper().getData(key: ApiKey.userGenderSaved) ?? "male";
+  final String genderValue = CacheHelper().getData(key: ApiKey.userGenderSaved) ;
 
 
   @override
@@ -40,7 +40,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   @override
+  void initState() {
+    super.initState();
+    context.read<UserCubit>().getUserProfile();
+  }
 
+  @override
   Widget build(BuildContext context) {
 
     return BlocConsumer<UserCubit, UserState>(listener: (context, state) {

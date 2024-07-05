@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 import '../apiModels/Register_Courses_Model.dart';
 import '../apiModels/getByLevelAndTerm.dart';
+import '../apiModels/get_groups_model.dart';
 import '../apiModels/sign_in_model.dart';
 import '../apiModels/sign_up_model.dart';
 import '../apiModels/subjectRegisteration_model.dart';
@@ -179,7 +180,7 @@ class UserRepository {
     }
   }
 
-  ///---------------------------------------------------
+  ///--------------------------Registeration------------------------------
 
   Future<Either<String, List<SubjectRegisterationModel>>>
       SubjectRegisteration() async {
@@ -224,7 +225,7 @@ class UserRepository {
   }
 
 
-
+  ///--------------------------Materials------------------------------
 
 
   Future<Either<String, List<GetCoursesbyLevelAndTermModel>>>
@@ -246,6 +247,32 @@ class UserRepository {
       return Left(e.errModel.errorMessage);
     }
   }
+
+
+
+
+
+  Future<Either<String, List<GetGroupsModel>>>
+  getGroups() async {
+    try {
+      final response = await api.get(
+        EndPoint.getGroups(
+            courseId:   CacheHelper().getData(key: ApiKey.courseIdSaved),
+        ),
+      );
+      List<dynamic> parsedList = response as List<dynamic>;
+      List<GetGroupsModel> GroupsList = parsedList
+          .map((json) => GetGroupsModel.fromJson(json))
+          .toList();
+      return Right(GroupsList);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
+  }
+
+
+
+
 
   /// PARENT
 

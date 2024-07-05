@@ -1,5 +1,6 @@
 import '../apiModels/Register_Courses_Model.dart';
 import '../apiModels/getByLevelAndTerm.dart';
+import '../apiModels/get_groups_model.dart';
 import '../apiModels/subjectRegisteration_model.dart';
 import '../apiModels/update_user_model.dart';
 import '../apiModels/user_model.dart';
@@ -57,6 +58,26 @@ final class SubjectRegisterationFailure extends UserState {
 
   SubjectRegisterationFailure({required this.errMessage});
 }
+
+
+final class getGroupsSuccess extends UserState {
+  final List<GetGroupsModel> groupR;
+
+  getGroupsSuccess({required this.groupR});
+}
+
+final class getGroupsLoading extends UserState {}
+
+final class getGroupsFailure extends UserState {
+  final String errMessage;
+
+  getGroupsFailure({required this.errMessage});
+}
+
+
+
+
+
 
 
 final class CourseRegistrationSuccess extends UserState {

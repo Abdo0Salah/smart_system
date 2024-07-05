@@ -192,6 +192,20 @@ class UserCubit extends Cubit<UserState> {
 
 
 
+  getGroups() async {
+    emit(getGroupsLoading());
+    final response = await userRepository.getGroups();
+    print(response.toString());
+    response.fold(
+          (errMessage) => emit(getGroupsFailure(errMessage: errMessage)),
+          (groupR) => emit(getGroupsSuccess(groupR: groupR)),
+    );
+  }
+
+
+
+
+
 
 
 

@@ -31,7 +31,7 @@ class HomeScreen extends StatefulWidget {
     HomeModel("Quizzes", "assets/images/Quizzes.png", 7),
     HomeModel("Log Out", "assets/images/admin-logOut.png", 8),
   ];
-  final String genderValue = CacheHelper().getData(key: ApiKey.userGenderSaved) ;
+  final String genderValue ="${ CacheHelper().getData(key: ApiKey.userGenderSaved)??CacheHelper().getData(key: ApiKey.gender)}" ;
 
 
   @override
@@ -191,10 +191,10 @@ class _HomeScreenState extends State<HomeScreen> {
         break;
       case 2:
         {
-          // Navigator.pushNamed(
-          //   context,
-          //   Testooo.routeName,
-          // );
+          Navigator.pushNamed(
+            context,
+            Testooo.routeName,
+          );
         }
         break;
 

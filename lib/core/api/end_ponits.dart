@@ -21,6 +21,14 @@ class EndPoint {
   }
 
 
+  static String getGroups ({required courseId}) {
+    return  "/api/Groups/getGroups/$courseId";
+  }
+
+
+
+
+
   //= "/api/Courses/RegisterCourses";
 
 
@@ -68,6 +76,7 @@ class ApiKey {
   static String userLevelSaved ="userLevelSaved";
   static String selectedTerm ="selectedTerm";
   static String selectedLevel ="selectedLevel";
+  static String courseIdSaved ="courseIdSaved";
 
 
 

@@ -324,6 +324,7 @@ import '../../../../cache/cache_helper.dart';
 import '../../../../core/api/end_ponits.dart';
 import '../../../../cubit/user_cubit.dart';
 import '../../../../cubit/user_state.dart';
+import '../TESTO.dart';
 
 class MaterialsScreen extends StatefulWidget {
   static const String routeName = 'MaterialsScreen';
@@ -490,9 +491,8 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: DropdownButtonFormField(
-                              hint: Text(CacheHelper()
-                                      .getData(key: ApiKey.selectedLevel) ??
-                                  "Level"),
+                              hint: Text("${CacheHelper().getData(key: ApiKey.selectedLevel) ??CacheHelper().getData(key: ApiKey.userLevelSaved)}"
+                              ),
                               decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
                                   borderSide:
@@ -544,9 +544,7 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: DropdownButtonFormField(
-                              hint: Text(CacheHelper()
-                                      .getData(key: ApiKey.selectedTerm) ??
-                                  "Term"),
+                              hint: Text("${CacheHelper().getData(key: ApiKey.selectedTerm) ?? CacheHelper().getData(key: ApiKey.userTermSaved)}"),
                               decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
                                   borderSide:
@@ -704,7 +702,9 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
               children: [
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(SubjectGroups.routeName);
+                     CacheHelper().saveData(key: ApiKey.courseIdSaved, value:  subject.courseId);
+                    Navigator.of(context).pushNamed(Testooo.routeName);
+
                   },
                   child: Text(
                     'Details',

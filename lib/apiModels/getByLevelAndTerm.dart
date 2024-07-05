@@ -1,7 +1,7 @@
 class GetCoursesbyLevelAndTermModel {
 
 
-  int? id;
+  int? courseId;
   String? name;
   int? level;
   int? term;
@@ -11,7 +11,7 @@ class GetCoursesbyLevelAndTermModel {
   String? link;
 
   GetCoursesbyLevelAndTermModel({
-    this.id,
+    this.courseId,
     this.name,
     this.level,
     this.term,
@@ -23,7 +23,7 @@ class GetCoursesbyLevelAndTermModel {
 
   factory GetCoursesbyLevelAndTermModel.fromJson(Map<String, dynamic> json) {
     return GetCoursesbyLevelAndTermModel(
-      id: json['id'] is int ? json['id'] : int.tryParse(json['id'].toString()),
+      courseId: json['courseId'] is int ? json['courseId'] : int.tryParse(json['courseId'].toString()),
       name: json['name'],
       level: json['level'] is int ? json['level'] : int.tryParse(json['level'].toString()),
       term: json['term'] is int ? json['term'] : int.tryParse(json['term'].toString()),
@@ -36,7 +36,7 @@ class GetCoursesbyLevelAndTermModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
+      'courseId': courseId,
       'name': name,
       'level': level,
       'term': term,
@@ -49,6 +49,6 @@ class GetCoursesbyLevelAndTermModel {
 
   @override
   String toString() {
-    return 'SubjectRegistrationModel(id: $id, name: $name, level: $level, term: $term, hours: $hours, code: $code,deptId:$deptId, link: $link)';
+    return 'SubjectRegistrationModel(courseId: $courseId, name: $name, level: $level, term: $term, hours: $hours, code: $code,deptId:$deptId, link: $link)';
   }
 }

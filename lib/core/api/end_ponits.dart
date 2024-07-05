@@ -31,6 +31,19 @@ class EndPoint {
     return  "/api/Meetings/GetAllByGroupId/$groupId";
   }
 
+  static String getLecturesAttachment(groupId) {
+    return  "/api/Lectures/getAll/$groupId";
+  }
+  static String getSectionsAttachment(groupId) {
+    return  "/api/Sections/getAll/$groupId";
+  }
+  static String getFilesDataOfLecturesAttachment(lectureId) {
+    return  "/api/Files/list/lecture/$lectureId";
+  }
+  static String getFilesDataOfSectionsAttachment(sectionId) {
+    return  "/api/Files/list/section/$sectionId";
+  }
+
 ///------------------------Assignments-----------------------------///
   static String getAllAssignment (groupId) {
     return  "/api/Assignment/course/$groupId";
@@ -99,7 +112,8 @@ class ApiKey {
   static String selectedLevel ="selectedLevel";
   static String courseIdSaved ="courseIdSaved";
   static String groupIdSaved ="groupIdSaved";
-
+  static String lectureIdSaved ="lectureIdSaved";
+  static String sectionIdSaved ="sectionIdSaved";
 
 
 

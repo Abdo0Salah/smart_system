@@ -1,12 +1,16 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
+import '../apiModels/GetFilesDataOfLecturesAttachmentModel.dart';
+import '../apiModels/GetSectionsAttachmentModel.dart';
+import '../apiModels/GetfilesdataofSectionsattachmentModel.dart';
 import '../apiModels/Register_Courses_Model.dart';
 import '../apiModels/getByLevelAndTerm.dart';
 import '../apiModels/get_all_assignments_model.dart';
 import '../apiModels/get_all_meetings_model.dart';
 import '../apiModels/get_groups_model.dart';
 import '../apiModels/get_lecture_assignment_model.dart';
+import '../apiModels/get_lectures_attachment.dart';
 import '../apiModels/get_section_assignment_model.dart';
 import '../apiModels/sign_in_model.dart';
 import '../apiModels/sign_up_model.dart';
@@ -287,6 +291,69 @@ class UserRepository {
           .map((json) => GetAllMeetingsModel.fromJson(json))
           .toList();
       return Right(meetingsList);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
+  }
+
+
+  Future<Either<String, List<GetLecturesAttachmentModel>>>
+  GetLecturesAttachment() async {
+    try {
+      final response = await api.get(
+        EndPoint.getLecturesAttachment(CacheHelper().getData(key: ApiKey.groupIdSaved),),
+      );
+      List<dynamic> parsedList = response as List<dynamic>;
+      List<GetLecturesAttachmentModel> AttachmentList = parsedList
+          .map((json) => GetLecturesAttachmentModel.fromJson(json))
+          .toList();
+      return Right(AttachmentList);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
+  }
+  Future<Either<String, List<GetSectionsAttachmentModel>>>
+  GetSectionsAttachment() async {
+    try {
+      final response = await api.get(
+        EndPoint.getSectionsAttachment(CacheHelper().getData(key: ApiKey.groupIdSaved),),
+      );
+      List<dynamic> parsedList = response as List<dynamic>;
+      List<GetSectionsAttachmentModel> AttachmentList = parsedList
+          .map((json) => GetSectionsAttachmentModel.fromJson(json))
+          .toList();
+      return Right(AttachmentList);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
+  }
+
+  Future<Either<String, List<GetfilesdataoflecturesattachmentModel>>>
+  GetFilesDataOfLecturesAttachment() async {
+    try {
+      final response = await api.get(
+        EndPoint.getFilesDataOfLecturesAttachment(CacheHelper().getData(key: ApiKey.lectureIdSaved),),
+      );
+      List<dynamic> parsedList = response as List<dynamic>;
+      List<GetfilesdataoflecturesattachmentModel> filesdataList = parsedList
+          .map((json) => GetfilesdataoflecturesattachmentModel.fromJson(json))
+          .toList();
+      return Right(filesdataList);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
+  }
+  Future<Either<String, List<Getfilesdataofsectionsattachmentmodel>>>
+  GetFilesDataOfSectionsAttachment() async {
+    try {
+      final response = await api.get(
+        EndPoint.getFilesDataOfSectionsAttachment(CacheHelper().getData(key: ApiKey.sectionIdSaved),),
+      );
+      List<dynamic> parsedList = response as List<dynamic>;
+      List<Getfilesdataofsectionsattachmentmodel> filesdataList = parsedList
+          .map((json) => Getfilesdataofsectionsattachmentmodel.fromJson(json))
+          .toList();
+      return Right(filesdataList);
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage);
     }

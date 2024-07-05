@@ -213,6 +213,43 @@ class UserCubit extends Cubit<UserState> {
     );
   }
 
+  GetLecturesAttachment() async {
+    emit(GetLecturesAttachmentLoading());
+    final response = await userRepository.GetLecturesAttachment();
+    print(response.toString());
+    response.fold(
+          (errMessage) => emit(GetLecturesAttachmentFailure(errMessage: errMessage)),
+          (attachmenR) => emit(GetLecturesAttachmentSuccess(attachmenR: attachmenR)),
+    );
+  }
+  GetSectionsAttachment() async {
+    emit(GetSectionsAttachmentLoading());
+    final response = await userRepository.GetSectionsAttachment();
+    print(response.toString());
+    response.fold(
+          (errMessage) => emit(GetSectionsAttachmentFailure(errMessage: errMessage)),
+          (attachmenR) => emit(GetSectionsAttachmentSuccess(attachmenR: attachmenR)),
+    );
+  }
+  GetFilesDataOfLecturesAttachment() async {
+    emit(GetFilesDataOfLecturesAttachmentLoading());
+    final response = await userRepository.GetFilesDataOfLecturesAttachment();
+    print(response.toString());
+    response.fold(
+          (errMessage) => emit(GetFilesDataOfLecturesAttachmentFailure(errMessage: errMessage)),
+          (FilesDataR) => emit(GetFilesDataOfLecturesAttachmentSuccess(FilesDataR: FilesDataR)),
+    );
+  }
+  GetFilesDataOfSectionsAttachment() async {
+    emit(GetFilesDataOfSectionsAttachmentLoading());
+    final response = await userRepository.GetFilesDataOfSectionsAttachment();
+    print(response.toString());
+    response.fold(
+          (errMessage) => emit(GetFilesDataOfSectionsAttachmentFailure(errMessage: errMessage)),
+          (FilesDataR) => emit(GetFilesDataOfSectionsAttachmentSuccess(FilesDataR: FilesDataR)),
+    );
+  }
+
   GetAllAssignments() async {
     emit(GetAllAssignmentsLoading());
     final response = await userRepository.GetAllAssignments();

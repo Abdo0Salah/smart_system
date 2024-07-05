@@ -1,9 +1,13 @@
+import '../apiModels/GetFilesDataOfLecturesAttachmentModel.dart';
+import '../apiModels/GetSectionsAttachmentModel.dart';
+import '../apiModels/GetfilesdataofSectionsattachmentModel.dart';
 import '../apiModels/Register_Courses_Model.dart';
 import '../apiModels/getByLevelAndTerm.dart';
 import '../apiModels/get_all_assignments_model.dart';
 import '../apiModels/get_all_meetings_model.dart';
 import '../apiModels/get_groups_model.dart';
 import '../apiModels/get_lecture_assignment_model.dart';
+import '../apiModels/get_lectures_attachment.dart';
 import '../apiModels/get_section_assignment_model.dart';
 import '../apiModels/subjectRegisteration_model.dart';
 import '../apiModels/update_user_model.dart';
@@ -93,6 +97,62 @@ final class GetAllMeetingsFailure extends UserState {
   GetAllMeetingsFailure({required this.errMessage});
 }
 
+
+final class GetLecturesAttachmentSuccess extends UserState {
+  final List<GetLecturesAttachmentModel> attachmenR;
+
+  GetLecturesAttachmentSuccess({required this.attachmenR});
+}
+
+final class GetLecturesAttachmentLoading extends UserState {}
+
+final class GetLecturesAttachmentFailure extends UserState {
+  final String errMessage;
+
+  GetLecturesAttachmentFailure({required this.errMessage});
+}
+
+final class GetSectionsAttachmentSuccess extends UserState {
+  final List<GetSectionsAttachmentModel> attachmenR;
+
+  GetSectionsAttachmentSuccess({required this.attachmenR});
+}
+
+final class GetSectionsAttachmentLoading extends UserState {}
+
+final class GetSectionsAttachmentFailure extends UserState {
+  final String errMessage;
+
+  GetSectionsAttachmentFailure({required this.errMessage});
+}
+
+final class GetFilesDataOfLecturesAttachmentSuccess extends UserState {
+  final List<GetfilesdataoflecturesattachmentModel> FilesDataR;
+
+  GetFilesDataOfLecturesAttachmentSuccess({required this.FilesDataR});
+}
+
+final class GetFilesDataOfLecturesAttachmentLoading extends UserState {}
+
+final class GetFilesDataOfLecturesAttachmentFailure extends UserState {
+  final String errMessage;
+
+  GetFilesDataOfLecturesAttachmentFailure({required this.errMessage});
+}
+
+final class GetFilesDataOfSectionsAttachmentSuccess extends UserState {
+  final List<Getfilesdataofsectionsattachmentmodel> FilesDataR;
+
+  GetFilesDataOfSectionsAttachmentSuccess({required this.FilesDataR});
+}
+
+final class GetFilesDataOfSectionsAttachmentLoading extends UserState {}
+
+final class GetFilesDataOfSectionsAttachmentFailure extends UserState {
+  final String errMessage;
+
+  GetFilesDataOfSectionsAttachmentFailure({required this.errMessage});
+}
 
 final class GetAllAssignmentsSuccess extends UserState {
   final List<GetAllAssignmentsModel> assignmentR;

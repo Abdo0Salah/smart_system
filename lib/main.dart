@@ -54,6 +54,7 @@ import 'Student/screens/home/materials-tap/assignment/openAssignmentScreen.dart'
 import 'Student/screens/home/materials-tap/attachment/lecture_atta-details.dart';
 import 'Student/screens/home/materials-tap/attachment/attachment_screen.dart';
 import 'Student/screens/home/materials-tap/attachment/lecture_atta.dart';
+import 'Student/screens/home/materials-tap/attachment/section_atta-details.dart';
 import 'Student/screens/home/materials-tap/meeting/meeting_information.dart';
 import 'Student/screens/home/materials-tap/post/post_screen.dart';
 import 'Student/screens/home/notification/notification_screen.dart';
@@ -152,6 +153,7 @@ class MyApp extends StatelessWidget {
             OpenAssignmentScreen.routeName: (context) => OpenAssignmentScreen(),
             AddAnswerScreen.routeName: (context) => AddAnswerScreen(),
             AttachmentScreen.routeName: (context) => AttachmentScreen(),
+            SectionAttavhmentDetails.routeName: (context) => SectionAttavhmentDetails(),
             FeedbackScreen.routeName: (context) => FeedbackScreen(),
             FeedbackForm.routeName: (context) => FeedbackForm(),
             MeetingScreen.routeName: (context) => MeetingScreen(),

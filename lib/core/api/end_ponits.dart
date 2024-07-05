@@ -26,6 +26,11 @@ class EndPoint {
   }
 
 
+  static String getAllAssignment (groupId) {
+    return  "/api/Assignment/course/$groupId";
+  }
+
+
 
 
 
@@ -77,6 +82,7 @@ class ApiKey {
   static String selectedTerm ="selectedTerm";
   static String selectedLevel ="selectedLevel";
   static String courseIdSaved ="courseIdSaved";
+  static String groupIdSaved ="groupIdSaved";
 
 
 

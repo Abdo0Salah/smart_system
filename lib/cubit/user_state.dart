@@ -1,5 +1,6 @@
 import '../apiModels/Register_Courses_Model.dart';
 import '../apiModels/getByLevelAndTerm.dart';
+import '../apiModels/get_all_assignments_model.dart';
 import '../apiModels/get_groups_model.dart';
 import '../apiModels/subjectRegisteration_model.dart';
 import '../apiModels/update_user_model.dart';
@@ -76,7 +77,19 @@ final class getGroupsFailure extends UserState {
 
 
 
+final class GetAllAssignmentsSuccess extends UserState {
+  final List<GetAllAssignmentsModel> assignmentR;
 
+  GetAllAssignmentsSuccess({required this.assignmentR});
+}
+
+final class GetAllAssignmentsLoading extends UserState {}
+
+final class GetAllAssignmentsFailure extends UserState {
+  final String errMessage;
+
+  GetAllAssignmentsFailure({required this.errMessage});
+}
 
 
 

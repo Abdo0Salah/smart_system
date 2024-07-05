@@ -2,12 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../../../apiModels/subjectRegisteration_model.dart';
 import '../../../../cubit/user_cubit.dart';
 import '../../../../cubit/user_state.dart';
-import '../../../apiModels/get_groups_model.dart';
-import 'materials-tap/mat_page.dart';
+import '../../../apiModels/get_all_assignments_model.dart';
+import 'home.dart';
+import 'materials-tap/assignment/openAssignmentScreen.dart';
+
+
+
 class Testooo extends StatefulWidget {
   static const String routeName = 'Testooo';
+
   @override
   _TestoooState createState() => _TestoooState();
 }
@@ -16,33 +23,22 @@ class _TestoooState extends State<Testooo> {
   @override
   void initState() {
     super.initState();
-    context.read<UserCubit>().getGroups();
+    context.read<UserCubit>().GetAllAssignments();
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor:Colors.transparent ,
-          elevation: 0,
-          title: Text('Selected topic',
-              style: TextStyle(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.black
-              )),
-          iconTheme:  IconThemeData(color: Colors.black,size:15.sp ) ,
-        ),
         backgroundColor: const Color(0xffF5F9FE),
 
         body: BlocBuilder<UserCubit, UserState>(
           builder: (context, state) {
-            if (state is getGroupsLoading) {
+            if (state is GetAllAssignmentsLoading) {
               return Center(child: CircularProgressIndicator());
-            } else if (state is getGroupsSuccess) {
-              return _buildSubjectList(state.groupR);
-            } else if (state is getGroupsFailure) {
+            } else if (state is GetAllAssignmentsSuccess) {
+              return _buildSubjectList(state.assignmentR);
+            } else if (state is GetAllAssignmentsFailure) {
               return Center(child: Text('Failed to load subjects: ${state.errMessage}'));
             } else {
               return Center(child: Text('Unknown state'));
@@ -53,109 +49,159 @@ class _TestoooState extends State<Testooo> {
     );
   }
 
-  Widget _buildSubjectList(List<GetGroupsModel> groups) {
+  Widget _buildSubjectList(List<GetAllAssignmentsModel> assignments) {
     return Column(
       children: [
-        SizedBox(
-          height: 40.h,
-        ),
         Expanded(
-            child:InkWell(
-              onTap: () {
-
-                Navigator.of(context)
-                    .pushReplacementNamed(MatPagee.routeName,);
-
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(25.r),
-                        topLeft: Radius.circular(25.r))),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding:  EdgeInsets.all(12.w),
-                      child: Text("All Groups",
-                          style: GoogleFonts.ubuntu(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w500,
-                          )),
-                    ),
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: groups.length,
-                        itemBuilder: (context, index) {
-                          final group = groups[index];
-                          return _buildSubjectItem(group, index + 1);
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            )
-        )
-
-
-
-
+          child: ListView.builder(
+            itemCount: assignments.length,
+            itemBuilder: (context, index) {
+              final assignment = assignments[index];
+              return _buildSubjectItem(assignment, index + 1);
+            },
+          ),
+        ),
       ],
     );
   }
 
-  Widget _buildSubjectItem(GetGroupsModel group, int index) {
+  Widget _buildSubjectItem(GetAllAssignmentsModel assignment, int index) {
     return Column(
       children: [
+
         Padding(
-          padding: const EdgeInsets.all(4.0).w,
-          child: Card(
-            elevation: 10,
-            child: Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0).w,
-                  child: Image.network("https://news.mit.edu/sites/default/files/styles/news_article__image_gallery/public/images/201706/MIT-Predicting-Reactions-1_0.jpg?itok=q5Dlcw3w",
-                    fit: BoxFit.cover,
-                    height: 70.h,
-                    width: 70.w,),
-                ),
-                Column(
+          padding:  EdgeInsets.all(8.0.w),
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20).r, color: Colors.white),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0).w,
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Row(
                   children: [
                     Text(
-                      group.name ?? '-',
-                      style: GoogleFonts.gabriela(
-                          fontStyle: FontStyle.italic,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18.sp),
+                      assignment.title ?? '-',
+                      style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20.sp),
                     ),
-                    Row(
-                      children: [
-                        Icon(Icons.message,
-                          color: Colors.blue,
-                          size: 20,),
-                        Text(
-                          group.description ?? '-',
-                          style: GoogleFonts.gabriela(
-                              fontStyle: FontStyle.italic,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 12.sp),
-                        ),
-                      ],
+                    const Spacer(),
+                    const Icon(Icons.file_copy_outlined, size: 15),
+                  ],
+                ),
+                SizedBox(
+                  height: 15.h,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "Assignment date",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16.sp,
+                          color: Colors.grey),
+                    ),
+                    Spacer(),
+                    Text(
+                      assignment.createdAt ?? '-',
+                      style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16.sp),
                     ),
                   ],
+                ),
+                SizedBox(
+                  height: 15.h,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "Last Date",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16.sp,
+                          color: Colors.grey),
+                    ),
+                    Spacer(),
+                    Text(
+                      assignment.deadline ?? '-',
+                      style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16.sp),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 15.h,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      " status",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16.sp,
+                          color: Colors.grey),
+                    ),
+                    Spacer(),
+                    Container(
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 10,
+                                offset: Offset(2, 4) // changes position of shadow
+                            ),
+                          ],
+                          borderRadius: BorderRadius.all(Radius.circular(12.r)),
+                          color:
+                          assignment.isSubmitted ?? false ?
+                          const Color.fromARGB(185, 100, 250, 100) :
+                          const Color.fromARGB(255, 246, 174, 174)
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0).w,
+                        child: Text(
+                          assignment.isSubmitted ?? false ? " Submitted" : " not Submitted",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 20.sp,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                Visibility(
+                  visible: assignment.isSubmitted ?? false ? false : true,
+                  child: Center(
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          OpenAssignmentScreen.routeName,
+                        );
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStatePropertyAll(
+                            Color.fromARGB(255, 170, 200, 228)),
+                      ),
+                      child: Text(
+                        "Open Assignment ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 20.sp,
+                            color: Colors.black),
+                      ),
+                    ),
+                  ),
                 )
-              ],
+              ]),
             ),
           ),
         ),
-        SizedBox(height: 5.h,),
+        SizedBox(height: 5.h,)
 
 
       ],
     );
-
   }
 }

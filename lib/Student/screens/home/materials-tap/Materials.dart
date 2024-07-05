@@ -383,7 +383,7 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                 TextButton(
                   onPressed: () {
                     CacheHelper().saveData(key: ApiKey.courseIdSaved, value:  subject.courseId);
-                    Navigator.of(context).pushNamed(Testooo.routeName);
+                    Navigator.of(context).pushNamed(SubjectGroups.routeName);
                   },
                   child: Text(
                     'Details',

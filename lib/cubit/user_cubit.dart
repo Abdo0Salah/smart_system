@@ -203,7 +203,15 @@ class UserCubit extends Cubit<UserState> {
   }
 
 
-
+  GetAllAssignments() async {
+    emit(GetAllAssignmentsLoading());
+    final response = await userRepository.GetAllAssignments();
+    print(response.toString());
+    response.fold(
+          (errMessage) => emit(GetAllAssignmentsFailure(errMessage: errMessage)),
+          (assignmentR) => emit(GetAllAssignmentsSuccess(assignmentR: assignmentR)),
+    );
+  }
 
 
 

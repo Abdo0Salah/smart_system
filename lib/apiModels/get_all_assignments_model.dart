@@ -51,6 +51,6 @@ class GetAllAssignmentsModel {
 
   @override
   String toString() {
-    return 'SubjectRegistrationModel(id: $id, title: $title, description: $description, deadline: $deadline, isSubmitted: $isSubmitted, createdAt: $createdAt,fileName:$fileName, fileContent: $fileContent, fileExtension: $fileExtension)';
+    return 'GetAllAssignmentsModel(id: $id, title: $title, description: $description, deadline: $deadline, isSubmitted: $isSubmitted, createdAt: $createdAt,fileName:$fileName, fileContent: $fileContent, fileExtension: $fileExtension)';
   }
 }

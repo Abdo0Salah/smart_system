@@ -1,7 +1,10 @@
 import '../apiModels/Register_Courses_Model.dart';
 import '../apiModels/getByLevelAndTerm.dart';
 import '../apiModels/get_all_assignments_model.dart';
+import '../apiModels/get_all_meetings_model.dart';
 import '../apiModels/get_groups_model.dart';
+import '../apiModels/get_lecture_assignment_model.dart';
+import '../apiModels/get_section_assignment_model.dart';
 import '../apiModels/subjectRegisteration_model.dart';
 import '../apiModels/update_user_model.dart';
 import '../apiModels/user_model.dart';
@@ -76,6 +79,20 @@ final class getGroupsFailure extends UserState {
 }
 
 
+final class GetAllMeetingsSuccess extends UserState {
+  final List<GetAllMeetingsModel> meetingR;
+
+  GetAllMeetingsSuccess({required this.meetingR});
+}
+
+final class GetAllMeetingsLoading extends UserState {}
+
+final class GetAllMeetingsFailure extends UserState {
+  final String errMessage;
+
+  GetAllMeetingsFailure({required this.errMessage});
+}
+
 
 final class GetAllAssignmentsSuccess extends UserState {
   final List<GetAllAssignmentsModel> assignmentR;
@@ -89,6 +106,39 @@ final class GetAllAssignmentsFailure extends UserState {
   final String errMessage;
 
   GetAllAssignmentsFailure({required this.errMessage});
+}
+
+
+
+
+final class GetAllLectureAssignmentsSuccess extends UserState {
+  final List<GetAllLectureAssignmentsModel> lectureAssignmentR;
+
+  GetAllLectureAssignmentsSuccess({required this.lectureAssignmentR});
+}
+
+final class GetAllLectureAssignmentsLoading extends UserState {}
+
+final class GetAllLectureAssignmentsFailure extends UserState {
+  final String errMessage;
+
+  GetAllLectureAssignmentsFailure({required this.errMessage});
+}
+
+
+
+final class GetAllSectionAssignmentsSuccess extends UserState {
+  final List<GetAllSectionAssignmentsModel> sectionAssignmentR;
+
+  GetAllSectionAssignmentsSuccess({required this.sectionAssignmentR});
+}
+
+final class GetAllSectionAssignmentsLoading extends UserState {}
+
+final class GetAllSectionAssignmentsFailure extends UserState {
+  final String errMessage;
+
+  GetAllSectionAssignmentsFailure({required this.errMessage});
 }
 
 

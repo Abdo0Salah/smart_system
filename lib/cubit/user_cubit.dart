@@ -203,6 +203,16 @@ class UserCubit extends Cubit<UserState> {
   }
 
 
+  GetAllMeetings() async {
+    emit(GetAllMeetingsLoading());
+    final response = await userRepository.GetAllMeetings();
+    print(response.toString());
+    response.fold(
+          (errMessage) => emit(GetAllMeetingsFailure(errMessage: errMessage)),
+          (meetingR) => emit(GetAllMeetingsSuccess(meetingR: meetingR)),
+    );
+  }
+
   GetAllAssignments() async {
     emit(GetAllAssignmentsLoading());
     final response = await userRepository.GetAllAssignments();
@@ -210,6 +220,28 @@ class UserCubit extends Cubit<UserState> {
     response.fold(
           (errMessage) => emit(GetAllAssignmentsFailure(errMessage: errMessage)),
           (assignmentR) => emit(GetAllAssignmentsSuccess(assignmentR: assignmentR)),
+    );
+  }
+
+
+  GetAllLectureAssignments() async {
+    emit(GetAllLectureAssignmentsLoading());
+    final response = await userRepository.GetAllLectureAssignments();
+    print(response.toString());
+    response.fold(
+          (errMessage) => emit(GetAllLectureAssignmentsFailure(errMessage: errMessage)),
+          (lectureAssignmentR) => emit(GetAllLectureAssignmentsSuccess(lectureAssignmentR: lectureAssignmentR)),
+    );
+  }
+
+
+  GetAllSectionAssignments() async {
+    emit(GetAllSectionAssignmentsLoading());
+    final response = await userRepository.GetAllSectionAssignments();
+    print(response.toString());
+    response.fold(
+          (errMessage) => emit(GetAllSectionAssignmentsFailure(errMessage: errMessage)),
+          (sectionAssignmentR) => emit(GetAllSectionAssignmentsSuccess(sectionAssignmentR: sectionAssignmentR)),
     );
   }
 

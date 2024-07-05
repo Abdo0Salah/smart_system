@@ -1,7 +1,8 @@
 
 
 class EndPoint {
-  //student
+
+  ///student
   static String baseUrl = "http://eirpsystem.runasp.net";
   static String signIn = "/api/Students/login";
   static String signUp = "/api/Students/register";
@@ -21,23 +22,38 @@ class EndPoint {
   }
 
 
+
   static String getGroups ({required courseId}) {
     return  "/api/Groups/getGroups/$courseId";
   }
 
+  static String getAllMeetings (groupId) {
+    return  "/api/Meetings/GetAllByGroupId/$groupId";
+  }
 
+///------------------------Assignments-----------------------------///
   static String getAllAssignment (groupId) {
     return  "/api/Assignment/course/$groupId";
+  }
+
+  static String getAllLectureAssignments (groupId) {
+    return  "/api/Assignment/GetAllLectureAssignments/$groupId";
+  }
+
+
+  static String getAllSectionAssignments (groupId) {
+    return  "/api/Assignment/GetAllSectionAssignments/$groupId";
   }
 
 
 
 
 
-  //= "/api/Courses/RegisterCourses";
 
 
-//parent
+
+
+///parent
   static String signInParent = "/api/Parents/register";
 
 }

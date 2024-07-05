@@ -1,46 +1,85 @@
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:smart_system/doctor/screens/doctor_home.dart';
+import 'package:intl/intl.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
-import '../../../../../doctor/screens/courses tap/Create Meeting App/creat_meeting.dart';
-import '../../../../../doctor/screens/profile Tap/profile_screen.dart';
-
-
+import '../../../../../../cubit/user_cubit.dart';
+import '../../../../../../cubit/user_state.dart';
+import '../../../../../apiModels/get_all_meetings_model.dart';
 
 class MeetingScreen extends StatefulWidget {
   static const String routeName = 'MeetingScreen';
-
-  const MeetingScreen({super.key});
-
   @override
-  State<MeetingScreen> createState() =>
-      _MeetingScreenState();
+  _MeetingScreenState createState() => _MeetingScreenState();
 }
 
 class _MeetingScreenState extends State<MeetingScreen> {
-  int _selectedIndex = 0; //New
+  @override
+  void initState() {
+    super.initState();
+    context.read<UserCubit>().GetAllMeetings();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Meeting Information",
-          style: GoogleFonts.fjordOne(
-            fontWeight: FontWeight.w400,
-            fontSize: 22.sp,
-            color: Colors.black,
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Meeting Information",
+            style: GoogleFonts.fjordOne(
+              fontWeight: FontWeight.w400,
+              fontSize: 22.sp,
+              color: Colors.black,
+            ),
+          ),
+          iconTheme: const IconThemeData(color: Colors.black),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
+        backgroundColor: const Color(0xffF5F9FE),
+        body: BlocBuilder<UserCubit, UserState>(
+          builder: (context, state) {
+            if (state is GetAllMeetingsLoading) {
+              return Center(child: CircularProgressIndicator());
+            } else if (state is GetAllMeetingsSuccess) {
+              return _buildSubjectList(state.meetingR);
+            } else if (state is GetAllMeetingsFailure) {
+              return Center(
+                  child: Text('Failed to load subjects: ${state.errMessage}'));
+            } else {
+              return Center(child: Text('Unknown state'));
+            }
+          },
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSubjectList(List<GetAllMeetingsModel> meetings) {
+    return Column(
+      children: [
+        Expanded(
+          child: ListView.builder(
+            itemCount: meetings.length,
+            itemBuilder: (context, index) {
+              final meeting = meetings[index];
+              return _buildSubjectItem(meeting, index + 1);
+            },
           ),
         ),
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      backgroundColor: const Color(0xffF5F9FE),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding:
-              EdgeInsets.only(top: 50.h, bottom: 200.h, left: 5.w, right: 5.w),
+      ],
+    );
+  }
+
+  Widget _buildSubjectItem(GetAllMeetingsModel meeting, int index) {
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.all(8.0.w),
           child: Card(
             shadowColor: Colors.grey,
             elevation: 20,
@@ -92,7 +131,7 @@ class _MeetingScreenState extends State<MeetingScreen> {
                             padding: const EdgeInsets.symmetric(
                                 vertical: 8.0, horizontal: 8.0),
                             child: Text(
-                              'Lecture8',
+                              meeting.title ?? '-',
                               style: GoogleFonts.ubuntu(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 15.sp,
@@ -120,7 +159,8 @@ class _MeetingScreenState extends State<MeetingScreen> {
                             padding: const EdgeInsets.symmetric(
                                 vertical: 8.0, horizontal: 8.0),
                             child: Text(
-                              '22/5/2022 at 14:00',
+                              DateFormat('yyyy-MM-dd').format(
+                                  DateTime.parse(meeting.startDate ?? '-')),
                               style: GoogleFonts.ubuntu(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 15.sp,
@@ -151,8 +191,9 @@ class _MeetingScreenState extends State<MeetingScreen> {
                               onTap: () {
                                 // Handle link tap
                               },
-                              child: Text(
-                                'Join this Meeting',
+                              child:
+                              Text(
+                                meeting.url ?? '-',
                                 style: GoogleFonts.ubuntu(
                                   fontWeight: FontWeight.w400,
                                   fontSize: 15.sp,
@@ -162,6 +203,7 @@ class _MeetingScreenState extends State<MeetingScreen> {
                               ),
                             ),
                           ),
+
                         ],
                       ),
                     ],
@@ -172,16 +214,13 @@ class _MeetingScreenState extends State<MeetingScreen> {
                     color: Colors.black,
                   ),
                   const SizedBox(height: 60.0),
-
                 ],
               ),
             ),
           ),
         ),
-      ),
-
+      ],
     );
   }
-
-
 }
+

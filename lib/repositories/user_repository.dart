@@ -4,7 +4,10 @@ import 'package:jwt_decoder/jwt_decoder.dart';
 import '../apiModels/Register_Courses_Model.dart';
 import '../apiModels/getByLevelAndTerm.dart';
 import '../apiModels/get_all_assignments_model.dart';
+import '../apiModels/get_all_meetings_model.dart';
 import '../apiModels/get_groups_model.dart';
+import '../apiModels/get_lecture_assignment_model.dart';
+import '../apiModels/get_section_assignment_model.dart';
 import '../apiModels/sign_in_model.dart';
 import '../apiModels/sign_up_model.dart';
 import '../apiModels/subjectRegisteration_model.dart';
@@ -272,6 +275,27 @@ class UserRepository {
   }
 
 
+
+  Future<Either<String, List<GetAllMeetingsModel>>>
+  GetAllMeetings() async {
+    try {
+      final response = await api.get(
+        EndPoint.getAllMeetings(CacheHelper().getData(key: ApiKey.groupIdSaved),),
+      );
+      List<dynamic> parsedList = response as List<dynamic>;
+      List<GetAllMeetingsModel> meetingsList = parsedList
+          .map((json) => GetAllMeetingsModel.fromJson(json))
+          .toList();
+      return Right(meetingsList);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
+  }
+
+
+
+///-------------------------Assignments--------------------///
+
   Future<Either<String, List<GetAllAssignmentsModel>>>
   GetAllAssignments() async {
     try {
@@ -279,10 +303,46 @@ class UserRepository {
         EndPoint.getAllAssignment(CacheHelper().getData(key: ApiKey.groupIdSaved),),
       );
       List<dynamic> parsedList = response as List<dynamic>;
-      List<GetAllAssignmentsModel> AssignmentList = parsedList
+      List<GetAllAssignmentsModel> assignmentList = parsedList
           .map((json) => GetAllAssignmentsModel.fromJson(json))
           .toList();
-      return Right(AssignmentList);
+      return Right(assignmentList);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
+  }
+
+
+
+  Future<Either<String, List<GetAllLectureAssignmentsModel>>>
+  GetAllLectureAssignments() async {
+    try {
+      final response = await api.get(
+        EndPoint.getAllLectureAssignments(CacheHelper().getData(key: ApiKey.groupIdSaved),),
+      );
+      List<dynamic> parsedList = response as List<dynamic>;
+      List<GetAllLectureAssignmentsModel> assignmentLectureList = parsedList
+          .map((json) => GetAllLectureAssignmentsModel.fromJson(json))
+          .toList();
+      return Right(assignmentLectureList);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
+  }
+
+
+
+  Future<Either<String, List<GetAllSectionAssignmentsModel>>>
+  GetAllSectionAssignments() async {
+    try {
+      final response = await api.get(
+        EndPoint.getAllSectionAssignments(CacheHelper().getData(key: ApiKey.groupIdSaved),),
+      );
+      List<dynamic> parsedList = response as List<dynamic>;
+      List<GetAllSectionAssignmentsModel> assignmentSectionList = parsedList
+          .map((json) => GetAllSectionAssignmentsModel.fromJson(json))
+          .toList();
+      return Right(assignmentSectionList);
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage);
     }

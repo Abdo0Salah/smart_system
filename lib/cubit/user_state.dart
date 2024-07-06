@@ -6,6 +6,7 @@ import '../apiModels/Register_Courses_Model.dart';
 import '../apiModels/getByLevelAndTerm.dart';
 import '../apiModels/get_all_assignments_model.dart';
 import '../apiModels/get_all_meetings_model.dart';
+import '../apiModels/get_all_posts_model.dart';
 import '../apiModels/get_groups_model.dart';
 import '../apiModels/get_lecture_assignment_model.dart';
 import '../apiModels/get_lectures_attachment.dart';
@@ -92,6 +93,22 @@ final class GetAllMeetingsFailure extends UserState {
 
   GetAllMeetingsFailure({required this.errMessage});
 }
+//
+
+final class GetAllPostsSuccess extends UserState {
+  final List<GetAllPostsModel> postR;
+
+  GetAllPostsSuccess({required this.postR});
+}
+
+final class GetAllPostsLoading extends UserState {}
+
+final class GetAllPostsFailure extends UserState {
+  final String errMessage;
+
+  GetAllPostsFailure({required this.errMessage});
+}
+
 //
 final class GetLecturesAttachmentSuccess extends UserState {
   final List<GetLecturesAttachmentModel> attachmenR;

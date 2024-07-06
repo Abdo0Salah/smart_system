@@ -184,6 +184,17 @@ class UserCubit extends Cubit<UserState> {
     );
   }
 
+
+  GetAllPosts() async {
+    emit(GetAllPostsLoading());
+    final response = await userRepository.GetAllPosts();
+    print(response.toString());
+    response.fold(
+          (errMessage) => emit(GetAllPostsFailure(errMessage: errMessage)),
+          (postR) => emit(GetAllPostsSuccess(postR: postR)),
+    );
+  }
+
   GetLecturesAttachment() async {
     emit(GetLecturesAttachmentLoading());
     final response = await userRepository.GetLecturesAttachment();

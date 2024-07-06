@@ -28,7 +28,7 @@ class UserRepository {
 
   UserRepository({required this.api});
 
-  /// STUDENT
+  ///----------------------------------STUDENT----------------------------------
   /// ----------------------login-----------------------------
   Future<Either<String, SignInModel>> signIn({
     required String userName,
@@ -189,7 +189,6 @@ class UserRepository {
     }
   }
 
-  ///--------------------------Registeration------------------------------
 
   Future<Either<String, List<SubjectRegisterationModel>>>
       SubjectRegisteration() async {
@@ -234,9 +233,6 @@ class UserRepository {
   }
 
 
-  ///--------------------------Materials------------------------------
-
-
   Future<Either<String, List<GetCoursesbyLevelAndTermModel>>>
   GetCoursesbyLevelAndTerm() async {
     try {
@@ -257,10 +253,6 @@ class UserRepository {
     }
   }
 
-
-
-
-
   Future<Either<String, List<GetGroupsModel>>>
   getGroups() async {
     try {
@@ -279,8 +271,6 @@ class UserRepository {
     }
   }
 
-
-
   Future<Either<String, List<GetAllMeetingsModel>>>
   GetAllMeetings() async {
     try {
@@ -297,7 +287,6 @@ class UserRepository {
     }
   }
 
-
   Future<Either<String, List<GetLecturesAttachmentModel>>>
   GetLecturesAttachment() async {
     try {
@@ -313,6 +302,7 @@ class UserRepository {
       return Left(e.errModel.errorMessage);
     }
   }
+
   Future<Either<String, List<GetSectionsAttachmentModel>>>
   GetSectionsAttachment() async {
     try {
@@ -344,6 +334,7 @@ class UserRepository {
       return Left(e.errModel.errorMessage);
     }
   }
+
   Future<Either<String, List<Getfilesdataofsectionsattachmentmodel>>>
   GetFilesDataOfSectionsAttachment() async {
     try {
@@ -359,10 +350,6 @@ class UserRepository {
       return Left(e.errModel.errorMessage);
     }
   }
-
-
-
-///-------------------------Assignments--------------------///
 
   Future<Either<String, List<GetAllAssignmentsModel>>>
   GetAllAssignments() async {
@@ -380,8 +367,6 @@ class UserRepository {
     }
   }
 
-
-
   Future<Either<String, List<GetAllLectureAssignmentsModel>>>
   GetAllLectureAssignments() async {
     try {
@@ -398,8 +383,6 @@ class UserRepository {
     }
   }
 
-
-
   Future<Either<String, List<GetAllSectionAssignmentsModel>>>
   GetAllSectionAssignments() async {
     try {
@@ -415,12 +398,6 @@ class UserRepository {
       return Left(e.errModel.errorMessage);
     }
   }
-
-
-
-
-
-
 
   Future<Either<String, List<OpenAssignmentModel>>>
   OpenAssignment() async {
@@ -448,12 +425,7 @@ class UserRepository {
 
 
 
-
-
-
-
-
-  /// PARENT
+  /// --------------------------------PARENT--------------------------------
 
   // Future<Either<String, SignInModel>> signInParent({
   //   required String userNameParent,
@@ -478,4 +450,11 @@ class UserRepository {
   //     return Left(e.errModel.errorMessage);
   //   }
   // }
+
+
+
+///----------------------------------DOCTOR----------------------------------
+
+
+
 }

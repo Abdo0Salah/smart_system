@@ -41,8 +41,7 @@ class UserCubit extends Cubit<UserState> {
 
   final TextEditingController nameController0 = TextEditingController();
   final TextEditingController emailController0 = TextEditingController();
-  final TextEditingController universityEmailController0 =
-      TextEditingController();
+  final TextEditingController universityEmailController0 = TextEditingController();
   final TextEditingController passwordController0 = TextEditingController();
   final TextEditingController ssnController0 = TextEditingController();
   final TextEditingController phoneController0 = TextEditingController();
@@ -56,7 +55,7 @@ class UserCubit extends Cubit<UserState> {
     profilePic = image;
     emit(UploadProfilePic());
   }
-
+///--------------------------------Student--------------------------------------
   signUp() async {
     emit(SignUpLoading());
     final response = await userRepository.signUp(
@@ -90,15 +89,6 @@ class UserCubit extends Cubit<UserState> {
     );
   }
 
-  ///profile
-//   getUserProfile() async {
-//     emit(GetUserLoading());
-//     final response = await userRepository.getUserProfile();
-//     response.fold(
-//           (errMessage) => emit(GetUserFailure(errMessage: errMessage)),
-//           (user) => emit(GetUserSuccess(user: user)),
-//     );
-//   }
   Future<void> getUserProfile() async {
     emit(GetUserLoading());
     final result = await userRepository.getUserProfile();
@@ -114,20 +104,7 @@ class UserCubit extends Cubit<UserState> {
     );
   }
 
-  Future<void> updateUserProfile(
-      // required String id,
-      // required String name,
-      // required String email,
-      // required String universityEmail,
-      // required String password,
-      // required String ssn,
-      // required String phone,
-      // required String gender,
-      // required int level,
-      // required int term,
-      // required String parentPhone,
-      // required String parentEmail,
-      ) async {
+  Future<void> updateUserProfile() async {
     emit(UpdateUserLoading());
     final result = await userRepository.updateUser(
       id: CacheHelper().getData(key: ApiKey.id) ?? '',
@@ -187,11 +164,6 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
-
-
-
-
-
   getGroups() async {
     emit(getGroupsLoading());
     final response = await userRepository.getGroups();
@@ -201,7 +173,6 @@ class UserCubit extends Cubit<UserState> {
           (groupR) => emit(getGroupsSuccess(groupR: groupR)),
     );
   }
-
 
   GetAllMeetings() async {
     emit(GetAllMeetingsLoading());
@@ -222,6 +193,7 @@ class UserCubit extends Cubit<UserState> {
           (attachmenR) => emit(GetLecturesAttachmentSuccess(attachmenR: attachmenR)),
     );
   }
+
   GetSectionsAttachment() async {
     emit(GetSectionsAttachmentLoading());
     final response = await userRepository.GetSectionsAttachment();
@@ -231,6 +203,7 @@ class UserCubit extends Cubit<UserState> {
           (attachmenR) => emit(GetSectionsAttachmentSuccess(attachmenR: attachmenR)),
     );
   }
+
   GetFilesDataOfLecturesAttachment() async {
     emit(GetFilesDataOfLecturesAttachmentLoading());
     final response = await userRepository.GetFilesDataOfLecturesAttachment();
@@ -240,6 +213,7 @@ class UserCubit extends Cubit<UserState> {
           (FilesDataR) => emit(GetFilesDataOfLecturesAttachmentSuccess(FilesDataR: FilesDataR)),
     );
   }
+
   GetFilesDataOfSectionsAttachment() async {
     emit(GetFilesDataOfSectionsAttachmentLoading());
     final response = await userRepository.GetFilesDataOfSectionsAttachment();
@@ -260,7 +234,6 @@ class UserCubit extends Cubit<UserState> {
     );
   }
 
-
   GetAllLectureAssignments() async {
     emit(GetAllLectureAssignmentsLoading());
     final response = await userRepository.GetAllLectureAssignments();
@@ -270,7 +243,6 @@ class UserCubit extends Cubit<UserState> {
           (lectureAssignmentR) => emit(GetAllLectureAssignmentsSuccess(lectureAssignmentR: lectureAssignmentR)),
     );
   }
-
 
   GetAllSectionAssignments() async {
     emit(GetAllSectionAssignmentsLoading());
@@ -282,10 +254,6 @@ class UserCubit extends Cubit<UserState> {
     );
   }
 
-
-
-
-
   GetCoursesbyLevelAndTerm() async {
     emit(GetCoursesbyLevelAndTermLoading());
     final response = await userRepository.GetCoursesbyLevelAndTerm();
@@ -295,21 +263,6 @@ class UserCubit extends Cubit<UserState> {
           (courseR) => emit(GetCoursesbyLevelAndTermSuccess(courseR: courseR)),
     );
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   OpenAssignment() async {
     emit(OpenAssignmentLoading());
@@ -321,10 +274,7 @@ class UserCubit extends Cubit<UserState> {
     );
   }
 
-
-
-
-
+///--------------------------------Doctor--------------------------------------
 
 
 

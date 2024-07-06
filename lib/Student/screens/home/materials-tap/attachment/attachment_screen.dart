@@ -9,7 +9,7 @@ class AttachmentScreen extends StatelessWidget {
   static const String routeName = 'att';
   @override
   Widget build(BuildContext context) {
-    List<Widget> tabs = [AllTap(), LectureTap(), SectionTap()];
+    List<Widget> tabs = [ LectureAttachmentTap(), SectionsAttachmentTap()];
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
@@ -27,14 +27,10 @@ class AttachmentScreen extends StatelessWidget {
                   TabBar(
                       tabs: [
                     Tab(
-                      child: Text("All", style: TextStyle(color: Colors.black)),
-                    ),
-                    Tab(
                       child: Text("Lectuers", style: TextStyle(color: Colors.black)),
                     ),
                     Tab(
                       child: Text("Sections", style: TextStyle(color: Colors.black)),
-
 
                     ),
                   ]),

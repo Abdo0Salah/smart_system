@@ -29,12 +29,22 @@ class EndPoint {
   static String getAllAssignment (groupId) {
     return  "/api/Assignment/course/$groupId";
   }
+//
+  static String getLecturesAttachment(groupId) {
+    return  "/api/Lectures/getAll/$groupId";
+  }
+  static String getSectionsAttachment(groupId) {
+    return  "/api/Sections/getAll/$groupId";
+  }
+  static String getFilesDataOfLecturesAttachment(lectureId) {
+    return  "/api/Files/list/lecture/$lectureId";
+  }
+  static String getFilesDataOfSectionsAttachment(sectionId) {
+    return  "/api/Files/list/section/$sectionId";
+  }
+//
 
 
-
-
-
-  //= "/api/Courses/RegisterCourses";
 
 
 //parent
@@ -85,6 +95,11 @@ class ApiKey {
   static String groupIdSaved ="groupIdSaved";
 
 
+//
+  static String lectureIdSaved ="lectureIdSaved";
+  static String sectionIdSaved ="sectionIdSaved";
+
+  //
 
 
 

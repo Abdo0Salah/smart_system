@@ -9,6 +9,7 @@ import '../apiModels/Register_Courses_Model.dart';
 import '../apiModels/getByLevelAndTerm.dart';
 import '../apiModels/get_all_assignments_model.dart';
 import '../apiModels/get_all_meetings_model.dart';
+import '../apiModels/get_all_posts_model.dart';
 import '../apiModels/get_groups_model.dart';
 import '../apiModels/get_lecture_assignment_model.dart';
 import '../apiModels/get_lectures_attachment.dart';
@@ -282,6 +283,23 @@ class UserRepository {
           .map((json) => GetAllMeetingsModel.fromJson(json))
           .toList();
       return Right(meetingsList);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
+  }
+
+
+  Future<Either<String, List<GetAllPostsModel>>>
+  GetAllPosts() async {
+    try {
+      final response = await api.get(
+        EndPoint.getAllPosts(CacheHelper().getData(key: ApiKey.groupIdSaved),),
+      );
+      List<dynamic> parsedList = response as List<dynamic>;
+      List<GetAllPostsModel> postsList = parsedList
+          .map((json) => GetAllPostsModel.fromJson(json))
+          .toList();
+      return Right(postsList);
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage);
     }

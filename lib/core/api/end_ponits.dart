@@ -28,6 +28,10 @@ class EndPoint {
     return  "/api/Meetings/GetAllByGroupId/$groupId";
   }
 
+  static String getAllPosts (groupId) {
+    return  "/api/Posts/$groupId";
+  }
+
   ///------------------------Attachment---------------------------///
   static String getLecturesAttachment(groupId) {
     return  "/api/Lectures/getAll/$groupId";

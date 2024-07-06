@@ -18,6 +18,10 @@ class UserState {}
 
 final class UserInitial extends UserState {}
 
+final class UploadProfilePic extends UserState {}
+
+///--------------------------------Student--------------------------------------
+
 final class UpdateUserLoading extends UserState {}
 
 final class UpdateUserSuccess extends UserState {
@@ -31,10 +35,7 @@ final class UpdateUserFailure extends UserState {
 
   UpdateUserFailure({required this.errMessage});
 }
-
-
-
-
+//
 final class GetCoursesbyLevelAndTermSuccess extends UserState {
   final List<GetCoursesbyLevelAndTermModel> courseR;
 
@@ -48,12 +49,7 @@ final class GetCoursesbyLevelAndTermFailure extends UserState {
 
   GetCoursesbyLevelAndTermFailure({required this.errMessage});
 }
-
-
-
-
-
-
+//
 final class SubjectRegisterationSuccess extends UserState {
   final List<SubjectRegisterationModel> subjectR;
 
@@ -67,8 +63,7 @@ final class SubjectRegisterationFailure extends UserState {
 
   SubjectRegisterationFailure({required this.errMessage});
 }
-
-
+//
 final class getGroupsSuccess extends UserState {
   final List<GetGroupsModel> groupR;
 
@@ -82,7 +77,7 @@ final class getGroupsFailure extends UserState {
 
   getGroupsFailure({required this.errMessage});
 }
-
+//
 
 final class GetAllMeetingsSuccess extends UserState {
   final List<GetAllMeetingsModel> meetingR;
@@ -97,8 +92,7 @@ final class GetAllMeetingsFailure extends UserState {
 
   GetAllMeetingsFailure({required this.errMessage});
 }
-
-
+//
 final class GetLecturesAttachmentSuccess extends UserState {
   final List<GetLecturesAttachmentModel> attachmenR;
 
@@ -112,7 +106,7 @@ final class GetLecturesAttachmentFailure extends UserState {
 
   GetLecturesAttachmentFailure({required this.errMessage});
 }
-
+//
 final class GetSectionsAttachmentSuccess extends UserState {
   final List<GetSectionsAttachmentModel> attachmenR;
 
@@ -126,7 +120,7 @@ final class GetSectionsAttachmentFailure extends UserState {
 
   GetSectionsAttachmentFailure({required this.errMessage});
 }
-
+//
 final class GetFilesDataOfLecturesAttachmentSuccess extends UserState {
   final List<GetfilesdataoflecturesattachmentModel> FilesDataR;
 
@@ -140,7 +134,7 @@ final class GetFilesDataOfLecturesAttachmentFailure extends UserState {
 
   GetFilesDataOfLecturesAttachmentFailure({required this.errMessage});
 }
-
+//
 final class GetFilesDataOfSectionsAttachmentSuccess extends UserState {
   final List<Getfilesdataofsectionsattachmentmodel> FilesDataR;
 
@@ -154,7 +148,7 @@ final class GetFilesDataOfSectionsAttachmentFailure extends UserState {
 
   GetFilesDataOfSectionsAttachmentFailure({required this.errMessage});
 }
-
+//
 final class GetAllAssignmentsSuccess extends UserState {
   final List<GetAllAssignmentsModel> assignmentR;
 
@@ -168,10 +162,7 @@ final class GetAllAssignmentsFailure extends UserState {
 
   GetAllAssignmentsFailure({required this.errMessage});
 }
-
-
-
-
+//
 final class GetAllLectureAssignmentsSuccess extends UserState {
   final List<GetAllLectureAssignmentsModel> lectureAssignmentR;
 
@@ -185,9 +176,7 @@ final class GetAllLectureAssignmentsFailure extends UserState {
 
   GetAllLectureAssignmentsFailure({required this.errMessage});
 }
-
-
-
+//
 final class GetAllSectionAssignmentsSuccess extends UserState {
   final List<GetAllSectionAssignmentsModel> sectionAssignmentR;
 
@@ -201,9 +190,7 @@ final class GetAllSectionAssignmentsFailure extends UserState {
 
   GetAllSectionAssignmentsFailure({required this.errMessage});
 }
-
-
-
+//
 final class CourseRegistrationSuccess extends UserState {
   final RegisterCoursesModel registerCoursesModel;
 
@@ -217,13 +204,8 @@ final class CourseRegistrationFailure extends UserState {
 
   CourseRegistrationFailure({required this.errMessage});
 }
-
-
-
-
+//
 final class SignInSuccess extends UserState {}
-
-final class UploadProfilePic extends UserState {}
 
 final class SignInLoading extends UserState {}
 
@@ -232,7 +214,7 @@ final class SignInFailure extends UserState {
 
   SignInFailure({required this.errMessage});
 }
-
+//
 final class SignUpSuccess extends UserState {}
 
 final class SignUpLoading extends UserState {}
@@ -242,7 +224,7 @@ final class SignUpFailure extends UserState {
 
   SignUpFailure({required this.errMessage});
 }
-
+//
 final class GetUserSuccess extends UserState {
  final UserModel user;
 
@@ -257,6 +239,7 @@ final class GetUserFailure extends UserState {
 
   GetUserFailure({required this.errMessage});
 }
+//
 class UserLogoutLoading extends UserState {}
 
 class UserLogoutSuccess extends UserState {}
@@ -266,10 +249,7 @@ class UserLogoutFailure extends UserState {
 
   UserLogoutFailure({required this.errMessage});
 }
-
-
-
-
+//
 final class OpenAssignmentSuccess extends UserState {
   final List<OpenAssignmentModel> assignmentR;
 
@@ -284,6 +264,8 @@ final class OpenAssignmentFailure extends UserState {
   OpenAssignmentFailure({required this.errMessage});
 }
 
+
+///--------------------------------Doctor--------------------------------------
 
 
 

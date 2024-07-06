@@ -20,6 +20,7 @@ class AssinmentScreen extends StatelessWidget {
           backgroundColor:Color(0xffEFF3F7FF)
           ,
           appBar: AppBar(
+            iconTheme: const IconThemeData(color: Colors.black),
             backgroundColor:Color(0xffEFF3F7FF) ,
             elevation: 0,
             title: Text('Assignment of network',

@@ -362,7 +362,7 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                   subject.name ?? '-',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.fjordOne(
-                      fontSize: 12.sp, fontWeight: FontWeight.w400),
+                      fontSize: 10.sp, fontWeight: FontWeight.w400),
                 ),
               ],
             ),

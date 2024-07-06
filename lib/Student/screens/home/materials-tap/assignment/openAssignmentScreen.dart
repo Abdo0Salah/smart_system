@@ -25,7 +25,8 @@ class _OpenAssignmentScreenState extends State<OpenAssignmentScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor:Color(0xffEFF3F7FF) ,
+          iconTheme: const IconThemeData(color: Colors.black),
+          backgroundColor:const Color(0xffEFF3F7FF) ,
           elevation: 0,
           title: Text('Assignment  ',
               style: TextStyle(
@@ -95,24 +96,28 @@ class _OpenAssignmentScreenState extends State<OpenAssignmentScreen> {
             padding: const EdgeInsets.all(8.0).w,
             child: Row(
               children: [
-                CircleAvatar(
-                  radius: 30.r,
-                  backgroundColor: const Color(0xffC4C4C4),
-                  child: ClipOval(
-                    child: Image.asset(
-                      assignment.fileExtension == ".pdf"
-                          ? "assets/images/pdff.png"
-                          : "assets/images/word.png",
-                      fit: BoxFit.fitWidth,
+                Expanded(flex: 1,
+                  child: CircleAvatar(
+                    radius: 20.r,
+                    backgroundColor: const Color(0xffC4C4C4),
+                    child: ClipOval(
+                      child: Image.asset(
+                        assignment.fileExtension == ".pdf"
+                            ? "assets/images/pdff.png"
+                            : "assets/images/word.png",
+                        fit: BoxFit.fitWidth,
 
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(width: 5.w,),
-                Text(
-                  assignment.fileName ?? 'null',
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.sp,
-                      color: Colors.black),
+                Expanded(flex: 4,
+                  child: Text(
+                    assignment.fileName ?? 'null',
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.sp,
+                        color: Colors.black),
+                  ),
                 ),
               ],
             ),

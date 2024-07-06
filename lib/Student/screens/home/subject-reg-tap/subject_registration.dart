@@ -87,13 +87,13 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
                       "${CacheHelper().getData(key: ApiKey.userNameSaved)}",
                       style: GoogleFonts.inter(
                           fontWeight: FontWeight.bold,
-                          fontSize: 15.sp),
+                          fontSize: 17.sp),
                     ),
                     Text(
                       "${CacheHelper().getData(key: ApiKey.userEmailSaved)}",
                       style: TextStyle(
                           fontWeight: FontWeight.normal,
-                          fontSize: 8.sp),
+                          fontSize: 10.sp),
                     ),
                   ],
                 ),
@@ -283,7 +283,7 @@ class _SubjectRegistrationScreenState extends State<SubjectRegistrationScreen> {
       children: [
         Container(
           width: double.infinity.w,
-          height: 30.h,
+          height: 45.h,
           decoration: const BoxDecoration(
             color: Colors.white,
           ),

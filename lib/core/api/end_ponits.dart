@@ -28,6 +28,7 @@ class EndPoint {
     return  "/api/Meetings/GetAllByGroupId/$groupId";
   }
 
+  ///------------------------Attachment---------------------------///
   static String getLecturesAttachment(groupId) {
     return  "/api/Lectures/getAll/$groupId";
   }

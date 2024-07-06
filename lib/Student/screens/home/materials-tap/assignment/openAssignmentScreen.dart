@@ -83,12 +83,12 @@ class _OpenAssignmentScreenState extends State<OpenAssignmentScreen> {
             boxShadow: [
               BoxShadow(
                 color: Colors.grey,
-                blurRadius: 4,
-                offset: Offset(4, 8), // Shadow position
+                blurRadius: 4.r,
+                offset: Offset(4.w, 8.h), // Shadow position
               ),
             ],
             color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(8).r)
+            borderRadius: BorderRadius.all(Radius.circular(8.r))
 
         ),
           child:  Padding(
@@ -125,20 +125,20 @@ class _OpenAssignmentScreenState extends State<OpenAssignmentScreen> {
               onPressed: () {
                 Navigator.pushNamed(context, AddAnswerScreen.routeName);
               },
-              constraints: BoxConstraints(),
+              constraints: const BoxConstraints(),
               elevation: 2.0,
               fillColor: Colors.blue,
+              padding: EdgeInsets.all(15.0.w),
+              shape: const CircleBorder(),
               child: InkWell(
                 onTap: (){ Navigator.popAndPushNamed(context, AddAnswerScreen.routeName);},
 
                 child: Icon(
                   Icons.add,
-                  size: 25.0,
+                  size: 25.sp,
                   color: Colors.white,
                 ),
               ),
-              padding: EdgeInsets.all(15.0).w,
-              shape: CircleBorder(),
             ),
             SizedBox(width: 15.w,),
             Text(

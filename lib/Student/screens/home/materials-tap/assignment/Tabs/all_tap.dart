@@ -182,7 +182,7 @@ class _AllTapState extends State<AllTap> {
                       ],
                     ),
                     SizedBox(
-                      height: 25,
+                      height: 25.h,
                     ),
                     Visibility(
                       visible: assignment.isSubmitted ?? false ? false : true,
@@ -196,7 +196,7 @@ class _AllTapState extends State<AllTap> {
                               OpenAssignmentScreen.routeName,
                             );
                           },
-                          style: ButtonStyle(
+                          style: const ButtonStyle(
                             backgroundColor: MaterialStatePropertyAll(
                                 Color.fromARGB(255, 170, 200, 228)),
                           ),

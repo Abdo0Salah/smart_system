@@ -73,8 +73,9 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
 
   Widget _buildSubjectList(List<GetCoursesbyLevelAndTermModel> courses) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(8.w),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
@@ -89,8 +90,8 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                           ? "assets/images/avatar1.png"
                           : "assets/images/avatar3.png",
                       fit: BoxFit.fitWidth,
-                      width: 180,
-                      height: 180,
+                      width: 180.w,
+                      height: 180.h,
                     ),
                   ),
                 ),
@@ -104,12 +105,12 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                       Text(
                         "${CacheHelper().getData(key: ApiKey.userNameSaved)}",
                         style: GoogleFonts.inter(
-                            fontWeight: FontWeight.bold, fontSize: 15.sp),
+                            fontWeight: FontWeight.bold, fontSize: 17.sp),
                       ),
                       Text(
                         "${CacheHelper().getData(key: ApiKey.userEmailSaved)}",
                         style: TextStyle(
-                            fontWeight: FontWeight.normal, fontSize: 8.sp),
+                            fontWeight: FontWeight.normal, fontSize: 10.sp),
                       ),
                     ],
                   ),
@@ -135,39 +136,43 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
             key: _dropdownFormKey,
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 10).w,
-                        child: Text(
-                          "Level",
-                          style: GoogleFonts.aBeeZee(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14.sp,
-                              fontStyle: FontStyle.italic,
-                              color: Colors.black),
+                Padding(
+                  padding:  EdgeInsets.only(top: 25.h),
+                  child:
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        flex: 3,
+                        child: Padding(
+                          padding:  EdgeInsets.only(left: 10.w),
+                          child: Text(
+                            "Level",
+                            style: GoogleFonts.aBeeZee(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14.sp,
+                                fontStyle: FontStyle.italic,
+                                color: Colors.black),
+                          ),
                         ),
                       ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 10).w,
-                        child: Text(
-                          "Term",
-                          style: GoogleFonts.aBeeZee(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14.sp,
-                              fontStyle: FontStyle.italic,
-                              color: Colors.black),
+                      Expanded(
+                        flex: 3,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10).w,
+                          child: Text(
+                            "Term",
+                            style: GoogleFonts.aBeeZee(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14.sp,
+                                fontStyle: FontStyle.italic,
+                                color: Colors.black),
+                          ),
                         ),
                       ),
-                    ),
-                    Expanded(flex: 2, child: SizedBox.shrink())
-                  ],
+                      Expanded(flex: 2, child: SizedBox.shrink())
+                    ],
+                  ),
                 ),
                 Row(
                   children: [
@@ -273,33 +278,23 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                       ),
                     ),
                     Expanded(
-                      flex: 2,
                       child: Container(
                         decoration: BoxDecoration(
                           color: const Color(0xff8EAFD9),
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(50.r),
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            TextButton(
-                              onPressed: () {
-                                if (_dropdownFormKey.currentState!.validate()) {
-                                  context
-                                      .read<UserCubit>()
-                                      .GetCoursesbyLevelAndTerm();
-                                }
-                              },
-                              child: Text(
-                                'Done',
-                                style: GoogleFonts.aBeeZee(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 14.sp,
-                                    fontStyle: FontStyle.italic,
-                                    color: Colors.black),
-                              ),
-                            ),
-                          ],
+                        child: TextButton(
+                          onPressed: () {
+                            if (_dropdownFormKey.currentState!.validate()) {
+                              context
+                                  .read<UserCubit>()
+                                  .GetCoursesbyLevelAndTerm();
+                            }
+                          },
+                          child: Icon(Icons.done,
+                          color: Colors.white,
+                          size: 30.sp,)
+
                         ),
                       ),
                     ),
@@ -309,7 +304,7 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 10.w, top: 30.h, bottom: 10.h),
+            padding: EdgeInsets.only(left: 10.w ,top: 30.h, bottom: 10.h),
             child: Text(
               'Subjects of the Year',
               style: GoogleFonts.fjordOne(
@@ -319,10 +314,10 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 4.w, bottom: 20.h),
+            padding: EdgeInsets.only(bottom: 20.h),
             child: Container(
               height: 5.h,
-              width: 235.w,
+              width: 210.w,
               color: const Color(0xff2C4A7A),
             ),
           ),

@@ -9,8 +9,10 @@ import '../../../../core/api/end_ponits.dart';
 import '../../../../cubit/user_cubit.dart';
 import '../../../../cubit/user_state.dart';
 import 'mat_page.dart';
+
 class SubjectGroups extends StatefulWidget {
   static const String routeName = 'SubjectGroups';
+
   @override
   _SubjectGroupsState createState() => _SubjectGroupsState();
 }
@@ -24,35 +26,47 @@ class _SubjectGroupsState extends State<SubjectGroups> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor:Colors.transparent ,
-          elevation: 0,
-          title: Text('Selected topic',
-              style: TextStyle(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.black
-              )),
-          iconTheme:  IconThemeData(color: Colors.black,size:15.sp ) ,
-        ),
-        backgroundColor: const Color(0xffF5F9FE),
-
-        body: BlocBuilder<UserCubit, UserState>(
-          builder: (context, state) {
-            if (state is getGroupsLoading) {
-              return Center(child: CircularProgressIndicator());
-            } else if (state is getGroupsSuccess) {
-              return _buildSubjectList(state.groupR);
-            } else if (state is getGroupsFailure) {
-              return Center(child: Text('Failed to load subjects: ${state.errMessage}'));
-            } else {
-              return Center(child: Text('Unknown state'));
-            }
-          },
-        ),
-      ),
+    return BlocConsumer<UserCubit, UserState>(
+      listener: (context, state) {
+        if (state is UpdateUserFailure) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(state.errMessage)));
+        }
+      },
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            title: Text('Selected topic',
+                style: TextStyle(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black
+                )),
+            iconTheme: IconThemeData(color: Colors.black, size: 15.sp),
+          ),
+          backgroundColor: const Color(0xffF5F9FE),
+          body: state is getGroupsLoading
+              ? const CircularProgressIndicator()
+              : state is getGroupsSuccess
+              ? _buildSubjectList(state.groupR)
+              : Text('Unknown state'),
+          // body: BlocBuilder<UserCubit, UserState>(
+          //   builder: (context, state) {
+          //     if (state is getGroupsLoading) {
+          //       return Center(child: CircularProgressIndicator());
+          //     } else if (state is getGroupsSuccess) {
+          //       return _buildSubjectList(state.groupR);
+          //     } else if (state is getGroupsFailure) {
+          //       return Center(child: Text('Failed to load subjects: ${state.errMessage}'));
+          //     } else {
+          //       return Center(child: Text('Unknown state'));
+          //     }
+          //   },
+          // ),
+        );
+      },
     );
   }
 
@@ -63,7 +77,7 @@ class _SubjectGroupsState extends State<SubjectGroups> {
           height: 40.h,
         ),
         Expanded(
-            child:Container(
+            child: Container(
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -73,7 +87,7 @@ class _SubjectGroupsState extends State<SubjectGroups> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding:  EdgeInsets.all(12.w),
+                    padding: EdgeInsets.all(12.w),
                     child: Text("All Groups",
                         style: GoogleFonts.ubuntu(
                           fontSize: 12.sp,
@@ -95,16 +109,14 @@ class _SubjectGroupsState extends State<SubjectGroups> {
         )
 
 
-
-
       ],
     );
   }
 
   Widget _buildSubjectItem(GetGroupsModel group, int index) {
     return InkWell(
-      onTap: (){
-        CacheHelper().saveData(key: ApiKey.groupIdSaved, value:  group.id);
+      onTap: () {
+        CacheHelper().saveData(key: ApiKey.groupIdSaved, value: group.id);
         Navigator.of(context)
             .pushReplacementNamed(MatPagee.routeName,);
       },
@@ -118,7 +130,8 @@ class _SubjectGroupsState extends State<SubjectGroups> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0).w,
-                    child: Image.network("https://news.mit.edu/sites/default/files/styles/news_article__image_gallery/public/images/201706/MIT-Predicting-Reactions-1_0.jpg?itok=q5Dlcw3w",
+                    child: Image.network(
+                      "https://news.mit.edu/sites/default/files/styles/news_article__image_gallery/public/images/201706/MIT-Predicting-Reactions-1_0.jpg?itok=q5Dlcw3w",
                       fit: BoxFit.cover,
                       height: 70.h,
                       width: 70.w,),
@@ -158,6 +171,5 @@ class _SubjectGroupsState extends State<SubjectGroups> {
         ],
       ),
     );
-
   }
 }

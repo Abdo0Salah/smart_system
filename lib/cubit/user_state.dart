@@ -1,6 +1,7 @@
 import '../apiModels/GetFilesDataOfLecturesAttachmentModel.dart';
 import '../apiModels/GetSectionsAttachmentModel.dart';
 import '../apiModels/GetfilesdataofSectionsattachmentModel.dart';
+import '../apiModels/OpenAssignmentModel.dart';
 import '../apiModels/Register_Courses_Model.dart';
 import '../apiModels/getByLevelAndTerm.dart';
 import '../apiModels/get_all_assignments_model.dart';
@@ -268,6 +269,20 @@ class UserLogoutFailure extends UserState {
 
 
 
+
+final class OpenAssignmentSuccess extends UserState {
+  final List<OpenAssignmentModel> assignmentR;
+
+  OpenAssignmentSuccess({required this.assignmentR});
+}
+
+final class OpenAssignmentLoading extends UserState {}
+
+final class OpenAssignmentFailure extends UserState {
+  final String errMessage;
+
+  OpenAssignmentFailure({required this.errMessage});
+}
 
 
 

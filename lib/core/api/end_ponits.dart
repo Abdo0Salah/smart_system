@@ -20,9 +20,6 @@ class EndPoint {
   static String getCoursesbyLevelAndTerm ({required id,required level,required term}) {
     return "/api/Courses/GetByLevelAndTerm/$id/$level/$term";
   }
-
-
-
   static String getGroups ({required courseId}) {
     return  "/api/Groups/getGroups/$courseId";
   }
@@ -58,6 +55,9 @@ class EndPoint {
     return  "/api/Assignment/GetAllSectionAssignments/$groupId";
   }
 
+  static String openAssignment ({required assignmentId}) {
+    return  "/api/Assignment/openAssignment/$assignmentId";
+  }
 
 
 
@@ -114,6 +114,7 @@ class ApiKey {
   static String groupIdSaved ="groupIdSaved";
   static String lectureIdSaved ="lectureIdSaved";
   static String sectionIdSaved ="sectionIdSaved";
+  static String assignmentIdSaved ="assignmentIdSaved";
 
 
 

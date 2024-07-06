@@ -4,6 +4,7 @@ import 'package:jwt_decoder/jwt_decoder.dart';
 import '../apiModels/GetFilesDataOfLecturesAttachmentModel.dart';
 import '../apiModels/GetSectionsAttachmentModel.dart';
 import '../apiModels/GetfilesdataofSectionsattachmentModel.dart';
+import '../apiModels/OpenAssignmentModel.dart';
 import '../apiModels/Register_Courses_Model.dart';
 import '../apiModels/getByLevelAndTerm.dart';
 import '../apiModels/get_all_assignments_model.dart';
@@ -414,6 +415,42 @@ class UserRepository {
       return Left(e.errModel.errorMessage);
     }
   }
+
+
+
+
+
+
+
+  Future<Either<String, List<OpenAssignmentModel>>>
+  OpenAssignment() async {
+    try {
+      final response = await api.get(
+        EndPoint.openAssignment(
+         // assignmentId: 1
+            assignmentId:   CacheHelper().getData(key: ApiKey.assignmentIdSaved),
+          ),
+          options: Options(
+            headers: {
+              'Authorization': 'Bearer ${CacheHelper().getData(key: ApiKey.token)}',
+            },
+          ),
+      );
+      List<dynamic> parsedList = response as List<dynamic>;
+      List<OpenAssignmentModel>assignmentsList = parsedList
+          .map((json) => OpenAssignmentModel.fromJson(json))
+          .toList();
+      return Right(assignmentsList);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
+  }
+
+
+
+
+
+
 
 
   /// PARENT

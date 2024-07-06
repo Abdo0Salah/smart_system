@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../../../apiModels/get_all_assignments_model.dart';
+import '../../../../../../cache/cache_helper.dart';
+import '../../../../../../core/api/end_ponits.dart';
 import '../../../../../../cubit/user_cubit.dart';
 import '../../../../../../cubit/user_state.dart';
 import '../openAssignmentScreen.dart';
@@ -187,6 +189,8 @@ class _AllTapState extends State<AllTap> {
                       child: Center(
                         child: TextButton(
                           onPressed: () {
+                            CacheHelper().saveData(key: ApiKey.assignmentIdSaved, value:  assignment.id);
+
                             Navigator.pushNamed(
                               context,
                               OpenAssignmentScreen.routeName,

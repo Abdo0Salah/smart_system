@@ -299,4 +299,33 @@ class UserCubit extends Cubit<UserState> {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+  OpenAssignment() async {
+    emit(OpenAssignmentLoading());
+    final response = await userRepository.OpenAssignment();
+    print(response.toString());
+    response.fold(
+          (errMessage) => emit(OpenAssignmentFailure(errMessage: errMessage)),
+          (assignmentR) => emit(OpenAssignmentSuccess(assignmentR: assignmentR)),
+    );
+  }
+
+
+
+
+
+
+
+
 }

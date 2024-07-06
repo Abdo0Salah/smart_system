@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
-
 import '../../../../../../cubit/user_cubit.dart';
 import '../../../../../../cubit/user_state.dart';
-import '../../../apiModels/get_all_meetings_model.dart';
-import '../../../apiModels/get_section_assignment_model.dart';
-import 'materials-tap/assignment/openAssignmentScreen.dart';
+import '../../../apiModels/OpenAssignmentModel.dart';
+import 'materials-tap/assignment/add_answer_screen.dart';
 
 class Testooo extends StatefulWidget {
   static const String routeName = 'Testooo';
@@ -21,7 +17,7 @@ class _TestoooState extends State<Testooo> {
   @override
   void initState() {
     super.initState();
-    context.read<UserCubit>().GetAllMeetings();
+    context.read<UserCubit>().OpenAssignment();
   }
 
   @override
@@ -29,26 +25,23 @@ class _TestoooState extends State<Testooo> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            "Meeting Information",
-            style: GoogleFonts.fjordOne(
-              fontWeight: FontWeight.w400,
-              fontSize: 22.sp,
-              color: Colors.black,
-            ),
-          ),
-          iconTheme: const IconThemeData(color: Colors.black),
-          backgroundColor: Colors.transparent,
+          backgroundColor:Color(0xffEFF3F7FF) ,
           elevation: 0,
+          title: Text('Assignment  ',
+              style: TextStyle(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black
+              )),
         ),
         backgroundColor: const Color(0xffF5F9FE),
         body: BlocBuilder<UserCubit, UserState>(
           builder: (context, state) {
-            if (state is GetAllMeetingsLoading) {
+            if (state is OpenAssignmentLoading) {
               return Center(child: CircularProgressIndicator());
-            } else if (state is GetAllMeetingsSuccess) {
-              return _buildSubjectList(state.meetingR);
-            } else if (state is GetAllMeetingsFailure) {
+            } else if (state is OpenAssignmentSuccess) {
+              return _buildSubjectList(state.assignmentR);
+            } else if (state is OpenAssignmentFailure) {
               return Center(
                   child: Text('Failed to load subjects: ${state.errMessage}'));
             } else {
@@ -60,165 +53,101 @@ class _TestoooState extends State<Testooo> {
     );
   }
 
-  Widget _buildSubjectList(List<GetAllMeetingsModel> meetings) {
-    return Column(
-      children: [
-        Expanded(
-          child: ListView.builder(
-            itemCount: meetings.length,
-            itemBuilder: (context, index) {
-              final meeting = meetings[index];
-              return _buildSubjectItem(meeting, index + 1);
-            },
+  Widget _buildSubjectList(List<OpenAssignmentModel> assignments) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          SizedBox(height: 30,),
+          Expanded(
+            child: ListView.builder(
+              itemCount: assignments.length,
+              itemBuilder: (context, index) {
+                final assignment = assignments[index];
+                return _buildSubjectItem(assignment, index + 1);
+              },
+            ),
           ),
-        ),
-      ],
+          SizedBox(height: 30.h,),
+
+        ],
+      ),
     );
   }
 
-  Widget _buildSubjectItem(GetAllMeetingsModel meeting, int index) {
+  Widget _buildSubjectItem(OpenAssignmentModel assignment, int index) {
     return Column(
       children: [
-        Padding(
-          padding:  EdgeInsets.all(8.0.w),
-          child: Card(
-            shadowColor: Colors.grey,
-            elevation: 20,
-            surfaceTintColor: Colors.grey,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Subject Name: Android',
-                    style: GoogleFonts.ubuntu(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 20.sp,
-                      color: Colors.black,
+
+        Container(decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey,
+                blurRadius: 4,
+                offset: Offset(4, 8), // Shadow position
+              ),
+            ],
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(8).r)
+
+        ),
+          child:  Padding(
+            padding: const EdgeInsets.all(8.0).w,
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 30.r,
+                  backgroundColor: const Color(0xffC4C4C4),
+                  child: ClipOval(
+                    child: Image.asset(
+                     assignment.fileExtension == ".pdf"
+                          ? "assets/images/pdff.png"
+                          : "assets/images/word.png",
+                      fit: BoxFit.fitWidth,
+
                     ),
                   ),
-                  SizedBox(height: 30.h),
-                  Container(
-                    height: 2,
-                    width: 400,
-                    color: Colors.black,
-                  ),
-                  Table(
-                    border: TableBorder.symmetric(inside: const BorderSide()),
-                    columnWidths: const {
-                      0: FlexColumnWidth(1),
-                      1: FlexColumnWidth(1),
-                    },
-                    children: [
-                      TableRow(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 8.0, horizontal: 8.0),
-                            child: Text(
-                              'Title',
-                              style: GoogleFonts.ubuntu(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 17.sp,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 8.0, horizontal: 8.0),
-                            child: Text(
-                              meeting.title ?? '-',
-                              style: GoogleFonts.ubuntu(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 15.sp,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 8.0, horizontal: 8.0),
-                            child: Text(
-                              'Meeting Start Time',
-                              style: GoogleFonts.ubuntu(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 17.sp,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 8.0, horizontal: 8.0),
-                            child: Text(
-                              DateFormat('yyyy-MM-dd').format(
-                                  DateTime.parse(meeting.startDate ?? '-')),
-                              style: GoogleFonts.ubuntu(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 15.sp,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 8.0, horizontal: 8.0),
-                            child: Text(
-                              'Meeting Link',
-                              style: GoogleFonts.ubuntu(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 17.sp,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 8.0, horizontal: 8.0),
-                            child: InkWell(
-                              onTap: () {
-                                // Handle link tap
-                              },
-                              child: Text(
-                                meeting.url ?? '-',
-                                style: GoogleFonts.ubuntu(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 15.sp,
-                                  color: Colors.blue,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Container(
-                    height: 2,
-                    width: 400,
-                    color: Colors.black,
-                  ),
-                  const SizedBox(height: 60.0),
-
-                ],
-              ),
+                ),
+                SizedBox(width: 5.w,),
+                Text(
+                  assignment.fileName ?? 'null',
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.sp,
+                      color: Colors.black),
+                ),
+              ],
             ),
           ),
         ),
+        SizedBox(height: 15.h,),
+        Row(
+          children: [
+            RawMaterialButton(
+              onPressed: () {
+                Navigator.pushNamed(context, AddAnswerScreen.routeName);
+              },
+              constraints: BoxConstraints(),
+              elevation: 2.0,
+              fillColor: Colors.blue,
+              child: InkWell(
+                onTap: (){ Navigator.popAndPushNamed(context, AddAnswerScreen.routeName);},
+
+                child: Icon(
+                  Icons.add,
+                  size: 25.0,
+                  color: Colors.white,
+                ),
+              ),
+              padding: EdgeInsets.all(15.0).w,
+              shape: CircleBorder(),
+            ),
+            SizedBox(width: 15.w,),
+            Text(
+              "add answer",
+              style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16.sp,
+                  color: Colors.black),
+            ),
+          ],
+        )
       ],
     );
   }

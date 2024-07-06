@@ -9,8 +9,7 @@ class LectureAttavhmentDetails extends StatefulWidget {
   static const String routeName = 'LectureAttavhmentDetails';
 
   @override
-  _LectureAttavhmentDetailsState createState() =>
-      _LectureAttavhmentDetailsState();
+  _LectureAttavhmentDetailsState createState() => _LectureAttavhmentDetailsState();
 }
 
 class _LectureAttavhmentDetailsState extends State<LectureAttavhmentDetails> {
@@ -36,8 +35,7 @@ class _LectureAttavhmentDetailsState extends State<LectureAttavhmentDetails> {
             } else if (state is GetFilesDataOfLecturesAttachmentSuccess) {
               return _buildSubjectList(state.FilesDataR);
             } else if (state is GetFilesDataOfLecturesAttachmentFailure) {
-              return Center(
-                  child: Text('Failed to load subjects: ${state.errMessage}'));
+              return Center(child: Text('Failed to load subjects: ${state.errMessage}'));
             } else {
               return Center(child: Text('Unknown state'));
             }
@@ -47,88 +45,79 @@ class _LectureAttavhmentDetailsState extends State<LectureAttavhmentDetails> {
     );
   }
 
-  Widget _buildSubjectList(
-      List<GetfilesdataoflecturesattachmentModel> FilesData) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 50.h,
+  Widget _buildSubjectList(List<GetfilesdataoflecturesattachmentModel> FilesData) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+      child: GridView.builder(
+        itemCount: FilesData.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10.w,
+          mainAxisSpacing: 10.h,
+          childAspectRatio: 0.75,
         ),
-        Expanded(
-            child: GridView.builder(
-              itemCount: FilesData.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-              ),
-              itemBuilder: (context, index) {
-                final FileData = FilesData[index];
-                return _buildSubjectItem(FileData, index + 1);
-              },
-            )),
-      ],
+        itemBuilder: (context, index) {
+          final fileData = FilesData[index];
+          return _buildSubjectItem(fileData);
+        },
+      ),
     );
   }
 
-  Widget _buildSubjectItem(
-      GetfilesdataoflecturesattachmentModel FileData, int index) {
+  Widget _buildSubjectItem(GetfilesdataoflecturesattachmentModel fileData) {
     return Padding(
-      padding: const EdgeInsets.all(8.0).w,
-      child: Column(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+      padding: EdgeInsets.all(8.0).w,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.r),
+          color: const Color(0xFFAAC8E4),
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(8.0).w,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.r),
-                    color: Color(0xFFAAC8E4)),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0).w,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      CircleAvatar(
-                        child: Image.asset('assets/images/doctor/pdf.png'),
-                      ),
-                      SizedBox(
-                        height: 8.h,
-                      ),
-                      Text(
-                        FileData.fileName ?? '-',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400, fontSize: 17.sp),
-                      ),
-                      Text(
-                        FileData.description ?? '-',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 11.sp,
-                            color: Colors.blueGrey),
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Row(
-                        children: [
-                          Spacer(),
-                          InkWell(
-                              child: Icon(
-                                Icons.download,
-                                color: Colors.black,
-                                size: 25,
-                              )),
-                        ],
-                      )
-                    ],
-                  ),
+              CircleAvatar(
+                child: Image.asset('assets/images/doctor/pdf.png'),
+              ),
+              SizedBox(height: 8.h),
+              Text(
+                fileData.fileName ?? '-',
+                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15.sp),
+                textAlign: TextAlign.center,
+                // overflow: TextOverflow.ellipsis,
+              ),
+              SizedBox(height: 8.h),
+              Text(
+                fileData.description ?? '-',
+                style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 11.sp,
+                  color: Colors.blueGrey,
                 ),
+                textAlign: TextAlign.center,
+                // overflow: TextOverflow.ellipsis,
+              ),
+              SizedBox(height: 8.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      // Handle file download
+                    },
+                    child: Icon(
+                      Icons.download,
+                      color: Colors.black,
+                      size: 25,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }

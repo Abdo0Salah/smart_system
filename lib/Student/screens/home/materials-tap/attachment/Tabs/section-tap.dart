@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../apiModels/GetSectionsAttachmentModel.dart';
-import '../../../../../../apiModels/get_lectures_attachment.dart';
 import '../../../../../../cache/cache_helper.dart';
 import '../../../../../../core/api/end_ponits.dart';
 import '../../../../../../cubit/user_cubit.dart';
 import '../../../../../../cubit/user_state.dart';
-import '../lecture_atta-details.dart';
 import '../section_atta-details.dart';
 
 class SectionsAttachmentTap extends StatefulWidget {
@@ -46,120 +44,95 @@ class _SectionsAttachmentTapState extends State<SectionsAttachmentTap> {
   }
 
   Widget _buildSubjectList(List<GetSectionsAttachmentModel> attachments) {
-    return Column(
-      children: [
-        Expanded(
-            child:GridView.builder(
-              itemCount: attachments.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-              ),
-              itemBuilder: (context, index) {
-                final attachment = attachments[index];
-                return _buildSubjectItem(attachment, index + 1);
-              },
-            )
-
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+      child: GridView.builder(
+        itemCount: attachments.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10.w,
+          mainAxisSpacing: 10.h,
+          childAspectRatio: 0.75,
         ),
-      ],
+        itemBuilder: (context, index) {
+          final attachment = attachments[index];
+          return _buildSubjectItem(attachment, index + 1);
+        },
+      ),
     );
   }
 
   Widget _buildSubjectItem(GetSectionsAttachmentModel attachment, int index) {
     return InkWell(
       onTap: () {
-        CacheHelper().saveData(key: ApiKey.sectionIdSaved, value:  attachment.id);
-
+        CacheHelper().saveData(key: ApiKey.sectionIdSaved, value: attachment.id);
         Navigator.pushNamed(
           context,
           SectionAttavhmentDetails.routeName,
         );
       },
       child: Padding(
-        padding: const EdgeInsets.all(8.0).w,
-        child: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20).r,
-                  color: Color(0xFFAAC8E4)),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0).w,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+        padding: EdgeInsets.all(8.0.w),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20.r),
+            color: const Color(0xFFAAC8E4),
+          ),
+          child: Padding(
+            padding: EdgeInsets.all(15.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  attachment.title ?? '-',
+                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15.sp),
+                  // overflow: TextOverflow.ellipsis,
+                ),
+                SizedBox(
+                  height: 15.h,
+                ),
+                Text(
+                  "Topic of the Lecture",
+                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 11.sp),
+                  // overflow: TextOverflow.ellipsis,
+                ),
+                SizedBox(
+                  height: 25.h,
+                ),
+                Row(
                   children: [
-                    Text(
-                      attachment.title ?? '-',
-                      style:
-                      TextStyle(fontWeight: FontWeight.w400, fontSize: 21.sp),
-                    ),
-                    Text(
-                      "Topic of the Lecture",
-                      style:
-                      TextStyle(fontWeight: FontWeight.w400, fontSize: 11.sp),
+                    Expanded(flex: 1,
+                      child: CircleAvatar(
+                        maxRadius: 15.r,
+                      ),
                     ),
                     SizedBox(
-                      height: 8.h,
+                      width: 10.w,
                     ),
-                    Row(
-                      children: [
-                        Icon(Icons.file_copy_outlined, size: 15),
-                        Text(
-                          "01 files",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400, fontSize: 11.sp),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Icon(Icons.ondemand_video_sharp, size: 15),
-                        Text(
-                          "01 video",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400, fontSize: 11.sp),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          maxRadius: 15.r,
-                        ),
-                        SizedBox(
-                          width: 8.w,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Uploded by",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400, fontSize: 11.sp),
-                            ),
-                            Text(
-                              attachment.uploadedBy ?? 'Doctor',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400, fontSize: 11.sp),
-                            ),
-                          ],
-                        ),
-                      ],
+                    Expanded(flex: 2,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Uploaded by",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400, fontSize: 11.sp),
+                            // overflow: TextOverflow.ellipsis,
+                          ),
+                          Text(
+                            attachment.uploadedBy ?? 'Doctor',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400, fontSize: 11.sp),
+                            // overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
-              ),
+              ],
             ),
-            SizedBox(
-              height: 5.h,
-            )
-          ],
+          ),
         ),
       ),
     );

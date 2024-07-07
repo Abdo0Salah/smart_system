@@ -73,8 +73,6 @@ class EndPoint {
 
 
 
-
-
 ///parent
   static String signInParent = "/api/Parents/register";
 
@@ -124,6 +122,7 @@ class ApiKey {
   static String lectureIdSaved ="lectureIdSaved";
   static String sectionIdSaved ="sectionIdSaved";
   static String assignmentIdSaved ="assignmentIdSaved";
+  static String postIdSaved ="postIdSaved";
 
 
 

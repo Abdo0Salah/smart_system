@@ -1,12 +1,11 @@
 import 'package:smart_system/Student/screens/home/materials-tap/mat_page.dart';
-import 'package:smart_system/Student/screens/home/notification/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../../../cubit/user_cubit.dart';
 import '../../../../../../cubit/user_state.dart';
-import '../../../apiModels/get_all_posts_model.dart';
+import '../../../apiModels/get_all_replies_model.dart';
 import '../../../cache/cache_helper.dart';
 import '../../../core/api/end_ponits.dart';
 
@@ -22,7 +21,7 @@ class _TestoooState extends State<Testooo> {
   @override
   void initState() {
     super.initState();
-    context.read<UserCubit>().GetAllPosts();
+    context.read<UserCubit>().GetAllReplies();
   }
 
   @override
@@ -32,11 +31,11 @@ class _TestoooState extends State<Testooo> {
         backgroundColor: const Color(0xffF5F9FE),
         body: BlocBuilder<UserCubit, UserState>(
           builder: (context, state) {
-            if (state is GetAllPostsLoading) {
+            if (state is GetAllRepliesLoading) {
               return Center(child: CircularProgressIndicator());
-            } else if (state is GetAllPostsSuccess) {
-              return _buildSubjectList(state.postR);
-            } else if (state is GetAllPostsFailure) {
+            } else if (state is GetAllRepliesSuccess) {
+              return _buildSubjectList(state.replyR);
+            } else if (state is GetAllRepliesFailure) {
               return Center(
                   child: Text('Failed to load subjects: ${state.errMessage}'));
             } else {
@@ -48,7 +47,7 @@ class _TestoooState extends State<Testooo> {
     );
   }
 
-  Widget _buildSubjectList(List<GetAllPostsModel> posts) {
+  Widget _buildSubjectList(List<GetAllRepliesModel> replies) {
     return Column(
       children: [
         Row(
@@ -109,10 +108,10 @@ class _TestoooState extends State<Testooo> {
         ),
         Expanded(
           child: ListView.builder(
-            itemCount: posts.length,
+            itemCount: replies.length,
             itemBuilder: (context, index) {
-              final post = posts[index];
-              return _buildSubjectItem(post, index + 1);
+              final reply = replies[index];
+              return _buildSubjectItem(reply, index + 1);
             },
           ),
         ),
@@ -120,7 +119,7 @@ class _TestoooState extends State<Testooo> {
     );
   }
 
-  Widget _buildSubjectItem(GetAllPostsModel post, int index) {
+  Widget _buildSubjectItem(GetAllRepliesModel reply, int index) {
     return Column(
       children: [
         Padding(
@@ -135,10 +134,10 @@ class _TestoooState extends State<Testooo> {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    post.title??'-',
+                    reply.content??'-',
                     style: GoogleFonts.ubuntu(
                       fontWeight: FontWeight.w700,
                       fontSize: 20.sp,
@@ -148,55 +147,6 @@ class _TestoooState extends State<Testooo> {
                   SizedBox(
                     height: 10.h,
                   ),
-                  Container(
-                    height: 2,
-                    color: Colors.black,
-                  ),
-                  SizedBox(height: 30.h),
-                  Text(
-                    post.content??'-',
-                    style: GoogleFonts.ubuntu(
-                      fontWeight: FontWeight.w300,
-                      fontSize: 15.sp,
-                      color: Colors.black,
-                    ),
-                  ),
-                   SizedBox(height: 30.h),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      InkWell(
-                        onTap: (){
-                          Navigator.pushNamed(
-                            context,
-                            NotificationScreen.routeName,
-                          );
-                        } ,
-                        child: Container(
-                          width: 150.w,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.r),
-                            color: Colors.grey,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text("Reply's", style: TextStyle(
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.italic,
-                                color: Colors.white
-                              ),),
-                              SizedBox(width: 10.w),
-                              const Icon(Icons.replay,color: Colors.white)
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
                 ],
               ),
             ),

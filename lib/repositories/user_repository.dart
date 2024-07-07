@@ -312,10 +312,8 @@ class UserRepository {
     try {
       final response = await api.get(
         EndPoint.getAllReplies(
-          //CacheHelper().getData(key: ApiKey.groupIdSaved),
-          21
+          CacheHelper().getData(key: ApiKey.postIdSaved),
         ),
-
       );
       List<dynamic> parsedList = response as List<dynamic>;
       List<GetAllRepliesModel> repliesList = parsedList

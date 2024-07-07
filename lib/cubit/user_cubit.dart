@@ -89,6 +89,24 @@ class UserCubit extends Cubit<UserState> {
     );
   }
 
+  Future<void> logout() async {
+    emit(UserLogoutLoading());
+    final response = await userRepository.logout();
+    response.fold(
+          (error) => emit(UserLogoutFailure(errMessage: error)),
+          (_) => emit(UserLogoutSuccess()),
+    );
+  }
+
+  Future<void> checkLoginStatus() async {
+    final isLoggedIn = await userRepository.isLoggedIn();
+    if (isLoggedIn) {
+      emit(SignInSuccess());
+    } else {
+      emit(UserInitial());
+    }
+  }
+
   Future<void> getUserProfile() async {
     emit(GetUserLoading());
     final result = await userRepository.getUserProfile();
@@ -140,28 +158,20 @@ class UserCubit extends Cubit<UserState> {
     emit(CourseRegistrationLoading());
     final response = await userRepository.registerCourses(courseIds);
     response.fold(
-      (errMessage) => emit(CourseRegistrationFailure(errMessage: errMessage)),
-      (registerCoursesModel) => emit(CourseRegistrationSuccess(
+          (errMessage) => emit(CourseRegistrationFailure(errMessage: errMessage)),
+          (registerCoursesModel) => emit(CourseRegistrationSuccess(
           registerCoursesModel: registerCoursesModel)),
     );
   }
 
-  Future<void> logout() async {
-    emit(UserLogoutLoading());
-    final response = await userRepository.logout();
+  GetCoursesbyLevelAndTerm() async {
+    emit(GetCoursesbyLevelAndTermLoading());
+    final response = await userRepository.GetCoursesbyLevelAndTerm();
+    print(response.toString());
     response.fold(
-      (error) => emit(UserLogoutFailure(errMessage: error)),
-      (_) => emit(UserLogoutSuccess()),
+          (errMessage) => emit(GetCoursesbyLevelAndTermFailure(errMessage: errMessage)),
+          (courseR) => emit(GetCoursesbyLevelAndTermSuccess(courseR: courseR)),
     );
-  }
-
-  Future<void> checkLoginStatus() async {
-    final isLoggedIn = await userRepository.isLoggedIn();
-    if (isLoggedIn) {
-      emit(SignInSuccess());
-    } else {
-      emit(UserInitial());
-    }
   }
 
   getGroups() async {
@@ -205,6 +215,8 @@ class UserCubit extends Cubit<UserState> {
     );
   }
 
+
+///---------------------------Attachment-------------------///
   GetLecturesAttachment() async {
     emit(GetLecturesAttachmentLoading());
     final response = await userRepository.GetLecturesAttachment();
@@ -214,8 +226,6 @@ class UserCubit extends Cubit<UserState> {
           (attachmenR) => emit(GetLecturesAttachmentSuccess(attachmenR: attachmenR)),
     );
   }
-
-
 
   GetSectionsAttachment() async {
     emit(GetSectionsAttachmentLoading());
@@ -247,6 +257,8 @@ class UserCubit extends Cubit<UserState> {
     );
   }
 
+
+///--------------------------Assignment----------------------///
   GetAllAssignments() async {
     emit(GetAllAssignmentsLoading());
     final response = await userRepository.GetAllAssignments();
@@ -277,16 +289,6 @@ class UserCubit extends Cubit<UserState> {
     );
   }
 
-  GetCoursesbyLevelAndTerm() async {
-    emit(GetCoursesbyLevelAndTermLoading());
-    final response = await userRepository.GetCoursesbyLevelAndTerm();
-    print(response.toString());
-    response.fold(
-          (errMessage) => emit(GetCoursesbyLevelAndTermFailure(errMessage: errMessage)),
-          (courseR) => emit(GetCoursesbyLevelAndTermSuccess(courseR: courseR)),
-    );
-  }
-
   OpenAssignment() async {
     emit(OpenAssignmentLoading());
     final response = await userRepository.OpenAssignment();
@@ -296,6 +298,8 @@ class UserCubit extends Cubit<UserState> {
           (assignmentR) => emit(OpenAssignmentSuccess(assignmentR: assignmentR)),
     );
   }
+
+
 
 ///--------------------------------Doctor--------------------------------------
 

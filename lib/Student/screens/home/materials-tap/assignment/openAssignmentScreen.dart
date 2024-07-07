@@ -1,3 +1,7 @@
+import 'dart:io';
+import 'dart:math';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,7 +9,8 @@ import '../../../../../../cubit/user_cubit.dart';
 import '../../../../../../cubit/user_state.dart';
 import '../../../../../apiModels/OpenAssignmentModel.dart';
 import 'add_answer_screen.dart';
-
+import 'package:open_file/open_file.dart';
+import 'package:path_provider/path_provider.dart';
 class OpenAssignmentScreen extends StatefulWidget {
   static const String routeName = 'OpenAssignmentScreen';
 
@@ -14,6 +19,8 @@ class OpenAssignmentScreen extends StatefulWidget {
 }
 
 class _OpenAssignmentScreenState extends State<OpenAssignmentScreen> {
+  final Dio dio = Dio();
+
   @override
   void initState() {
     super.initState();
@@ -80,46 +87,50 @@ class _OpenAssignmentScreenState extends State<OpenAssignmentScreen> {
     return Column(
       children: [
 
-        Container(decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey,
-                blurRadius: 4.r,
-                offset: Offset(4.w, 8.h), // Shadow position
-              ),
-            ],
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(8.r))
+        InkWell(
+          onTap: () => _downloadFile(assignment.fileName, assignment.id??0),
 
-        ),
-          child:  Padding(
-            padding: const EdgeInsets.all(8.0).w,
-            child: Row(
-              children: [
-                Expanded(flex: 1,
-                  child: CircleAvatar(
-                    radius: 20.r,
-                    backgroundColor: const Color(0xffC4C4C4),
-                    child: ClipOval(
-                      child: Image.asset(
-                        assignment.fileExtension == ".pdf"
-                            ? "assets/images/pdff.png"
-                            : "assets/images/word.png",
-                        fit: BoxFit.fitWidth,
+          child: Container(decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey,
+                  blurRadius: 4.r,
+                  offset: Offset(4.w, 8.h), // Shadow position
+                ),
+              ],
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(8.r))
 
+          ),
+            child:  Padding(
+              padding: const EdgeInsets.all(8.0).w,
+              child: Row(
+                children: [
+                  Expanded(flex: 1,
+                    child: CircleAvatar(
+                      radius: 20.r,
+                      backgroundColor: const Color(0xffC4C4C4),
+                      child: ClipOval(
+                        child: Image.asset(
+                          assignment.fileExtension == ".pdf"
+                              ? "assets/images/pdff.png"
+                              : "assets/images/word.png",
+                          fit: BoxFit.fitWidth,
+
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(width: 5.w,),
-                Expanded(flex: 4,
-                  child: Text(
-                    assignment.fileName ?? 'null',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.sp,
-                        color: Colors.black),
+                  SizedBox(width: 5.w,),
+                  Expanded(flex: 4,
+                    child: Text(
+                      assignment.fileName ?? 'null',
+                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.sp,
+                          color: Colors.black),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -128,6 +139,7 @@ class _OpenAssignmentScreenState extends State<OpenAssignmentScreen> {
           children: [
             RawMaterialButton(
               onPressed: () {
+
                 Navigator.pushNamed(context, AddAnswerScreen.routeName);
               },
               constraints: const BoxConstraints(),
@@ -136,7 +148,8 @@ class _OpenAssignmentScreenState extends State<OpenAssignmentScreen> {
               padding: EdgeInsets.all(15.0.w),
               shape: const CircleBorder(),
               child: InkWell(
-                onTap: (){ Navigator.popAndPushNamed(context, AddAnswerScreen.routeName);},
+                onTap: (){
+                  Navigator.popAndPushNamed(context, AddAnswerScreen.routeName);},
 
                 child: Icon(
                   Icons.add,
@@ -156,4 +169,61 @@ class _OpenAssignmentScreenState extends State<OpenAssignmentScreen> {
       ],
     );
   }
+  Future<void> _downloadFile(String? fileName, int fileId) async {
+    if (fileName == null) return;
+
+    try {
+      Directory? downloadsDir;
+
+      if (Platform.isAndroid) {
+        downloadsDir = await getExternalStorageDirectory();
+        String newPath = "";
+        List<String> paths = downloadsDir!.path.split("/");
+        for (int i = 1; i < paths.length; i++) {
+          String folder = paths[i];
+          if (folder != "Android") {
+            newPath += "/" + folder;
+          } else {
+            break;
+          }
+        }
+        newPath = newPath + "/Download";
+        downloadsDir = Directory(newPath);
+      } else if (Platform.isIOS) {
+        downloadsDir = await getApplicationDocumentsDirectory();
+      }
+      Random random1 = new Random();
+      var count1 = random1.nextInt(20);
+      String filePath = "${downloadsDir!.path}/${count1}_$fileName";
+      Random random = new Random();
+      var count = random.nextInt(20);
+
+      while (await File(filePath).exists()) {
+        filePath = "${downloadsDir.path}/${count}_$fileName";
+        count++;
+      }
+
+      final response = await dio.download(
+        "http://eirpsystem.runasp.net/api/Assignment/download/$fileId",
+        filePath,
+      );
+
+      if (response.statusCode == 200) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('File downloaded successfully!')),
+        );
+        OpenFile.open(filePath);
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to download file.')),
+        );
+      }
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error occurred: $e')),
+      );
+    }
+  }
+
 }

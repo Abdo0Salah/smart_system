@@ -1,10 +1,14 @@
+import 'dart:io';
+import 'dart:math';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../apiModels/GetFilesDataOfLecturesAttachmentModel.dart';
+import 'package:path_provider/path_provider.dart';
 import '../../../../../apiModels/GetfilesdataofSectionsattachmentModel.dart';
 import '../../../../../cubit/user_cubit.dart';
 import '../../../../../cubit/user_state.dart';
+import 'package:open_file/open_file.dart';
 
 class SectionAttavhmentDetails extends StatefulWidget {
   static const String routeName = 'SectionAttavhmentDetails';
@@ -15,6 +19,7 @@ class SectionAttavhmentDetails extends StatefulWidget {
 }
 
 class _SectionAttavhmentDetailsState extends State<SectionAttavhmentDetails> {
+  final Dio dio = Dio();
   @override
   void initState() {
     super.initState();
@@ -116,6 +121,7 @@ class _SectionAttavhmentDetailsState extends State<SectionAttavhmentDetails> {
                         children: [
                           Spacer(),
                           InkWell(
+                              onTap: () => _downloadFile(FileData.fileName, FileData.id??0),
                               child: Icon(
                             Icons.download,
                             color: Colors.black,
@@ -133,4 +139,64 @@ class _SectionAttavhmentDetailsState extends State<SectionAttavhmentDetails> {
       ),
     );
   }
+
+  Future<void> _downloadFile(String? fileName, int fileId) async {
+    if (fileName == null) return;
+
+    try {
+      Directory? downloadsDir;
+
+      if (Platform.isAndroid) {
+        downloadsDir = await getExternalStorageDirectory();
+        String newPath = "";
+        List<String> paths = downloadsDir!.path.split("/");
+        for (int i = 1; i < paths.length; i++) {
+          String folder = paths[i];
+          if (folder != "Android") {
+            newPath += "/" + folder;
+          } else {
+            break;
+          }
+        }
+        newPath = newPath + "/Download";
+        downloadsDir = Directory(newPath);
+      } else if (Platform.isIOS) {
+        downloadsDir = await getApplicationDocumentsDirectory();
+      }
+      Random random1 = new Random();
+      var count1 = random1.nextInt(20);
+      String filePath = "${downloadsDir!.path}/${count1}_$fileName";
+      Random random = new Random();
+      var count = random.nextInt(20);
+
+      while (await File(filePath).exists()) {
+        filePath = "${downloadsDir.path}/${count}_$fileName";
+        count++;
+      }
+
+      final response = await dio.download(
+        "http://eirpsystem.runasp.net/api/Files/download/section/$fileId",
+        filePath,
+      );
+
+      if (response.statusCode == 200) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('File downloaded successfully!')),
+        );
+        OpenFile.open(filePath);
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to download file.')),
+        );
+      }
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error occurred: $e')),
+      );
+    }
+  }
+
+
+
 }

@@ -32,6 +32,10 @@ class EndPoint {
     return  "/api/Posts/$groupId";
   }
 
+  static String getAllReplies (postId) {
+    return  "/api/Replies/GetByPostId/$postId";
+  }
+
   ///------------------------Attachment---------------------------///
   static String getLecturesAttachment(groupId) {
     return  "/api/Lectures/getAll/$groupId";
@@ -63,8 +67,6 @@ class EndPoint {
   static String openAssignment ({required assignmentId}) {
     return  "/api/Assignment/openAssignment/$assignmentId";
   }
-
-
 
 
 
@@ -120,6 +122,7 @@ class ApiKey {
   static String lectureIdSaved ="lectureIdSaved";
   static String sectionIdSaved ="sectionIdSaved";
   static String assignmentIdSaved ="assignmentIdSaved";
+  static String postIdSaved ="postIdSaved";
 
 
 

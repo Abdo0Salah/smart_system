@@ -1,3 +1,4 @@
+import 'package:smart_system/Student/screens/home/TESTO.dart';
 import 'package:smart_system/Student/screens/home/materials-tap/mat_page.dart';
 import 'package:smart_system/Student/screens/home/notification/notification_screen.dart';
 import 'package:flutter/material.dart';
@@ -169,9 +170,10 @@ class _PostScreenState extends State<PostScreen> {
                     children: [
                       InkWell(
                         onTap: (){
+                          CacheHelper().saveData(key: ApiKey.postIdSaved, value: post.id);
                           Navigator.pushNamed(
                             context,
-                            NotificationScreen.routeName,
+                            Testooo.routeName,
                           );
                         } ,
                         child: Container(

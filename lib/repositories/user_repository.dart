@@ -324,6 +324,48 @@ class UserRepository {
     }
   }
 
+
+
+
+
+
+
+
+  Future<Either<String, void>> addComment({
+    required String commentContent,
+    required int postId,
+    required int userId,
+  }) async {
+    try {
+      final response = await api.post(
+        EndPoint.AddReplie,
+        data: {
+          'content': commentContent,
+          'postId': postId,
+          'userId': userId,
+        },
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer ${CacheHelper().getData(key: ApiKey.token)}',
+          },
+        ),
+      );
+      return Right(response);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
   Future<Either<String, List<GetLecturesAttachmentModel>>>
   GetLecturesAttachment() async {
     try {

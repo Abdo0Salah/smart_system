@@ -26,7 +26,7 @@ class _PostScreenState extends State<PostScreen> {
   @override
   void initState() {
     super.initState();
-   // context.read<UserCubit>().GetAllPosts();
+    context.read<UserCubit>().GetAllPosts();
   }
 
   @override

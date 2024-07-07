@@ -258,7 +258,16 @@ final class SignInFailure extends UserState {
 
   SignInFailure({required this.errMessage});
 }
+///
+final class AddCommentLoading extends UserState {}
 
+final class AddCommentSuccess extends UserState {}
+
+final class AddCommentFailure extends UserState {
+  final String errMessage;
+
+  AddCommentFailure({required this.errMessage});
+}
 ///
 final class SignUpSuccess extends UserState {}
 

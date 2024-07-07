@@ -36,6 +36,10 @@ class EndPoint {
     return  "/api/Replies/GetByPostId/$postId";
   }
 
+  static String AddReplie = "/api/Replies";
+
+
+
   ///------------------------Attachment---------------------------///
   static String getLecturesAttachment(groupId) {
     return  "/api/Lectures/getAll/$groupId";

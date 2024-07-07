@@ -1,17 +1,18 @@
-import 'package:smart_system/Student/screens/home/materials-tap/mat_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../../../cubit/user_cubit.dart';
-import '../../../../../../cubit/user_state.dart';
+
 import '../../../../../apiModels/get_all_replies_model.dart';
 import '../../../../../cache/cache_helper.dart';
 import '../../../../../core/api/end_ponits.dart';
-
+import '../../../../../cubit/user_cubit.dart';
+import '../../../../../cubit/user_state.dart';
+import '../mat_page.dart';
 
 class ReplyesScreen extends StatefulWidget {
-  static const String routeName = 'Testooo';
+  static const String routeName = 'ReplyesScreen';
   final String genderValue = CacheHelper().getData(key: ApiKey.userGenderSaved);
 
   @override
@@ -19,6 +20,8 @@ class ReplyesScreen extends StatefulWidget {
 }
 
 class _ReplyesScreenState extends State<ReplyesScreen> {
+  TextEditingController commentController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -41,7 +44,6 @@ class _ReplyesScreenState extends State<ReplyesScreen> {
                   child: Text('Failed to load subjects: ${state.errMessage}'));
             } else {
               context.read<UserCubit>().GetAllReplies();
-
               return Center(child: Text('Unknown state'));
             }
           },
@@ -117,13 +119,15 @@ class _ReplyesScreenState extends State<ReplyesScreen> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(bottom: 4,left: 4,right: 4).w,
+          padding: const EdgeInsets.only(bottom: 4, left: 4, right: 4).w,
           child: TextFormField(
+            controller: commentController,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'please enter task name';
-              } else
+                return 'Please enter a comment';
+              } else {
                 return null;
+              }
             },
             decoration: InputDecoration(
               filled: true,
@@ -142,8 +146,6 @@ class _ReplyesScreenState extends State<ReplyesScreen> {
                             ? "assets/images/avatar1.png"
                             : "assets/images/avatar3.png",
                         fit: BoxFit.fitWidth,
-                        //  width: 180,
-                        // height: 180,
                       ),
                     ),
                   ),
@@ -152,8 +154,19 @@ class _ReplyesScreenState extends State<ReplyesScreen> {
                   )
                 ],
               ),
-              suffixIcon: Icon(Icons.send, color: Colors.black),
-              enabled: true,
+              suffixIcon: IconButton(
+                icon: Icon(Icons.send, color: Colors.black),
+                onPressed: () {
+                  if (commentController.text.isNotEmpty) {
+                    context.read<UserCubit>().addComment(
+                      commentController.text,
+                      CacheHelper().getData(key: ApiKey.postIdSaved),
+                     int.parse(CacheHelper().getData(key: ApiKey.id)) , // Assuming you have the postId saved
+                    );
+                    commentController.clear();
+                  }
+                },
+              ),
               label: Text("Add Comment",
                   style: TextStyle(
                       color: Colors.black,
@@ -163,17 +176,16 @@ class _ReplyesScreenState extends State<ReplyesScreen> {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(10).r,
                       topLeft: Radius.circular(10).r,
-                      bottomLeft:Radius.circular(5).r,
+                      bottomLeft: Radius.circular(5).r,
                       bottomRight: Radius.circular(5).r),
-                  borderSide: BorderSide(color:Color(0xFFAAC8E4),)),
+                  borderSide: BorderSide(color: Color(0xFFAAC8E4))),
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(10).r,
                       topLeft: Radius.circular(10).r,
-                      bottomLeft:Radius.circular(5).r,
-                      bottomRight: Radius.circular(5).r
-                  ),
-                  borderSide: BorderSide(color:Color(0xFFAAC8E4),)),
+                      bottomLeft: Radius.circular(5).r,
+                      bottomRight: Radius.circular(5).r),
+                  borderSide: BorderSide(color: Color(0xFFAAC8E4))),
             ),
           ),
         ),

@@ -216,6 +216,19 @@ class UserCubit extends Cubit<UserState> {
   }
 
 
+  Future<void> addComment(String commentContent, int postId,int userId) async {
+    emit(AddCommentLoading());
+    final response = await userRepository.addComment(
+      commentContent: commentContent,
+      postId: postId,
+      userId: userId,
+    );
+    response.fold(
+          (errMessage) => emit(AddCommentFailure(errMessage: errMessage)),
+          (_) => emit(AddCommentSuccess()),
+    );
+  }
+
 ///---------------------------Attachment-------------------///
   GetLecturesAttachment() async {
     emit(GetLecturesAttachmentLoading());

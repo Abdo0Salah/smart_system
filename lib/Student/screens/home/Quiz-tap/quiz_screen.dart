@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_system/Student/screens/home/Quiz-tap/section-tap.dart';
 
 
-import '../materials-tap/Feedback/Tabs/section_tap.dart';
 import 'lecture_tab.dart';
 
 class QuizScreen extends StatelessWidget {

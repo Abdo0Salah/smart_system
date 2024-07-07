@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_system/Student/screens/home/Quiz-tap/section-tap.dart';
-
 
 import 'lecture_tab.dart';
 
@@ -12,49 +13,37 @@ class QuizScreen extends StatelessWidget {
     List<Widget> tabs = [LecturTab(), SectionTap()];
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xffF0F3F7),
+        appBar: AppBar(
+          iconTheme: const IconThemeData(color: Colors.black),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: Text(
+            'Quiz',
+            style: GoogleFonts.poppins(fontSize: 18.sp, color: Colors.black),
+          ),
+          centerTitle: true,
+        ),
+        backgroundColor: const Color(0xffF0F3F7),
         body: DefaultTabController(
           length: 3,
           child: Container(
-            child: Column(
-                children: [
-                  Row(
-                   children: [
-                     Padding(
-                       padding: const EdgeInsets.only(top: 20 , left: 20 , bottom: 20),
-                       child: InkWell(
-                           onTap: (){},
-                           child: Icon(Icons.arrow_back,
-                             color: Color(0xff1B406D),
-                           )),
-                     ),
-                     Padding(
-                       padding: const EdgeInsets.only(top: 20 , left: 20 , bottom: 20),
-                       child: Text(
-                         'Quiz',
-                         style: TextStyle(
-                           fontSize: 24,
-                           fontWeight: FontWeight.w400,
-                         ),
-                       ),
-                     ),
-                   ],
+            child: Column(children: [
+              Padding(
+                padding:
+                     EdgeInsets.only(right: 100.w, left: 20.w, bottom: 10.h),
+                child: const TabBar(tabs: [
+                  Tab(
+                    child:
+                        Text("Lectuers", style: TextStyle(color: Colors.black)),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only( right: 100 , left: 20 , bottom: 10),
-                    child: TabBar(tabs: [
-                      Tab(
-                        child: Text("Lectuers",
-                            style: TextStyle(color: Colors.black)),
-                      ),
-                      Tab(
-                        child: Text("Sections",
-                            style: TextStyle(color: Colors.black)),
-                      ),
-                    ]),
+                  Tab(
+                    child:
+                        Text("Sections", style: TextStyle(color: Colors.black)),
                   ),
-                  Expanded(child: TabBarView(children: tabs)),
                 ]),
+              ),
+              Expanded(child: TabBarView(children: tabs)),
+            ]),
           ),
         ),
       ),

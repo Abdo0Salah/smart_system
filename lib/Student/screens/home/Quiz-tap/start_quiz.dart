@@ -17,7 +17,7 @@ class StartQuiz extends StatefulWidget {
 class _StartQuizState extends State<StartQuiz> {
   int _currentQuestion = 0;
   Timer? _timer;
-  int _remainingTime = 20 * 60; // 20 minutes in seconds
+  int _remainingTime = 1 * 60; // 20 minutes in seconds
 
   final List<String> _questions = [
     'What is the meaning of UI UX Design?',
@@ -82,10 +82,10 @@ class _StartQuizState extends State<StartQuiz> {
       ),
     );
 
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => QuizScreen()),
-      );
+    Navigator.pop(
+      context,
+      QuizScreen.routeName,
+    );
 
   }
 
@@ -98,7 +98,7 @@ class _StartQuizState extends State<StartQuiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
@@ -135,7 +135,7 @@ class _StartQuizState extends State<StartQuiz> {
             ),
             SizedBox(height: 20.h),
             _buildOptions(),
-            Spacer(),
+            const Spacer(),
             _buildNavigationButtons(context),
           ],
         ),
@@ -221,10 +221,10 @@ class _StartQuizState extends State<StartQuiz> {
 
               // Delaying the navigation to allow SnackBar to be visible for a moment
 
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => QuizScreen()),
-                );
+              Navigator.pop(
+                context,
+                QuizScreen.routeName,
+              );
             }
           },
           child: Text(_currentQuestion < _questions.length - 1 ? 'Next' : 'Submit Quiz'),

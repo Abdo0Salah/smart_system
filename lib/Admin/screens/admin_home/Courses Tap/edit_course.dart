@@ -19,10 +19,6 @@ class _EditCourseScreenState extends State<EditCourseScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // appBar: AppBar(
-        //   backgroundColor: Colors.transparent,
-        //   elevation: 0,
-        // ),
         backgroundColor: const Color(0xffEFF3F7FF),
         body: SingleChildScrollView(
           child: Padding(

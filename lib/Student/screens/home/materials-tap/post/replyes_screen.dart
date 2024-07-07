@@ -1,32 +1,28 @@
-import 'package:smart_system/Student/screens/home/TESTO.dart';
 import 'package:smart_system/Student/screens/home/materials-tap/mat_page.dart';
-import 'package:smart_system/Student/screens/home/materials-tap/post/replyes_screen.dart';
-import 'package:smart_system/Student/screens/home/notification/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../../../cubit/user_cubit.dart';
 import '../../../../../../cubit/user_state.dart';
-import '../../../../../apiModels/get_all_posts_model.dart';
+import '../../../../../apiModels/get_all_replies_model.dart';
 import '../../../../../cache/cache_helper.dart';
 import '../../../../../core/api/end_ponits.dart';
 
 
-class PostScreen extends StatefulWidget {
-  static const String routeName = 'PostScreen';
-  final String genderValue = CacheHelper().getData(key: ApiKey.userGenderSaved) ;
+class ReplyesScreen extends StatefulWidget {
+  static const String routeName = 'Testooo';
+  final String genderValue = CacheHelper().getData(key: ApiKey.userGenderSaved);
 
   @override
-  _PostScreenState createState() => _PostScreenState();
+  _ReplyesScreenState createState() => _ReplyesScreenState();
 }
 
-class _PostScreenState extends State<PostScreen> {
-
+class _ReplyesScreenState extends State<ReplyesScreen> {
   @override
   void initState() {
     super.initState();
-   // context.read<UserCubit>().GetAllPosts();
+    context.read<UserCubit>().GetAllReplies();
   }
 
   @override
@@ -36,14 +32,16 @@ class _PostScreenState extends State<PostScreen> {
         backgroundColor: const Color(0xffF5F9FE),
         body: BlocBuilder<UserCubit, UserState>(
           builder: (context, state) {
-            if (state is GetAllPostsLoading) {
+            if (state is GetAllRepliesLoading) {
               return Center(child: CircularProgressIndicator());
-            } else if (state is GetAllPostsSuccess) {
-              return _buildSubjectList(state.postR);
-            } else if (state is GetAllPostsFailure) {
+            } else if (state is GetAllRepliesSuccess) {
+              return _buildSubjectList(state.replyR);
+            } else if (state is GetAllRepliesFailure) {
               return Center(
                   child: Text('Failed to load subjects: ${state.errMessage}'));
             } else {
+              context.read<UserCubit>().GetAllReplies();
+
               return Center(child: Text('Unknown state'));
             }
           },
@@ -52,7 +50,7 @@ class _PostScreenState extends State<PostScreen> {
     );
   }
 
-  Widget _buildSubjectList(List<GetAllPostsModel> posts) {
+  Widget _buildSubjectList(List<GetAllRepliesModel> replies) {
     return Column(
       children: [
         Row(
@@ -83,14 +81,12 @@ class _PostScreenState extends State<PostScreen> {
                     Text(
                       "${CacheHelper().getData(key: ApiKey.userNameSaved)}",
                       style: GoogleFonts.inter(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17.sp),
+                          fontWeight: FontWeight.bold, fontSize: 17.sp),
                     ),
                     Text(
                       "${CacheHelper().getData(key: ApiKey.userEmailSaved)}",
                       style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          fontSize: 10.sp),
+                          fontWeight: FontWeight.normal, fontSize: 10.sp),
                     ),
                   ],
                 ),
@@ -113,18 +109,79 @@ class _PostScreenState extends State<PostScreen> {
         ),
         Expanded(
           child: ListView.builder(
-            itemCount: posts.length,
+            itemCount: replies.length,
             itemBuilder: (context, index) {
-              final post = posts[index];
-              return _buildSubjectItem(post, index + 1);
+              final reply = replies[index];
+              return _buildSubjectItem(reply, index + 1);
             },
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 4,left: 4,right: 4).w,
+          child: TextFormField(
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'please enter task name';
+              } else
+                return null;
+            },
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Color(0xFFAAC8E4),
+              prefixIcon: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    width: 5.w,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ClipOval(
+                      child: Image.asset(
+                        widget.genderValue == "male"
+                            ? "assets/images/avatar1.png"
+                            : "assets/images/avatar3.png",
+                        fit: BoxFit.fitWidth,
+                        //  width: 180,
+                        // height: 180,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5.w,
+                  )
+                ],
+              ),
+              suffixIcon: Icon(Icons.send, color: Colors.black),
+              enabled: true,
+              label: Text("Add Comment",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w400)),
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(10).r,
+                      topLeft: Radius.circular(10).r,
+                      bottomLeft:Radius.circular(5).r,
+                      bottomRight: Radius.circular(5).r),
+                  borderSide: BorderSide(color:Color(0xFFAAC8E4),)),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(10).r,
+                      topLeft: Radius.circular(10).r,
+                      bottomLeft:Radius.circular(5).r,
+                      bottomRight: Radius.circular(5).r
+                  ),
+                  borderSide: BorderSide(color:Color(0xFFAAC8E4),)),
+            ),
           ),
         ),
       ],
     );
   }
 
-  Widget _buildSubjectItem(GetAllPostsModel post, int index) {
+  Widget _buildSubjectItem(GetAllRepliesModel reply, int index) {
     return Column(
       children: [
         Padding(
@@ -139,10 +196,10 @@ class _PostScreenState extends State<PostScreen> {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    post.title??'-',
+                    reply.content ?? '-',
                     style: GoogleFonts.ubuntu(
                       fontWeight: FontWeight.w700,
                       fontSize: 20.sp,
@@ -152,58 +209,6 @@ class _PostScreenState extends State<PostScreen> {
                   SizedBox(
                     height: 10.h,
                   ),
-                  Container(
-                    height: 2,
-                    color: Colors.black,
-                  ),
-                  SizedBox(height: 30.h),
-                  Text(
-                    post.content??'-',
-                    style: GoogleFonts.ubuntu(
-                      fontWeight: FontWeight.w300,
-                      fontSize: 15.sp,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(height: 30.h),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      InkWell(
-                        onTap: (){
-                          CacheHelper().saveData(key: ApiKey.postIdSaved, value: post.id);
-                          context.read<UserCubit>().GetAllReplies();
-
-                          Navigator.pushNamed(
-                            context,
-                            ReplyesScreen.routeName,
-                          );
-                        } ,
-                        child: Container(
-                          width: 150.w,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.r),
-                            color: Colors.grey,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text("Reply's", style: TextStyle(
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.w500,
-                                  fontStyle: FontStyle.italic,
-                                  color: Colors.white
-                              ),),
-                              SizedBox(width: 10.w),
-                              const Icon(Icons.replay,color: Colors.white)
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
                 ],
               ),
             ),
@@ -213,4 +218,3 @@ class _PostScreenState extends State<PostScreen> {
     );
   }
 }
-

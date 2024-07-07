@@ -11,7 +11,7 @@ import '../../../core/api/end_ponits.dart';
 
 class Testooo extends StatefulWidget {
   static const String routeName = 'Testooo';
-  final String genderValue = CacheHelper().getData(key: ApiKey.userGenderSaved) ;
+  final String genderValue = CacheHelper().getData(key: ApiKey.userGenderSaved);
 
   @override
   _TestoooState createState() => _TestoooState();
@@ -78,14 +78,12 @@ class _TestoooState extends State<Testooo> {
                     Text(
                       "${CacheHelper().getData(key: ApiKey.userNameSaved)}",
                       style: GoogleFonts.inter(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17.sp),
+                          fontWeight: FontWeight.bold, fontSize: 17.sp),
                     ),
                     Text(
                       "${CacheHelper().getData(key: ApiKey.userEmailSaved)}",
                       style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          fontSize: 10.sp),
+                          fontWeight: FontWeight.normal, fontSize: 10.sp),
                     ),
                   ],
                 ),
@@ -115,6 +113,67 @@ class _TestoooState extends State<Testooo> {
             },
           ),
         ),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 4,left: 4,right: 4).w,
+          child: TextFormField(
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'please enter task name';
+              } else
+                return null;
+            },
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Color(0xFFAAC8E4),
+              prefixIcon: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    width: 5.w,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ClipOval(
+                      child: Image.asset(
+                        widget.genderValue == "male"
+                            ? "assets/images/avatar1.png"
+                            : "assets/images/avatar3.png",
+                        fit: BoxFit.fitWidth,
+                      //  width: 180,
+                       // height: 180,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5.w,
+                  )
+                ],
+              ),
+              suffixIcon: Icon(Icons.send, color: Colors.black),
+              enabled: true,
+              label: Text("Add Comment",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w400)),
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(10).r,
+                      topLeft: Radius.circular(10).r,
+                  bottomLeft:Radius.circular(5).r,
+                  bottomRight: Radius.circular(5).r),
+                  borderSide: BorderSide(color:Color(0xFFAAC8E4),)),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(10).r,
+                      topLeft: Radius.circular(10).r,
+    bottomLeft:Radius.circular(5).r,
+    bottomRight: Radius.circular(5).r
+                  ),
+                  borderSide: BorderSide(color:Color(0xFFAAC8E4),)),
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -137,7 +196,7 @@ class _TestoooState extends State<Testooo> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    reply.content??'-',
+                    reply.content ?? '-',
                     style: GoogleFonts.ubuntu(
                       fontWeight: FontWeight.w700,
                       fontSize: 20.sp,
@@ -156,4 +215,3 @@ class _TestoooState extends State<Testooo> {
     );
   }
 }
-

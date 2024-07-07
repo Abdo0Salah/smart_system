@@ -306,7 +306,6 @@ class UserRepository {
     }
   }
 
-
   Future<Either<String, List<GetAllRepliesModel>>>
   GetAllReplies() async {
     try {

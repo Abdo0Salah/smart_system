@@ -57,6 +57,7 @@ import 'Student/screens/home/materials-tap/attachment/lecture_atta.dart';
 import 'Student/screens/home/materials-tap/attachment/section_atta-details.dart';
 import 'Student/screens/home/materials-tap/meeting/meeting_information.dart';
 import 'Student/screens/home/materials-tap/post/post_screen.dart';
+import 'Student/screens/home/materials-tap/post/replyes_screen.dart';
 import 'Student/screens/home/notification/notification_screen.dart';
 import 'Student/screens/home/profile-tap/done.dart';
 import 'Student/screens/home/profile-tap/profile_screen.dart';
@@ -128,6 +129,7 @@ class MyApp extends StatelessWidget {
          // splash0.routeName,
            isLoggedIn ? HomeScreen.routeName : splash0.routeName,
           routes: {
+            ReplyesScreen.routeName: (context) => ReplyesScreen(),
             Testooo.routeName: (context) => Testooo(),
             Done.routeName: (context) => Done(),
             LectureAttavhmentDetails.routeName: (context) => LectureAttavhmentDetails(),

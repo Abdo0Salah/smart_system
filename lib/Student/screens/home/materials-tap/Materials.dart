@@ -66,13 +66,9 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                 ),
               );
             }
-            else if (state is UserSuccessState) {
-               final courses = context.read<UserCubit>().courseR;
-              return _buildSubjectList(courses);
-            }
-            else {
-              return Center(child: Text('Unknown state'));
-            }
+
+            final courses = context.read<UserCubit>().courseR;
+            return _buildSubjectList(courses);
 
           },
 

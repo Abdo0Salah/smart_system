@@ -10,11 +10,11 @@ class LecturTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     QuizModel c = QuizModel(
-        quizName: "Quiz name", numOfQuestions: "10 Questions", time: " 30");
+        quizName: "Quiz 1 selected topic", numOfQuestions: "3 Questions", time: " 1");
     return Expanded(
       child: ListView.builder(
         itemBuilder: (context, index) => QuizItem(quizModel_: c),
-        itemCount: 2,
+        itemCount: 1,
       ),
     );
   }

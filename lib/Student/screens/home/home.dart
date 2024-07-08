@@ -23,13 +23,13 @@ class HomeScreen extends StatefulWidget {
   List<HomeModel> homeModel = [
     HomeModel("Subject Registration", "assets/images/note.png", 0),
     HomeModel("Materials", "assets/images/material.png", 1),
-    HomeModel("TimeTable", "assets/images/timeTable.png", 2),
-    HomeModel("Notification", "assets/images/Notification.png", 3),
-    HomeModel("Student Attendance", "assets/images/Attendence.png", 4),
-    HomeModel("Profile", "assets/images/Profile.png", 5),
-    HomeModel("Student Results", "assets/images/Results.png", 6),
-    HomeModel("Quizzes", "assets/images/Quizzes.png", 7),
-    HomeModel("Log Out", "assets/images/admin-logOut.png", 8),
+   // HomeModel("TimeTable", "assets/images/timeTable.png", 2),
+    HomeModel("Notification", "assets/images/Notification.png", 2),
+    HomeModel("Student Attendance", "assets/images/Attendence.png", 3),
+    HomeModel("Profile", "assets/images/Profile.png", 4),
+    HomeModel("Student Results", "assets/images/Results.png", 5),
+    HomeModel("Quizzes", "assets/images/Quizzes.png", 6),
+    HomeModel("Log Out", "assets/images/admin-logOut.png", 7),
   ];
   final String genderValue ="${ CacheHelper().getData(key: ApiKey.userGenderSaved)??CacheHelper().getData(key: ApiKey.gender)}" ;
 
@@ -189,16 +189,16 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         }
         break;
-      case 2:
-        {
-          Navigator.pushNamed(
-            context,
-            Testooo.routeName,
-          );
-        }
-        break;
+      // case 2:
+      //   {
+      //     Navigator.pushNamed(
+      //       context,
+      //       Testooo.routeName,
+      //     );
+      //   }
+      //   break;
 
-      case 3:
+      case 2:
         {
           Navigator.pushNamed(
             context,
@@ -206,7 +206,7 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         }
         break;
-      case 4:
+      case 3:
         {
           Navigator.pushNamed(
             context,
@@ -214,7 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         }
         break;
-      case 5:
+      case 4:
         {
          // context.read<UserCubit>().getUserProfile();
           Navigator.pushNamed(
@@ -223,7 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         }
         break;
-      case 6:
+      case 5:
         {
           Navigator.pushNamed(
             context,
@@ -231,7 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         }
         break;
-      case 7:
+      case 6:
         {
           Navigator.pushNamed(
             context,
@@ -239,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         }
         break;
-      case 8:
+      case 7:
         {
 
         context.read<UserCubit>().logout();

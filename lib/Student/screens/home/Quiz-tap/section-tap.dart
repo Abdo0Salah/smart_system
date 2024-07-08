@@ -15,7 +15,7 @@ class SectionTap extends StatelessWidget {
     return Expanded(
         child: ListView.builder(
           itemBuilder: (context, index) => QuizItem(quizModel_: c),
-          itemCount: 3,
+          itemCount: 0,
         ));
   }
 }

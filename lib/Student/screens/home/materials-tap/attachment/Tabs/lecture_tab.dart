@@ -69,7 +69,7 @@ class _LectureAttachmentTapState extends State<LectureAttachmentTap> {
         CacheHelper().saveData(key: ApiKey.lectureIdSaved, value: attachment.id);
         Navigator.pushNamed(
           context,
-          LectureAttavhmentDetails.routeName,
+          LectureAttachmentDetails.routeName,
         );
       },
       child: Padding(

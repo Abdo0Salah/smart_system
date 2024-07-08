@@ -132,7 +132,7 @@ class MyApp extends StatelessWidget {
             ReplyesScreen.routeName: (context) => ReplyesScreen(),
             Testooo.routeName: (context) => Testooo(),
             Done.routeName: (context) => Done(),
-            LectureAttavhmentDetails.routeName: (context) => LectureAttavhmentDetails(),
+            LectureAttachmentDetails.routeName: (context) => LectureAttachmentDetails(),
             //student
             splash0.routeName: (context) => splash0(),
             splash1.routeName: (context) => splash1(),

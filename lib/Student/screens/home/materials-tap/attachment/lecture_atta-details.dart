@@ -10,15 +10,16 @@ import '../../../../../apiModels/GetFilesDataOfLecturesAttachmentModel.dart';
 import '../../../../../cubit/user_cubit.dart';
 import '../../../../../cubit/user_state.dart';
 import 'package:open_file/open_file.dart';
-class LectureAttavhmentDetails extends StatefulWidget {
+
+class LectureAttachmentDetails extends StatefulWidget {
   static const String routeName = 'LectureAttachmentDetails';
 
   @override
-  _LectureAttavhmentDetailsState createState() =>
-      _LectureAttavhmentDetailsState();
+  _LectureAttachmentDetailsState createState() =>
+      _LectureAttachmentDetailsState();
 }
 
-class _LectureAttavhmentDetailsState extends State<LectureAttavhmentDetails> {
+class _LectureAttachmentDetailsState extends State<LectureAttachmentDetails> {
   final Dio dio = Dio();
 
   @override
@@ -104,22 +105,24 @@ class _LectureAttavhmentDetailsState extends State<LectureAttavhmentDetails> {
                 // overflow: TextOverflow.ellipsis,
               ),
               SizedBox(height: 8.h),
-              Text(
-                FileData.description ?? '-',
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 11.sp,
-                  color: Colors.blueGrey,
+              Expanded(
+                child: Text(
+                  FileData.description ?? '-',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 11.sp,
+                    color: Colors.blueGrey,
+                  ),
+                  textAlign: TextAlign.center,
+                  // overflow: TextOverflow.ellipsis,
                 ),
-                textAlign: TextAlign.center,
-                // overflow: TextOverflow.ellipsis,
               ),
               SizedBox(height: 8.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   InkWell(
-                    onTap: () => _downloadFile(FileData.fileName, FileData.id??0),
+                    onTap: () => _downloadFile(FileData.fileName, FileData.id ?? 0),
                     child: Icon(
                       Icons.download,
                       color: Colors.black,

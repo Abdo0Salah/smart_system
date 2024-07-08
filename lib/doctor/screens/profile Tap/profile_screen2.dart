@@ -80,7 +80,7 @@ class DoctorProfile2 extends StatelessWidget {
                           ),
                           borderRadius: BorderRadius.circular(8),
                         ),
-                        hintText: 'Admin Name',
+                        hintText: 'Doctor Name',
                       ),
 
                     ),
@@ -121,40 +121,8 @@ class DoctorProfile2 extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 18, bottom: 8),
-                child: Text('Department',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
-                  child: Container(
-                    width: 365,
-                    height: 40,
-                    child: TextFormField(
-                      // controller: ,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xffA9A9A9),
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        hintText: 'IT',
-                      ),
 
-                    ),
-                  ),
-                ),
-              ),
+
               Padding(
                 padding: const EdgeInsets.only(left: 18, bottom: 8),
                 child: Text('Gender',

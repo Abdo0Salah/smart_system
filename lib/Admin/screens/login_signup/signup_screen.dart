@@ -99,7 +99,7 @@ class _LoginScreenState extends State<SignUpScreenAdmin> {
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          hintText: 'Student name',
+                          hintText: ' name',
                           prefixIcon: const Icon(Icons.person_rounded, color: Color(0xff1B406D)),
                         ),
                       ),

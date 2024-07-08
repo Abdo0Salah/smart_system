@@ -5,6 +5,7 @@ import 'package:smart_system/admin/screens/admin_home/profile%20Tap/profile_scre
 
 import '../../model/admin_home_model.dart';
 import '../../widget/adminHome-widget.dart';
+import '../login_signup/login_screen.dart';
 import 'Students Tap/Students_List.dart';
 import 'courses tap/courses.dart';
 
@@ -124,14 +125,14 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
       }
       break;
 
-    // case 4:
-    //   {
-    //     Navigator.pushNamed(
-    //       context,
-    //       AttendanceScreen.routeName,
-    //     );
-    //   }
-    //   break;
+    case 4:
+      {
+        Navigator.pushNamed(
+          context,
+          LoginScreenAdmin.routeName,
+        );
+      }
+      break;
     }
   }
 }

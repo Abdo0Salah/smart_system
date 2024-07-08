@@ -99,7 +99,7 @@ class _LoginScreenState extends State<SignUpScreenDoctor> {
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          hintText: 'Student name',
+                          hintText: 'name',
                           prefixIcon: const Icon(Icons.person_rounded, color: Color(0xff1B406D)),
                         ),
                       ),
@@ -173,7 +173,7 @@ class _LoginScreenState extends State<SignUpScreenDoctor> {
                   ),
                 ),
                 onPressed: (){
-                  Navigator.of(context).pushNamed(DoctorHomeScreen.routeName);
+                  Navigator.of(context).pop(LoginScreenDoctor.routeName);
                 },
                 child:
                 const Text(

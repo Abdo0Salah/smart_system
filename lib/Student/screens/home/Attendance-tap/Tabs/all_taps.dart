@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:animated_progress_bar/animated_progress_bar.dart';
 
+import '../../../../../cache/cache_helper.dart';
+import '../../../../../core/api/end_ponits.dart';
 import '../qr/Qr_read_screen.dart';
 
 class AllTaps extends StatelessWidget {
@@ -140,7 +142,7 @@ class AllTaps extends StatelessWidget {
                             Expanded(
                               flex: 2,
                               child: Text(
-                                "201255554554",
+                                "${CacheHelper().getData(key: ApiKey.userNameSaved)}",
                               ),
                             ),
                             Expanded(

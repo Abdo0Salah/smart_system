@@ -7,6 +7,7 @@ import '../apiModels/GetFilesDataOfLecturesAttachmentModel.dart';
 import '../apiModels/GetSectionsAttachmentModel.dart';
 import '../apiModels/GetfilesdataofSectionsattachmentModel.dart';
 import '../apiModels/OpenAssignmentModel.dart';
+import '../apiModels/getAllStudentAttendanceModel.dart';
 import '../apiModels/getByLevelAndTerm.dart';
 import '../apiModels/get_all_assignments_model.dart';
 import '../apiModels/get_all_meetings_model.dart';
@@ -74,6 +75,7 @@ class UserCubit extends Cubit<UserState> {
   final List<GetAllSectionAssignmentsModel> sectionAssignmentR=[];
   final List<OpenAssignmentModel> openAssignmentR=[];
   final List<GetAllMeetingsModel> meetingR=[];
+  final List<getAllStudentAttendanceModel> AttendanceR=[];
 
   uploadProfilePic(XFile image) {
     profilePic = image;
@@ -409,8 +411,22 @@ class UserCubit extends Cubit<UserState> {
 
 
 
-///--------------------------------Doctor--------------------------------------
-
+///--------------------------------Attendance--------------------------------------
+  getAllStudentAttendance() async {
+    emit(UserLoadingState());
+    final response = await userRepository.getAllStudentAttendance();
+    print(response.toString());
+    response.fold(
+          (errMessage) => emit(UserFailureState(errMessage: errMessage)),
+          (AttendanceR) {
+        // ** new **
+        this.AttendanceR
+          ..clear()
+          ..addAll(AttendanceR);
+        emit(UserSuccessState());
+      },
+    );
+  }
 
 
 }

@@ -64,6 +64,7 @@ import 'Student/screens/home/profile-tap/profile_screen.dart';
 import 'Student/screens/home/profile-tap/profile_screen2.dart';
 import 'Student/screens/home/student-result/student_result.dart';
 import 'Student/screens/home/subject-reg-tap/subject_registration.dart';
+import 'Student/screens/home/testooo.dart';
 import 'Student/screens/login_signup/Verification_screen.dart';
 import 'Student/screens/login_signup/forget_pass.dart';
 import 'Student/screens/login_signup/login_screen.dart';
@@ -129,6 +130,7 @@ class MyApp extends StatelessWidget {
          // splash0.routeName,
            isLoggedIn ? HomeScreen.routeName : splash0.routeName,
           routes: {
+            Tez.routeName: (context) => Tez(),
             ReplyesScreen.routeName: (context) => ReplyesScreen(),
             Testooo.routeName: (context) => Testooo(),
             Done.routeName: (context) => Done(),

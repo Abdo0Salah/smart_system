@@ -73,6 +73,10 @@ class EndPoint {
   }
 
 
+  ///------------------------Attendance-----------------------------///
+    static String getAllStudentAttendance ({required groupId,required studentId}) {
+       return "/api/Attendances/getAllStudentAttendance/$groupId/$studentId/";
+     }
 
 
 

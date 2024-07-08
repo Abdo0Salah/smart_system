@@ -214,12 +214,7 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                                 filled: true,
                                 fillColor: Colors.white,
                               ),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Select Level";
-                                }
-                                return null;
-                              },
+
                               dropdownColor: Colors.white,
                               value: selectedValue2,
                               onChanged: (String? newValue) {
@@ -265,12 +260,7 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
                                 filled: true,
                                 fillColor: Colors.white,
                               ),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Select Term";
-                                }
-                                return null;
-                              },
+
                               dropdownColor: Colors.white,
                               value: selectedValue,
                               onChanged: (String? newValue) {

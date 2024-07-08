@@ -10,15 +10,15 @@ import '../../../apiModels/get_all_replies_model.dart';
 import '../../../cache/cache_helper.dart';
 import '../../../core/api/end_ponits.dart';
 
-class Testooo extends StatefulWidget {
-  static const String routeName = 'Testooo';
+class Tez extends StatefulWidget {
+  static const String routeName = 'Tez';
   final String genderValue = CacheHelper().getData(key: ApiKey.userGenderSaved);
 
   @override
-  _TestoooState createState() => _TestoooState();
+  _TezState createState() => _TezState();
 }
 
-class _TestoooState extends State<Testooo> {
+class _TezState extends State<Tez> {
   @override
   void initState() {
     super.initState();
@@ -137,8 +137,8 @@ class _TestoooState extends State<Testooo> {
                             ? "assets/images/avatar1.png"
                             : "assets/images/avatar3.png",
                         fit: BoxFit.fitWidth,
-                      //  width: 180,
-                       // height: 180,
+                        //  width: 180,
+                        // height: 180,
                       ),
                     ),
                   ),
@@ -158,15 +158,15 @@ class _TestoooState extends State<Testooo> {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(10).r,
                       topLeft: Radius.circular(10).r,
-                  bottomLeft:Radius.circular(5).r,
-                  bottomRight: Radius.circular(5).r),
+                      bottomLeft:Radius.circular(5).r,
+                      bottomRight: Radius.circular(5).r),
                   borderSide: BorderSide(color:Color(0xFFAAC8E4),)),
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(10).r,
                       topLeft: Radius.circular(10).r,
-    bottomLeft:Radius.circular(5).r,
-    bottomRight: Radius.circular(5).r
+                      bottomLeft:Radius.circular(5).r,
+                      bottomRight: Radius.circular(5).r
                   ),
                   borderSide: BorderSide(color:Color(0xFFAAC8E4),)),
             ),

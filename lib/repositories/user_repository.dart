@@ -6,6 +6,7 @@ import '../apiModels/GetSectionsAttachmentModel.dart';
 import '../apiModels/GetfilesdataofSectionsattachmentModel.dart';
 import '../apiModels/OpenAssignmentModel.dart';
 import '../apiModels/Register_Courses_Model.dart';
+import '../apiModels/getAllStudentAttendanceModel.dart';
 import '../apiModels/getByLevelAndTerm.dart';
 import '../apiModels/get_all_assignments_model.dart';
 import '../apiModels/get_all_meetings_model.dart';
@@ -501,6 +502,29 @@ class UserRepository {
       return Left(e.errModel.errorMessage);
     }
   }
+
+
+  Future<Either<String, List<getAllStudentAttendanceModel>>>
+  getAllStudentAttendance() async {
+    try {
+      final response = await api.get(
+        EndPoint.getAllStudentAttendance(
+          groupId: CacheHelper().getData(key: ApiKey.groupIdSaved),
+        studentId: CacheHelper().getData(key: ApiKey.id),),
+      );
+      List<dynamic> parsedList = response as List<dynamic>;
+      List<getAllStudentAttendanceModel> AttendanceList = parsedList
+          .map((json) => getAllStudentAttendanceModel.fromJson(json))
+          .toList();
+      return Right(AttendanceList);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
+  }
+
+
+
+
 
 
 

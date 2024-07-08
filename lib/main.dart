@@ -160,7 +160,7 @@ class MyApp extends StatelessWidget {
             FeedbackForm.routeName: (context) => FeedbackForm(),
             MeetingScreen.routeName: (context) => MeetingScreen(),
             PostScreen.routeName: (context) => PostScreen(),
-            LectureAttavhment.routeName: (context) => LectureAttavhment(),
+            //LectureAttavhment.routeName: (context) => LectureAttavhment(),
             Profile.routeName: (context) => Profile(),
             Profile2.routeName: (context) => Profile2(),
             AttendanceScreen.routeName: (context) => AttendanceScreen(),

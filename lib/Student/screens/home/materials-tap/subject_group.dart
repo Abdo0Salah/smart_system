@@ -28,7 +28,7 @@ class _SubjectGroupsState extends State<SubjectGroups> {
   Widget build(BuildContext context) {
     return BlocConsumer<UserCubit, UserState>(
       listener: (context, state) {
-        if (state is UpdateUserFailure) {
+        if (state is UserFailureState) {
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text(state.errMessage)));
         }
@@ -47,24 +47,18 @@ class _SubjectGroupsState extends State<SubjectGroups> {
             iconTheme: IconThemeData(color: Colors.black, size: 15.sp),
           ),
           backgroundColor: const Color(0xffF5F9FE),
-          body: state is getGroupsLoading
-              ? const CircularProgressIndicator()
-              : state is getGroupsSuccess
-              ? _buildSubjectList(state.groupR)
-              : Text('Unknown state'),
-          // body: BlocBuilder<UserCubit, UserState>(
-          //   builder: (context, state) {
-          //     if (state is getGroupsLoading) {
-          //       return Center(child: CircularProgressIndicator());
-          //     } else if (state is getGroupsSuccess) {
-          //       return _buildSubjectList(state.groupR);
-          //     } else if (state is getGroupsFailure) {
-          //       return Center(child: Text('Failed to load subjects: ${state.errMessage}'));
-          //     } else {
-          //       return Center(child: Text('Unknown state'));
-          //     }
-          //   },
-          // ),
+          body: BlocBuilder<UserCubit, UserState>(
+            builder: (context, state) {
+              if (state is UserLoadingState) {
+                return Center(child: CircularProgressIndicator());
+              } else if (state is UserFailureState) {
+                return Center(child: Text('Failed to load subjects: ${state.errMessage}'));
+              }
+              final groups = context.read<UserCubit>().groupR;
+              return _buildSubjectList(groups);
+            },
+          ),
+
         );
       },
     );
@@ -118,7 +112,7 @@ class _SubjectGroupsState extends State<SubjectGroups> {
       onTap: () {
         CacheHelper().saveData(key: ApiKey.groupIdSaved, value: group.id);
         Navigator.of(context)
-            .pushReplacementNamed(MatPagee.routeName,);
+            .pushNamed(MatPagee.routeName,);
       },
       child: Column(
         children: [

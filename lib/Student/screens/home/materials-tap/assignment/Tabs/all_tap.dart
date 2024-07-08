@@ -31,16 +31,14 @@ class _AllTapState extends State<AllTap> {
         backgroundColor: const Color(0xffF5F9FE),
         body: BlocBuilder<UserCubit, UserState>(
           builder: (context, state) {
-            if (state is GetAllAssignmentsLoading) {
+            if (state is UserLoadingState) {
               return Center(child: CircularProgressIndicator());
-            } else if (state is GetAllAssignmentsSuccess) {
-              return _buildSubjectList(state.assignmentR);
-            } else if (state is GetAllAssignmentsFailure) {
+            }else if (state is UserFailureState) {
               return Center(
                   child: Text('Failed to load subjects: ${state.errMessage}'));
-            } else {
-              return Center(child: Text('Unknown state'));
             }
+            final allAssignment = context.read<UserCubit>().allAssignmentR;
+            return _buildSubjectList(allAssignment);
           },
         ),
       ),

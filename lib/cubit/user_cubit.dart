@@ -3,6 +3,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:smart_system/core/api/end_ponits.dart';
 import 'package:smart_system/cubit/user_state.dart';
+import '../apiModels/GetFilesDataOfLecturesAttachmentModel.dart';
+import '../apiModels/GetSectionsAttachmentModel.dart';
+import '../apiModels/GetfilesdataofSectionsattachmentModel.dart';
+import '../apiModels/OpenAssignmentModel.dart';
+import '../apiModels/getByLevelAndTerm.dart';
+import '../apiModels/get_all_assignments_model.dart';
+import '../apiModels/get_all_meetings_model.dart';
+import '../apiModels/get_all_posts_model.dart';
+import '../apiModels/get_groups_model.dart';
+import '../apiModels/get_lecture_assignment_model.dart';
+import '../apiModels/get_lectures_attachment.dart';
+import '../apiModels/get_section_assignment_model.dart';
 import '../apiModels/sign_in_model.dart';
 import '../apiModels/subjectRegisteration_model.dart';
 import '../cache/cache_helper.dart';
@@ -50,6 +62,18 @@ class UserCubit extends Cubit<UserState> {
   final TextEditingController termController0 = TextEditingController();
   final TextEditingController parentPhoneController0 = TextEditingController();
   final TextEditingController parentEmailController0 = TextEditingController();
+  final List<GetCoursesbyLevelAndTermModel> courseR = [];
+  final List<GetGroupsModel> groupR = [];
+  final List<GetAllPostsModel>postR =[];
+  final List<GetfilesdataoflecturesattachmentModel>FilesDataR =[];
+  final List<GetLecturesAttachmentModel> attachmenR=[];
+  final List<GetSectionsAttachmentModel> attachmenSectionR=[];
+  final List<Getfilesdataofsectionsattachmentmodel> FilesDataSectionR=[];
+  final List<GetAllAssignmentsModel> allAssignmentR=[];
+  final List<GetAllLectureAssignmentsModel> lectureAssignmentR=[];
+  final List<GetAllSectionAssignmentsModel> sectionAssignmentR=[];
+  final List<OpenAssignmentModel> openAssignmentR=[];
+  final List<GetAllMeetingsModel> meetingR=[];
 
   uploadProfilePic(XFile image) {
     profilePic = image;
@@ -165,43 +189,66 @@ class UserCubit extends Cubit<UserState> {
   }
 
   GetCoursesbyLevelAndTerm() async {
-    emit(GetCoursesbyLevelAndTermLoading());
+    emit(UserLoadingState());
     final response = await userRepository.GetCoursesbyLevelAndTerm();
     print(response.toString());
     response.fold(
-          (errMessage) => emit(GetCoursesbyLevelAndTermFailure(errMessage: errMessage)),
-          (courseR) => emit(GetCoursesbyLevelAndTermSuccess(courseR: courseR)),
-    );
+          (errMessage) => emit(UserFailureState(errMessage: errMessage)),
+          (courseR) {
+        // ** new **
+        this.courseR
+          ..clear()
+          ..addAll(courseR);
+        emit(UserSuccessState());
+      },    );
   }
 
   getGroups() async {
-    emit(getGroupsLoading());
+    emit(UserLoadingState());
     final response = await userRepository.getGroups();
     print(response.toString());
     response.fold(
-          (errMessage) => emit(getGroupsFailure(errMessage: errMessage)),
-          (groupR) => emit(getGroupsSuccess(groupR: groupR)),
+          (errMessage) => emit(UserFailureState(errMessage: errMessage)),
+          (groupR) {
+        // ** new **
+        this.groupR
+          ..clear()
+          ..addAll(groupR);
+        emit(UserSuccessState());
+      },
     );
   }
 
   GetAllMeetings() async {
-    emit(GetAllMeetingsLoading());
+    emit(UserLoadingState());
     final response = await userRepository.GetAllMeetings();
     print(response.toString());
     response.fold(
-          (errMessage) => emit(GetAllMeetingsFailure(errMessage: errMessage)),
-          (meetingR) => emit(GetAllMeetingsSuccess(meetingR: meetingR)),
+          (errMessage) => emit(UserFailureState(errMessage: errMessage)),
+            (meetingR) {
+          // ** new **
+          this.meetingR
+            ..clear()
+            ..addAll(meetingR);
+          emit(UserSuccessState());
+            },
     );
   }
 
-///----------------------------posts---------------------------------///
+  ///----------------------------posts---------------------------------///
   GetAllPosts() async {
-    emit(GetAllPostsLoading());
+    emit(UserLoadingState());
     final response = await userRepository.GetAllPosts();
     print(response.toString());
     response.fold(
-          (errMessage) => emit(GetAllPostsFailure(errMessage: errMessage)),
-          (postR) => emit(GetAllPostsSuccess(postR: postR)),
+          (errMessage) => emit(UserLogoutFailure(errMessage: errMessage)),
+          (postR) {
+        // ** new **
+        this.postR
+          ..clear()
+          ..addAll(postR);
+        emit(UserSuccessState());
+      },
     );
   }
 
@@ -231,84 +278,132 @@ class UserCubit extends Cubit<UserState> {
 
 ///---------------------------Attachment-------------------///
   GetLecturesAttachment() async {
-    emit(GetLecturesAttachmentLoading());
+    emit(UserLoadingState());
     final response = await userRepository.GetLecturesAttachment();
     print(response.toString());
     response.fold(
-          (errMessage) => emit(GetLecturesAttachmentFailure(errMessage: errMessage)),
-          (attachmenR) => emit(GetLecturesAttachmentSuccess(attachmenR: attachmenR)),
+          (errMessage) => emit(UserFailureState(errMessage: errMessage)),
+          (attachmenR) {
+        // ** new **
+        this.attachmenR
+          ..clear()
+          ..addAll(attachmenR);
+        emit(UserSuccessState());
+      },
     );
   }
 
   GetSectionsAttachment() async {
-    emit(GetSectionsAttachmentLoading());
+    emit(UserLoadingState());
     final response = await userRepository.GetSectionsAttachment();
     print(response.toString());
     response.fold(
-          (errMessage) => emit(GetSectionsAttachmentFailure(errMessage: errMessage)),
-          (attachmenR) => emit(GetSectionsAttachmentSuccess(attachmenR: attachmenR)),
+          (errMessage) => emit(UserFailureState(errMessage: errMessage)),
+          (attachmenSectionR) {
+        // ** new **
+        this.attachmenSectionR
+          ..clear()
+          ..addAll(attachmenSectionR);
+        emit(UserSuccessState());
+      },
     );
   }
 
   GetFilesDataOfLecturesAttachment() async {
-    emit(GetFilesDataOfLecturesAttachmentLoading());
+    emit(UserLoadingState());
     final response = await userRepository.GetFilesDataOfLecturesAttachment();
     print(response.toString());
     response.fold(
-          (errMessage) => emit(GetFilesDataOfLecturesAttachmentFailure(errMessage: errMessage)),
-          (FilesDataR) => emit(GetFilesDataOfLecturesAttachmentSuccess(FilesDataR: FilesDataR)),
+          (errMessage) => emit(UserFailureState(errMessage: errMessage)),
+          (FilesDataR) {
+        // ** new **
+        this.FilesDataR
+          ..clear()
+          ..addAll(FilesDataR);
+        emit(UserSuccessState());
+      },
     );
   }
 
   GetFilesDataOfSectionsAttachment() async {
-    emit(GetFilesDataOfSectionsAttachmentLoading());
+    emit(UserLoadingState());
     final response = await userRepository.GetFilesDataOfSectionsAttachment();
     print(response.toString());
     response.fold(
-          (errMessage) => emit(GetFilesDataOfSectionsAttachmentFailure(errMessage: errMessage)),
-          (FilesDataR) => emit(GetFilesDataOfSectionsAttachmentSuccess(FilesDataR: FilesDataR)),
+          (errMessage) => emit(UserFailureState(errMessage: errMessage)),
+          (FilesDataSectionR) {
+        // ** new **
+        this.FilesDataSectionR
+          ..clear()
+          ..addAll(FilesDataSectionR);
+        emit(UserSuccessState());
+      },
     );
   }
 
 
 ///--------------------------Assignment----------------------///
   GetAllAssignments() async {
-    emit(GetAllAssignmentsLoading());
+    emit(UserLoadingState());
     final response = await userRepository.GetAllAssignments();
     print(response.toString());
     response.fold(
-          (errMessage) => emit(GetAllAssignmentsFailure(errMessage: errMessage)),
-          (assignmentR) => emit(GetAllAssignmentsSuccess(assignmentR: assignmentR)),
+          (errMessage) => emit(UserFailureState(errMessage: errMessage)),
+          (allAssignmentR) {
+        // ** new **
+        this.allAssignmentR
+        ..clear()
+      ..addAll(allAssignmentR);
+    emit(UserSuccessState());
+  },
     );
   }
 
   GetAllLectureAssignments() async {
-    emit(GetAllLectureAssignmentsLoading());
+    emit(UserLoadingState());
     final response = await userRepository.GetAllLectureAssignments();
     print(response.toString());
     response.fold(
-          (errMessage) => emit(GetAllLectureAssignmentsFailure(errMessage: errMessage)),
-          (lectureAssignmentR) => emit(GetAllLectureAssignmentsSuccess(lectureAssignmentR: lectureAssignmentR)),
+          (errMessage) => emit(UserFailureState(errMessage: errMessage)),
+          (lectureAssignmentR) {
+        // ** new **
+        this.lectureAssignmentR
+          ..clear()
+          ..addAll(lectureAssignmentR);
+        emit(UserSuccessState());
+      },
     );
   }
 
   GetAllSectionAssignments() async {
-    emit(GetAllSectionAssignmentsLoading());
+    emit(UserLoadingState());
     final response = await userRepository.GetAllSectionAssignments();
     print(response.toString());
     response.fold(
-          (errMessage) => emit(GetAllSectionAssignmentsFailure(errMessage: errMessage)),
-          (sectionAssignmentR) => emit(GetAllSectionAssignmentsSuccess(sectionAssignmentR: sectionAssignmentR)),
+          (errMessage) => emit(UserFailureState(errMessage: errMessage)),
+          (sectionAssignmentR) {
+        // ** new **
+        this.sectionAssignmentR
+          ..clear()
+          ..addAll(sectionAssignmentR);
+        emit(UserSuccessState());
+      },
     );
   }
 
   OpenAssignment() async {
-    emit(OpenAssignmentLoading());
+    emit(UserLoadingState());
     final response = await userRepository.OpenAssignment();
     print(response.toString());
     response.fold(
-          (errMessage) => emit(OpenAssignmentFailure(errMessage: errMessage)),
-          (assignmentR) => emit(OpenAssignmentSuccess(assignmentR: assignmentR)),
+          (errMessage) => emit(UserFailureState(errMessage: errMessage)),
+          (openAssignmentR) {
+        // ** new **
+        this.openAssignmentR
+          ..clear()
+          ..addAll(openAssignmentR);
+        emit(UserSuccessState());
+      },
     );
   }
 

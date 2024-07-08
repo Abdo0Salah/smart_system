@@ -36,16 +36,13 @@ class _PostScreenState extends State<PostScreen> {
         backgroundColor: const Color(0xffF5F9FE),
         body: BlocBuilder<UserCubit, UserState>(
           builder: (context, state) {
-            if (state is GetAllPostsLoading) {
+            if (state is UserLoadingState) {
               return Center(child: CircularProgressIndicator());
-            } else if (state is GetAllPostsSuccess) {
-              return _buildSubjectList(state.postR);
-            } else if (state is GetAllPostsFailure) {
+            } else if (state is UserFailureState) {
               return Center(
                   child: Text('Failed to load subjects: ${state.errMessage}'));
-            } else {
-              return Center(child: Text('Unknown state'));
-            }
+            }  final posts = context.read<UserCubit>().postR;
+            return _buildSubjectList(posts);
           },
         ),
       ),

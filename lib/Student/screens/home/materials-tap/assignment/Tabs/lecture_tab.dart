@@ -32,16 +32,14 @@ class _LectureTapState extends State<LectureTap> {
         backgroundColor: const Color(0xffF5F9FE),
         body: BlocBuilder<UserCubit, UserState>(
           builder: (context, state) {
-            if (state is GetAllLectureAssignmentsLoading) {
+            if (state is UserLoadingState) {
               return Center(child: CircularProgressIndicator());
-            } else if (state is GetAllLectureAssignmentsSuccess) {
-              return _buildSubjectList(state.lectureAssignmentR);
-            } else if (state is GetAllLectureAssignmentsFailure) {
+            } else if (state is UserFailureState) {
               return Center(
                   child: Text('Failed to load subjects: ${state.errMessage}'));
-            } else {
-              return Center(child: Text('Unknown state'));
             }
+            final lectureAssignment = context.read<UserCubit>().lectureAssignmentR;
+            return _buildSubjectList(lectureAssignment);
           },
         ),
       ),

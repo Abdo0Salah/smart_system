@@ -13,7 +13,7 @@ import '../TESTO.dart';
 
 class MaterialsScreen extends StatefulWidget {
   static const String routeName = 'MaterialsScreen';
-  final String genderValue = CacheHelper().getData(key: ApiKey.userGenderSaved);
+  final String genderValue = CacheHelper().getData(key: ApiKey.userGenderSaved)??"male";
 
   @override
   _MaterialsScreenState createState() => _MaterialsScreenState();
@@ -55,17 +55,27 @@ class _MaterialsScreenState extends State<MaterialsScreen> {
         backgroundColor: const Color(0xffF5F9FE),
         body: BlocBuilder<UserCubit, UserState>(
           builder: (context, state) {
-            if (state is GetCoursesbyLevelAndTermLoading) {
-              return Center(child: CircularProgressIndicator());
-            } else if (state is GetCoursesbyLevelAndTermSuccess) {
-              return _buildSubjectList(state.courseR);
-            } else if (state is GetCoursesbyLevelAndTermFailure) {
+            if (state is UserLoadingState) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (state is UserFailureState) {
               return Center(
-                  child: Text('Failed to load subjects: ${state.errMessage}'));
-            } else {
+                child: Text(
+                  'Failed to load subjects: ${state.errMessage}',
+                ),
+              );
+            }
+            else if (state is UserSuccessState) {
+               final courses = context.read<UserCubit>().courseR;
+              return _buildSubjectList(courses);
+            }
+            else {
               return Center(child: Text('Unknown state'));
             }
+
           },
+
         ),
       ),
     );

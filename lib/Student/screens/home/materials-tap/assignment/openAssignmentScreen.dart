@@ -45,11 +45,13 @@ class _OpenAssignmentScreenState extends State<OpenAssignmentScreen> {
         backgroundColor: const Color(0xffF5F9FE),
         body: BlocBuilder<UserCubit, UserState>(
           builder: (context, state) {
-            if (state is OpenAssignmentLoading) {
+            if (state is UserLoadingState) {
               return Center(child: CircularProgressIndicator());
-            } else if (state is OpenAssignmentSuccess) {
-              return _buildSubjectList(state.assignmentR);
-            } else if (state is OpenAssignmentFailure) {
+            } else if (state is UserSuccessState) {
+            final openAssignment = context.read<UserCubit>().openAssignmentR;
+           return _buildSubjectList(openAssignment);
+
+            } else if (state is UserFailureState) {
               return Center(
                   child: Text('Failed to load subjects: ${state.errMessage}'));
             } else {

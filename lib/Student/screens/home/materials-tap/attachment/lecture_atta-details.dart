@@ -39,16 +39,13 @@ class _LectureAttachmentDetailsState extends State<LectureAttachmentDetails> {
         backgroundColor: const Color(0xffF5F9FE),
         body: BlocBuilder<UserCubit, UserState>(
           builder: (context, state) {
-            if (state is GetFilesDataOfLecturesAttachmentLoading) {
+            if (state is UserLoadingState) {
               return Center(child: CircularProgressIndicator());
-            } else if (state is GetFilesDataOfLecturesAttachmentSuccess) {
-              return _buildSubjectList(state.FilesDataR);
-            } else if (state is GetFilesDataOfLecturesAttachmentFailure) {
+            } else if (state is  UserFailureState) {
               return Center(
                   child: Text('Failed to load subjects: ${state.errMessage}'));
-            } else {
-              return Center(child: Text('Unknown state'));
-            }
+            }  final FilesData = context.read<UserCubit>().FilesDataR;
+            return _buildSubjectList(FilesData);
           },
         ),
       ),

@@ -37,16 +37,14 @@ class _SectionAttavhmentDetailsState extends State<SectionAttavhmentDetails> {
         backgroundColor: const Color(0xffF5F9FE),
         body: BlocBuilder<UserCubit, UserState>(
           builder: (context, state) {
-            if (state is GetFilesDataOfSectionsAttachmentLoading) {
+            if (state is UserLoadingState) {
               return Center(child: CircularProgressIndicator());
-            } else if (state is GetFilesDataOfSectionsAttachmentSuccess) {
-              return _buildSubjectList(state.FilesDataR);
-            } else if (state is GetFilesDataOfSectionsAttachmentFailure) {
+            }  else if (state is UserFailureState) {
               return Center(
                   child: Text('Failed to load subjects: ${state.errMessage}'));
-            } else {
-              return Center(child: Text('Unknown state'));
             }
+            final FilesDataSection = context.read<UserCubit>().FilesDataSectionR;
+            return _buildSubjectList(FilesDataSection);
           },
         ),
       ),

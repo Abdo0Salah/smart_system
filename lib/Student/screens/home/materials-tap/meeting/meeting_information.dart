@@ -1,11 +1,8 @@
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-
 import '../../../../../../cubit/user_cubit.dart';
 import '../../../../../../cubit/user_state.dart';
 import '../../../../../apiModels/get_all_meetings_model.dart';
@@ -43,11 +40,12 @@ class _MeetingScreenState extends State<MeetingScreen> {
         backgroundColor: const Color(0xffF5F9FE),
         body: BlocBuilder<UserCubit, UserState>(
           builder: (context, state) {
-            if (state is GetAllMeetingsLoading) {
+            if (state is UserLoadingState) {
               return Center(child: CircularProgressIndicator());
-            } else if (state is GetAllMeetingsSuccess) {
-              return _buildSubjectList(state.meetingR);
-            } else if (state is GetAllMeetingsFailure) {
+            } else if (state is UserSuccessState) {
+              final meeting = context.read<UserCubit>().meetingR;
+              return _buildSubjectList(meeting);
+            } else if (state is UserFailureState) {
               return Center(
                   child: Text('Failed to load subjects: ${state.errMessage}'));
             } else {

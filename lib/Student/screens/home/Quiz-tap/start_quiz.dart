@@ -5,9 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_system/Student/screens/home/Quiz-tap/quiz_screen.dart';
 
-
-
-
 class StartQuiz extends StatefulWidget {
   static const String routeName = 'StartQuiz';
   @override
@@ -21,8 +18,8 @@ class _StartQuizState extends State<StartQuiz> {
 
   final List<String> _questions = [
     'What is the meaning of UI UX Design?',
-    'Second question here?',
-    'Third question here?',
+    'What is the primary purpose of the flutter_screenutil package in Flutter?',
+    'Which of the following is a common use of the BLoC (Business Logic Component) pattern in Flutter?',
     // Add more questions here
   ];
 
@@ -35,18 +32,16 @@ class _StartQuizState extends State<StartQuiz> {
       'Using Interface and Using Experience',
     ],
     [
-      'Option 1 for question 2',
-      'Option 2 for question 2',
-      'Option 3 for question 2',
-      'Option 4 for question 2',
-      'Option 5 for question 2',
+      'To handle state management in Flutter applications.',
+      'To provide a set of pre-designed widgets for faster UI development.',
+      'To ensure responsive design by adapting the UI layout to different screen sizes and resolutions.',
+      'To integrate custom fonts into a Flutter application.',
     ],
     [
-      'Option 1 for question 3',
-      'Option 2 for question 3',
-      'Option 3 for question 3',
-      'Option 4 for question 3',
-      'Option 5 for question 3',
+      'To create custom animations for UI elements.',
+      'To manage state and business logic separately from the UI.',
+      'To handle database operations within a Flutter application.',
+      'To enhance the performance of network requests.',
     ],
     // Add more options for other questions here
   ];
@@ -63,6 +58,7 @@ class _StartQuizState extends State<StartQuiz> {
     _timer?.cancel();
     super.dispose();
   }
+
   void _startTimer() {
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       if (_remainingTime > 0) {
@@ -75,6 +71,7 @@ class _StartQuizState extends State<StartQuiz> {
       }
     });
   }
+
   void _submitQuiz() {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
@@ -86,7 +83,6 @@ class _StartQuizState extends State<StartQuiz> {
       context,
       QuizScreen.routeName,
     );
-
   }
 
   String _formatTime(int timeInSeconds) {
@@ -94,6 +90,7 @@ class _StartQuizState extends State<StartQuiz> {
     int seconds = timeInSeconds % 60;
     return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,13 +112,14 @@ class _StartQuizState extends State<StartQuiz> {
                 SizedBox(width: 5.w),
                 Text(
                   _formatTime(_remainingTime),
-                  style: GoogleFonts.poppins(fontSize: 14.sp, color: Colors.black),
+                  style:
+                      GoogleFonts.poppins(fontSize: 14.sp, color: Colors.black),
                 ),
               ],
             ),
           ),
         ],
-        actionsIconTheme:const IconThemeData(color:Colors.black),
+        actionsIconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.w),
@@ -148,9 +146,10 @@ class _StartQuizState extends State<StartQuiz> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: List.generate(
         _questions.length,
-            (index) => CircleAvatar(
+        (index) => CircleAvatar(
           radius: 12.r,
-          backgroundColor: index == _currentQuestion ? Colors.blue : Colors.grey[300],
+          backgroundColor:
+              index == _currentQuestion ? Colors.blue : Colors.grey[300],
           child: Text(
             '${index + 1}',
             style: GoogleFonts.poppins(
@@ -227,13 +226,14 @@ class _StartQuizState extends State<StartQuiz> {
               );
             }
           },
-          child: Text(_currentQuestion < _questions.length - 1 ? 'Next' : 'Submit Quiz'),
+          child: Text(_currentQuestion < _questions.length - 1
+              ? 'Next'
+              : 'Submit Quiz'),
         ),
       ],
     );
   }
 }
-
 
 // class SubmitScreen extends StatelessWidget {
 //   @override

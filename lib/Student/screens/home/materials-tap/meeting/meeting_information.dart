@@ -91,7 +91,7 @@ class _MeetingScreenState extends State<MeetingScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Subject Name: Android',
+                    'Subject Name: select topic',
                     style: GoogleFonts.ubuntu(
                       fontWeight: FontWeight.w400,
                       fontSize: 20.sp,

@@ -184,19 +184,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     context.read<UserCubit>().confirmPassword,
                               ),
                             ),
-                            Padding(
-                              padding:  EdgeInsets.only(
-                                  top: 8.h, right: 15.w, left: 15.w, bottom: 8.h),
-                              child: CustomInputField(
-                                prefixIcon: true,
-                                iconss: Icons.rule,
-                                hintText: 'rule',
-                                isDense: true,
-                                obscureText: false,
-                                suffixIcon: false,
-                                controller: context.read<UserCubit>().signUrule,
-                              ),
-                            ),
+                            // Padding(
+                            //   padding:  EdgeInsets.only(
+                            //       top: 8.h, right: 15.w, left: 15.w, bottom: 8.h),
+                            //   child: CustomInputField(
+                            //     prefixIcon: true,
+                            //     iconss: Icons.rule,
+                            //     hintText: 'rule',
+                            //     isDense: true,
+                            //     obscureText: false,
+                            //     suffixIcon: false,
+                            //     controller: context.read<UserCubit>().signUrule,
+                            //   ),
+                            // ),
                             Padding(
                               padding:  EdgeInsets.only(
                                   top: 8.h, right: 15.w, left: 15.w, bottom: 8.h),
